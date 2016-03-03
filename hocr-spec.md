@@ -821,8 +821,9 @@ actually converted to HTML would have used. Possible subformats are:
 
 ## 16 Document Meta Information
 
-For document meta information, use the Dublin Core Embedding into HTML. See
-also Citation Guidelines for Dublin Core
+For document meta information, use the [Dublin Core Embedding into
+HTML](http://dublincore.org/documents/dcq-html/). See also [Citation Guidelines
+for Dublin Core](http://dublincore.org/documents/dc-citation-guidelines/).
 
 ## 17 Sample Usage
 
