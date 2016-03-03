@@ -828,6 +828,8 @@ for Dublin Core](http://dublincore.org/documents/dc-citation-guidelines/).
 
 ## 17 Sample Usage
 
+See also the [hocr-tools](https://github.com/tmbdev/hocr-tools) for more samples.
+
 The HTML format described here may seem fairly complicated and difficult to
 parse, but because there are lots of tools for manipulating HTML documents,
 they're actually pretty easy to manipulate. Here are some examples:
