@@ -167,13 +167,13 @@ We recognize the following logical structuring elements:
     * `ocr_title`
     * `ocr_author`
     * `ocr_abstract`
-    * `ocr_part [H1]`
-      * `ocr_chapter [H1]`
-        * `ocr_section [H2]`
-          * `ocr_sub*section [H3,H4]`
+    * `ocr_part` [`<H1>`]
+      * `ocr_chapter` [`<H1>`]
+        * `ocr_section` [`<H2>`]
+          * `ocr_sub*section` [`<H3>`,`<H4>`]
             * `ocr_display` 
-            * `ocr_blockquote [BLOCKQUOTE]`
-            * `ocr_par [P]`
+            * `ocr_blockquote` [`<BLOCKQUOTE>`]
+            * `ocr_par` [`<P>`]
 
 These logical tags have their standard meaning as used in the publishing
 industry and tools like LaTeX, MS Word, and others.
@@ -240,14 +240,14 @@ The typesetting related elements therefore are:
 
 * `ocr_page`
 * `ocr_carea` ("ocr content area" or "body area"; used to be called ~~ocr_column~~)
-* `ocr_line` [SPAN]
+* `ocr_line` [`<SPAN>`]
 * (floats)
 * `ocr_separator` (any separator or similar element)
 * `ocr_noise` (any noise element that isn't part of typesetting)
 
 The `ocr_page` element must be present in all hOCR documents.
 
-The following properties SHOULD be present:
+The following properties should be present:
 
 * `bbox`
   * the bounding box of the page; for pages, the top left corner must be at
@@ -349,18 +349,18 @@ Floats should not be nested.
 There is some content that should behave and flow like text
 
 * `ocr_glyph` – an individual glyph represented as an image (e.g., an unrecognized character)
-  * must contain a single IMG tag, or be present on one
+  * must contain a single `<IMG>` tag, or be present on one
 * `ocr_glyphs` – multiple glyphs represented as an image (e.g., an unrecognized word)
-  * must contain a single IMG tag, or be present on one
+  * must contain a single `<IMG>` tag, or be present on one
 * `ocr_dropcap` – an individual glyph representing a dropcap
   * may contain text or an `<IMG>` tag; the `ALT` of the image tag should
     contain the corresponding text
 * `ocr_glyphs` – a collection of glyphs represented as an image
-  * must contain a single IMG tag, or be present on one
+  * must contain a single `<IMG>` tag, or be present on one
 * `ocr_chem` – a chemical formula
-  * must contain either a single IMG tag or ChemML markup, or be present on one
+  * must contain either a single `<IMG>` tag or ChemML markup, or be present on one
 * `ocr_math` – a mathematical formula
-  * must contain either a single IMG tag or MathML markup, or be present on one
+  * must contain either a single `<IMG>` tag or MathML markup, or be present on one
 
 Mathematical and chemical formulas that float must be put into an `ocr_float`
 section.
@@ -695,7 +695,7 @@ intermediate format for converting hOCR into `html_simple`.
 
 To avoid problems, any use of HTML markup must follow the following rules:
 
-* HTML content must not use class names that conflict with any of those defined in this document (“ocr_*”)
+* HTML content must not use class names that conflict with any of those defined in this document (`ocr_*`)
 * HTML content must not use the title= attribute on any element with an ocr_* class for any purposes other than encoding OCR-related properties as described in this document
 
 
@@ -717,7 +717,9 @@ When possible, any mapping of logical structure onto HTML should try to follow t
 Specifically
 
 * `<EM>` and `<STRONG>` should represent emphasis, and are preferred to `<B>`, `<I>`, and `<U>`
-* `<B>`, `<I>`, and `<U>` should represent a change in the corresponding attribute for the current font (but an OCR font specification must still be given)
+* `<B>`, `<I>`, and `<U>` should represent a change in the corresponding
+  attribute for the current font (but an OCR font specification must still be
+  given)
 * `<P>` should represent paragraph breaks
 * `<BR>` should represent explicit linebreaks (not linebreak that happen because of text flow)
 * `<H1>`, …, `<H6>` should represent the logical nesting structure (if any) of the document
@@ -735,7 +737,7 @@ If necessary, the markup may use the following non-standard tags:
 #### 15.2.1 html_none
 
 The simplest HTML markup for hOCR formats contains no logical markup at all; it
-is simply a collection of DIV and SPAN elements with associated hOCR
+is simply a collection of `<DIV>` and `<SPAN>` elements with associated hOCR
 information. Note that such documents can still be rendered visually through
 the use of CSS.
 
@@ -788,8 +790,8 @@ The HTML is a table that gives the XY-cut layout segmentation structure of the
 page in tabular form. Note that in this format, text order does not necessarily
 correspond to reading order.
 
-The format must contain one TABLE of class ocr_xycut representing each page.
-The TABLE structure must represent the absolute size of the original page
+The format must contain one `<TABLE>` of class ocr_xycut representing each page.
+The `<TABLE>` structure must represent the absolute size of the original page
 element. The markup of the content of the table itself is as in html_simple.
 
 
