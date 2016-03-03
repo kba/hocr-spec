@@ -707,7 +707,7 @@ When possible, any mapping of logical structure onto HTML should try to follow t
   might have entered into a WYSIWYG content creation tool
 * text should be in reading order
 * all tags should be used for the intended purpose (and only for the intended
-  purpose) as defined in the HTML 4 spec
+  purpose) as defined in the [HTML 4 spec](https://www.w3.org/TR/html4/).
 * floats are contained in `<DIV>` elements with a `style` that includes a float attribute
 * repeating floating page elements (header/footer) should be repeated and occur
   in their natural location in reading order (e.g., between pages)
@@ -779,9 +779,10 @@ The HTML represents absolute positioning of elements on each page. The possible 
 * `html_absolute_words` – absolute positioning of words
 * `html_absolute_chars` – absolute positioning of characters
 
-Google Science Search and Google “View as HTML” both use `html_absolute_lines`;
-this is probably the most reasonable choice for approximating the appearance of
-the original document.
+The ["View as HTML" for PDF
+files](https://googlewebmastercentral.blogspot.de/2011/09/pdfs-in-google-search-results.html)
+feature of Google Search uses `html_absolute_lines`; this is probably the most
+reasonable choice for approximating the appearance of the original document.
 
 
 #### 15.2.5 html_xytable_absolute
