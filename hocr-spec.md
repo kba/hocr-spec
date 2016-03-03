@@ -514,7 +514,7 @@ script](http://www.unicode.org/iso15924/codelists.html), text-indent, etc.
 
 Alternative segmentations and readings are indicated by a `<SPAN>` with
 `class="alternatives"`. It must contains `<INS>` and `<DEL>` elements. The first
-contained element should be `<INS>` and represent the most probably interpretation,
+contained element should be `<INS>` and represent the most probable interpretation,
 the subsequent ones `<DEL>`. Each `<INS>` and `<DEL>` element should have `class="alt"` and a
 property of either `nlp` or `x_cost`. These `<SPAN>`, `<INS>`, and `<DEL>` tags can nest
 arbitrarily.
