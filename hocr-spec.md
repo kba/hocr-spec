@@ -317,12 +317,14 @@ Note that for many documents, the actual ground truth careas are well-defined
 by the document style of the original document before printing and scanning.
 From a single page, the `careas` of the original document style cannot be
 recovered exactly. However, the partition of a document by `ocr_carea` for an
-individual page shall be considered correct relative to ground truth if (1) all
-the text contained in a ground truth carea is fully contained within a single
-ocr_carea, (2) no text outside a ground truth `carea` is contained within an
-ocr_carea, and (3) the `ocr_careas` appear in the same order as the text flow
-relationships between the ground truth careas.
+individual page shall be considered correct relative to ground truth if
 
+1. all the text contained in a ground truth carea is fully contained within a
+  single `ocr_carea`,
+2. no text outside a ground truth `carea` is contained within an
+  `ocr_carea`, and 
+3. the `ocr_careas` appear in the same order as the text flow
+  relationships between the ground truth careas.
 
 The following floats are defined:
 
