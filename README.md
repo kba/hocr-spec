@@ -1,6 +1,8 @@
 hocr-spec
 =========
 
+[![Join the chat at https://gitter.im/kba/hocr-spec](https://badges.gitter.im/kba/hocr-spec.svg)](https://gitter.im/kba/hocr-spec?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 The hOCR EOCR mbedded OCR Workflow and Output Format
 
 ## About
