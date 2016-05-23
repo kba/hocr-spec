@@ -681,7 +681,7 @@ following intents:
 * `html_ocr`: straightforward recording of commercial OCR system output
 * `html_absolute`: target format for services like Google's View as HTML
 * `html_xytable`: target format for layout-preserving on-screen document viewing
-* `html_simpl`: target format for convenient on-line viewing and intermediate format for indexing
+* `html_simple`: target format for convenient on-line viewing and intermediate format for indexing
 
 As long as a format contains the hOCR information, it can be reprocessed by
 layout analysis software and converted into one of the other formats. In
