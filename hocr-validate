@@ -1,0 +1,15 @@
+#!/bin/bash
+
+PATH=$(dirname "$0")/vendor/schematron-cli/bin:$PATH
+SUFFIX=".report.xml"
+
+SCHEMATRON_ARGS=("--debug" "--strip-namespaces" "--xslt-out" "schema/hocr-1.0.xsl")
+SUFFIX=".tap"
+SCHEMATRON_ARGS+=("--tap")
+SCHEMATRON_ARGS+=("--report-suffix $SUFFIX")
+schematron "${SCHEMATRON_ARGS[@]}" schema/hocr-1.0.sch "$@"
+
+for f in "$@";do
+    echo "# $f"
+    cat "${f}${SUFFIX}"
+done

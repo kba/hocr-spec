@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svrl:schematron-output xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        xmlns:saxon="http://saxon.sf.net/"
+                        xmlns:schold="http://www.ascc.net/xml/schematron"
+                        xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                        title=""
+                        schemaVersion=""><!--   
+		   
+		   
+		 -->
+   <svrl:active-pattern document="file:/home/kb/build/github.com/kba/hocr-spec/test/assets/tess.hocr"
+                        id="html-checks"
+                        name="Checking basic HTML structure"/>
+   <svrl:active-pattern document="file:/home/kb/build/github.com/kba/hocr-spec/test/assets/tess.hocr"
+                        id="head-checks"
+                        name="Checking HTML metadata"/>
+   <svrl:active-pattern document="file:/home/kb/build/github.com/kba/hocr-spec/test/assets/tess.hocr"
+                        id="body-checks"
+                        name="body-checks"/>
+   <svrl:active-pattern document="file:/home/kb/build/github.com/kba/hocr-spec/test/assets/tess.hocr"
+                        id="ocr_page checks"
+                        name="ocr_page checks"/>
+   <svrl:fired-rule context="//*[@class='ocr_page']"/>
+   <svrl:failed-assert test="@bbox"
+                       location="/*:html[namespace-uri()='http://www.w3.org/1999/xhtml'][1]/*:body[namespace-uri()='http://www.w3.org/1999/xhtml'][1]/*:div[namespace-uri()='http://www.w3.org/1999/xhtml'][1]">
+      <svrl:text>Must have 'bbox' attribute</svrl:text>
+   </svrl:failed-assert>
+</svrl:schematron-output>
