@@ -201,11 +201,20 @@
             <xsl:attribute name="document">
                <xsl:value-of select="document-uri(/)"/>
             </xsl:attribute>
+            <xsl:attribute name="id">ocr_line checks</xsl:attribute>
+            <xsl:attribute name="name">ocr_line checks</xsl:attribute>
+            <xsl:apply-templates/>
+         </svrl:active-pattern>
+         <xsl:apply-templates select="/" mode="M4"/>
+         <svrl:active-pattern>
+            <xsl:attribute name="document">
+               <xsl:value-of select="document-uri(/)"/>
+            </xsl:attribute>
             <xsl:attribute name="id">ocr_page checks</xsl:attribute>
             <xsl:attribute name="name">ocr_page checks</xsl:attribute>
             <xsl:apply-templates/>
          </svrl:active-pattern>
-         <xsl:apply-templates select="/" mode="M4"/>
+         <xsl:apply-templates select="/" mode="M5"/>
       </svrl:schematron-output>
    </xsl:template>
 
@@ -218,6 +227,33 @@
 	  <!--RULE -->
    <xsl:template match="html" priority="1000" mode="M1">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="html"/>
+
+		    <!--ASSERT -->
+      <xsl:choose>
+         <xsl:when test="@lang"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="@lang">
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>&lt;<xsl:text/>
+                  <xsl:value-of select="name(.)"/>
+                  <xsl:text/>&gt; has no "lang" attribute</svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+
+		    <!--REPORT -->
+      <xsl:if test="@lang">
+         <svrl:successful-report xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="@lang">
+            <xsl:attribute name="location">
+               <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+            </xsl:attribute>
+            <svrl:text>&lt;<xsl:text/>
+               <xsl:value-of select="name(.)"/>
+               <xsl:text/>&gt; has a "lang" attribute</svrl:text>
+         </svrl:successful-report>
+      </xsl:if>
 
 		    <!--ASSERT -->
       <xsl:choose>
@@ -279,9 +315,9 @@
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="head"/>
 
 		    <!--REPORT -->
-      <xsl:if test="meta[@name='ocr-id'][text()]">
+      <xsl:if test="meta[@name='ocr-id'][@content]">
          <svrl:successful-report xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                 test="meta[@name='ocr-id'][text()]">
+                                 test="meta[@name='ocr-id'][@content]">
             <xsl:attribute name="location">
                <xsl:apply-templates select="." mode="schematron-select-full-path"/>
             </xsl:attribute>
@@ -289,16 +325,69 @@
          </svrl:successful-report>
       </xsl:if>
 
+		    <!--ASSERT -->
+      <xsl:choose>
+         <xsl:when test="meta[@name='ocr-id'][@content]"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="meta[@name='ocr-id'][@content]">
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>meta[@name=ocr-id] not empty</svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+
 		    <!--REPORT -->
-      <xsl:if test="meta[@name='ocr-recognized'][text()]">
+      <xsl:if test="meta[@name='ocr-recognized'][@content]">
          <svrl:successful-report xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                 test="meta[@name='ocr-recognized'][text()]">
+                                 test="meta[@name='ocr-recognized'][@content]">
             <xsl:attribute name="location">
                <xsl:apply-templates select="." mode="schematron-select-full-path"/>
             </xsl:attribute>
             <svrl:text>meta[@name=ocr-id] not empty</svrl:text>
          </svrl:successful-report>
       </xsl:if>
+
+		    <!--ASSERT -->
+      <xsl:choose>
+         <xsl:when test="meta[@name='ocr-recognized'][@content]"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="meta[@name='ocr-recognized'][@content]">
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>meta[@name=ocr-id] not empty</svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+
+		    <!--REPORT -->
+      <xsl:if test="meta[@name='ocr-system'][@content]">
+         <svrl:successful-report xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                 test="meta[@name='ocr-system'][@content]">
+            <xsl:attribute name="location">
+               <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+            </xsl:attribute>
+            <svrl:text>meta[@name=ocr-system] not empty</svrl:text>
+         </svrl:successful-report>
+      </xsl:if>
+
+		    <!--ASSERT -->
+      <xsl:choose>
+         <xsl:when test="meta[@name='ocr-system'][@content]"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="meta[@name='ocr-system'][@content]">
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>meta[@name=ocr-system] not empty</svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
       <xsl:apply-templates select="*|comment()|processing-instruction()" mode="M2"/>
    </xsl:template>
    <xsl:template match="text()" priority="-1" mode="M2"/>
@@ -344,11 +433,25 @@
       <xsl:apply-templates select="*|comment()|processing-instruction()" mode="M3"/>
    </xsl:template>
 
+   <!--PATTERN ocr_line checks-->
+
+
+	  <!--RULE -->
+   <xsl:template match="//*[@class='ocr_line']" priority="1000" mode="M4">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                       context="//*[@class='ocr_line']"/>
+      <xsl:apply-templates select="*|comment()|processing-instruction()" mode="M4"/>
+   </xsl:template>
+   <xsl:template match="text()" priority="-1" mode="M4"/>
+   <xsl:template match="@*|node()" priority="-2" mode="M4">
+      <xsl:apply-templates select="*|comment()|processing-instruction()" mode="M4"/>
+   </xsl:template>
+
    <!--PATTERN ocr_page checks-->
 
 
 	  <!--RULE -->
-   <xsl:template match="//*[@class='ocr_page']" priority="1000" mode="M4">
+   <xsl:template match="//*[@class='ocr_page']" priority="1000" mode="M5">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="//*[@class='ocr_page']"/>
 
@@ -364,10 +467,10 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*|comment()|processing-instruction()" mode="M4"/>
+      <xsl:apply-templates select="*|comment()|processing-instruction()" mode="M5"/>
    </xsl:template>
-   <xsl:template match="text()" priority="-1" mode="M4"/>
-   <xsl:template match="@*|node()" priority="-2" mode="M4">
-      <xsl:apply-templates select="*|comment()|processing-instruction()" mode="M4"/>
+   <xsl:template match="text()" priority="-1" mode="M5"/>
+   <xsl:template match="@*|node()" priority="-2" mode="M5">
+      <xsl:apply-templates select="*|comment()|processing-instruction()" mode="M5"/>
    </xsl:template>
 </xsl:stylesheet>

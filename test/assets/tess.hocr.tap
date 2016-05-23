@@ -1,9 +1,0 @@
-1..4
-# Checking basic HTML structure
-ok - Exactly one <head> "count(head) = 1"
-ok - Exactly one <body> "count(body) = 1"
-# Checking HTML metadata
-# body-checks
-ok - At least one *[@class=ocr_page] "//*[@class='ocr_page'][text()]"
-# ocr_page checks
-not ok - Must have 'bbox' attribute "@bbox"
