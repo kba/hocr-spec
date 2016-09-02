@@ -648,11 +648,11 @@ The OCR system is required to indicate the following using meta tags in the head
 
 The OCR system should indicate the following information
 
-* name=ocr-number-of-pages content=number-of-pages
-* `<meta name="ocr-langs" content=[languages-considered-by-ocr]/>`
+* `<meta name="ocr-number-of-pages" content="number-of-pages"/>`
+* `<meta name="ocr-langs" content="languages-considered-by-ocr"/>`
   * use [ISO 639-1](https://www.loc.gov/standards/iso639-2/php/code_list.php) codes
   * value may be `unknown`
-* `<meta name="ocr-scripts" content=[scripts-considered-by-ocr]/>`
+* `<meta name="ocr-scripts" content="scripts-considered-by-ocr"/>`
   * use [ISO 15924](http://www.unicode.org/iso15924/codelists.html) letter codes
   * value may be `unknown`
 
