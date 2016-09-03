@@ -403,7 +403,7 @@ alternate between up and right moves.
 
 Assume a bounding box of `(0,0,300,100)`; then
 
-````
+```python
 cuts("10 11 7 19") =
     [ [(10,0),(10,100)], [(21,0),(21,100)], [(28,0),(28,100)], [(47,0),(47,100)] ]
 cuts("10,50,3 11,30,-3") =
