@@ -122,7 +122,7 @@ The following properties can apply to most elements (where it makes sense):
 The following properties can apply to most elements but should not be used
 unless there is no alternative:
 
-#### `poly`
+### `poly`
 
 * `poly x0 y0 x1 y1 ...` - a closed polygon for elements with non-rectangular bounds
   * this property must not be used unless there is no other way of
@@ -135,21 +135,21 @@ unless there is no alternative:
     metadata
   * documents should attempt to provide a reasonable bbox equivalent as well
 
-#### `order`
+### `order`
 
 * `order n` – the reading order of the element (an integer)
   * this property must not be used unless there is no other way of representing
     the reading order of the page by element ordering within the page, since
     many tools will not be able to deal with content that is not in reading order
 
-#### `presence`
+### `presence`
 
 * `presence` presence must be declared in the document meta data
 
 The following property relates the flow between multiple `ocr_carea` elements,
 and between `ocr_carea` and `ocr_linear` elements.
 
-#### `cflow`
+### `cflow`
 
 * `cflow s` – the content flow on the page that this element is a part of
   * s must be a unique string for each content flow
@@ -159,7 +159,7 @@ and between `ocr_carea` and `ocr_linear` elements.
 
 This property applies primarily to textlines
 
-#### `baseline`
+### `baseline`
 
 * `baseline pn pn-1 ... p0` - a polynomial describing the baseline of a line of
   text
@@ -262,7 +262,7 @@ shapes can be realized.
 **Issue: there is currently no way of indicating anchoring or flow-around
 properties for floating elements; properties need to be defined for this.**
 
-### 5.1 Classes for typesetting elements
+### Classes for typesetting elements
 
 The following classes, as well as [floats](#TODO) are used for type-setting
 elements.
@@ -484,20 +484,24 @@ encoding.
 
 ## 7 Character Information
 
+### Clases for Character Information
+
 Character-level information may be put on any element that contains only a
 single "line" of text.
 
-### `ocr_cinfo`
+#### `ocr_cinfo`
 
 If no other layout element applies, the `ocr_cinfo` element may be used.
 
-### `cuts`
+### Properties for Character Information
+
+#### `cuts`
 
 * `cuts c1 c2 c3 ...`
   * character segmentation cuts (see below)
   * there must be a bbox property relative to which the cuts can be interpreted
 
-### `nlp`
+#### `nlp`
 
 * `nlp c1 c2 c3 ...`
   * estimate of the negative log probabilities of each character by the recognizer
