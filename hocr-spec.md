@@ -535,7 +535,7 @@ when viewed in a browser.
 
 The different levels of layout information (logical, physical, engine-specific)
 each form hierarchies, but those hierarchies may not be mutually compatible;
-for example, a single ocr_page may contain information from multiple sections
+for example, a single `ocr_page` may contain information from multiple sections
 or chapters. To represent both hierarchies within a single document, elements
 may be grouped together.  That is, two elements with the same class may be
 treated as one element by adding a "groupid identifier" property to them and
@@ -553,8 +553,8 @@ removing tags that are not of interest for the subsequent processing step, and
 then collapsing grouped elements into single elements.  For example, output
 that contains both logical and physical layout information, where the logical
 layout information uses grouped elements, can be transformed by removing all
-the physical layout information, and then collapsing all split ocr_chapter
-elements into single ocr_chapter elements based on the groupid.  The result is
+the physical layout information, and then collapsing all split `ocr_chapter`
+elements into single `ocr_chapter` elements based on the groupid.  The result is
 a simple DOM tree.  This transformation can be provided generically as a
 pre-processor or Javascript.
 
