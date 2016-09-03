@@ -271,6 +271,8 @@ elements.
 
 * `ocr_page`
 
+The `ocr_page` element must be present in all hOCR documents.
+
 #### `ocr_column`
 
 **DEPRECATED**: Please use [`ocr_carea`](#ocr_carea) instead
@@ -295,7 +297,6 @@ Should be in a `<SPAN>`
 
 * `ocr_noise` (any noise element that isn't part of typesetting)
 
-The `ocr_page` element must be present in all hOCR documents.
 ### Recommended Properties for typesetting elements
 
 The following properties should be present:
