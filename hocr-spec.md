@@ -485,10 +485,11 @@ encoding.
 ## 7 Character Information
 
 Character-level information may be put on any element that contains only a
-single "line" of text; if no other layout element applies, the `ocr_cinfo`
-element may be used.
+single "line" of text.
 
 ### `ocr_cinfo`
+
+If no other layout element applies, the `ocr_cinfo` element may be used.
 
 ### `cuts`
 
