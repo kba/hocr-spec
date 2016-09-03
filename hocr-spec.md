@@ -122,6 +122,8 @@ The following properties can apply to most elements (where it makes sense):
 The following properties can apply to most elements but should not be used
 unless there is no alternative:
 
+#### `poly`
+
 * `poly x0 y0 x1 y1 ...` - a closed polygon for elements with non-rectangular bounds
   * this property must not be used unless there is no other way of
     representing the layout of the page using rectangular bounding boxes,
@@ -132,14 +134,22 @@ unless there is no alternative:
   * documents using polygonal borders anywhere must indicate this in the
     metadata
   * documents should attempt to provide a reasonable bbox equivalent as well
+
+#### `order`
+
 * `order n` – the reading order of the element (an integer)
   * this property must not be used unless there is no other way of representing
     the reading order of the page by element ordering within the page, since
     many tools will not be able to deal with content that is not in reading order
+
+#### `presence`
+
 * `presence` presence must be declared in the document meta data
 
 The following property relates the flow between multiple `ocr_carea` elements,
 and between `ocr_carea` and `ocr_linear` elements.
+
+#### `cflow`
 
 * `cflow s` – the content flow on the page that this element is a part of
   * s must be a unique string for each content flow
@@ -149,6 +159,8 @@ and between `ocr_carea` and `ocr_linear` elements.
 
 This property applies primarily to textlines
 
+#### `baseline`
+
 * `baseline pn pn-1 ... p0` - a polynomial describing the baseline of a line of
   text
   * the polynomial is in the coordinate system of the line, with the bottom
@@ -156,7 +168,22 @@ This property applies primarily to textlines
 
 ## 4 Logical Structuring Elements
 
+
 We recognize the following logical structuring elements:
+
+### `ocr_document`
+### `ocr_linear`
+### `ocr_title`
+### `ocr_author`
+### `ocr_abstract`
+### `ocr_part`
+### `ocr_chapter`
+### `ocr_section`
+### `ocr_sub###section`
+### `ocr_display`
+### `ocr_blockquote`
+### `ocr_par`
+
 * `ocr_document`
   * `ocr_linear`
     * `ocr_title`
@@ -178,6 +205,8 @@ with those logical structuring elements, but it may not be possible or
 desirable to actually chose those tags (e.g., when adding hOCR information to
 an existing HTML output routine).
 
+### `ocr_linear`
+
 For all of these elements except `ocr_linear`, there exists a natural linear
 ordering defined by reading order (`ocr_linear` indicates that the elements
 contained in it have a linear ordering). At the level of `ocr_linear`, there
@@ -194,6 +223,8 @@ text inside the containing element.
 
 Documents whose logical structure does not map naturally onto these logical
 structuring elemetns must not use them for other purpose.
+
+### `ocr_caption`
 
 Image captions may be indicated using the `ocr_caption` element; such an
 element refers to the image(s) contained within the same float, or the
@@ -231,22 +262,52 @@ shapes can be realized.
 **Issue: there is currently no way of indicating anchoring or flow-around
 properties for floating elements; properties need to be defined for this.**
 
-The typesetting related elements therefore are:
+### 5.1 Classes for typesetting elements
+
+The following classes, as well as [floats](#TODO) are used for type-setting
+elements.
+
+#### `ocr_page`
 
 * `ocr_page`
-* `ocr_carea` ("ocr content area" or "body area"; used to be called ~~ocr_column~~)
-* `ocr_line` [`<span>`]
-* (floats)
+
+#### `ocr_column`
+
+**DEPRECATED**: Please use [`ocr_carea`](#ocr_carea) instead
+
+#### `ocr_carea`
+
+* `ocr_carea`
+
+"ocr content area" or "body area"
+
+Used to be called ~~ocr_column~~
+
+#### `ocr_line`
+
+Should be in a `<SPAN>`
+
+#### `ocr_separator`
+
 * `ocr_separator` (any separator or similar element)
+
+#### `ocr_noise`
+
 * `ocr_noise` (any noise element that isn't part of typesetting)
 
 The `ocr_page` element must be present in all hOCR documents.
+### Recommended Properties for typesetting elements
 
 The following properties should be present:
+
+#### `bbox`
 
 * `bbox`
   * the bounding box of the page; for pages, the top left corner must be at
     `(0,0)`, so a typical page bounding box will look like `bbox 0 0 2300 3200`
+
+#### `image`
+
 * `image imagefile`
   * image file name used as input
   * syntactically, must be a UNIX-like pathname or http URL (no Windows pathnames)
@@ -255,27 +316,45 @@ The following properties should be present:
     becomes separated from the image fiels)
   * if the hOCR file is present in a directory hierarchy or file archive, should
     resolve to the corresponding image file
+
+#### `imagemd5`
+
 * `imagemd5 checksum`
   * MD5 fingerprint of the image file that this page was derived from
   * allows re-associating pages with source images
+
+#### `ppageno`
+
 * `ppageno n`
   * the physical page number
   * the front cover is page number 0
   * should be unique
   * must not be present unless the pages in the document have a physical ordering
   * must not be present unless it is well defined and unique
+
+#### `lpageno`
+
 * `lpageno string`
   * the logical page number expressed on the page
   * may not be numerical (e.g., Roman numerals)
   * usually is unique
   * must not be present unless it has been recognized from the page and is unambiguous
 
+### Optional Properties for typesetting elements
+
 The following properties MAY be present:
+
+#### `scan_res`
 
 * `scan_res x_res y_res`
   * scanning resolution in DPI
+#### `x_scanner`
+
 * `x_scanner string`
   * a representation of the scanner
+
+#### `x_source`
+
 * `x_source string`
   * an implementation-dependent representation of the document source
   * could be a URL or a /gfs/ path
@@ -297,6 +376,8 @@ typesetting blocks that only contain glyphs (“inlines” in XSL terminology).
 
 They are represented by the `ocr_line` area. In addition to the standard
 properties, the `ocr_line` area supports the following additional properties:
+
+#### `hardbreak`
 
 * `hardbreak n`
   * a zero (default) indicates that the end of the line is not a hard
@@ -321,6 +402,8 @@ individual page shall be considered correct relative to ground truth if
 3. the `ocr_careas` appear in the same order as the text flow
   relationships between the ground truth careas.
 
+### Classes for floats
+
 The following floats are defined:
 
 * `ocr_float`
@@ -338,20 +421,40 @@ The following floats are defined:
 
 Floats should not be nested.
 
-
 ## 6 Inline Representations
 
 There is some content that should behave and flow like text
 
+### Classes for Inline Representation
+
+#### `ocr_glyph`
+
 * `ocr_glyph` – an individual glyph represented as an image (e.g., an unrecognized character)
-  * must contain a single `<img>` tag, or be present on one
+  * must contain a single `<IMG>` tag, or be present on one
+
+#### `ocr_glyphs`
+
 * `ocr_glyphs` – multiple glyphs represented as an image (e.g., an unrecognized word)
-  * must contain a single `<img>` tag, or be present on one
+  * must contain a single `<IMG>` tag, or be present on one
+
+#### `ocr_dropcap`
+
 * `ocr_dropcap` – an individual glyph representing a dropcap
   * may contain text or an `<img>` tag; the `ALT` of the image tag should
     contain the corresponding text
+
+#### `ocr_glyphs`
+
+* `ocr_glyphs` – a collection of glyphs represented as an image
+  * must contain a single `<IMG>` tag, or be present on one
+
+#### `ocr_chem`
+
 * `ocr_chem` – a chemical formula
-  * must contain either a single `<img>` tag or ChemML markup, or be present on one
+  * must contain either a single `<IMG>` tag or ChemML markup, or be present on one
+
+#### `ocr_math`
+
 * `ocr_math` – a mathematical formula
   * must contain either a single `<img>` tag or MathML markup, or be present on one
 
@@ -384,10 +487,16 @@ Character-level information may be put on any element that contains only a
 single "line" of text; if no other layout element applies, the `ocr_cinfo`
 element may be used.
 
+### `ocr_cinfo`
+
+### `cuts`
 
 * `cuts c1 c2 c3 ...`
   * character segmentation cuts (see below)
   * there must be a bbox property relative to which the cuts can be interpreted
+
+### `nlp`
+
 * `nlp c1 c2 c3 ...`
   * estimate of the negative log probabilities of each character by the recognizer
 
@@ -433,12 +542,22 @@ existing OCR output, say for workflow abstractions.
 
 Common suggested engine-specific markup are:
 
+### Classes for engine specific markup
+
+#### `ocrx_block`
+
 * `ocrx_block`
   * any kind of "block" returned by an OCR system
   * engine-specific because the definition of a "block" depends on the engine
+
+#### `ocrx_line`
+
 * `ocrx_line`
   * any kind of "line" returned by an OCR system that differs from the standard ocr_line above
   * might be some kind of "logical" line
+
+#### `ocrx_word`
+
 * `ocrx_word`
   * any kind of "word" returned by an OCR system
   * engine specific because the definition of a "word" depends on the engine
@@ -454,12 +573,21 @@ attempt to ensure the following properties:
 * `ocrx_cinfo` should nest inside `ocrx_line`
 * `ocrx_cinfo` should contain only `x_conf`, `x_bboxes`, and `cuts` attributes
 
+### Properties for engine-specific markup
+
 The following properties are defined:
+
+#### `x_font`
 
 * `x_font s`
   * OCR-engine specific font names
+
+#### `x_fsize`
+
 * `x_fsize n`
   * OCR-engine specific font size
+#### `x_boxes`
+
 * `x_boxes b1x0 b1y0 b1x1 b1y1 b2x0 b2y0 b2x1 b2y1 ...`
   * OCR-engine specific boxes associated with each codepoint contained in the
     element
@@ -467,12 +595,18 @@ The following properties are defined:
     element, not of individual characters
   * in particular, use `<span class="ocr_cinfo" title="x_bboxes ....">`, not
     `<span class="ocr_cinfo" title="bbox ...">`
+
+#### `x_confs`
+
 * `x_confs c1 c2 c3 ...`
   * OCR-engine specific character confidences
   * `c1` etc. must be numbers
   * higher values should express higher confidences
   * if possible, convert character confidences to values between 0 and 100 and
     have them approximate posterior probabilities (expressed in %)
+
+#### `x_wconf`
+
 * `x_wconf n`
   * OCR-engine specific confidence for the entire contained substring
   * n must be a number
