@@ -23,7 +23,6 @@ arrive at a representation that makes it easy to reuse OCR results.
 		* [`baseline`](#baseline)
 * [4 Logical Structuring Elements](#4-logical-structuring-elements)
 	* [`ocr_document`](#ocr_document)
-	* [`ocr_linear`](#ocr_linear)
 	* [`ocr_title`](#ocr_title)
 	* [`ocr_author`](#ocr_author)
 	* [`ocr_abstract`](#ocr_abstract)
@@ -34,7 +33,7 @@ arrive at a representation that makes it easy to reuse OCR results.
 	* [`ocr_display`](#ocr_display)
 	* [`ocr_blockquote`](#ocr_blockquote)
 	* [`ocr_par`](#ocr_par)
-	* [`ocr_linear`](#ocr_linear-1)
+	* [`ocr_linear`](#ocr_linear)
 	* [`ocr_caption`](#ocr_caption)
 * [5 Typesetting Related Elements](#5-typesetting-related-elements)
 	* [Classes for typesetting elements](#classes-for-typesetting-elements)
@@ -275,19 +274,6 @@ This property applies primarily to textlines
 
 We recognize the following logical structuring elements:
 
-### `ocr_document`
-### `ocr_linear`
-### `ocr_title`
-### `ocr_author`
-### `ocr_abstract`
-### `ocr_part`
-### `ocr_chapter`
-### `ocr_section`
-### `ocr_subsubsection`
-### `ocr_display`
-### `ocr_blockquote`
-### `ocr_par`
-
 * `ocr_document`
   * `ocr_linear`
     * `ocr_title`
@@ -300,6 +286,18 @@ We recognize the following logical structuring elements:
             * `ocr_display` 
             * `ocr_blockquote` [`<blockquote>`]
             * `ocr_par` [`<p>`]
+
+### `ocr_document`
+### `ocr_title`
+### `ocr_author`
+### `ocr_abstract`
+### `ocr_part`
+### `ocr_chapter`
+### `ocr_section`
+### `ocr_subsubsection`
+### `ocr_display`
+### `ocr_blockquote`
+### `ocr_par`
 
 These logical tags have their standard meaning as used in the publishing
 industry and tools like LaTeX, MS Word, and others.
