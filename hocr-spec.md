@@ -102,6 +102,8 @@ Here is an example:
 </div>
 ```
 
+### General Properties
+
 The following properties can apply to most elements (where it makes sense):
 
 * `bbox x0 y0 x1 y1` – the bounding box of the element relative to the
@@ -112,6 +114,8 @@ The following properties can apply to most elements (where it makes sense):
   * some non-rectangular layout components may have rectangular bounding boxes
     if the non-rectangularity is caused by floating elements around which text flows
 
+#### `textangle`
+
 * `textangle alpha` - the angle in degrees by which textual content has been
   rotate relative to the rest of the page (if not present, the angle is assumed
   to be zero); rotations are counter-clockwise, so an angle of 90 degrees is
@@ -119,10 +123,12 @@ The following properties can apply to most elements (where it makes sense):
   different from reading order, which should be indicated using standard HTML
   properties
 
+### Non-recommended general properties
+
 The following properties can apply to most elements but should not be used
 unless there is no alternative:
 
-### `poly`
+#### `poly`
 
 * `poly x0 y0 x1 y1 ...` - a closed polygon for elements with non-rectangular bounds
   * this property must not be used unless there is no other way of
@@ -135,21 +141,21 @@ unless there is no alternative:
     metadata
   * documents should attempt to provide a reasonable bbox equivalent as well
 
-### `order`
+#### `order`
 
 * `order n` – the reading order of the element (an integer)
   * this property must not be used unless there is no other way of representing
     the reading order of the page by element ordering within the page, since
     many tools will not be able to deal with content that is not in reading order
 
-### `presence`
+#### `presence`
 
 * `presence` presence must be declared in the document meta data
 
 The following property relates the flow between multiple `ocr_carea` elements,
 and between `ocr_carea` and `ocr_linear` elements.
 
-### `cflow`
+#### `cflow`
 
 * `cflow s` – the content flow on the page that this element is a part of
   * s must be a unique string for each content flow
@@ -159,7 +165,7 @@ and between `ocr_carea` and `ocr_linear` elements.
 
 This property applies primarily to textlines
 
-### `baseline`
+#### `baseline`
 
 * `baseline pn pn-1 ... p0` - a polynomial describing the baseline of a line of
   text
