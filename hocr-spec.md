@@ -31,20 +31,11 @@ Thomas Breuel (editor)
 * [16 Document Meta Information](#16-document-meta-information)
 * [17 Sample Usage](#17-sample-usage)
 
+
 ## Revision History
 
-### 2016-03-02
-
-* Markdown version (@kba)
-
-###  March 2010 
-
-* bug fixes, clarifications (@tmbdev)
-
-### December 2007 
-
-* initial release (@tmbdev)
-
+See the [releases](https://github.com/kba/hocr-spec/releases/) and full [commit
+history](https://github.com/kba/hocr-spec/commits/).
 
 ## 1 Rationale
 
