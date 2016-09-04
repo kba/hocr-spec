@@ -96,21 +96,21 @@ arrive at a representation that makes it easy to reuse OCR results.
 * [10 Alternative Segmentations / Readings](#10-alternative-segmentations--readings)
 * [11 Grouped Elements and Multiple Hierarchies](#11-grouped-elements-and-multiple-hierarchies)
 * [12 Capabilities](#12-capabilities)
-		* [`ocrp_lang`](#ocrp_lang)
-		* [`ocrp_dir`](#ocrp_dir)
-		* [`ocrp_poly`](#ocrp_poly)
-		* [`ocrp_font`](#ocrp_font)
-		* [`ocrp_nlp`](#ocrp_nlp)
-		* [`ocr_embeddedformat_<formatname>`](#ocr_embeddedformat_)
-		* [`ocr_<tag>_unordered`](#ocr__unordered)
+	* [`ocrp_lang`](#ocrp_lang)
+	* [`ocrp_dir`](#ocrp_dir)
+	* [`ocrp_poly`](#ocrp_poly)
+	* [`ocrp_font`](#ocrp_font)
+	* [`ocrp_nlp`](#ocrp_nlp)
+	* [`ocr_embeddedformat_<formatname>`](#ocr_embeddedformat_)
+	* [`ocr_<tag>_unordered`](#ocr__unordered)
 * [13 Profiles](#13-profiles)
 * [14 Required Meta Information](#14-required-meta-information)
 * [15 HTML Markup](#15-html-markup)
-		* [`html_none`](#html_none)
-		* [`html_ocr`](#html_ocr)
-		* [`html_absolute`](#html_absolute)
-		* [`html_xytable`](#html_xytable)
-		* [`html_simpl`](#html_simpl)
+	* [`html_none`](#html_none)
+	* [`html_ocr`](#html_ocr)
+	* [`html_absolute`](#html_absolute)
+	* [`html_xytable`](#html_xytable)
+	* [`html_simpl`](#html_simpl)
 	* [15.1 Restrictions on HTML Content](#151-restrictions-on-html-content)
 	* [15.2 Recommendations for Mappings](#152-recommendations-for-mappings)
 		* [15.2.1 html_none](#1521-html_none)
@@ -846,32 +846,32 @@ document.
 The capability to generate specific properties is given by the prefix `ocrp_...`;
 the important properties are:
 
-#### `ocrp_lang`
+### `ocrp_lang`
 
 * `ocrp_lang` – capable of generating `lang=` attributes
 
-#### `ocrp_dir`
+### `ocrp_dir`
 
 * `ocrp_dir` – capable of generating `dir=` attributes
 
-#### `ocrp_poly`
+### `ocrp_poly`
 
 * `ocrp_poly` – capable of generating [polygonal bounds](#poly)
 
-#### `ocrp_font`
+### `ocrp_font`
 
 * `ocrp_font` – capable of generating font information (standard font information)
 
-#### `ocrp_nlp`
+### `ocrp_nlp`
 
 * `ocrp_nlp` – capable of generating [nlp confidences](#nlp)
 
-#### `ocr_embeddedformat_<formatname>`
+### `ocr_embeddedformat_<formatname>`
 
 The capability to generate other specific embedded formats is given by the
 prefix `ocr_embeddedformat_<formatname>`.
 
-#### `ocr_<tag>_unordered`
+### `ocr_<tag>_unordered`
 
 If an OCR engine represents a particular tag but cannot determine reading order
 for that tag, it must must specify a capability of `ocr_<tag>_unordered`.
@@ -964,23 +964,23 @@ Depending on the particular HTML markup used in the document, the document is
 suitable for different kinds of processing and use. The formats have the
 following intents:
 
-#### `html_none`
+### `html_none`
 
 * `html_none`: straightforward equivalent of Goodoc or XDOC
 
-#### `html_ocr`
+### `html_ocr`
 
 * `html_ocr`: straightforward recording of commercial OCR system output
 
-#### `html_absolute`
+### `html_absolute`
 
 * `html_absolute`: target format for services like Google's View as HTML
 
-#### `html_xytable`
+### `html_xytable`
 
 * `html_xytable`: target format for layout-preserving on-screen document viewing
 
-#### `html_simpl`
+### `html_simpl`
 
 * `html_simpl`: target format for convenient on-line viewing and intermediate format for indexing
 
