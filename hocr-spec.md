@@ -355,8 +355,6 @@ There is some content that should behave and flow like text
 * `ocr_dropcap` – an individual glyph representing a dropcap
   * may contain text or an `<IMG>` tag; the `ALT` of the image tag should
     contain the corresponding text
-* `ocr_glyphs` – a collection of glyphs represented as an image
-  * must contain a single `<IMG>` tag, or be present on one
 * `ocr_chem` – a chemical formula
   * must contain either a single `<IMG>` tag or ChemML markup, or be present on one
 * `ocr_math` – a mathematical formula
