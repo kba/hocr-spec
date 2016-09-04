@@ -273,7 +273,7 @@ properties for floating elements; properties need to be defined for this.**
 
 ### Classes for typesetting elements
 
-The following classes, as well as [floats](#TODO) are used for type-setting
+The following classes, as well as [floats](#classes-for-floats) are used for type-setting
 elements.
 
 #### `ocr_page`
