@@ -167,13 +167,13 @@ We recognize the following logical structuring elements:
     * `ocr_title`
     * `ocr_author`
     * `ocr_abstract`
-    * `ocr_part` [`<H1>`]
-      * `ocr_chapter` [`<H1>`]
-        * `ocr_section` [`<H2>`]
-          * `ocr_sub*section` [`<H3>`,`<H4>`]
+    * `ocr_part` [`<h1>`]
+      * `ocr_chapter` [`<h1>`]
+        * `ocr_section` [`<h2>`]
+          * `ocr_sub*section` [`<h3>`,`<h4>`]
             * `ocr_display` 
-            * `ocr_blockquote` [`<BLOCKQUOTE>`]
-            * `ocr_par` [`<P>`]
+            * `ocr_blockquote` [`<blockquote>`]
+            * `ocr_par` [`<p>`]
 
 These logical tags have their standard meaning as used in the publishing
 industry and tools like LaTeX, MS Word, and others.
@@ -240,7 +240,7 @@ The typesetting related elements therefore are:
 
 * `ocr_page`
 * `ocr_carea` ("ocr content area" or "body area"; used to be called ~~ocr_column~~)
-* `ocr_line` [`<SPAN>`]
+* `ocr_line` [`<span>`]
 * (floats)
 * `ocr_separator` (any separator or similar element)
 * `ocr_noise` (any noise element that isn't part of typesetting)
@@ -349,16 +349,16 @@ Floats should not be nested.
 There is some content that should behave and flow like text
 
 * `ocr_glyph` – an individual glyph represented as an image (e.g., an unrecognized character)
-  * must contain a single `<IMG>` tag, or be present on one
+  * must contain a single `<img>` tag, or be present on one
 * `ocr_glyphs` – multiple glyphs represented as an image (e.g., an unrecognized word)
-  * must contain a single `<IMG>` tag, or be present on one
+  * must contain a single `<img>` tag, or be present on one
 * `ocr_dropcap` – an individual glyph representing a dropcap
-  * may contain text or an `<IMG>` tag; the `ALT` of the image tag should
+  * may contain text or an `<img>` tag; the `ALT` of the image tag should
     contain the corresponding text
 * `ocr_chem` – a chemical formula
-  * must contain either a single `<IMG>` tag or ChemML markup, or be present on one
+  * must contain either a single `<img>` tag or ChemML markup, or be present on one
 * `ocr_math` – a mathematical formula
-  * must contain either a single `<IMG>` tag or MathML markup, or be present on one
+  * must contain either a single `<img>` tag or MathML markup, or be present on one
 
 Mathematical and chemical formulas that float must be put into an `ocr_float`
 section.
@@ -376,8 +376,8 @@ Different space widths should be indicated using HTML and `&ensp;`, `&emsp`, `&t
 The HTML `&lrm;` and `&rlm;` entities (indicating writing direction) must not
 be used; all writing direction changes must be indicated with tags.
 
-Other superscripts and subscripts must be represented using the HTML `<SUP>` and
-`<SUB>` tags, even if special Unicode characters are available.
+Other superscripts and subscripts must be represented using the HTML `<sup>` and
+`<sub>` tags, even if special Unicode characters are available.
 
 Furigana and similar constructs must be represented using their correct Unicode
 encoding.
@@ -496,7 +496,7 @@ elements.
 
 OCR information and presentation information can be separated by putting the
 CSS info related to the CSS in an outer element with an `ocr_` or `ocrx_` class,
-and then overriding it for the presentation by nesting another `<SPAN>` with the
+and then overriding it for the presentation by nesting another `<span>` with the
 actual presentation information inside that:
 
 ```
@@ -510,11 +510,11 @@ script](http://www.unicode.org/iso15924/codelists.html), text-indent, etc.
 
 ## 10 Alternative Segmentations / Readings
 
-Alternative segmentations and readings are indicated by a `<SPAN>` with
-`class="alternatives"`. It must contains `<INS>` and `<DEL>` elements. The first
-contained element should be `<INS>` and represent the most probable interpretation,
-the subsequent ones `<DEL>`. Each `<INS>` and `<DEL>` element should have `class="alt"` and a
-property of either `nlp` or `x_cost`. These `<SPAN>`, `<INS>`, and `<DEL>` tags can nest
+Alternative segmentations and readings are indicated by a `<span>` with
+`class="alternatives"`. It must contains `<ins>` and `<del>` elements. The first
+contained element should be `<ins>` and represent the most probable interpretation,
+the subsequent ones `<del>`. Each `<ins>` and `<del>` element should have `class="alt"` and a
+property of either `nlp` or `x_cost`. These `<span>`, `<ins>`, and `<del>` tags can nest
 arbitrarily.
 
 Example:
@@ -526,7 +526,7 @@ Example:
 </SPAN>
 ```
 
-Whitespace within the `<SPAN>` but outside the contained `<INS>`/`<DEL>`
+Whitespace within the `<span>` but outside the contained `<ins>`/`<del>`
 elements is ignored and should be inserted to improve readability of the HTML
 when viewed in a browser.
 
@@ -661,7 +661,7 @@ The HTML-based markup is orthogonal to the hOCR-based markup; that is, both can
 be chosen independent of one another. The only thing that needs to be
 consistent between the two markups is the text contained within the tags. hOCR
 and other embedded format tags can be put on HTML tags, or they can be put on
-their own `<DIV>`/`<SPAN>` tags.
+their own `<div>`/`<span>` tags.
 
 There are many different choices possible and reasonable for the HTML markup,
 depending on the use and further processing of the document. Each such choice
@@ -706,36 +706,36 @@ When possible, any mapping of logical structure onto HTML should try to follow t
 * text should be in reading order
 * all tags should be used for the intended purpose (and only for the intended
   purpose) as defined in the [HTML 4 spec](https://www.w3.org/TR/html4/).
-* floats are contained in `<DIV>` elements with a `style` that includes a float attribute
+* floats are contained in `<div>` elements with a `style` that includes a float attribute
 * repeating floating page elements (header/footer) should be repeated and occur
   in their natural location in reading order (e.g., between pages)
 * embedded images and SVG should be contained in files in the same directory
-  (no `/` in the URL) and embedded with `<IMG>` and `<EMBED>` tags, respectively
+  (no `/` in the URL) and embedded with `<img>` and `<embed>` tags, respectively
 
 Specifically
 
-* `<EM>` and `<STRONG>` should represent emphasis, and are preferred to `<B>`, `<I>`, and `<U>`
-* `<B>`, `<I>`, and `<U>` should represent a change in the corresponding
+* `<em>` and `<strong>` should represent emphasis, and are preferred to `<b>`, `<i>`, and `<u>`
+* `<b>`, `<i>`, and `<u>` should represent a change in the corresponding
   attribute for the current font (but an OCR font specification must still be
   given)
-* `<P>` should represent paragraph breaks
-* `<BR>` should represent explicit linebreaks (not linebreak that happen because of text flow)
-* `<H1>`, …, `<H6>` should represent the logical nesting structure (if any) of the document
-* `<A>` should represent hyperlinks and references within the document
-* `<BLOCKQUOTE>` should represent indented quotations, but not other uses of indented text.
-* `<UL>`, `<OL>`, `<DL>` should represent lists
-* `<TABLE>` should represent tables, including correct use of the `<TH>` tag
+* `<p>` should represent paragraph breaks
+* `<br>` should represent explicit linebreaks (not linebreak that happen because of text flow)
+* `<h1>`, …, `<h6>` should represent the logical nesting structure (if any) of the document
+* `<a>` should represent hyperlinks and references within the document
+* `<blockquote>` should represent indented quotations, but not other uses of indented text.
+* `<ul>`, `<ol>`, `<dl>` should represent lists
+* `<table>` should represent tables, including correct use of the `<th>` tag
 
 If necessary, the markup may use the following non-standard tags:
 
-* `<NOBR>` to indicate that line breaking is not permitted for the enclosed content
-* `<WBR>` to indicate that line breaking is permitted at that location
+* `<nobr>` to indicate that line breaking is not permitted for the enclosed content
+* `<wbr>` to indicate that line breaking is permitted at that location
 
 
 #### 15.2.1 html_none
 
 The simplest HTML markup for hOCR formats contains no logical markup at all; it
-is simply a collection of `<DIV>` and `<SPAN>` elements with associated hOCR
+is simply a collection of `<div>` and `<span>` elements with associated hOCR
 information. Note that such documents can still be rendered visually through
 the use of CSS.
 
@@ -744,17 +744,17 @@ the use of CSS.
 
 This is a format that follows the restrictions and recommendations above, and only uses the following tags:
 
-* `<H1>` … `<H6>`
-* `<P>`, `<BR>`
-* `<B>`, `<I>`, and `<U>` for appearance changes (bold, italic, underline)
-* `<FONT>` for any other appearance changes
-* `<A>`
-* `<DIV>` with a float style for floats
-* `<TABLE>` for tables
-* `<IMG>` for images
-* all SVG must be externally embedded with the `<EMBED>` tag
+* `<h1>` … `<h6>`
+* `<p>`, `<br>`
+* `<b>`, `<i>`, and `<u>` for appearance changes (bold, italic, underline)
+* `<font>` for any other appearance changes
+* `<a>`
+* `<div>` with a float style for floats
+* `<table>` for tables
+* `<img>` for images
+* all SVG must be externally embedded with the `<embed>` tag
 * the use of other embedded formats is permitted
-* all other uses of `<DIV>`, `<SPAN>`, `<INS>`, and `<DEL>` only for hOCR tags or other embedded formats (hCard, …)
+* all other uses of `<div>`, `<span>`, `<ins>`, and `<del>` only for hOCR tags or other embedded formats (hCard, …)
 
 
 #### 15.2.3 html_ocr_<engine>
@@ -789,8 +789,8 @@ The HTML is a table that gives the XY-cut layout segmentation structure of the
 page in tabular form. Note that in this format, text order does not necessarily
 correspond to reading order.
 
-The format must contain one `<TABLE>` of class ocr_xycut representing each page.
-The `<TABLE>` structure must represent the absolute size of the original page
+The format must contain one `<table>` of class ocr_xycut representing each page.
+The `<table>` structure must represent the absolute size of the original page
 element. The markup of the content of the table itself is as in html_simple.
 
 
