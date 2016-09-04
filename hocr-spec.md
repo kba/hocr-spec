@@ -1,6 +1,8 @@
 # The hOCR Embedded OCR Workflow and Output Format
 
-Thomas Breuel (editor)
+The purpose of this document is to define an open standard for representing OCR
+results. The goal is to reuse as much existing technology as possible, and to
+arrive at a representation that makes it easy to reuse OCR results.
 
 ## Table of Contents
 * [Revision History](#revision-history)
@@ -34,8 +36,10 @@ Thomas Breuel (editor)
 
 ## Revision History
 
+hOCR has been originally developed by Thomas Breuel.
+
 See the [releases](https://github.com/kba/hocr-spec/releases/) and full [commit
-history](https://github.com/kba/hocr-spec/commits/).
+history](https://github.com/kba/hocr-spec/commits/) for a revision history.
 
 ## 1 Rationale
 
