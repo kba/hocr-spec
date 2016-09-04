@@ -90,10 +90,10 @@ and attributes inside HTML; We are going to use the terms "elements" and
 "properties" for referring to embedded markup.
 
 Elements are defined by the class= attribute on an arbitrary HTML tag. All
-elements in this format have a class name of the form `ocr…_…`.
+elements in this format have a class name of the form `ocr..._...`.
 
 Properties are defined by putting information into the `title=` attribute of an
-HTML tag. Properties in title attributes are of the form “name values…”, and
+HTML tag. Properties in title attributes are of the form “name values...”, and
 multiple properties are separated by semicolons.
 
 Here is an example:
@@ -154,7 +154,7 @@ and between `ocr_carea` and `ocr_linear` elements.
 
 This property applies primarily to textlines
 
-* `baseline pn pn-1 … p0` - a polynomial describing the baseline of a line of
+* `baseline pn pn-1 ... p0` - a polynomial describing the baseline of a line of
   text
   * the polynomial is in the coordinate system of the line, with the bottom
     left of the bounding box as the origin
@@ -390,10 +390,10 @@ single "line" of text; if no other layout element applies, the `ocr_cinfo`
 element may be used.
 
 
-* `cuts c1 c2 c3 …`
+* `cuts c1 c2 c3 ...`
   * character segmentation cuts (see below)
   * there must be a bbox property relative to which the cuts can be interpreted
-* `nlp c1 c2 c3 …`
+* `nlp c1 c2 c3 ...`
   * estimate of the negative log probabilities of each character by the recognizer
 
 For left-to-write writing directions, cuts are sequences of deltas in the x and
@@ -465,14 +465,14 @@ The following properties are defined:
   * OCR-engine specific font names
 * `x_fsize n`
   * OCR-engine specific font size
-* `x_boxes b1x0 b1y0 b1x1 b1y1 b2x0 b2y0 b2x1 b2y1 …`
+* `x_boxes b1x0 b1y0 b1x1 b1y1 b2x0 b2y0 b2x1 b2y1 ...`
   * OCR-engine specific boxes associated with each codepoint contained in the
     element
   * note that the bbox property is a property for the bounding box of a layout
     element, not of individual characters
   * in particular, use `<span class="ocr_cinfo" title="x_bboxes ....">`, not
     `<span class="ocr_cinfo" title="bbox ...">`
-* `x_confs c1 c2 c3 …`
+* `x_confs c1 c2 c3 ...`
   * OCR-engine specific character confidences
   * `c1` etc. must be numbers
   * higher values should express higher confidences
@@ -572,7 +572,7 @@ includes listing the exact set of markup sections that the system could have
 generated, even if it did not actually generate them for the particular
 document.
 
-The capability to generate specific properties is given by the prefix `ocrp_…`;
+The capability to generate specific properties is given by the prefix `ocrp_...`;
 the important properties are:
 
 * `ocrp_lang` – capable of generating lang= attributes
@@ -720,7 +720,7 @@ Specifically
   given)
 * `<p>` should represent paragraph breaks
 * `<br>` should represent explicit linebreaks (not linebreak that happen because of text flow)
-* `<h1>`, …, `<h6>` should represent the logical nesting structure (if any) of the document
+* `<h1>`, ..., `<h6>` should represent the logical nesting structure (if any) of the document
 * `<a>` should represent hyperlinks and references within the document
 * `<blockquote>` should represent indented quotations, but not other uses of indented text.
 * `<ul>`, `<ol>`, `<dl>` should represent lists
@@ -744,7 +744,7 @@ the use of CSS.
 
 This is a format that follows the restrictions and recommendations above, and only uses the following tags:
 
-* `<h1>` … `<h6>`
+* `<h1>` ...  `<h6>`
 * `<p>`, `<br>`
 * `<b>`, `<i>`, and `<u>` for appearance changes (bold, italic, underline)
 * `<font>` for any other appearance changes
@@ -755,7 +755,6 @@ This is a format that follows the restrictions and recommendations above, and on
 * all SVG must be externally embedded with the `<embed>` tag
 * the use of other embedded formats is permitted
 * all other uses of `<div>`, `<span>`, `<ins>`, and `<del>` only for hOCR tags or other embedded formats (hCard, …)
-
 
 #### 15.2.3 html_ocr_<engine>
 
