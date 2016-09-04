@@ -106,6 +106,8 @@ Here is an example:
 
 The following properties can apply to most elements (where it makes sense):
 
+#### `bbox`
+
 * `bbox x0 y0 x1 y1` – the bounding box of the element relative to the
   binarized document image
   * use `x_bboxes` below for character bounding boxes
@@ -113,6 +115,8 @@ The following properties can apply to most elements (where it makes sense):
     fact, rectangular
   * some non-rectangular layout components may have rectangular bounding boxes
     if the non-rectangularity is caused by floating elements around which text flows
+
+See also the section [`bbox (typesetting)`](#bbox-typesetting).
 
 #### `textangle`
 
@@ -306,7 +310,7 @@ Should be in a `<SPAN>`
 
 The following properties should be present:
 
-#### `bbox`
+#### `bbox (typesetting)`
 
 * `bbox`
   * the bounding box of the page; for pages, the top left corner must be at
