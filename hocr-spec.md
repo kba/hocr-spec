@@ -728,9 +728,10 @@ The following properties are defined:
 
 * `x_fsize n`
   * OCR-engine specific font size
+
 #### `x_boxes`
 
-* `x_boxes b1x0 b1y0 b1x1 b1y1 b2x0 b2y0 b2x1 b2y1 ...`
+* `x_bboxes b1x0 b1y0 b1x1 b1y1 b2x0 b2y0 b2x1 b2y1 ...`
   * OCR-engine specific boxes associated with each codepoint contained in the
     element
   * note that the bbox property is a property for the bounding box of a layout
