@@ -1,50 +1,139 @@
 # The hOCR Embedded OCR Workflow and Output Format
 
-Thomas Breuel (editor)
+The purpose of this document is to define an open standard for representing OCR
+results. The goal is to reuse as much existing technology as possible, and to
+arrive at a representation that makes it easy to reuse OCR results.
 
 ## Table of Contents
+
+<!-- BEGIN-MARKDOWN-TOC -->
+* [Table of Contents](#table-of-contents)
 * [Revision History](#revision-history)
 * [1 Rationale](#1-rationale)
 * [2 Getting Started](#2-getting-started)
 * [3 Terminology and Representation](#3-terminology-and-representation)
+	* [General Properties](#general-properties)
+		* [`bbox`](#bbox)
+		* [`textangle`](#textangle)
+	* [Non-recommended general properties](#non-recommended-general-properties)
+		* [`poly`](#poly)
+		* [`order`](#order)
+		* [`presence`](#presence)
+		* [`cflow`](#cflow)
+		* [`baseline`](#baseline)
 * [4 Logical Structuring Elements](#4-logical-structuring-elements)
+	* [`ocr_document`](#ocr_document)
+	* [`ocr_title`](#ocr_title)
+	* [`ocr_author`](#ocr_author)
+	* [`ocr_abstract`](#ocr_abstract)
+	* [`ocr_part`](#ocr_part)
+	* [`ocr_chapter`](#ocr_chapter)
+	* [`ocr_section`](#ocr_section)
+	* [`ocr_subsubsection`](#ocr_subsubsection)
+	* [`ocr_display`](#ocr_display)
+	* [`ocr_blockquote`](#ocr_blockquote)
+	* [`ocr_par`](#ocr_par)
+	* [`ocr_linear`](#ocr_linear)
+	* [`ocr_caption`](#ocr_caption)
 * [5 Typesetting Related Elements](#5-typesetting-related-elements)
+	* [Classes for typesetting elements](#classes-for-typesetting-elements)
+		* [`ocr_page`](#ocr_page)
+		* [`ocr_column`](#ocr_column)
+		* [`ocr_carea`](#ocr_carea)
+		* [`ocr_line`](#ocr_line)
+		* [`ocr_separator`](#ocr_separator)
+		* [`ocr_noise`](#ocr_noise)
+	* [Recommended Properties for typesetting elements](#recommended-properties-for-typesetting-elements)
+		* [`bbox (typesetting)`](#bbox-typesetting)
+		* [`image`](#image)
+		* [`imagemd5`](#imagemd5)
+		* [`ppageno`](#ppageno)
+		* [`lpageno`](#lpageno)
+	* [Optional Properties for typesetting elements](#optional-properties-for-typesetting-elements)
+		* [`scan_res`](#scan_res)
+		* [`x_scanner`](#x_scanner)
+		* [`x_source`](#x_source)
+		* [`hardbreak`](#hardbreak)
+	* [Classes for floats](#classes-for-floats)
+		* [`ocr_float`](#ocr_float)
+		* [`ocr_separator`](#ocr_separator-1)
+		* [`ocr_textfloat`](#ocr_textfloat)
+		* [`ocr_textimage`](#ocr_textimage)
+		* [`ocr_image`](#ocr_image)
+		* [`ocr_linedrawing`](#ocr_linedrawing)
+		* [`ocr_photo`](#ocr_photo)
+		* [`ocr_header`](#ocr_header)
+		* [`ocr_footer`](#ocr_footer)
+		* [`ocr_pageno`](#ocr_pageno)
+		* [`ocr_table`](#ocr_table)
 * [6 Inline Representations](#6-inline-representations)
+	* [Classes for Inline Representation](#classes-for-inline-representation)
+		* [`ocr_glyph`](#ocr_glyph)
+		* [`ocr_glyphs`](#ocr_glyphs)
+		* [`ocr_dropcap`](#ocr_dropcap)
+		* [`ocr_glyphs`](#ocr_glyphs-1)
+		* [`ocr_chem`](#ocr_chem)
+		* [`ocr_math`](#ocr_math)
 * [7 Character Information](#7-character-information)
+	* [Clases for Character Information](#clases-for-character-information)
+		* [`ocr_cinfo`](#ocr_cinfo)
+	* [Properties for Character Information](#properties-for-character-information)
+		* [`cuts`](#cuts)
+		* [`nlp`](#nlp)
 * [8 OCR Engine-Specific Markup](#8-ocr-engine-specific-markup)
+	* [Classes for engine specific markup](#classes-for-engine-specific-markup)
+		* [`ocrx_block`](#ocrx_block)
+		* [`ocrx_line`](#ocrx_line)
+		* [`ocrx_word`](#ocrx_word)
+	* [Properties for engine-specific markup](#properties-for-engine-specific-markup)
+		* [`x_font`](#x_font)
+		* [`x_fsize`](#x_fsize)
+		* [`x_boxes`](#x_boxes)
+		* [`x_confs`](#x_confs)
+		* [`x_wconf`](#x_wconf)
 * [9 Font, Text Color, Language, Direction](#9-font-text-color-language-direction)
 * [10 Alternative Segmentations / Readings](#10-alternative-segmentations--readings)
 * [11 Grouped Elements and Multiple Hierarchies](#11-grouped-elements-and-multiple-hierarchies)
 * [12 Capabilities](#12-capabilities)
+	* [`ocrp_lang`](#ocrp_lang)
+	* [`ocrp_dir`](#ocrp_dir)
+	* [`ocrp_poly`](#ocrp_poly)
+	* [`ocrp_font`](#ocrp_font)
+	* [`ocrp_nlp`](#ocrp_nlp)
+	* [`ocr_embeddedformat_<formatname>`](#ocr_embeddedformat_)
+	* [`ocr_<tag>_unordered`](#ocr__unordered)
 * [13 Profiles](#13-profiles)
 * [14 Required Meta Information](#14-required-meta-information)
 * [15 HTML Markup](#15-html-markup)
-  * [15.1 Restrictions on HTML Content](#151-restrictions-on-html-content)
-  * [15.2 Recommendations for Mappings](#152-recommendations-for-mappings)
-    * [15.2.1 html_none](#1521-html_none)
-    * [15.2.2 html_simple](#1522-html_simple)
-    * [15.2.3 html_ocr_](#1523-html_ocr_)
-    * [15.2.4 html_absolute_](#1524-html_absolute_)
-    * [15.2.5 html_xytable_absolute](#1525-html_xytable_absolute)
-    * [15.2.6 html_xytable_relative](#1526-html_xytable_relative)
-    * [15.2.7 html_](#1527-html_)
+	* [`html_none`](#html_none)
+	* [`html_ocr`](#html_ocr)
+	* [`html_absolute`](#html_absolute)
+	* [`html_xytable`](#html_xytable)
+	* [`html_simpl`](#html_simpl)
+	* [15.1 Restrictions on HTML Content](#151-restrictions-on-html-content)
+	* [15.2 Recommendations for Mappings](#152-recommendations-for-mappings)
+		* [15.2.1 html_none](#1521-html_none)
+		* [15.2.2 html_simple](#1522-html_simple)
+		* [15.2.3 html_ocr_<engine>](#1523-html_ocr_)
+		* [15.2.4 html_absolute_<element>](#1524-html_absolute_)
+		* [15.2.5 html_xytable_absolute](#1525-html_xytable_absolute)
+		* [15.2.6 html_xytable_relative](#1526-html_xytable_relative)
+		* [15.2.7 html_<processor>](#1527-html_)
+			* [`html_latex2html`](#html_latex2html)
+			* [`html_msword`](#html_msword)
+			* [`html_ooffice`](#html_ooffice)
+			* [`html_docbook_xsl`](#html_docbook_xsl)
 * [16 Document Meta Information](#16-document-meta-information)
 * [17 Sample Usage](#17-sample-usage)
 
+<!-- END-MARKDOWN-TOC -->
+
 ## Revision History
 
-### 2016-03-02
+hOCR has been originally developed by Thomas Breuel.
 
-* Markdown version (@kba)
-
-###  March 2010 
-
-* bug fixes, clarifications (@tmbdev)
-
-### December 2007 
-
-* initial release (@tmbdev)
-
+See the [releases](https://github.com/kba/hocr-spec/releases/) and full [commit
+history](https://github.com/kba/hocr-spec/commits/) for a revision history.
 
 ## 1 Rationale
 
@@ -107,7 +196,11 @@ Here is an example:
 </div>
 ```
 
+### General Properties
+
 The following properties can apply to most elements (where it makes sense):
+
+#### `bbox`
 
 * `bbox x0 y0 x1 y1` – the bounding box of the element relative to the
   binarized document image
@@ -117,6 +210,10 @@ The following properties can apply to most elements (where it makes sense):
   * some non-rectangular layout components may have rectangular bounding boxes
     if the non-rectangularity is caused by floating elements around which text flows
 
+See also the section [`bbox (typesetting)`](#bbox-typesetting).
+
+#### `textangle`
+
 * `textangle alpha` - the angle in degrees by which textual content has been
   rotate relative to the rest of the page (if not present, the angle is assumed
   to be zero); rotations are counter-clockwise, so an angle of 90 degrees is
@@ -124,8 +221,12 @@ The following properties can apply to most elements (where it makes sense):
   different from reading order, which should be indicated using standard HTML
   properties
 
+### Non-recommended general properties
+
 The following properties can apply to most elements but should not be used
 unless there is no alternative:
+
+#### `poly`
 
 * `poly x0 y0 x1 y1 ...` - a closed polygon for elements with non-rectangular bounds
   * this property must not be used unless there is no other way of
@@ -137,14 +238,22 @@ unless there is no alternative:
   * documents using polygonal borders anywhere must indicate this in the
     metadata
   * documents should attempt to provide a reasonable bbox equivalent as well
+
+#### `order`
+
 * `order n` – the reading order of the element (an integer)
   * this property must not be used unless there is no other way of representing
     the reading order of the page by element ordering within the page, since
     many tools will not be able to deal with content that is not in reading order
+
+#### `presence`
+
 * `presence` presence must be declared in the document meta data
 
 The following property relates the flow between multiple `ocr_carea` elements,
 and between `ocr_carea` and `ocr_linear` elements.
+
+#### `cflow`
 
 * `cflow s` – the content flow on the page that this element is a part of
   * s must be a unique string for each content flow
@@ -154,6 +263,8 @@ and between `ocr_carea` and `ocr_linear` elements.
 
 This property applies primarily to textlines
 
+#### `baseline`
+
 * `baseline pn pn-1 ... p0` - a polynomial describing the baseline of a line of
   text
   * the polynomial is in the coordinate system of the line, with the bottom
@@ -162,6 +273,7 @@ This property applies primarily to textlines
 ## 4 Logical Structuring Elements
 
 We recognize the following logical structuring elements:
+
 * `ocr_document`
   * `ocr_linear`
     * `ocr_title`
@@ -175,6 +287,18 @@ We recognize the following logical structuring elements:
             * `ocr_blockquote` [`<blockquote>`]
             * `ocr_par` [`<p>`]
 
+### `ocr_document`
+### `ocr_title`
+### `ocr_author`
+### `ocr_abstract`
+### `ocr_part`
+### `ocr_chapter`
+### `ocr_section`
+### `ocr_subsubsection`
+### `ocr_display`
+### `ocr_blockquote`
+### `ocr_par`
+
 These logical tags have their standard meaning as used in the publishing
 industry and tools like LaTeX, MS Word, and others.
 
@@ -182,6 +306,8 @@ The standard HTML tags given in brackets specify the preferred HTML tags to use
 with those logical structuring elements, but it may not be possible or
 desirable to actually chose those tags (e.g., when adding hOCR information to
 an existing HTML output routine).
+
+### `ocr_linear`
 
 For all of these elements except `ocr_linear`, there exists a natural linear
 ordering defined by reading order (`ocr_linear` indicates that the elements
@@ -199,6 +325,8 @@ text inside the containing element.
 
 Documents whose logical structure does not map naturally onto these logical
 structuring elemetns must not use them for other purpose.
+
+### `ocr_caption`
 
 Image captions may be indicated using the `ocr_caption` element; such an
 element refers to the image(s) contained within the same float, or the
@@ -236,22 +364,53 @@ shapes can be realized.
 **Issue: there is currently no way of indicating anchoring or flow-around
 properties for floating elements; properties need to be defined for this.**
 
-The typesetting related elements therefore are:
+### Classes for typesetting elements
+
+The following classes, as well as [floats](#classes-for-floats) are used for type-setting
+elements.
+
+#### `ocr_page`
 
 * `ocr_page`
-* `ocr_carea` ("ocr content area" or "body area"; used to be called ~~ocr_column~~)
-* `ocr_line` [`<span>`]
-* (floats)
-* `ocr_separator` (any separator or similar element)
-* `ocr_noise` (any noise element that isn't part of typesetting)
 
 The `ocr_page` element must be present in all hOCR documents.
 
+#### `ocr_column`
+
+**DEPRECATED**: Please use [`ocr_carea`](#ocr_carea) instead
+
+#### `ocr_carea`
+
+* `ocr_carea`
+
+"ocr content area" or "body area"
+
+Used to be called ~~ocr_column~~
+
+#### `ocr_line`
+
+Should be in a `<SPAN>`
+
+#### `ocr_separator`
+
+* `ocr_separator` (any separator or similar element)
+
+#### `ocr_noise`
+
+* `ocr_noise` (any noise element that isn't part of typesetting)
+
+### Recommended Properties for typesetting elements
+
 The following properties should be present:
+
+#### `bbox (typesetting)`
 
 * `bbox`
   * the bounding box of the page; for pages, the top left corner must be at
     `(0,0)`, so a typical page bounding box will look like `bbox 0 0 2300 3200`
+
+#### `image`
+
 * `image imagefile`
   * image file name used as input
   * syntactically, must be a UNIX-like pathname or http URL (no Windows pathnames)
@@ -260,27 +419,45 @@ The following properties should be present:
     becomes separated from the image fiels)
   * if the hOCR file is present in a directory hierarchy or file archive, should
     resolve to the corresponding image file
+
+#### `imagemd5`
+
 * `imagemd5 checksum`
   * MD5 fingerprint of the image file that this page was derived from
   * allows re-associating pages with source images
+
+#### `ppageno`
+
 * `ppageno n`
   * the physical page number
   * the front cover is page number 0
   * should be unique
   * must not be present unless the pages in the document have a physical ordering
   * must not be present unless it is well defined and unique
+
+#### `lpageno`
+
 * `lpageno string`
   * the logical page number expressed on the page
   * may not be numerical (e.g., Roman numerals)
   * usually is unique
   * must not be present unless it has been recognized from the page and is unambiguous
 
+### Optional Properties for typesetting elements
+
 The following properties MAY be present:
+
+#### `scan_res`
 
 * `scan_res x_res y_res`
   * scanning resolution in DPI
+#### `x_scanner`
+
 * `x_scanner string`
   * a representation of the scanner
+
+#### `x_source`
+
 * `x_source string`
   * an implementation-dependent representation of the document source
   * could be a URL or a /gfs/ path
@@ -302,6 +479,8 @@ typesetting blocks that only contain glyphs (“inlines” in XSL terminology).
 
 They are represented by the `ocr_line` area. In addition to the standard
 properties, the `ocr_line` area supports the following additional properties:
+
+#### `hardbreak`
 
 * `hardbreak n`
   * a zero (default) indicates that the end of the line is not a hard
@@ -326,37 +505,91 @@ individual page shall be considered correct relative to ground truth if
 3. the `ocr_careas` appear in the same order as the text flow
   relationships between the ground truth careas.
 
-The following floats are defined:
-
-* `ocr_float`
-* `ocr_separator`
-* `ocr_textfloat`
-* `ocr_textimage`
-* `ocr_image`
-* `ocr_linedrawing` – something that could be represented well and naturally in
-  a vector graphics format like SVG (even if it is actually represented as PNG)
-* `ocr_photo` – something that requires JPEG or PNG to be represented well
-* `ocr_header`
-* `ocr_footer`
-* `ocr_pageno`
-* `ocr_table`
+### Classes for floats
 
 Floats should not be nested.
 
+The following floats are defined:
+
+#### `ocr_float`
+
+* `ocr_float`
+
+#### `ocr_separator`
+
+* `ocr_separator`
+
+#### `ocr_textfloat`
+
+* `ocr_textfloat`
+
+#### `ocr_textimage`
+
+* `ocr_textimage`
+
+#### `ocr_image`
+
+* `ocr_image`
+
+#### `ocr_linedrawing`
+
+* `ocr_linedrawing` – something that could be represented well and naturally in
+  a vector graphics format like SVG (even if it is actually represented as PNG)
+
+#### `ocr_photo`
+
+* `ocr_photo` – something that requires JPEG or PNG to be represented well
+
+#### `ocr_header`
+
+* `ocr_header`
+
+#### `ocr_footer`
+
+* `ocr_footer`
+
+#### `ocr_pageno`
+
+* `ocr_pageno`
+
+#### `ocr_table`
+
+* `ocr_table`
 
 ## 6 Inline Representations
 
 There is some content that should behave and flow like text
 
+### Classes for Inline Representation
+
+#### `ocr_glyph`
+
 * `ocr_glyph` – an individual glyph represented as an image (e.g., an unrecognized character)
-  * must contain a single `<img>` tag, or be present on one
+  * must contain a single `<IMG>` tag, or be present on one
+
+#### `ocr_glyphs`
+
 * `ocr_glyphs` – multiple glyphs represented as an image (e.g., an unrecognized word)
-  * must contain a single `<img>` tag, or be present on one
+  * must contain a single `<IMG>` tag, or be present on one
+
+#### `ocr_dropcap`
+
 * `ocr_dropcap` – an individual glyph representing a dropcap
   * may contain text or an `<img>` tag; the `ALT` of the image tag should
     contain the corresponding text
+
+#### `ocr_glyphs`
+
+* `ocr_glyphs` – a collection of glyphs represented as an image
+  * must contain a single `<IMG>` tag, or be present on one
+
+#### `ocr_chem`
+
 * `ocr_chem` – a chemical formula
-  * must contain either a single `<img>` tag or ChemML markup, or be present on one
+  * must contain either a single `<IMG>` tag or ChemML markup, or be present on one
+
+#### `ocr_math`
+
 * `ocr_math` – a mathematical formula
   * must contain either a single `<img>` tag or MathML markup, or be present on one
 
@@ -385,14 +618,25 @@ encoding.
 
 ## 7 Character Information
 
-Character-level information may be put on any element that contains only a
-single "line" of text; if no other layout element applies, the `ocr_cinfo`
-element may be used.
+### Clases for Character Information
 
+Character-level information may be put on any element that contains only a
+single "line" of text.
+
+#### `ocr_cinfo`
+
+If no other layout element applies, the `ocr_cinfo` element may be used.
+
+### Properties for Character Information
+
+#### `cuts`
 
 * `cuts c1 c2 c3 ...`
   * character segmentation cuts (see below)
   * there must be a bbox property relative to which the cuts can be interpreted
+
+#### `nlp`
+
 * `nlp c1 c2 c3 ...`
   * estimate of the negative log probabilities of each character by the recognizer
 
@@ -438,12 +682,22 @@ existing OCR output, say for workflow abstractions.
 
 Common suggested engine-specific markup are:
 
+### Classes for engine specific markup
+
+#### `ocrx_block`
+
 * `ocrx_block`
   * any kind of "block" returned by an OCR system
   * engine-specific because the definition of a "block" depends on the engine
+
+#### `ocrx_line`
+
 * `ocrx_line`
   * any kind of "line" returned by an OCR system that differs from the standard ocr_line above
   * might be some kind of "logical" line
+
+#### `ocrx_word`
+
 * `ocrx_word`
   * any kind of "word" returned by an OCR system
   * engine specific because the definition of a "word" depends on the engine
@@ -459,25 +713,41 @@ attempt to ensure the following properties:
 * `ocrx_cinfo` should nest inside `ocrx_line`
 * `ocrx_cinfo` should contain only `x_conf`, `x_bboxes`, and `cuts` attributes
 
+### Properties for engine-specific markup
+
 The following properties are defined:
+
+#### `x_font`
 
 * `x_font s`
   * OCR-engine specific font names
+
+#### `x_fsize`
+
 * `x_fsize n`
   * OCR-engine specific font size
-* `x_boxes b1x0 b1y0 b1x1 b1y1 b2x0 b2y0 b2x1 b2y1 ...`
+
+#### `x_boxes`
+
+* `x_bboxes b1x0 b1y0 b1x1 b1y1 b2x0 b2y0 b2x1 b2y1 ...`
   * OCR-engine specific boxes associated with each codepoint contained in the
     element
   * note that the bbox property is a property for the bounding box of a layout
     element, not of individual characters
   * in particular, use `<span class="ocr_cinfo" title="x_bboxes ....">`, not
     `<span class="ocr_cinfo" title="bbox ...">`
+
+#### `x_confs`
+
 * `x_confs c1 c2 c3 ...`
   * OCR-engine specific character confidences
   * `c1` etc. must be numbers
   * higher values should express higher confidences
   * if possible, convert character confidences to values between 0 and 100 and
     have them approximate posterior probabilities (expressed in %)
+
+#### `x_wconf`
+
 * `x_wconf n`
   * OCR-engine specific confidence for the entire contained substring
   * n must be a number
@@ -535,7 +805,7 @@ when viewed in a browser.
 
 The different levels of layout information (logical, physical, engine-specific)
 each form hierarchies, but those hierarchies may not be mutually compatible;
-for example, a single ocr_page may contain information from multiple sections
+for example, a single `ocr_page` may contain information from multiple sections
 or chapters. To represent both hierarchies within a single document, elements
 may be grouped together.  That is, two elements with the same class may be
 treated as one element by adding a "groupid identifier" property to them and
@@ -553,8 +823,8 @@ removing tags that are not of interest for the subsequent processing step, and
 then collapsing grouped elements into single elements.  For example, output
 that contains both logical and physical layout information, where the logical
 layout information uses grouped elements, can be transformed by removing all
-the physical layout information, and then collapsing all split ocr_chapter
-elements into single ocr_chapter elements based on the groupid.  The result is
+the physical layout information, and then collapsing all split `ocr_chapter`
+elements into single `ocr_chapter` elements based on the groupid.  The result is
 a simple DOM tree.  This transformation can be provided generically as a
 pre-processor or Javascript.
 
@@ -575,14 +845,32 @@ document.
 The capability to generate specific properties is given by the prefix `ocrp_...`;
 the important properties are:
 
-* `ocrp_lang` – capable of generating lang= attributes
-* `ocrp_dir` – capable of generating dir= attributes
-* `ocrp_poly` – capable of generating polygonal bounds
+### `ocrp_lang`
+
+* `ocrp_lang` – capable of generating `lang=` attributes
+
+### `ocrp_dir`
+
+* `ocrp_dir` – capable of generating `dir=` attributes
+
+### `ocrp_poly`
+
+* `ocrp_poly` – capable of generating [polygonal bounds](#poly)
+
+### `ocrp_font`
+
 * `ocrp_font` – capable of generating font information (standard font information)
-* `ocrp_nlp` – capable of generating nlp confidences
+
+### `ocrp_nlp`
+
+* `ocrp_nlp` – capable of generating [nlp confidences](#nlp)
+
+### `ocr_embeddedformat_<formatname>`
 
 The capability to generate other specific embedded formats is given by the
 prefix `ocr_embeddedformat_<formatname>`.
+
+### `ocr_<tag>_unordered`
 
 If an OCR engine represents a particular tag but cannot determine reading order
 for that tag, it must must specify a capability of `ocr_<tag>_unordered`.
@@ -675,10 +963,24 @@ Depending on the particular HTML markup used in the document, the document is
 suitable for different kinds of processing and use. The formats have the
 following intents:
 
+### `html_none`
+
 * `html_none`: straightforward equivalent of Goodoc or XDOC
+
+### `html_ocr`
+
 * `html_ocr`: straightforward recording of commercial OCR system output
+
+### `html_absolute`
+
 * `html_absolute`: target format for services like Google's View as HTML
+
+### `html_xytable`
+
 * `html_xytable`: target format for layout-preserving on-screen document viewing
+
+### `html_simpl`
+
 * `html_simpl`: target format for convenient on-line viewing and intermediate format for indexing
 
 As long as a format contains the hOCR information, it can be reprocessed by
@@ -811,9 +1113,20 @@ logical markup tags that an equivalent article actually written in LaTeX and
 actually converted to HTML would have used. Possible subformats are:
 
 
+##### `html_latex2html`
+
 * `html_latex2html`
+
+##### `html_msword`
+
 * `html_msword` – HTML mapping generated by “Save As HTML”
+
+##### `html_ooffice`
+
 * `html_ooffice` – HTML mapping generated by “Save As HTML”
+
+##### `html_docbook_xsl`
+
 * `html_docbook_xsl` – HTML mapping generated by official XSL style sheets
 
 
