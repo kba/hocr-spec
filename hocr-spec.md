@@ -586,12 +586,14 @@ There is some content that should behave and flow like text
 #### `ocr_chem`
 
 * `ocr_chem` – a chemical formula
-  * must contain either a single `<img>` tag or ChemML markup, or be present on one
+  * must contain either a single `<img>` tag or
+    [ChemML](http://www.xml-cml.org/) markup, or be present on one
 
 #### `ocr_math`
 
 * `ocr_math` – a mathematical formula
-  * must contain either a single `<img>` tag or MathML markup, or be present on one
+  * must contain either a single `<img>` tag or
+    [MathML](https://www.w3.org/Math/) markup, or be present on one
 
 Mathematical and chemical formulas that float must be put into an `ocr_float`
 section.
