@@ -74,6 +74,11 @@ arrive at a representation that makes it easy to reuse OCR results.
 		* [`ocr_glyphs`](#ocr_glyphs-1)
 		* [`ocr_chem`](#ocr_chem)
 		* [`ocr_math`](#ocr_math)
+		* [Non-breaking space](#non-breaking-space)
+		* [Non-default spaces](#non-default-spaces)
+		* [Hyphenation](#hyphenation)
+		* [Superscript and Subscript](#superscript-and-subscript)
+		* [Ruby characters](#ruby-characters)
 * [7 Character Information](#7-character-information)
 	* [Clases for Character Information](#clases-for-character-information)
 		* [`ocr_cinfo`](#ocr_cinfo)
@@ -601,22 +606,31 @@ section.
 Mathematical and chemical formulas that are “display” mode should be put into
 an `ocr_display` section.
 
+#### Non-breaking space
+
 Non-breaking spaces must be represented using the HTML `&nbsp;` entity.
 
-Soft hyphens must be represented using the HTML `&shy;` entity.
+#### Non-default spaces
 
-Different space widths should be indicated using HTML and `&ensp;`, `&emsp`, `&thinsp;`,
-`&zwnj;`, `&zwj;`.
+Different space widths should be indicated using HTML and `&ensp;`, `&emsp`,
+`&thinsp;`, `&zwnj;`, `&zwj;`.
+
+#### Hyphenation
+
+Soft hyphens must be represented using the HTML `&shy;` entity.
 
 The HTML `&lrm;` and `&rlm;` entities (indicating writing direction) must not
 be used; all writing direction changes must be indicated with tags.
 
+#### Superscript and Subscript
+
 Other superscripts and subscripts must be represented using the HTML `<sup>` and
 `<sub>` tags, even if special Unicode characters are available.
 
-Furigana and similar constructs must be represented using their correct Unicode
-encoding.
+#### Ruby characters
 
+[Furigana and similar constructs](https://en.wikipedia.org/wiki/Ruby_character)
+must be represented using their correct Unicode encoding.
 
 ## 7 Character Information
 
