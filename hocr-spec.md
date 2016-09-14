@@ -965,7 +965,7 @@ following intents:
 
 ### `html_none`
 
-* `html_none`: straightforward equivalent of Goodoc or XDOC
+* `html_none`: straightforward equivalent of Goodoc or [XDOC](http://www.vividata.com/manuals/core12xdc.pdf)
 
 ### `html_ocr`
 
