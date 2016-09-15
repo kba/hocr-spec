@@ -807,8 +807,8 @@ Example:
 
 ```html
 <span class="alternatives">
-<ins class="alt" title="nlp 0.3">hello</ins>
-<del class="alt" title="nlp 1.1">hallo</del>
+  <ins class="alt" title="nlp 0.3">hello</ins>
+  <del class="alt" title="nlp 1.1">hallo</del>
 </span>
 ```
 
