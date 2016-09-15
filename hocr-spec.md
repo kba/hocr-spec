@@ -389,7 +389,7 @@ Used to be called ~~ocr_column~~
 
 #### `ocr_line`
 
-Should be in a `<SPAN>`
+Should be in a `<span>`
 
 #### `ocr_separator`
 
@@ -565,12 +565,12 @@ There is some content that should behave and flow like text
 #### `ocr_glyph`
 
 * `ocr_glyph` – an individual glyph represented as an image (e.g., an unrecognized character)
-  * must contain a single `<IMG>` tag, or be present on one
+  * must contain a single `<img>` tag, or be present on one
 
 #### `ocr_glyphs`
 
 * `ocr_glyphs` – multiple glyphs represented as an image (e.g., an unrecognized word)
-  * must contain a single `<IMG>` tag, or be present on one
+  * must contain a single `<img>` tag, or be present on one
 
 #### `ocr_dropcap`
 
@@ -581,12 +581,12 @@ There is some content that should behave and flow like text
 #### `ocr_glyphs`
 
 * `ocr_glyphs` – a collection of glyphs represented as an image
-  * must contain a single `<IMG>` tag, or be present on one
+  * must contain a single `<img>` tag, or be present on one
 
 #### `ocr_chem`
 
 * `ocr_chem` – a chemical formula
-  * must contain either a single `<IMG>` tag or ChemML markup, or be present on one
+  * must contain either a single `<img>` tag or ChemML markup, or be present on one
 
 #### `ocr_math`
 
@@ -790,10 +790,10 @@ arbitrarily.
 Example:
 
 ```html
-<SPAN class="alternatives">
-<INS class="alt" title="nlp 0.3">hello</INS>
-<DEL class="alt" title="nlp 1.1">hallo</DEL>
-</SPAN>
+<span class="alternatives">
+  <ins class="alt" title="nlp 0.3">hello</ins>
+  <del class="alt" title="nlp 1.1">hallo</del>
+</span>
 ```
 
 Whitespace within the `<span>` but outside the contained `<ins>`/`<del>`
