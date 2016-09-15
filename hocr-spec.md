@@ -358,7 +358,7 @@ Overlayed onto the page is a set of floating elements; floating elements exist
 outside the normal reading order. Floating elements may be introduced by the
 textual content, or they may be related to the page itself (anchoring is a
 logical property). In typesetting systems, floating elements may be anchored to
-the page, to paragraphs, or to the content stream. Floating pelements can
+the page, to paragraphs, or to the content stream. Floating elements can
 overlap content areas and render on top of or under content, or they can force
 content to flow around them. The default for floating elements in this spec is
 that their anchor is undefined (it is a logical property, not a typesetting
@@ -807,8 +807,8 @@ Example:
 
 ```html
 <span class="alternatives">
-<ins class="alt" title="nlp 0.3">hello</ins>
-<del class="alt" title="nlp 1.1">hallo</del>
+  <ins class="alt" title="nlp 0.3">hello</ins>
+  <del class="alt" title="nlp 1.1">hallo</del>
 </span>
 ```
 
