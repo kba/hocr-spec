@@ -80,7 +80,7 @@ arrive at a representation that makes it easy to reuse OCR results.
 		* [Superscript and Subscript](#superscript-and-subscript)
 		* [Ruby characters](#ruby-characters)
 * [7 Character Information](#7-character-information)
-	* [Clases for Character Information](#clases-for-character-information)
+	* [Classes for Character Information](#classes-for-character-information)
 		* [`ocr_cinfo`](#ocr_cinfo)
 	* [Properties for Character Information](#properties-for-character-information)
 		* [`cuts`](#cuts)
@@ -634,7 +634,7 @@ must be represented using their correct Unicode encoding.
 
 ## 7 Character Information
 
-### Clases for Character Information
+### Classes for Character Information
 
 Character-level information may be put on any element that contains only a
 single "line" of text.
