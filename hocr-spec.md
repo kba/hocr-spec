@@ -71,7 +71,6 @@ arrive at a representation that makes it easy to reuse OCR results.
 		* [`ocr_glyph`](#ocr_glyph)
 		* [`ocr_glyphs`](#ocr_glyphs)
 		* [`ocr_dropcap`](#ocr_dropcap)
-		* [`ocr_glyphs`](#ocr_glyphs-1)
 		* [`ocr_chem`](#ocr_chem)
 		* [`ocr_math`](#ocr_math)
 		* [Non-breaking space](#non-breaking-space)
@@ -582,11 +581,6 @@ There is some content that should behave and flow like text
 * `ocr_dropcap` – an individual glyph representing a dropcap
   * may contain text or an `<img>` tag; the `alt` of the image tag should
     contain the corresponding text
-
-#### `ocr_glyphs`
-
-* `ocr_glyphs` – a collection of glyphs represented as an image
-  * must contain a single `<img>` tag, or be present on one
 
 #### `ocr_chem`
 
