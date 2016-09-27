@@ -2548,32 +2548,32 @@ parse, but because there are lots of tools for manipulating HTML documents,
 they’re actually pretty easy to manipulate. Here are some examples:</p>
 <pre class="language-python highlight"><span class="kn">import</span> <span class="nn">libxml2</span><span class="o">,</span><span class="nn">re</span><span class="o">,</span><span class="nn">os</span><span class="o">,</span><span class="nn">string</span>
 
- <span class="n">convert</span> <span class="n">the</span> <span class="n">HTML</span> <span class="n">to</span> <span class="n">XHTML</span> <span class="p">(</span><span class="k">if</span> <span class="n">necessary</span><span class="p">)</span>
+<span class="c"># convert the HTML to XHTML (if necessary)</span>
 <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">"</span><span class="s">tidy -q -asxhtml &lt; page.html > page.xhtml 2> /dev/null</span><span class="s">"</span><span class="p">)</span>
 
- <span class="n">parse</span> <span class="n">the</span> <span class="n">XML</span>
+<span class="c"># parse the XML</span>
 <span class="n">doc</span> <span class="o">=</span> <span class="n">libxml2</span><span class="o">.</span><span class="n">parseFile</span><span class="p">(</span><span class="s">'</span><span class="s">page.xhtml</span><span class="s">'</span><span class="p">)</span>
 
- <span class="n">search</span> all <span class="n">nodes</span> <span class="n">having</span> <span class="n">a</span> <span class="k">class</span> <span class="nc">of</span> <span class="n">ocr_line</span>
+<span class="c"># search all nodes having a class of ocr_line</span>
 <span class="n">lines</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">xpathEval</span><span class="p">(</span><span class="s">"</span><span class="s">//*[@class=</span><span class="s">'</span><span class="s">ocr_line</span><span class="s">'</span><span class="s">]</span><span class="s">"</span><span class="p">)</span>
 
- <span class="n">a</span> <span class="n">function</span> <span class="k">for</span> <span class="n">extracting</span> <span class="n">the</span> <span class="n">text</span> <span class="kn">from</span> <span class="nn">a</span> <span class="nn">node</span>
+<span class="c"># a function for extracting the text from a node</span>
 <span class="k">def</span> <span class="nf">get_text</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="p">:</span>
     <span class="n">textnodes</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">xpathEval</span><span class="p">(</span><span class="s">"</span><span class="s">.//text()</span><span class="s">"</span><span class="p">)</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">getContent</span><span class="p">(</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">textnodes</span><span class="p">]</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">r'</span><span class="s">\</span><span class="s">s+</span><span class="s">'</span><span class="p">,</span><span class="s">'</span><span class="s"> </span><span class="s">'</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
 
- <span class="n">a</span> <span class="n">function</span> <span class="k">for</span> <span class="n">extracting</span> <span class="n">the</span> <span class="n">bbox</span> property <span class="kn">from</span> <span class="nn">a</span> <span class="nn">node</span>
- <span class="n">note</span> <span class="n">that</span> <span class="n">the</span> <span class="n">title</span><span class="o">=</span> <span class="n">attribute</span> <span class="n">on</span> <span class="n">a</span> <span class="n">node</span> <span class="k">with</span> <span class="n">an</span> <span class="n">ocr_</span> <span class="k">class</span> <span class="nc">must</span>
- <span class="n">conform</span> <span class="k">with</span> <span class="n">the</span> <span class="n">OCR</span> <span class="n">spec</span>
+<span class="c"># a function for extracting the bbox property from a node</span>
+<span class="c"># note that the title= attribute on a node with an ocr_ class must</span>
+<span class="c"># conform with the OCR spec</span>
 
 <span class="k">def</span> <span class="nf">get_bbox</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">prop</span><span class="p">(</span><span class="s">'</span><span class="s">title</span><span class="s">'</span><span class="p">)</span>
     <span class="n">bboxre</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r'</span><span class="s">\</span><span class="s">bbbox</span><span class="s">\</span><span class="s">s+(</span><span class="s">\</span><span class="s">d+)</span><span class="s">\</span><span class="s">s+(</span><span class="s">\</span><span class="s">d+)</span><span class="s">\</span><span class="s">s+(</span><span class="s">\</span><span class="s">d+)</span><span class="s">\</span><span class="s">s+(</span><span class="s">\</span><span class="s">d+)</span><span class="s">'</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">[</span>int<span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">bboxre</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span><span class="p">(</span><span class="p">)</span><span class="p">]</span>
 
- <span class="n">this</span> <span class="n">extracts</span> all <span class="n">the</span> <span class="n">bounding</span> <span class="n">boxes</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">text</span> <span class="n">they</span> <span class="n">contain</span>
- <span class="n">it</span> <span class="n">doesn</span>’<span class="n">t</span> <span class="n">matter</span> <span class="n">what</span> <span class="n">other</span> <span class="n">markup</span> <span class="n">the</span> <span class="n">line</span> <span class="n">node</span> <span class="n">may</span> <span class="n">contain</span>
+<span class="c"># this extracts all the bounding boxes and the text they contain</span>
+<span class="c"># it doesn’t matter what other markup the line node may contain</span>
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
     <span class="k">print</span> <span class="n">get_bbox</span><span class="p">(</span><span class="n">line</span><span class="p">)</span><span class="p">,</span><span class="n">get_text</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre>
