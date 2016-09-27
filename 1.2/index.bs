@@ -37,7 +37,7 @@ hOCR has been originally developed by Thomas Breuel.
 See the [releases](https://github.com/kba/hocr-spec/releases/) and full [commit
 history](https://github.com/kba/hocr-spec/commits/) for a revision history.
 
-# 2 Getting Started
+# Getting Started
 
 This document describes many tags and a lot of information that can be output.
 However, getting started with hOCR is easy: you only need to output the tags
@@ -46,7 +46,7 @@ tags with bounding boxes is already very useful for many applications.  Just
 start simple and add more output information as the need arises.
 
 
-# 3 Terminology and Representation
+# Terminology and Representation
 
 This document describes a representation of various aspects of OCR output in an
 XML-like format. That is, we define as set of tags containing text and other
@@ -179,7 +179,7 @@ A polynomial describing the baseline of a line of text
   * the polynomial is in the coordinate system of the line, with the bottom
     left of the bounding box as the origin
 
-# 4 Logical Structuring Elements
+# Logical Structuring Elements
 
 We recognize the following logical structuring elements:
 
@@ -243,7 +243,7 @@ immediately adjacent image if both the image and the `ocr_caption` element are
 in running text.
 
 
-# 5 Typesetting Related Elements
+# Typesetting Related Elements
 
 The following typesetting related elements are based on a typesetting model as
 found in most typesetting systems, including
@@ -471,7 +471,7 @@ Something that requires JPEG or PNG to be represented well
 
 `ocr_table`
 
-# 6 Inline Representations
+# Inline Representations
 
 There is some content that should behave and flow like text
 
@@ -542,7 +542,7 @@ Other superscripts and subscripts must be represented using the HTML `<sup>` and
 [Furigana and similar constructs](https://en.wikipedia.org/wiki/Ruby_character)
 must be represented using their correct Unicode encoding.
 
-# 7 Character Information
+# Character Information
 
 ## Classes for Character Information
 
@@ -602,7 +602,7 @@ It is undefined what happens when cut paths intersect, with the exception that
 a delta of 0 always corresponds to an invisible codepoint.
 
 
-# 8 OCR Engine-Specific Markup
+# OCR Engine-Specific Markup
 
 A few abstractions are used as intermediate abstractions in OCR engines,
 although they do not have a meaning that can be defined either in terms of
@@ -692,7 +692,7 @@ The following properties are defined:
   * if possible, convert word confidences to values between 0 and 100 and have
     them approximate posterior probabilities (expressed in %)
 
-# 9 Font, Text Color, Language, Direction
+# Font, Text Color, Language, Direction
 
 OCR-generated font and text color information is encoded using standard HTML
 and CSS attributes on elements with a class of `ocr_...` or `ocrx_...`.
@@ -714,7 +714,7 @@ supports writing-mode, direction, glyph-orientation [ISO-15924-based
 script](http://www.unicode.org/iso15924/codelists.html), text-indent, etc.
 
 
-# 10 Alternative Segmentations / Readings
+# Alternative Segmentations / Readings
 
 Alternative segmentations and readings are indicated by a `<span>` with
 `class="alternatives"`. It must contains `<ins>` and `<del>` elements. The first
@@ -737,7 +737,7 @@ elements is ignored and should be inserted to improve readability of the HTML
 when viewed in a browser.
 
 
-# 11 Grouped Elements and Multiple Hierarchies
+# Grouped Elements and Multiple Hierarchies
 
 The different levels of layout information (logical, physical, engine-specific)
 each form hierarchies, but those hierarchies may not be mutually compatible;
@@ -770,7 +770,7 @@ of grouped elements in the output and fail with an error message if they cannot
 correctly process the hOCR information.
 
 
-# 12 Capabilities
+# Capabilities
 
 Any program generating files in this output format must indicate in the
 document metadata what kind of markup it is capable of generating. This
@@ -817,7 +817,7 @@ content is absent in the source document. If a capability is not listed, the
 corresponding element or attribute must not be present in the document.
 
 
-# 13 Profiles
+# Profiles
 
 hOCR provides standard means of marking up information, but it does not mandate
 the presence or absence of particular kinds of information.  For example, an
@@ -860,7 +860,7 @@ document classes:
     * articles map on ocr_linear
     * ocr_page
 
-# 14 Required Meta Information
+# Required Meta Information
 
 The OCR system is required to indicate the following using meta tags in the header:
 
@@ -879,7 +879,7 @@ The OCR system should indicate the following information
     * value may be `unknown`
 
 
-# 15 HTML Markup
+# HTML Markup
 
 The HTML-based markup is orthogonal to the hOCR-based markup; that is, both can
 be chosen independent of one another. The only thing that needs to be
@@ -927,7 +927,7 @@ internally, a layout analysis system might use `html_xytable` as an
 intermediate format for converting hOCR into `html_simple`.
 
 
-## 15.1 Restrictions on HTML Content
+## Restrictions on HTML Content
 
 To avoid problems, any use of HTML markup must follow the following rules:
 
@@ -938,7 +938,7 @@ To avoid problems, any use of HTML markup must follow the following rules:
     described in this document
 
 
-## 15.2 Recommendations for Mappings
+## Recommendations for Mappings
 
 When possible, any mapping of logical structure onto HTML should try to follow the following rules:
 
@@ -973,7 +973,7 @@ If necessary, the markup may use the following non-standard tags:
   * `<wbr>` to indicate that line breaking is permitted at that location
 
 
-### 15.2.1 html_none
+### html_none
 
 The simplest HTML markup for hOCR formats contains no logical markup at all; it
 is simply a collection of `<div>` and `<span>` elements with associated hOCR
@@ -981,7 +981,7 @@ information. Note that such documents can still be rendered visually through
 the use of CSS.
 
 
-### 15.2.2 html_simple
+### html_simple
 
 This is a format that follows the restrictions and recommendations above, and only uses the following tags:
 
@@ -997,7 +997,7 @@ This is a format that follows the restrictions and recommendations above, and on
   * the use of other embedded formats is permitted
   * all other uses of `<div>`, `<span>`, `<ins>`, and `<del>` only for hOCR tags or other embedded formats (hCard, …)
 
-### 15.2.3 html_ocr_<engine>
+### html_ocr_<engine>
 
 The HTML markup produced by default by the OCR engine for the given document.
 Examples of possible values are:
@@ -1007,7 +1007,7 @@ Examples of possible values are:
   * `html_ocr_unknown` – the HTML was generated by some OCR engine, but it's unknown which one
 
 
-### 15.2.4 html_absolute_<element>
+### html_absolute_<element>
 
 The HTML represents absolute positioning of elements on each page. The possible subformats are:
 
@@ -1023,7 +1023,7 @@ feature of Google Search uses `html_absolute_lines`; this is probably the most
 reasonable choice for approximating the appearance of the original document.
 
 
-### 15.2.5 html_xytable_absolute
+### html_xytable_absolute
 
 The HTML is a table that gives the XY-cut layout segmentation structure of the
 page in tabular form. Note that in this format, text order does not necessarily
@@ -1034,14 +1034,14 @@ The `<table>` structure must represent the absolute size of the original page
 element. The markup of the content of the table itself is as in html_simple.
 
 
-### 15.2.6 html_xytable_relative
+### html_xytable_relative
 
 The page representation is as in
 [`html_xytable_absolute`](#1525-html_xytable_absolute), but table element sizes
 are expressed relative (percentages).
 
 
-### 15.2.7 html_<processor>
+### html_<processor>
 
 The HTML represents markup that follows the mappings of the given document
 processor to HTML. Note that the document doesn't actually need to have been
@@ -1067,13 +1067,13 @@ HTML mapping generated by “Save As HTML”
 HTML mapping generated by official XSL style sheets
 
 
-# 16 Document Meta Information
+# Document Meta Information
 
 For document meta information, use the [Dublin Core Embedding into
 HTML](http://dublincore.org/documents/dcq-html/). See also [Citation Guidelines
 for Dublin Core](http://dublincore.org/documents/dc-citation-guidelines/).
 
-# 17 Sample Usage
+# Sample Usage
 
 See also the [hocr-tools](https://github.com/tmbdev/hocr-tools) for more samples.
 
