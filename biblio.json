@@ -1,0 +1,13 @@
+{
+  "CML": {
+    "authors": ["Peter Murray-Rust", "Henry Rzepa"],
+    "href": "http://www.xml-cml.org/",
+    "title": "Chemical Markup Language - CML"
+  },
+  "XDOC": {
+    "authors": ["Daniel S. Connelly", "Beth Paddock", "Rebecca Harvey"],
+    "date": "May 1999",
+    "href": "https://web.archive.org/web/20160731161638/http://vividata.com/manuals/core12xdc.pdf",
+    "title": "XDOC DATA FORMAT. Technical Specification"
+  }
+ }
