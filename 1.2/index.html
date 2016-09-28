@@ -2098,7 +2098,7 @@ existing OCR output, say for workflow abstractions.</p>
    <p>Common suggested engine-specific markup are:</p>
    <h3 class="heading settled" data-level="9.1" id="classes-for-engine-specific-markup"><span class="secno">9.1. </span><span class="content">Classes for engine specific markup</span><a class="self-link" href="#classes-for-engine-specific-markup"></a></h3>
    <h4 class="heading settled" data-level="9.1.1" id="ocrx_block"><span class="secno">9.1.1. </span><span class="content"><code>ocrx_block</code></span><a class="self-link" href="#ocrx_block"></a></h4>
-   <p><code>ocrx_block</code></p>
+   <p class="issue" id="issue-66c198d9"><a class="self-link" href="#issue-66c198d9"></a> <a href="https://github.com/kba/hocr-spec/issues/28">ocr_carea vs ocrx_block</a></p>
    <ul>
     <li data-md="">
      <p>any kind of "block" returned by an OCR system</p>
@@ -2106,7 +2106,7 @@ existing OCR output, say for workflow abstractions.</p>
      <p>engine-specific because the definition of a "block" depends on the engine</p>
    </ul>
    <h4 class="heading settled" data-level="9.1.2" id="ocrx_line"><span class="secno">9.1.2. </span><span class="content"><code>ocrx_line</code></span><a class="self-link" href="#ocrx_line"></a></h4>
-   <p><code>ocrx_line</code></p>
+   <p class="issue" id="issue-8ef34561"><a class="self-link" href="#issue-8ef34561"></a> <a href="https://github.com/kba/hocr-spec/issues/19">ocr_line vs ocrx_line</a></p>
    <ul>
     <li data-md="">
      <p>any kind of "line" returned by an OCR system that differs from the standard ocr_line above</p>
@@ -2114,7 +2114,6 @@ existing OCR output, say for workflow abstractions.</p>
      <p>might be some kind of "logical" line</p>
    </ul>
    <h4 class="heading settled" data-level="9.1.3" id="ocrx_word"><span class="secno">9.1.3. </span><span class="content"><code>ocrx_word</code></span><a class="self-link" href="#ocrx_word"></a></h4>
-   <p><code>ocrx_word</code></p>
    <ul>
     <li data-md="">
      <p>any kind of "word" returned by an OCR system</p>
@@ -2790,6 +2789,8 @@ within the same HTML file without interfering with one another.</p>
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/10">Use of property presence</a><a href="#issue-4c7527e8"> ↵ </a></div>
    <div class="issue"> There is currently no way of indicating anchoring or flow-around
 properties for floating elements; properties need to be defined for this.<a href="#issue-3f2f70ed"> ↵ </a></div>
+   <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/28">ocr_carea vs ocrx_block</a><a href="#issue-66c198d9"> ↵ </a></div>
+   <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/19">ocr_line vs ocrx_line</a><a href="#issue-8ef34561"> ↵ </a></div>
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/9">Delete x_cost</a><a href="#issue-b35297dd"> ↵ </a></div>
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/27">correct MIME type for hOCR?</a><a href="#issue-19855aac"> ↵ </a></div>
   </div>

@@ -593,7 +593,7 @@ Common suggested engine-specific markup are:
 
 ### `ocrx_block`
 
-`ocrx_block`
+Issue: [ocr_carea vs ocrx_block](https://github.com/kba/hocr-spec/issues/28)
 
   * any kind of "block" returned by an OCR system
   * engine-specific because the definition of a "block" depends on the engine
