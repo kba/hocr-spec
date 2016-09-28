@@ -126,6 +126,8 @@ The reading order of the element (an integer)
 
 ### `presence`
 
+Issue: [Use of property presence](https://github.com/kba/hocr-spec/issues/10)
+
 `presence` presence must be declared in the document meta data
 
 The following property relates the flow between multiple `ocr_carea` elements,
