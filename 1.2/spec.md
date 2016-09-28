@@ -600,14 +600,12 @@ Common suggested engine-specific markup are:
 
 ### `ocrx_line`
 
-`ocrx_line`
+Issue: [ocr_line vs ocrx_line](https://github.com/kba/hocr-spec/issues/19)
 
   * any kind of "line" returned by an OCR system that differs from the standard ocr_line above
   * might be some kind of "logical" line
 
 ### `ocrx_word`
-
-`ocrx_word`
 
   * any kind of "word" returned by an OCR system
   * engine specific because the definition of a "word" depends on the engine
