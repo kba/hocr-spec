@@ -47,6 +47,8 @@ We are embedding this information inside HTML by encoding it within valid tags
 and attributes inside HTML; We are going to use the terms "elements" and
 "properties" for referring to embedded markup.
 
+Issue: [Specify that class must be a single value](https://github.com/kba/hocr-spec/issues/22)
+
 Elements are defined by the class= attribute on an arbitrary HTML tag. All
 elements in this format have a class name of the form `ocr..._...`.
 
