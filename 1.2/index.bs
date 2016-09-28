@@ -4,6 +4,7 @@ Shortname: hocr
 Level: 1
 Status: LS
 Group: hocr-spec
+Repository: kba/hocr-spec
 URL: http://kba.github.io/hocr-spec/1.2/
 Editor: Konstantin Baierer, UB Mannheim http://github.com/UB-Mannheim, konstantin.baierer@gmail.com, http://github.com/kba
 Abstract: A subset of HTML for marking up OCR results
@@ -1116,3 +1117,25 @@ for line in lines:
 
 Note that the OCR markup, basic HTML markup, and semantic markup can co-exist
 within the same HTML file without interfering with one another.
+
+# IANA Considerations
+
+## Media Type
+
+In accordance to [[RFC2048]]
+
+Issue: [correct MIME type for hOCR?](https://github.com/kba/hocr-spec/issues/27)
+
+  : MIME media type name
+  :: `text`
+  : MIME subtype name:
+  :: `vnd.hocr+html`
+  : Required parameters:
+  : Optional parameters:
+  : Encoding considerations:
+  :: hOCR documents should be encoded as UTF-8
+  : Security considerations:
+  : Interoperability considerations:
+  : Applications which use this media type:
+  : File extension(s):
+  :: `*.html`, `*.hocr`

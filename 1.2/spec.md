@@ -1090,3 +1090,25 @@ for line in lines:
 
 Note that the OCR markup, basic HTML markup, and semantic markup can co-exist
 within the same HTML file without interfering with one another.
+
+# IANA Considerations
+
+## Media Type
+
+In accordance to [[RFC2048]]
+
+Issue: [correct MIME type for hOCR?](https://github.com/kba/hocr-spec/issues/27)
+
+  : MIME media type name
+  :: `text`
+  : MIME subtype name:
+  :: `vnd.hocr+html`
+  : Required parameters:
+  : Optional parameters:
+  : Encoding considerations:
+  :: hOCR documents should be encoded as UTF-8
+  : Security considerations:
+  : Interoperability considerations:
+  : Applications which use this media type:
+  : File extension(s):
+  :: `*.html`, `*.hocr`

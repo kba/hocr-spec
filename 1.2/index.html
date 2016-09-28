@@ -1384,7 +1384,7 @@ Possible extra rowspan handling
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">hOCR - OCR Workflow and Output embedded in HTML</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-09-27">27 September 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-09-28">28 September 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1399,7 +1399,7 @@ Possible extra rowspan handling
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 27 September 2016,
+In addition, as of 28 September 2016,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1597,6 +1597,11 @@ Parts of this work may be from another specification document.  If so, those par
      </ol>
     <li><a href="#document-meta-information"><span class="secno">17</span> <span class="content">Document Meta Information</span></a>
     <li><a href="#sample-usage"><span class="secno">18</span> <span class="content">Sample Usage</span></a>
+    <li>
+     <a href="#iana-considerations"><span class="secno">19</span> <span class="content">IANA Considerations</span></a>
+     <ol class="toc">
+      <li><a href="#media-type"><span class="secno">19.1</span> <span class="content">Media Type</span></a>
+     </ol>
     <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
     <li>
      <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
@@ -2580,6 +2585,38 @@ they’re actually pretty easy to manipulate. Here are some examples:</p>
 </pre>
    <p>Note that the OCR markup, basic HTML markup, and semantic markup can co-exist
 within the same HTML file without interfering with one another.</p>
+   <h2 class="heading settled" data-level="19" id="iana-considerations"><span class="secno">19. </span><span class="content">IANA Considerations</span><a class="self-link" href="#iana-considerations"></a></h2>
+   <h3 class="heading settled" data-level="19.1" id="media-type"><span class="secno">19.1. </span><span class="content">Media Type</span><a class="self-link" href="#media-type"></a></h3>
+   <p>In accordance to <a data-link-type="biblio" href="#biblio-rfc2048">[RFC2048]</a></p>
+   <p class="issue" id="issue-19855aac"><a class="self-link" href="#issue-19855aac"></a> <a href="https://github.com/kba/hocr-spec/issues/27">correct MIME type for hOCR?</a></p>
+   <dl>
+    <dt data-md="">
+     <p>MIME media type name</p>
+    <dd data-md="">
+     <p><code>text</code></p>
+    <dt data-md="">
+     <p>MIME subtype name:</p>
+    <dd data-md="">
+     <p><code>vnd.hocr+html</code></p>
+    <dt data-md="">
+     <p>Required parameters:</p>
+    <dt data-md="">
+     <p>Optional parameters:</p>
+    <dt data-md="">
+     <p>Encoding considerations:</p>
+    <dd data-md="">
+     <p>hOCR documents should be encoded as UTF-8</p>
+    <dt data-md="">
+     <p>Security considerations:</p>
+    <dt data-md="">
+     <p>Interoperability considerations:</p>
+    <dt data-md="">
+     <p>Applications which use this media type:</p>
+    <dt data-md="">
+     <p>File extension(s):</p>
+    <dd data-md="">
+     <p><code>*.html</code>, <code>*.hocr</code></p>
+   </dl>
   </main>
   <div data-fill-with="conformance">
    <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>
@@ -2739,6 +2776,8 @@ within the same HTML file without interfering with one another.</p>
    <dd>Peter Murray-Rust; Henry Rzepa. <a href="http://www.xml-cml.org/">Chemical Markup Language - CML</a>. URL: <a href="http://www.xml-cml.org/">http://www.xml-cml.org/</a>
    <dt id="biblio-mathml">[MathML]
    <dd>Patrick D F Ion; Robert R Miner. <a href="https://www.w3.org/TR/MathML/">Mathematical Markup Language (MathML) 1.01 Specification</a>. 7 July 1999. REC. URL: <a href="https://www.w3.org/TR/MathML/">https://www.w3.org/TR/MathML/</a>
+   <dt id="biblio-rfc2048">[RFC2048]
+   <dd>N. Freed; J. Klensin; J. Postel. <a href="https://tools.ietf.org/html/rfc2048">Multipurpose Internet Mail Extensions (MIME) Part Four: Registration Procedures</a>. November 1996. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2048">https://tools.ietf.org/html/rfc2048</a>
    <dt id="biblio-xdoc">[XDOC]
    <dd>Daniel S. Connelly; Beth Paddock; Rebecca Harvey. <a href="https://web.archive.org/web/20160731161638/http://vividata.com/manuals/core12xdc.pdf">XDOC DATA FORMAT. Technical Specification</a>. May 1999. URL: <a href="https://web.archive.org/web/20160731161638/http://vividata.com/manuals/core12xdc.pdf">https://web.archive.org/web/20160731161638/http://vividata.com/manuals/core12xdc.pdf</a>
   </dl>
@@ -2746,4 +2785,5 @@ within the same HTML file without interfering with one another.</p>
   <div style="counter-reset:issue">
    <div class="issue"> There is currently no way of indicating anchoring or flow-around
 properties for floating elements; properties need to be defined for this.<a href="#issue-3f2f70ed"> ↵ </a></div>
+   <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/27">correct MIME type for hOCR?</a><a href="#issue-19855aac"> ↵ </a></div>
   </div>
