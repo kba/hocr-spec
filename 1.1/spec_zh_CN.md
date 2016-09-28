@@ -1,4 +1,5 @@
-# hOCR 内置 OCR 工作流程和输出格式 The hOCR Embedded OCR Workflow and Output Format
+# hOCR 内置 OCR 工作流程和输出格式     
+The hOCR Embedded OCR Workflow and Output Format
 
 Thomas Breuel (编辑 editor)
 
@@ -33,10 +34,9 @@ Thomas Breuel (编辑 editor)
 
 ## 修订记录 Revision History
 
-
 ### 2016-07 
 
-* Chinese version contributed by  @littlePP24    
+* Chinese version contributed by  @littlePP24 and  @wanghaisheng    
 
 ### 2016-03-02
 
@@ -1003,6 +1003,7 @@ The OCR system should indicate the following information
   * value may be `unknown`
 
 
+
 ## 15 HTML Markup
 
 The HTML-based markup is orthogonal to the hOCR-based markup; that is, both can
@@ -1109,15 +1110,15 @@ Specifically
 * `<UL>`, `<OL>`, `<DL>` should represent lists
 * `<TABLE>` should represent tables, including correct use of the `<TH>` tag
 
-* <EM>和<STRONG>应该代表强调，并首选<B>，<I>和<U>
-* <B>，<I>和<U>应代表在当前字体的相应属性的变化（但仍必须被给予一个OCR字体规范）
-* <P>应该代表分段符
-* <BR>应该代表明确的换行（没有断行这种情况发生，因为文本流）
-* <H1>，...，<H6>应该代表文档的逻辑嵌套结构（如果有的话）
-* <A>应该表示文档中的超链接和引用
-* <BLOCKQUOTE>应该代表缩进引用，但不能缩进的文本的其他用途。
-* <UL>，<OL>，<DL>应代表名单lists
-* <TABLE>应该代表表，包括正确使用<TH>标记
+* `<EM>`和`<STRONG>`应该代表强调，并首选`<B>`，`<I>`和`<U>`
+* `<B>`，`<I>`和`<U>`应代表在当前字体的相应属性的变化（但仍必须被给予一个OCR字体规范）
+* `<P>`应该代表分段符
+* `<BR>`应该代表明确的换行（没有断行这种情况发生，因为文本流）
+* `<H1>`，...，`<H6>`应该代表文档的逻辑嵌套结构（如果有的话）
+* `<A>`应该表示文档中的超链接和引用
+* `<BLOCKQUOTE>`应该代表缩进引用，但不能缩进的文本的其他用途。
+* `<UL>`，`<OL>`，`<DL>`应代表名单lists
+* `<TABLE>`应该代表表，包括正确使用<TH>标记
 
 
 
@@ -1129,8 +1130,8 @@ If necessary, the markup may use the following non-standard tags:
 * `<WBR>` to indicate that line breaking is permitted at that location
 
 
-* <NOBR>，表明封闭的内容不允许断行
-* <WBR>，以表明在该位置断行被允许
+* `<NOBR>`，表明封闭的内容不允许断行
+* `<WBR>`，以表明在该位置断行被允许
 
 
 #### 15.2.1 html_none
@@ -1160,17 +1161,17 @@ This is a format that follows the restrictions and recommendations above, and on
 * the use of other embedded formats is permitted
 * all other uses of `<DIV>`, `<SPAN>`, `<INS>`, and `<DEL>` only for hOCR tags or other embedded formats (hCard, …)
 
-* <H1> ... <H6>
-* <P>，<BR>
-* <B>，<I>和<U>的外观变化（粗体，斜体，下划线）
-* <FONT>用于任何其它外观变化
-* <A>
-* <DIV>浮东风格
-* <TABLE>对表
-* <IMG>的图像
+* `<H1>` ... `<H6>`
+* `<P>`，`<BR>`
+* `<B>`，`<I>`和`<U>`的外观变化（粗体，斜体，下划线）
+* `<FONT>`用于任何其它外观变化
+* `<A>`
+* `<DIV>`浮动风格
+* `<TABLE>`对表
+* `<IMG>`的图像
 * 所有SVG必须外部嵌入的<EMBED>标签
 * 允许使用其他格式的嵌入式
-* 仅供hOCR标签或者嵌套格式（使用hCard，...）的所有<DIV>，<SPAN>，<INS>和<DEL>的其他用途
+* 仅供hOCR标签或者嵌套格式（使用hCard，...）的所有`<DIV>`，`<SPAN>`，`<INS>`和`<DEL>`的其他用途
 
 
 
