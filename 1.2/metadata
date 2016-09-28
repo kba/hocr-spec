@@ -1,0 +1,10 @@
+Title: hOCR - OCR Workflow and Output embedded in HTML
+Shortname: hocr
+Level: 1
+Status: LS
+Group: hocr-spec
+Repository: kba/hocr-spec
+URL: http://kba.github.io/hocr-spec/1.2/
+Editor: Konstantin Baierer, UB Mannheim http://github.com/UB-Mannheim, konstantin.baierer@gmail.com, http://github.com/kba
+Abstract: A subset of HTML for marking up OCR results
+Markup Shorthands: markdown on, biblio on
