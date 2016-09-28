@@ -637,7 +637,7 @@ The following properties are defined:
 
   * OCR-engine specific font size
 
-### `x_boxes`
+### `x_bboxes`
 
 `x_bboxes b1x0 b1y0 b1x1 b1y1 b2x0 b2y0 b2x1 b2y1 ...`
 
