@@ -1097,6 +1097,9 @@ within the same HTML file without interfering with one another.
 
 # IANA Considerations
 
+Issue: [XML namespace for hOCR HTML?](https://github.com/kba/hocr-spec/issues/2)
+Issue: [What DOCTYPE for hOCR HTML?](https://github.com/kba/hocr-spec/issues/1)
+
 ## Media Type
 
 In accordance to [[RFC2048]]
