@@ -1,11 +1,13 @@
 Title: hOCR - OCR Workflow and Output embedded in HTML (chinese)
-Shortname: hocr-zh
+Shortname: hocr-zh_CN
 Level: 1
 Status: LS
 Group: hocr-spec
 Repository: kba/hocr-spec
-URL: http://kba.github.io/hocr-spec/1.2-zh/
-Editor: 王海生
+URL: http://kba.github.io/hocr-spec/1.2-zh_CN/
+Editor: 王海生, https://github.com/wanghaisheng
 Editor: Konstantin Baierer, UB Mannheim http://github.com/UB-Mannheim, konstantin.baierer@gmail.com, http://github.com/kba
+Former Editor: Thomas Breuel, http://www.9x9.com/
+Previous Version: http://github.com/kba/hocr-spec/1.1/spec_zh_CN.md
 Abstract: A subset of HTML for marking up OCR results (chinese translation)
 Markup Shorthands: markdown on, biblio on

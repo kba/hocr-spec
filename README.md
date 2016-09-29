@@ -49,7 +49,7 @@ Then run `make VERSION=<VERSION>` to build that spec.
 
 Examples:
   * To build the `1.2` version: `make VERSION=1.2`
-  * To build the `1.2-zh` version: `make VERSION=1.2-zh`
+  * To build the `1.2-zh_CN` translation: `make VERSION=1.2-zh_CN`
 
 ## Open Tasks
 
