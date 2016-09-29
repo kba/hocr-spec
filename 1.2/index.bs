@@ -58,7 +58,7 @@ tags, together with attributes of those tags. However, since the content we are
 representing is formatted text,
 
 However, we are not actually using a new XML for the representation; instead
-embed the representation in XHTML (or HTML) because XHTML and XHTML processing
+embed the representation in XHTML (or HTML) because  [[XHTML1]] and XHTML processing
 already define many aspects of OCR output representation that would otherwise
 need additional, separate and ad-hoc definitions. These aspects include:
 
@@ -954,7 +954,7 @@ When possible, any mapping of logical structure onto HTML should try to follow t
     might have entered into a WYSIWYG content creation tool
   * text should be in reading order
   * all tags should be used for the intended purpose (and only for the intended
-    purpose) as defined in the [HTML 4 spec](https://www.w3.org/TR/html4/).
+    purpose) as defined in the [[HTML40]] spec.
   * floats are contained in `<div>` elements with a `style` that includes a float attribute
   * repeating floating page elements (header/footer) should be repeated and occur
     in their natural location in reading order (e.g., between pages)
