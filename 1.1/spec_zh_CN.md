@@ -1,54 +1,53 @@
-# hOCR 内置 OCR 工作流程和输出格式     
-The hOCR Embedded OCR Workflow and Output Format
+# hOCR 内置 OCR 工作流程和输出格式, version 1.1
 
-Thomas Breuel (编辑 editor)
+The purpose of this document is to define an open standard for representing OCR
+results. The goal is to reuse as much existing technology as possible, and to
+arrive at a representation that makes it easy to reuse OCR results.
+
+本文的目的是为表达ocr的结果定义一个开放的标准，目标是尽可能多的重现现有技术，使ocr的结果表达更容易的再现。
+
+This is the chinese translation, an [english translation is available as well](./spec.md).
 
 ## Table of Contents
-* [Revision History](#revision-history)
-* [1 Rationale](#1-rationale)
-* [2 Getting Started](#2-getting-started)
-* [3 Terminology and Representation](#3-terminology-and-representation)
-* [4 Logical Structuring Elements](#4-logical-structuring-elements)
-* [5 Typesetting Related Elements](#5-typesetting-related-elements)
+
+<!-- BEGIN-MARKDOWN-TOC -->
+* [Table of Contents](#table-of-contents)
+* [修订记录 Revision History](#修订记录-revision-history)
+* [1 基本原理 Rationale](#1-基本原理-rationale)
+* [2 入门 Getting Started](#2-入门-getting-started)
+* [3 术语表达 Terminology and Representation](#3-术语表达-terminology-and-representation)
+* [4 逻辑结构元素 Logical Structuring Elements](#4-逻辑结构元素-logical-structuring-elements)
+* [5 排版相关元素 Typesetting Related Elements](#5-排版相关元素-typesetting-related-elements)
 * [6 Inline Representations](#6-inline-representations)
-* [7 Character Information](#7-character-information)
-* [8 OCR Engine-Specific Markup](#8-ocr-engine-specific-markup)
-* [9 Font, Text Color, Language, Direction](#9-font-text-color-language-direction)
-* [10 Alternative Segmentations / Readings](#10-alternative-segmentations--readings)
-* [11 Grouped Elements and Multiple Hierarchies](#11-grouped-elements-and-multiple-hierarchies)
-* [12 Capabilities](#12-capabilities)
-* [13 Profiles](#13-profiles)
-* [14 Required Meta Information](#14-required-meta-information)
+* [7 字符信息 Character Information](#7-字符信息-character-information)
+* [8 OCR 引擎的特定标记 OCR Engine-Specific Markup](#8-ocr-引擎的特定标记-ocr-engine-specific-markup)
+* [9 字体，文本颜色，语言，方向 Font, Text Color, Language, Direction](#9-字体-文本颜色-语言-方向-font-text-color-language-direction)
+* [10 替代分割/读数 Alternative Segmentations / Readings](#10-替代分割读数-alternative-segmentations--readings)
+* [11 组元素和多个层级 Grouped Elements and Multiple Hierarchies](#11-组元素和多个层级-grouped-elements-and-multiple-hierarchies)
+* [12 功能 Capabilities](#12-功能-capabilities)
+* [13 配置 Profiles](#13-配置-profiles)
+* [14 必需的元信息 Required Meta Information](#14-必需的元信息-required-meta-information)
 * [15 HTML Markup](#15-html-markup)
-  * [15.1 Restrictions on HTML Content](#151-restrictions-on-html-content)
-  * [15.2 Recommendations for Mappings](#152-recommendations-for-mappings)
-    * [15.2.1 html_none](#1521-html_none)
-    * [15.2.2 html_simple](#1522-html_simple)
-    * [15.2.3 html_ocr_](#1523-html_ocr_)
-    * [15.2.4 html_absolute_](#1524-html_absolute_)
-    * [15.2.5 html_xytable_absolute](#1525-html_xytable_absolute)
-    * [15.2.6 html_xytable_relative](#1526-html_xytable_relative)
-    * [15.2.7 html_](#1527-html_)
-* [16 Document Meta Information](#16-document-meta-information)
-* [17 Sample Usage](#17-sample-usage)
+	* [15.1 HTML内容的限制 Restrictions on HTML Content](#151-html内容的限制-restrictions-on-html-content)
+	* [15.2 映射的建议 Recommendations for Mappings](#152-映射的建议-recommendations-for-mappings)
+		* [15.2.1 html_none](#1521-html_none)
+		* [15.2.2 html_simple](#1522-html_simple)
+		* [15.2.3 html_ocr_<engine>](#1523-html_ocr_)
+		* [15.2.4 html_absolute_<element>](#1524-html_absolute_)
+		* [15.2.5 html_xytable_absolute](#1525-html_xytable_absolute)
+		* [15.2.6 html_xytable_relative](#1526-html_xytable_relative)
+		* [15.2.7 html_<processor>](#1527-html_)
+* [16 文件元信息 Document Meta Information](#16-文件元信息-document-meta-information)
+* [17 用法示例 Sample Usage](#17-用法示例-sample-usage)
+
+<!-- END-MARKDOWN-TOC -->
 
 ## 修订记录 Revision History
 
-### 2016-07 
+hOCR has been originally developed by Thomas Breuel.
 
-* Chinese version contributed by  @littlePP24 and  @wanghaisheng    
-
-### 2016-03-02
-
-* Markdown version (@kba)
-
-###  March 2010 
-
-* bug fixes, clarifications (@tmbdev)
-
-### December 2007 
-
-* initial release (@tmbdev)
+See the [releases](https://github.com/kba/hocr-spec/releases/) and full [commit
+history](https://github.com/kba/hocr-spec/commits/) for a revision history.
 
 
 ## 1 基本原理 Rationale

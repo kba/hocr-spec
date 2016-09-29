@@ -1,8 +1,10 @@
-# The hOCR Embedded OCR Workflow and Output Format
+# The hOCR Embedded OCR Workflow and Output Format, version 1.1
 
 The purpose of this document is to define an open standard for representing OCR
 results. The goal is to reuse as much existing technology as possible, and to
 arrive at a representation that makes it easy to reuse OCR results.
+
+This is the english translation, a [chinese translation is available as well](./spec_zh_CN.md).
 
 ## Table of Contents
 
