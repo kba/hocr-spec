@@ -716,8 +716,8 @@ actual presentation information inside that:
 ```
 
 The CSS3 text layout attributes can be used when necessary. For example, CSS
-supports writing-mode, direction, glyph-orientation [ISO-15924-based
-script](http://www.unicode.org/iso15924/codelists.html), text-indent, etc.
+supports writing-mode, direction, glyph-orientation [[ISO15924]]-based
+script ([list of codes](http://www.unicode.org/iso15924/codelists.html)), text-indent, etc.
 
 
 # Alternative Segmentations / Readings
@@ -1128,6 +1128,7 @@ within the same HTML file without interfering with one another.
 # IANA Considerations
 
 Issue: [XML namespace for hOCR HTML?](https://github.com/kba/hocr-spec/issues/2)
+
 Issue: [What DOCTYPE for hOCR HTML?](https://github.com/kba/hocr-spec/issues/1)
 
 ## Media Type

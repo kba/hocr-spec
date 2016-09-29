@@ -2209,8 +2209,8 @@ actual presentation information inside that:</p>
 <pre>&lt;span class="ocr_cinfo" style="ocr style">&lt;span style="presentation style"> ... &lt;/span>&lt;/span>
 </pre>
    <p>The CSS3 text layout attributes can be used when necessary. For example, CSS
-supports writing-mode, direction, glyph-orientation <a href="http://www.unicode.org/iso15924/codelists.html">ISO-15924-based
-script</a>, text-indent, etc.</p>
+supports writing-mode, direction, glyph-orientation <a data-link-type="biblio" href="#biblio-iso15924">[ISO15924]</a>-based
+script (<a href="http://www.unicode.org/iso15924/codelists.html">list of codes</a>), text-indent, etc.</p>
    <h2 class="heading settled" data-level="11" id="alternative-segmentations-readings"><span class="secno">11. </span><span class="content">Alternative Segmentations / Readings</span><a class="self-link" href="#alternative-segmentations-readings"></a></h2>
    <p class="issue" id="issue-b35297dd"><a class="self-link" href="#issue-b35297dd"></a> <a href="https://github.com/kba/hocr-spec/issues/9">Delete x_cost</a></p>
    <p>Alternative segmentations and readings are indicated by a <code>&lt;span></code> with <code>class="alternatives"</code>. It must contains <code>&lt;ins></code> and <code>&lt;del></code> elements. The first
@@ -2594,7 +2594,8 @@ they’re actually pretty easy to manipulate. Here are some examples:</p>
    <p>Note that the OCR markup, basic HTML markup, and semantic markup can co-exist
 within the same HTML file without interfering with one another.</p>
    <h2 class="heading settled" data-level="19" id="iana-considerations"><span class="secno">19. </span><span class="content">IANA Considerations</span><a class="self-link" href="#iana-considerations"></a></h2>
-   <p class="issue" id="issue-8363f4a4"><a class="self-link" href="#issue-8363f4a4"></a> <a href="https://github.com/kba/hocr-spec/issues/2">XML namespace for hOCR HTML?</a> Issue: <a href="https://github.com/kba/hocr-spec/issues/1">What DOCTYPE for hOCR HTML?</a></p>
+   <p class="issue" id="issue-f6d39356"><a class="self-link" href="#issue-f6d39356"></a> <a href="https://github.com/kba/hocr-spec/issues/2">XML namespace for hOCR HTML?</a></p>
+   <p class="issue" id="issue-a3899b99"><a class="self-link" href="#issue-a3899b99"></a> <a href="https://github.com/kba/hocr-spec/issues/1">What DOCTYPE for hOCR HTML?</a></p>
    <h3 class="heading settled" data-level="19.1" id="media-type"><span class="secno">19.1. </span><span class="content">Media Type</span><a class="self-link" href="#media-type"></a></h3>
    <p>In accordance to <a data-link-type="biblio" href="#biblio-rfc2048">[RFC2048]</a></p>
    <p class="issue" id="issue-19855aac"><a class="self-link" href="#issue-19855aac"></a> <a href="https://github.com/kba/hocr-spec/issues/27">correct MIME type for hOCR?</a></p>
@@ -2785,6 +2786,8 @@ within the same HTML file without interfering with one another.</p>
    <dd>Peter Murray-Rust; Henry Rzepa. <a href="http://www.xml-cml.org/">Chemical Markup Language - CML</a>. URL: <a href="http://www.xml-cml.org/">http://www.xml-cml.org/</a>
    <dt id="biblio-html40">[HTML40]
    <dd>Dave Raggett; Arnaud Le Hors; Ian Jacobs. <a href="https://www.w3.org/TR/html40">HTML 4.0 Recommendation</a>. 24 April 1998. REC. URL: <a href="https://www.w3.org/TR/html40">https://www.w3.org/TR/html40</a>
+   <dt id="biblio-iso15924">[ISO15924]
+   <dd><cite>Code for the representation of names of scripts.</cite> International Organization for Standardization. 1998. ISO 15924:1998. Draft International Standard
    <dt id="biblio-mathml">[MathML]
    <dd>Patrick D F Ion; Robert R Miner. <a href="https://www.w3.org/TR/MathML/">Mathematical Markup Language (MathML) 1.01 Specification</a>. 7 July 1999. REC. URL: <a href="https://www.w3.org/TR/MathML/">https://www.w3.org/TR/MathML/</a>
    <dt id="biblio-rfc2048">[RFC2048]
@@ -2803,6 +2806,7 @@ properties for floating elements; properties need to be defined for this.<a href
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/28">ocr_carea vs ocrx_block</a><a href="#issue-66c198d9"> ↵ </a></div>
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/19">ocr_line vs ocrx_line</a><a href="#issue-8ef34561"> ↵ </a></div>
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/9">Delete x_cost</a><a href="#issue-b35297dd"> ↵ </a></div>
-   <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/2">XML namespace for hOCR HTML?</a> Issue: <a href="https://github.com/kba/hocr-spec/issues/1">What DOCTYPE for hOCR HTML?</a><a href="#issue-8363f4a4"> ↵ </a></div>
+   <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/2">XML namespace for hOCR HTML?</a><a href="#issue-f6d39356"> ↵ </a></div>
+   <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/1">What DOCTYPE for hOCR HTML?</a><a href="#issue-a3899b99"> ↵ </a></div>
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/27">correct MIME type for hOCR?</a><a href="#issue-19855aac"> ↵ </a></div>
   </div>
