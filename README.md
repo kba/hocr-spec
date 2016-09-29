@@ -15,12 +15,12 @@ specification originally written by [Thomas Breuel](https://github.com/tmbdev).
 * `1.0` [English](https://docs.google.com/document/d/1QQnIQtvdAC_8n92-LhwPcjtAUFwBlzE8EWnKAxlgVf0/preview)
   * Google Doc the original text by @tmbdev
   * Last substantial edit in May 2010
-* `1.1` [English](./1.1/spec.md), [简体中文 (Simplified Chinese)](./1.1/spec_zh_CN.md)
+* `1.1` [English](./1.1/spec.md), [中文 (Chinese)](./1.1/spec_zh_CN.md)
   * Port of the Google Doc
   * Cleaning obvious errata (duplicate content)
   * More fine-grained heading structure
   * Table of contents
-  * Simplified Chinese translation provided by [@littlePP24](https://github.com/littlePP24) and [@wanghaisheng](https://github.com/wanghaisheng)
+  * Chinese translation provided by [@littlePP24](https://github.com/littlePP24) and [@wanghaisheng](https://github.com/wanghaisheng)
   * Last substantial edit in September 2016
 * `1.2` [English](https://kba.github.io/hocr-spec/1.2/)
   * Create a WHATWG-like spec using [bikeshed](https://github.com/tabatkins/bikeshed)
