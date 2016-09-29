@@ -10,13 +10,22 @@ The hOCR Embedded OCR Workflow and Output Format
 This repository contains the [hOCR](https://en.wikipedia.org/wiki/HOCR) format
 specification originally written by [Thomas Breuel](https://github.com/tmbdev).
 
-Legacy [version 1.1](./1.1/spec.md) is a mostly faithful version converted from
-the May 2010 edition hosted on [Google
-Docs](https://docs.google.com/document/d/1QQnIQtvdAC_8n92-LhwPcjtAUFwBlzE8EWnKAxlgVf0/preview).
-It will not be developed further as of September 2016.
+## Versions
 
-The current [version 1.2](http://kba.github.io/hocr-spec/1.2/) is backwards-compatible
-but will potentially change in structure and wording.
+* `1.0` [:gb:](https://docs.google.com/document/d/1QQnIQtvdAC_8n92-LhwPcjtAUFwBlzE8EWnKAxlgVf0/preview)
+  * Google Doc the original text by @tmbdev
+  * Last substantial edit in May 2010
+* `1.1` [:gb:](./1.1/spec.md) [:cn:](./1.1/spec_zh_CN.md)
+  * Port of the Google Doc
+  * Cleaning obvious errata (duplicate content)
+  * More fine-grained heading structure
+  * Table of contents
+  * Chinese translation provided by @littlePP24 and @wanghaisheng
+  * Last substantial edit in September 2016
+* `1.2` [:gb:](https://kba.github.io/hocr-spec/1.2/)
+  * Create a WHATWG-like spec using [bikeshed](https://github.com/tabatkins/bikeshed)
+  * Add issues where appropriate
+  * Semantically backwards-compatible with both 1.0 and 1.1
 
 ## Contribute
 
