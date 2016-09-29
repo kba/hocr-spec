@@ -22,7 +22,7 @@ specification originally written by [Thomas Breuel](https://github.com/tmbdev).
   * Table of contents
   * Simplified Chinese translation provided by [@littlePP24](https://github.com/littlePP24) and [@wanghaisheng](https://github.com/wanghaisheng)
   * Last substantial edit in September 2016
-* `1.2` [English](https://kba.github.io/hocr-spec/1.2/)
+* `1.2` [English](https://kba.github.io/hocr-spec/1.2/), [简体中文 (Simplified Chinese)](https://kba.github.io/hocr-spec/1.2-zh_CN/)
   * Create a WHATWG-like spec using [bikeshed](https://github.com/tabatkins/bikeshed)
   * Add issues where appropriate
   * Semantically backwards-compatible with both 1.0 and 1.1
