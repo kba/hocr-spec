@@ -7,7 +7,7 @@ Repository: kba/hocr-spec
 URL: http://kba.github.io/hocr-spec/1.2/
 Editor: Konstantin Baierer, UB Mannheim http://github.com/UB-Mannheim, konstantin.baierer@gmail.com, http://github.com/kba
 Former Editor: Thomas Breuel, http://www.9x9.com/
-Previous Version: http://github.com/kba/hocr-spec/1.1/spec.md
+Previous Version: https://github.com/kba/hocr-spec/blob/master/1.1/spec.md
 Translation: zh_CN http://kba.github.io/hocr-spec/1.2-zh_CN/
 Abstract: A subset of HTML for marking up OCR results
 Markup Shorthands: markdown on, biblio on
