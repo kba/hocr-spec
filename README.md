@@ -36,6 +36,21 @@ Pull requests are very welcome.
 For quick questions you can use the [hocr-spec gitter
 channel](https://gitter.im/kba/hocr-spec).
 
+## Building the spec
+
+To build the spec, you will need to have GNU make and either
+[bikeshed](https://github.com/tabatkins/bikeshed) or
+[docker](https://docker.com) installed.
+
+Adapt `<VERSION>/spec.md` to change the body of the spec, `<VERSION>/metadata`
+to change the [bikeshed
+metadata](https://github.com/tabatkins/bikeshed/blob/master/docs/metadata.md).
+Then run `make VERSION=<VERSION>` to build that spec.
+
+Examples:
+  * To build the `1.2` version: `make VERSION=1.2`
+  * To build the `1.2-zh` version: `make VERSION=1.2-zh`
+
 ## Open Tasks
 
 The goal of this project is to make the hOCR specification more accessible and
