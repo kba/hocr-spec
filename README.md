@@ -56,7 +56,7 @@ Examples:
 The goal of this project is to make the hOCR specification more accessible and
 easier to maintain.
 
-* cross-reference other specs
-* harmonize style
-* add samples
+* Cross-reference other specs
+* Harmonize style
+* Add samples
 * [...](https://github.com/kba/hocr-spec/issues)
