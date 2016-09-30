@@ -1570,8 +1570,13 @@ Parts of this work may be from another specification document.  If so, those par
       <li><a href="#ocr_embeddedformat_formatname"><span class="secno">12.6</span> <span class="content"><code>ocr_embeddedformat_&lt;formatname></code></span></a>
       <li><a href="#ocr_tag_unordered"><span class="secno">12.7</span> <span class="content"><code>ocr_&lt;tag>_unordered</code></span></a>
      </ol>
-    <li><a href="#profiles"><span class="secno">13</span> <span class="content">Profiles</span></a>
-    <li><a href="#required-meta-information"><span class="secno">14</span> <span class="content">Required Meta Information</span></a>
+    <li>
+     <a href="#metadata"><span class="secno">13</span> <span class="content">Metadata</span></a>
+     <ol class="toc">
+      <li><a href="#ocr-metadata"><span class="secno">13.1</span> <span class="content">OCR metadata</span></a>
+      <li><a href="#document-metadata"><span class="secno">13.2</span> <span class="content">Document metadata</span></a>
+     </ol>
+    <li><a href="#profiles"><span class="secno">14</span> <span class="content">Profiles</span></a>
     <li>
      <a href="#html-markup"><span class="secno">15</span> <span class="content">HTML Markup</span></a>
      <ol class="toc">
@@ -1600,12 +1605,11 @@ Parts of this work may be from another specification document.  If so, those par
          </ol>
        </ol>
      </ol>
-    <li><a href="#document-meta-information"><span class="secno">16</span> <span class="content">Document Meta Information</span></a>
-    <li><a href="#sample-usage"><span class="secno">17</span> <span class="content">Sample Usage</span></a>
+    <li><a href="#sample-usage"><span class="secno">16</span> <span class="content">Sample Usage</span></a>
     <li>
-     <a href="#iana-considerations"><span class="secno">18</span> <span class="content">IANA Considerations</span></a>
+     <a href="#iana-considerations"><span class="secno">17</span> <span class="content">IANA Considerations</span></a>
      <ol class="toc">
-      <li><a href="#media-type"><span class="secno">18.1</span> <span class="content">Media Type</span></a>
+      <li><a href="#media-type"><span class="secno">17.1</span> <span class="content">Media Type</span></a>
      </ol>
     <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
     <li>
@@ -2280,7 +2284,45 @@ for that tag, it must must specify a capability of <code>ocr_&lt;tag>_unordered<
 that corresponds to that capability, users of the document may infer that the
 content is absent in the source document. If a capability is not listed, the
 corresponding element or attribute must not be present in the document.</p>
-   <h2 class="heading settled" data-level="13" id="profiles"><span class="secno">13. </span><span class="content">Profiles</span><a class="self-link" href="#profiles"></a></h2>
+   <h2 class="heading settled" data-level="13" id="metadata"><span class="secno">13. </span><span class="content">Metadata</span><a class="self-link" href="#metadata"></a></h2>
+   <h3 class="heading settled" data-level="13.1" id="ocr-metadata"><span class="secno">13.1. </span><span class="content">OCR metadata</span><a class="self-link" href="#ocr-metadata"></a></h3>
+   <p>The OCR system is required to indicate the following using meta tags in the header:</p>
+   <ul>
+    <li data-md="">
+     <p><code>&lt;meta name="ocr-system" content="name version"/></code></p>
+    <li data-md="">
+     <p><code>&lt;meta name="ocr-capabilities" content="capabilities"/></code></p>
+     <ul>
+      <li data-md="">
+       <p>see <a href="#capabilities">§12 Capabilities</a></p>
+     </ul>
+   </ul>
+   <p>The OCR system should indicate the following information</p>
+   <ul>
+    <li data-md="">
+     <p><code>&lt;meta name="ocr-number-of-pages" content="number-of-pages"/></code></p>
+    <li data-md="">
+     <p><code>&lt;meta name="ocr-langs" content="languages-considered-by-ocr"/></code></p>
+     <ul>
+      <li data-md="">
+       <p>use <a href="https://www.loc.gov/standards/iso639-2/php/code_list.php">ISO 639-1</a> codes</p>
+      <li data-md="">
+       <p>value may be <code>unknown</code></p>
+     </ul>
+    <li data-md="">
+     <p><code>&lt;meta name="ocr-scripts" content="scripts-considered-by-ocr"/></code></p>
+     <ul>
+      <li data-md="">
+       <p>use <a href="http://www.unicode.org/iso15924/codelists.html">ISO 15924</a> letter codes</p>
+      <li data-md="">
+       <p>value may be <code>unknown</code></p>
+     </ul>
+   </ul>
+   <h3 class="heading settled" data-level="13.2" id="document-metadata"><span class="secno">13.2. </span><span class="content">Document metadata</span><a class="self-link" href="#document-metadata"></a></h3>
+   <p>For document meta information, use the <a href="http://dublincore.org/documents/dcq-html/">Dublin Core Embedding into
+HTML</a>. See also <a href="http://dublincore.org/documents/dc-citation-guidelines/">Citation Guidelines
+for Dublin Core</a>.</p>
+   <h2 class="heading settled" data-level="14" id="profiles"><span class="secno">14. </span><span class="content">Profiles</span><a class="self-link" href="#profiles"></a></h2>
    <p>hOCR provides standard means of marking up information, but it does not mandate
 the presence or absence of particular kinds of information.  For example, an
 hOCR file may contain only logical markup, only physical markup, or only
@@ -2337,39 +2379,6 @@ document classes:</p>
        <p>articles map on ocr_linear</p>
       <li data-md="">
        <p>ocr_page</p>
-     </ul>
-   </ul>
-   <h2 class="heading settled" data-level="14" id="required-meta-information"><span class="secno">14. </span><span class="content">Required Meta Information</span><a class="self-link" href="#required-meta-information"></a></h2>
-   <p>The OCR system is required to indicate the following using meta tags in the header:</p>
-   <ul>
-    <li data-md="">
-     <p><code>&lt;meta name="ocr-system" content="name version"/></code></p>
-    <li data-md="">
-     <p><code>&lt;meta name="ocr-capabilities" content="capabilities"/></code></p>
-     <ul>
-      <li data-md="">
-       <p>see the capabilities defined above</p>
-     </ul>
-   </ul>
-   <p>The OCR system should indicate the following information</p>
-   <ul>
-    <li data-md="">
-     <p><code>&lt;meta name="ocr-number-of-pages" content="number-of-pages"/></code></p>
-    <li data-md="">
-     <p><code>&lt;meta name="ocr-langs" content="languages-considered-by-ocr"/></code></p>
-     <ul>
-      <li data-md="">
-       <p>use <a href="https://www.loc.gov/standards/iso639-2/php/code_list.php">ISO 639-1</a> codes</p>
-      <li data-md="">
-       <p>value may be <code>unknown</code></p>
-     </ul>
-    <li data-md="">
-     <p><code>&lt;meta name="ocr-scripts" content="scripts-considered-by-ocr"/></code></p>
-     <ul>
-      <li data-md="">
-       <p>use <a href="http://www.unicode.org/iso15924/codelists.html">ISO 15924</a> letter codes</p>
-      <li data-md="">
-       <p>value may be <code>unknown</code></p>
      </ul>
    </ul>
    <h2 class="heading settled" data-level="15" id="html-markup"><span class="secno">15. </span><span class="content">HTML Markup</span><a class="self-link" href="#html-markup"></a></h2>
@@ -2549,11 +2558,7 @@ actually converted to HTML would have used. Possible subformats are:</p>
    <p>HTML mapping generated by “Save As HTML”</p>
    <h5 class="heading settled" data-level="15.7.7.4" id="html_docbook_xsl"><span class="secno">15.7.7.4. </span><span class="content"><code>html_docbook_xsl</code></span><a class="self-link" href="#html_docbook_xsl"></a></h5>
    <p>HTML mapping generated by official XSL style sheets</p>
-   <h2 class="heading settled" data-level="16" id="document-meta-information"><span class="secno">16. </span><span class="content">Document Meta Information</span><a class="self-link" href="#document-meta-information"></a></h2>
-   <p>For document meta information, use the <a href="http://dublincore.org/documents/dcq-html/">Dublin Core Embedding into
-HTML</a>. See also <a href="http://dublincore.org/documents/dc-citation-guidelines/">Citation Guidelines
-for Dublin Core</a>.</p>
-   <h2 class="heading settled" data-level="17" id="sample-usage"><span class="secno">17. </span><span class="content">Sample Usage</span><a class="self-link" href="#sample-usage"></a></h2>
+   <h2 class="heading settled" data-level="16" id="sample-usage"><span class="secno">16. </span><span class="content">Sample Usage</span><a class="self-link" href="#sample-usage"></a></h2>
    <p>See also the <a href="https://github.com/tmbdev/hocr-tools">hocr-tools</a> for more samples.</p>
    <p>The HTML format described here may seem fairly complicated and difficult to
 parse, but because there are lots of tools for manipulating HTML documents,
@@ -2591,10 +2596,10 @@ they’re actually pretty easy to manipulate. Here are some examples:</p>
 </pre>
    <p>Note that the OCR markup, basic HTML markup, and semantic markup can co-exist
 within the same HTML file without interfering with one another.</p>
-   <h2 class="heading settled" data-level="18" id="iana-considerations"><span class="secno">18. </span><span class="content">IANA Considerations</span><a class="self-link" href="#iana-considerations"></a></h2>
+   <h2 class="heading settled" data-level="17" id="iana-considerations"><span class="secno">17. </span><span class="content">IANA Considerations</span><a class="self-link" href="#iana-considerations"></a></h2>
    <p class="issue" id="issue-f6d39356"><a class="self-link" href="#issue-f6d39356"></a> <a href="https://github.com/kba/hocr-spec/issues/2">XML namespace for hOCR HTML?</a></p>
    <p class="issue" id="issue-a3899b99"><a class="self-link" href="#issue-a3899b99"></a> <a href="https://github.com/kba/hocr-spec/issues/1">What DOCTYPE for hOCR HTML?</a></p>
-   <h3 class="heading settled" data-level="18.1" id="media-type"><span class="secno">18.1. </span><span class="content">Media Type</span><a class="self-link" href="#media-type"></a></h3>
+   <h3 class="heading settled" data-level="17.1" id="media-type"><span class="secno">17.1. </span><span class="content">Media Type</span><a class="self-link" href="#media-type"></a></h3>
    <p>In accordance to <a data-link-type="biblio" href="#biblio-rfc2048">[RFC2048]</a></p>
    <p class="issue" id="issue-19855aac"><a class="self-link" href="#issue-19855aac"></a> <a href="https://github.com/kba/hocr-spec/issues/27">correct MIME type for hOCR?</a></p>
    <dl>
