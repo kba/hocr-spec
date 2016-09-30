@@ -1,9 +1,3 @@
-# Introduction
-
-The purpose of this document is to define an open standard for representing OCR
-results. The goal is to reuse as much existing technology as possible, and to
-arrive at a representation that makes it easy to reuse OCR results.
-
 # Revision History
 
 hOCR has been originally developed by Thomas Breuel.
@@ -11,14 +5,17 @@ hOCR has been originally developed by Thomas Breuel.
 See the [releases](https://github.com/kba/hocr-spec/releases/) and full [commit
 history](https://github.com/kba/hocr-spec/commits/) for a revision history.
 
-# Getting Started
+# Introduction
+
+The purpose of this document is to define an open standard for representing OCR
+results. The goal is to reuse as much existing technology as possible, and to
+arrive at a representation that makes it easy to reuse OCR results.
 
 This document describes many tags and a lot of information that can be output.
 However, getting started with hOCR is easy: you only need to output the tags
 and information you actually want to.  For example, just outputting `ocr_line`
 tags with bounding boxes is already very useful for many applications.  Just
 start simple and add more output information as the need arises.
-
 
 # Terminology and Representation
 
