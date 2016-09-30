@@ -1384,13 +1384,13 @@ Possible extra rowspan handling
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">hOCR - OCR Workflow and Output embedded in HTML</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-09-29">29 September 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-09-30">30 September 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
      <dd><a class="u-url" href="http://kba.github.io/hocr-spec/1.2/">http://kba.github.io/hocr-spec/1.2/</a>
      <dt>Previous Versions:
-     <dd><a href="http://github.com/kba/hocr-spec/1.1/spec.md" rel="previous">http://github.com/kba/hocr-spec/1.1/spec.md</a>
+     <dd><a href="https://github.com/kba/hocr-spec/blob/master/1.1/spec.md" rel="previous">https://github.com/kba/hocr-spec/blob/master/1.1/spec.md</a>
      <dt>Issue Tracking:
      <dd><a href="https://github.com/kba/hocr-spec/issues/">GitHub</a>
      <dd><a href="#issues-index">Inline In Spec</a>
@@ -1405,7 +1405,7 @@ Possible extra rowspan handling
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 29 September 2016,
+In addition, as of 30 September 2016,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1855,11 +1855,16 @@ elements.</p>
    <h4 class="heading settled" data-level="6.1.1" id="ocr_page"><span class="secno">6.1.1. </span><span class="content"><code>ocr_page</code></span><a class="self-link" href="#ocr_page"></a></h4>
    <p>The <code>ocr_page</code> element must be present in all hOCR documents.</p>
    <h4 class="heading settled" data-level="6.1.2" id="ocr_column"><span class="secno">6.1.2. </span><span class="content"><code>ocr_column</code></span><a class="self-link" href="#ocr_column"></a></h4>
-   <div class="annoying-warning"><strong>OBSOLETE</strong></div>
-   <p>Please use [<code>ocr_carea</code>](#ocr_carea) instead</p>
+   <div class="annoying-warning">
+    <strong>OBSOLETE</strong> 
+    <p>Please use <a href="#ocr_carea">§6.1.3 ocr_carea</a> instead</p>
+   </div>
    <h4 class="heading settled" data-level="6.1.3" id="ocr_carea"><span class="secno">6.1.3. </span><span class="content">ocr_carea</span><a class="self-link" href="#ocr_carea"></a></h4>
    <p>"ocr content area" or "body area"</p>
-   <p>Used to be called ~~ocr_column~~</p>
+   <p>
+    Used to be called 
+    <del>ocr_column</del>
+   </p>
    <h4 class="heading settled" data-level="6.1.4" id="ocr_line"><span class="secno">6.1.4. </span><span class="content"><code>ocr_line</code></span><a class="self-link" href="#ocr_line"></a></h4>
    <p>Should be in a <code>&lt;span></code></p>
    <h4 class="heading settled" data-level="6.1.5" id="ocr_separator"><span class="secno">6.1.5. </span><span class="content"><code>ocr_separator</code></span><a class="self-link" href="#ocr_separator"></a></h4>

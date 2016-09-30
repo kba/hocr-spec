@@ -262,15 +262,17 @@ The `ocr_page` element must be present in all hOCR documents.
 
 ### `ocr_column`
 
-<div class="annoying-warning">**OBSOLETE**</div>
+<div class="annoying-warning">
+**OBSOLETE**
 
-Please use [`ocr_carea`](#ocr_carea) instead
+Please use [[#ocr_carea]] instead
+</div>
 
 ### ocr_carea
 
 "ocr content area" or "body area"
 
-Used to be called ~~ocr_column~~
+Used to be called <del>ocr_column</del>
 
 ### `ocr_line`
 
