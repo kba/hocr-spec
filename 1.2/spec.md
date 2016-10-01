@@ -132,18 +132,18 @@ Issue: [Use of property presence](https://github.com/kba/hocr-spec/issues/10)
 
 `presence` presence must be declared in the document meta data
 
-The following property relates the flow between multiple `ocr_carea` elements,
-and between `ocr_carea` and `ocr_linear` elements.
-
 ### `cflow`
 
 `cflow s`
 
+This property relates the flow between multiple [[#ocr_carea]] elements,
+and between [[#ocr_carea]] and [[#ocr_linear]] elements.
+
 The content flow on the page that this element is a part of
 
   * s must be a unique string for each content flow
-  * must be present on ocr_carea and ocrx_block tags when reading order is
-    attempted and multiple content flows are present
+  * must be present on [[#ocr_carea]] and [[#ocrx_block]] tags when reading
+    order is attempted and multiple content flows are present
   * presence must be declared in the document meta data
 
 This property applies primarily to textlines
