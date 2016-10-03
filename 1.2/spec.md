@@ -146,11 +146,11 @@ The content flow on the page that this element is a part of
     order is attempted and multiple content flows are present
   * presence must be declared in the document meta data
 
-This property applies primarily to textlines
-
 ### `baseline`
 
 `baseline pn pn-1 ... p0`
+
+This property applies primarily to textlines.
 
 The baseline is described by a polynomial of order `n` with the coefficients
 `pn ...  p0` with `n = 1` for a linear (i.e. straight) line.
