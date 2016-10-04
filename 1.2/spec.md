@@ -129,30 +129,55 @@ Issue: [Use of property presence](https://github.com/kba/hocr-spec/issues/10)
 
 `presence` presence must be declared in the document meta data
 
-The following property relates the flow between multiple `ocr_carea` elements,
-and between `ocr_carea` and `ocr_linear` elements.
-
 ### `cflow`
 
 `cflow s`
 
+This property relates the flow between multiple [[#ocr_carea]] elements,
+and between [[#ocr_carea]] and [[#ocr_linear]] elements.
+
 The content flow on the page that this element is a part of
 
   * s must be a unique string for each content flow
-  * must be present on ocr_carea and ocrx_block tags when reading order is
-    attempted and multiple content flows are present
+  * must be present on [[#ocr_carea]] and [[#ocrx_block]] tags when reading
+    order is attempted and multiple content flows are present
   * presence must be declared in the document meta data
-
-This property applies primarily to textlines
 
 ### `baseline`
 
 `baseline pn pn-1 ... p0`
 
-A polynomial describing the baseline of a line of text
+This property applies primarily to textlines.
 
-  * the polynomial is in the coordinate system of the line, with the bottom
-    left of the bounding box as the origin
+The baseline is described by a polynomial of order `n` with the coefficients
+`pn ...  p0` with `n = 1` for a linear (i.e. straight) line.
+
+The polynomial is in the coordinate system of the line, with the bottom left of
+the bounding box as the origin.
+
+<div class="example">
+
+The hOCR output for the first line of
+[eurotext.tif](https://github.com/tesseract-ocr/tesseract/blob/master/testing/eurotext.tif)
+contains the following information:
+
+```html
+<span class='ocr_line' id='line_1_1'
+    title="bbox 105 66 823 113; baseline 0.015 -18">...</span>
+```
+
+bbox is the bounding box of the line in image coordinates (blue). The two
+numbers for the baseline are the slope (1st number) and constant term (2nd
+number) of a linear equation describing the baseline relative to the bottom
+left corner of the bounding box (red). The baseline crosses the y-axis at `-18`
+and its slope angle is `arctan(0.015) = 0.86°`.
+
+<figure><img
+  alt="baseline explained"
+  src="../images/baseline.png"/>
+</figure>
+
+</div>
 
 # Logical Structuring Elements
 
@@ -259,19 +284,32 @@ The `ocr_page` element must be present in all hOCR documents.
 
 ### `ocr_column`
 
-<div class="annoying-warning">**OBSOLETE**</div>
+<div class="annoying-warning">
+**OBSOLETE**
 
-Please use [`ocr_carea`](#ocr_carea) instead
+Please use [[#ocr_carea]] instead
+</div>
 
 ### ocr_carea
 
 "ocr content area" or "body area"
 
-Used to be called ~~ocr_column~~
+Used to be called <del>ocr_column</del>
+
+The `ocr_carea` elements should appear in reading order unless this is impossible
+because of some other structuring requirement. If the document contains multiple
+`ocr_linear` streams, then each `ocr_carea` must indicate which stream it belongs
+to.
 
 ### `ocr_line`
 
-Should be in a `<span>`
+In typesetting systems, content areas are filled with “blocks”, but most of
+those blocks are not recoverable or semantically meaningful. However, one type
+of block is visible and very important for OCR engines: the line. Lines are
+typesetting blocks that only contain glyphs (“inlines” in XSL terminology).
+They are represented by the `ocr_line` area.
+
+`ocr_line` should be in a `<span>`
 
 ### `ocr_separator`
 
@@ -298,7 +336,7 @@ The bounding box of the page; for pages, the top left corner must be at
   * syntactically, must be a UNIX-like pathname or http URL (no Windows pathnames)
   * may be relative
   * cannot be resolved to the actual file in general (e.g., if the hOCR file
-    becomes separated from the image fiels)
+    becomes separated from the image file)
   * if the hOCR file is present in a directory hierarchy or file archive, should
     resolve to the corresponding image file
 
@@ -356,17 +394,7 @@ The following properties MAY be present:
     * `x_source /gfs/cc/clean/012345678911 17`
     * `x_source http://pageserver/012345678911&page=17`
 
-The `ocr_carea` elements should appear reading order unless this is impossible
-because of some other structuring requirement If the document contains multiple
-`ocr_linear` streams, then each `ocr_carea` must indicate which stream it belongs
-to.
-
-In typesetting systems, content areas are filled with “blocks”, but most of
-those blocks are not recoverable or semantically meaningful. However, one type
-of block is visible and very important for OCR engines: the line. Lines are
-typesetting blocks that only contain glyphs (“inlines” in XSL terminology).
-
-They are represented by the `ocr_line` area. In addition to the standard
+In addition to the standard
 properties, the `ocr_line` area supports the following additional properties:
 
 ### `hardbreak`
@@ -794,7 +822,7 @@ corresponding element or attribute must not be present in the document.
 
 # Metadata
 
-## OCR metadata
+## Required Meta Information
 
 The OCR system is required to indicate the following using meta tags in the header:
 
