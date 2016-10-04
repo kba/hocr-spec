@@ -328,9 +328,20 @@ Please use [[#ocr_carea]] instead
 
 Used to be called <del>ocr_column</del>
 
+The `ocr_carea` elements should appear in reading order unless this is impossible
+because of some other structuring requirement. If the document contains multiple
+`ocr_linear` streams, then each `ocr_carea` must indicate which stream it belongs
+to.
+
 ### `ocr_line`
 
-Should be in a `<span>`
+In typesetting systems, content areas are filled with “blocks”, but most of
+those blocks are not recoverable or semantically meaningful. However, one type
+of block is visible and very important for OCR engines: the line. Lines are
+typesetting blocks that only contain glyphs (“inlines” in XSL terminology).
+They are represented by the `ocr_line` area.
+
+`ocr_line` should be in a `<span>`
 
 ### `ocr_separator`
 
@@ -415,17 +426,7 @@ The following properties MAY be present:
     * `x_source /gfs/cc/clean/012345678911 17`
     * `x_source http://pageserver/012345678911&page=17`
 
-The `ocr_carea` elements should appear reading order unless this is impossible
-because of some other structuring requirement If the document contains multiple
-`ocr_linear` streams, then each `ocr_carea` must indicate which stream it belongs
-to.
-
-In typesetting systems, content areas are filled with “blocks”, but most of
-those blocks are not recoverable or semantically meaningful. However, one type
-of block is visible and very important for OCR engines: the line. Lines are
-typesetting blocks that only contain glyphs (“inlines” in XSL terminology).
-
-They are represented by the `ocr_line` area. In addition to the standard
+In addition to the standard
 properties, the `ocr_line` area supports the following additional properties:
 
 ### `hardbreak`
