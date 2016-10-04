@@ -1872,8 +1872,16 @@ elements.</p>
     Used to be called 
     <del>ocr_column</del>
    </p>
+   <p>The <code>ocr_carea</code> elements should appear in reading order unless this is impossible
+because of some other structuring requirement. If the document contains multiple <code>ocr_linear</code> streams, then each <code>ocr_carea</code> must indicate which stream it belongs
+to.</p>
    <h4 class="heading settled" data-level="6.1.4" id="ocr_line"><span class="secno">6.1.4. </span><span class="content"><code>ocr_line</code></span><a class="self-link" href="#ocr_line"></a></h4>
-   <p>Should be in a <code>&lt;span></code></p>
+   <p>In typesetting systems, content areas are filled with “blocks”, but most of
+those blocks are not recoverable or semantically meaningful. However, one type
+of block is visible and very important for OCR engines: the line. Lines are
+typesetting blocks that only contain glyphs (“inlines” in XSL terminology).
+They are represented by the <code>ocr_line</code> area.</p>
+   <p><code>ocr_line</code> should be in a <code>&lt;span></code></p>
    <h4 class="heading settled" data-level="6.1.5" id="ocr_separator"><span class="secno">6.1.5. </span><span class="content"><code>ocr_separator</code></span><a class="self-link" href="#ocr_separator"></a></h4>
    <p>Any separator or similar element</p>
    <h4 class="heading settled" data-level="6.1.6" id="ocr_noise"><span class="secno">6.1.6. </span><span class="content"><code>ocr_noise</code></span><a class="self-link" href="#ocr_noise"></a></h4>
@@ -1965,14 +1973,7 @@ additional strings or using URL parameters or fragments</p>
        <p><code>x_source http://pageserver/012345678911&amp;page=17</code></p>
      </ul>
    </ul>
-   <p>The <code>ocr_carea</code> elements should appear reading order unless this is impossible
-because of some other structuring requirement If the document contains multiple <code>ocr_linear</code> streams, then each <code>ocr_carea</code> must indicate which stream it belongs
-to.</p>
-   <p>In typesetting systems, content areas are filled with “blocks”, but most of
-those blocks are not recoverable or semantically meaningful. However, one type
-of block is visible and very important for OCR engines: the line. Lines are
-typesetting blocks that only contain glyphs (“inlines” in XSL terminology).</p>
-   <p>They are represented by the <code>ocr_line</code> area. In addition to the standard
+   <p>In addition to the standard
 properties, the <code>ocr_line</code> area supports the following additional properties:</p>
    <h4 class="heading settled" data-level="6.3.4" id="hardbreak"><span class="secno">6.3.4. </span><span class="content"><code>hardbreak</code></span><a class="self-link" href="#hardbreak"></a></h4>
    <p><code>hardbreak n</code></p>
