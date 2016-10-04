@@ -1384,7 +1384,7 @@ Possible extra rowspan handling
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">hOCR - OCR Workflow and Output embedded in HTML</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-10-06">6 October 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-10-07">7 October 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1403,7 +1403,7 @@ Possible extra rowspan handling
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 6 October 2016,
+In addition, as of 7 October 2016,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1463,7 +1463,7 @@ Parts of this work may be from another specification document.  If so, those par
        <ol class="toc">
         <li><a href="#ocr_page"><span class="secno">5.1.1</span> <span class="content"><code>ocr_page</code></span></a>
         <li><a href="#ocr_column"><span class="secno">5.1.2</span> <span class="content"><code>ocr_column</code></span></a>
-        <li><a href="#ocr_carea"><span class="secno">5.1.3</span> <span class="content">ocr_carea</span></a>
+        <li><a href="#ocr_carea"><span class="secno">5.1.3</span> <span class="content"><code>ocr_carea</code></span></a>
         <li><a href="#ocr_line"><span class="secno">5.1.4</span> <span class="content"><code>ocr_line</code></span></a>
         <li><a href="#ocr_separator"><span class="secno">5.1.5</span> <span class="content"><code>ocr_separator</code></span></a>
         <li><a href="#ocr_noise"><span class="secno">5.1.6</span> <span class="content"><code>ocr_noise</code></span></a>
@@ -1682,7 +1682,7 @@ multiple properties are separated by semicolons.</p>
    <p>The following properties can apply to most elements (where it makes sense):</p>
    <h4 class="heading settled" data-level="3.1.1" id="bbox"><span class="secno">3.1.1. </span><span class="content"><code>bbox</code></span><a class="self-link" href="#bbox"></a></h4>
    <p><code>bbox x0 y0 x1 y1</code></p>
-   <p>The bounding box of the element relative to the binarized document image</p>
+   <p>The bounding box of the element relative to the document image</p>
    <ul>
     <li data-md="">
      <p>use <code>x_bboxes</code> below for character bounding boxes</p>
@@ -1693,7 +1693,7 @@ fact, rectangular</p>
      <p>some non-rectangular layout components may have rectangular bounding boxes
 if the non-rectangularity is caused by floating elements around which text flows</p>
    </ul>
-   <p>See also the section [<code>bbox (typesetting)</code>](#bbox-typesetting).</p>
+   <p>See also the section <a href="#bbox-typesetting">§5.2.1 bbox (typesetting)</a>.</p>
    <h4 class="heading settled" data-level="3.1.2" id="textangle"><span class="secno">3.1.2. </span><span class="content"><code>textangle</code></span><a class="self-link" href="#textangle"></a></h4>
    <p><code>textangle alpha</code></p>
    <p>The angle in degrees by which textual content has been rotate relative to the
@@ -1868,7 +1868,7 @@ elements.</p>
      <strong>OBSOLETE</strong> 
     <p>Please use <a href="#ocr_carea">§5.1.3 ocr_carea</a> instead</p>
    </div>
-   <h4 class="heading settled" data-level="5.1.3" id="ocr_carea"><span class="secno">5.1.3. </span><span class="content">ocr_carea</span><a class="self-link" href="#ocr_carea"></a></h4>
+   <h4 class="heading settled" data-level="5.1.3" id="ocr_carea"><span class="secno">5.1.3. </span><span class="content"><code>ocr_carea</code></span><a class="self-link" href="#ocr_carea"></a></h4>
    <p>"ocr content area" or "body area"</p>
    <p>
     Used to be called 
