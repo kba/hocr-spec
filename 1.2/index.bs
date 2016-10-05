@@ -657,10 +657,34 @@ Issue: [ocr_carea vs ocrx_block](https://github.com/kba/hocr-spec/issues/28)
 
 ### `ocrx_line`
 
-Issue: [ocr_line vs ocrx_line](https://github.com/kba/hocr-spec/issues/19)
-
-  * any kind of "line" returned by an OCR system that differs from the standard ocr_line above
+  * any kind of "line" returned by an OCR system that differs from [[#ocr_line]]
   * might be some kind of "logical" line
+  * examples include line continuations and rowspan in tables
+
+<div class="example">
+
+Consider the following snippet, containing a wide-spaced heading broken over
+two physical lines:
+
+<figure>
+  <img
+    width=600
+    alt="Wide spaced two line heading"
+    src="../images/akf-widespaced-heading.png"/>
+</figure>
+
+An OCR engine could produce the following output, indicating the two physical
+lines that form a single logical line:
+
+```html
+...
+<span class="ocrx_line">
+  <span class='ocr_line' title="bbox 16 16 860 47">Aus den Gewinn- und Verlust-</span>
+  <span class='ocr_line' title="bbox 302 62 603 98">rechnungen</span> 
+</span>
+...
+```
+</div>
 
 ### `ocrx_word`
 
