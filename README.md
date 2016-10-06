@@ -38,10 +38,12 @@ channel](https://gitter.im/kba/hocr-spec).
 
 ## Building the spec
 
-To build the spec, you will need to have GNU make and one of
-  * [bikeshed](https://github.com/tabatkins/bikeshed) or
-  * [docker](https://docker.com) or
-  * `curl` installed.
+To build the spec, you will need to have `GNU make` and one of the following
+programs installed:
+
+  * [bikeshed](https://github.com/tabatkins/bikeshed)
+  * [docker](https://docker.com)
+  * `curl`
 
 The Makefile will first look for a local bikeshed installation, then for docker
 to use the [bikeshed docker container](https://hub.docker.com/kbai/bikeshed)
