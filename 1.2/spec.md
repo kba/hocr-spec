@@ -13,7 +13,7 @@ arrive at a representation that makes it easy to reuse OCR results.
 
 This document describes many tags and a lot of information that can be output.
 However, getting started with hOCR is easy: you only need to output the tags
-and information you actually want to.  For example, just outputting `ocr_line`
+and information you actually want to.  For example, just outputting <{ocr_line}>
 tags with bounding boxes is already very useful for many applications.  Just
 start simple and add more output information as the need arises.
 
@@ -133,13 +133,13 @@ Issue: [Use of property presence](https://github.com/kba/hocr-spec/issues/10)
 
 `cflow s`
 
-This property relates the flow between multiple [[#ocr_carea]] elements,
-and between [[#ocr_carea]] and [[#ocr_linear]] elements.
+This property relates the flow between multiple <{ocr_carea}> elements,
+and between <{ocr_carea}> and <{ocr_linear}> elements.
 
 The content flow on the page that this element is a part of
 
   * s must be a unique string for each content flow
-  * must be present on [[#ocr_carea]] and [[#ocrx_block]] tags when reading
+  * must be present on <{ocr_carea}> and <{ocrx_block}> tags when reading
     order is attempted and multiple content flows are present
   * presence must be declared in the document meta data
 
@@ -183,30 +183,30 @@ and its slope angle is `arctan(0.015) = 0.86°`.
 
 We recognize the following logical structuring elements:
 
-  * `ocr_document`
-    * `ocr_linear`
-      * `ocr_title`
-      * `ocr_author`
-      * `ocr_abstract`
-      * `ocr_part` [`<h1>`]
-        * `ocr_chapter` [`<h1>`]
-          * `ocr_section` [`<h2>`]
+  * <{ocr_document}>
+    * <{ocr_linear}>
+      * <{ocr_title}>
+      * <{ocr_author}>
+      * <{ocr_abstract}>
+      * <{ocr_part}> [`<h1>`]
+        * <{ocr_chapter}> [`<h1>`]
+          * <{ocr_section}> [`<h2>`]
             * `ocr_sub*section` [`<h3>`,`<h4>`]
-              * `ocr_display` 
-              * `ocr_blockquote` [`<blockquote>`]
-              * `ocr_par` [`<p>`]
+              * <{ocr_display}> 
+              * <{ocr_blockquote}> [`<blockquote>`]
+              * <{ocr_par}> [`<p>`]
 
-## `ocr_document`
-## `ocr_title`
-## `ocr_author`
-## `ocr_abstract`
-## `ocr_part`
-## `ocr_chapter`
-## `ocr_section`
-## `ocr_subsubsection`
-## `ocr_display`
-## `ocr_blockquote`
-## `ocr_par`
+<h3 id="ocr_document" data-dfn-type="element">ocr_document</h3>
+<h3 id="ocr_title" data-dfn-type="element">ocr_title</h3>
+<h3 id="ocr_author" data-dfn-type="element">ocr_author</h3>
+<h3 id="ocr_abstract" data-dfn-type="element">ocr_abstract</h3>
+<h3 id="ocr_part" data-dfn-type="element">ocr_part</h3>
+<h3 id="ocr_chapter" data-dfn-type="element">ocr_chapter</h3>
+<h3 id="ocr_section" data-dfn-type="element">ocr_section</h3>
+<h3 id="ocr_subsubsection" data-dfn-type="element">ocr_subsubsection</h3>
+<h3 id="ocr_display" data-dfn-type="element">ocr_display</h3>
+<h3 id="ocr_blockquote" data-dfn-type="element">ocr_blockquote</h3>
+<h3 id="ocr_par" data-dfn-type="element">ocr_par</h3>
 
 These logical tags have their standard meaning as used in the publishing
 industry and tools like LaTeX, MS Word, and others.
@@ -216,15 +216,15 @@ with those logical structuring elements, but it may not be possible or
 desirable to actually chose those tags (e.g., when adding hOCR information to
 an existing HTML output routine).
 
-## `ocr_linear`
+<h4 id="ocr_linear" data-dfn-type="element">ocr_linear</h4>
 
-For all of these elements except `ocr_linear`, there exists a natural linear
-ordering defined by reading order (`ocr_linear` indicates that the elements
-contained in it have a linear ordering). At the level of `ocr_linear`, there
-may not be a single distinguished order. A common example of `ocr_linear` is a
+For all of these elements except <{ocr_linear}>, there exists a natural linear
+ordering defined by reading order (<{ocr_linear}> indicates that the elements
+contained in it have a linear ordering). At the level of <{ocr_linear}>, there
+may not be a single distinguished order. A common example of <{ocr_linear}> is a
 newspaper, in which a single newspaper may contain many linear, but there is no
 unique reading order for the different linear. OCR evaluation tools should
-therefore be sensitive to the order of all elements other than `ocr_linear`.
+therefore be sensitive to the order of all elements other than <{ocr_linear}>.
 
 Tags must be nested as indicated by nesting above, but not all tags within the
 hierarchy need to be present.
@@ -235,11 +235,11 @@ text inside the containing element.
 Documents whose logical structure does not map naturally onto these logical
 structuring elemetns must not use them for other purpose.
 
-## `ocr_caption`
+<h3 id="ocr_caption" data-dfn-type="element">ocr_caption</h3>
 
-Image captions may be indicated using the `ocr_caption` element; such an
+Image captions may be indicated using the <{ocr_caption}> element; such an
 element refers to the image(s) contained within the same float, or the
-immediately adjacent image if both the image and the `ocr_caption` element are
+immediately adjacent image if both the image and the <{ocr_caption}> element are
 in running text.
 
 
@@ -278,11 +278,11 @@ properties for floating elements; properties need to be defined for this.
 The following classes, as well as [floats](#classes-for-floats) are used for type-setting
 elements.
 
-### `ocr_page`
+<h4 id="ocr_page" data-dfn-type="element">ocr_page</h4>
 
-The `ocr_page` element must be present in all hOCR documents.
+The <{ocr_page}> element must be present in all hOCR documents.
 
-### `ocr_column`
+<h4 id="ocr_column" data-dfn-type="element">ocr_column</h4>
 
 <div class="annoying-warning">
 **OBSOLETE**
@@ -290,32 +290,33 @@ The `ocr_page` element must be present in all hOCR documents.
 Please use [[#ocr_carea]] instead
 </div>
 
-### ocr_carea
+<!-- ### Content area -->
+<h4 id="ocr_carea" data-dfn-type="element">ocr_carea</h4>
 
 "ocr content area" or "body area"
 
 Used to be called <del>ocr_column</del>
 
-The `ocr_carea` elements should appear in reading order unless this is impossible
+The <{ocr_carea}> elements should appear in reading order unless this is impossible
 because of some other structuring requirement. If the document contains multiple
-`ocr_linear` streams, then each `ocr_carea` must indicate which stream it belongs
+<{ocr_linear}> streams, then each <{ocr_carea}> must indicate which stream it belongs
 to.
 
-### `ocr_line`
+<h4 id="ocr_line" data-dfn-type="element">ocr_line</h4>
 
 In typesetting systems, content areas are filled with “blocks”, but most of
 those blocks are not recoverable or semantically meaningful. However, one type
 of block is visible and very important for OCR engines: the line. Lines are
 typesetting blocks that only contain glyphs (“inlines” in XSL terminology).
-They are represented by the `ocr_line` area.
+They are represented by the <{ocr_line}> area.
 
-`ocr_line` should be in a `<span>`
+<{ocr_line}> should be in a `<span>`
 
-### `ocr_separator`
+<h4 id="ocr_separator" data-dfn-type="element">ocr_separator</h4>
 
 Any separator or similar element
 
-### `ocr_noise`
+<h4 id="ocr_noise" data-dfn-type="element">ocr_noise</h4>
 
 Any noise element that isn't part of typesetting
 
@@ -395,7 +396,7 @@ The following properties MAY be present:
     * `x_source http://pageserver/012345678911&page=17`
 
 In addition to the standard
-properties, the `ocr_line` area supports the following additional properties:
+properties, the <{ocr_line}> area supports the following additional properties:
 
 ### `hardbreak`
 
@@ -406,21 +407,21 @@ properties, the `ocr_line` area supports the following additional properties:
   * a one indicates that the line is a hard (explicit) line break
 
 Any special characters representing the desired end-of-line processing must be
-present inside the `ocr_line` element. Examples of such special characters are a
+present inside the <{ocr_line}> element. Examples of such special characters are a
 soft hyphen ("­", `U+00AD`), a hard line break (`<br>`), or whitespace (` `) for soft
 line breaks.
 
 Note that for many documents, the actual ground truth careas are well-defined
 by the document style of the original document before printing and scanning.
 From a single page, the `careas` of the original document style cannot be
-recovered exactly. However, the partition of a document by `ocr_carea` for an
+recovered exactly. However, the partition of a document by <{ocr_carea}> for an
 individual page shall be considered correct relative to ground truth if
 
   1. all the text contained in a ground truth carea is fully contained within a
-    single `ocr_carea`,
+    single <{ocr_carea}>,
   2. no text outside a ground truth `carea` is contained within an
-    `ocr_carea`, and 
-  3. the `ocr_careas` appear in the same order as the text flow
+    <{ocr_carea}>, and 
+  3. the <{ocr_carea}> appear in the same order as the text flow
     relationships between the ground truth careas.
 
 ## Classes for floats
@@ -429,48 +430,48 @@ Floats should not be nested.
 
 The following floats are defined:
 
-### `ocr_float`
+<h4 id="ocr_float" data-dfn-type="element">ocr_float</h4>
 
 `ocr_float`
 
-### `ocr_separator`
+<h4 id="ocr_separator-float" data-dfn-type="element">ocr_separator</h4>
 
-`ocr_separator`
+`ocr_separator` in the context of float classes.
 
-### `ocr_textfloat`
+<h4 id="ocr_textfloat" data-dfn-type="element">ocr_textfloat</h4>
 
 `ocr_textfloat`
 
-### `ocr_textimage`
+<h4 id="ocr_textimage" data-dfn-type="element">ocr_textimage</h4>
 
 `ocr_textimage`
 
-### `ocr_image`
+<h4 id="ocr_image" data-dfn-type="element">ocr_image</h4>
 
 `ocr_image`
 
-### `ocr_linedrawing`
+<h4 id="ocr_linedrawing" data-dfn-type="element">ocr_linedrawing</h4>
 
 Something that could be represented well and naturally in a vector graphics
 format like SVG (even if it is actually represented as PNG)
 
-### `ocr_photo`
+<h4 id="ocr_photo" data-dfn-type="element">ocr_photo</h4>
 
 Something that requires JPEG or PNG to be represented well
 
-### `ocr_header`
+<h4 id="ocr_header" data-dfn-type="element">ocr_header</h4>
 
 `ocr_header`
 
-### `ocr_footer`
+<h4 id="ocr_footer" data-dfn-type="element">ocr_footer</h4>
 
 `ocr_footer`
 
-### `ocr_pageno`
+<h4 id="ocr_pageno" data-dfn-type="element">ocr_pageno</h4>
 
 `ocr_pageno`
 
-### `ocr_table`
+<h4 id="ocr_table" data-dfn-type="element">ocr_table</h4>
 
 `ocr_table`
 
@@ -480,44 +481,44 @@ There is some content that should behave and flow like text
 
 ## Classes for Inline Representation
 
-### `ocr_glyph`
+<h4 id="ocr_glyph" data-dfn-type="element">ocr_glyph</h4>
 
 An individual glyph represented as an image (e.g., an unrecognized character)
 
 Must contain a single `<img>` tag, or be present on one
 
-### `ocr_glyphs`
+<h4 id="ocr_glyphs" data-dfn-type="element">ocr_glyphs</h4>
 
 Multiple glyphs represented as an image (e.g., an unrecognized word)
 
 Must contain a single `<img>` tag, or be present on one
 
-### `ocr_dropcap`
+<h4 id="ocr_dropcap" data-dfn-type="element">ocr_dropcap</h4>
 
 An individual glyph representing a dropcap
 
 May contain text or an `<img>` tag; the `alt` of the image tag should contain
 the corresponding text
 
-### `ocr_chem`
+<h4 id="ocr_chem" data-dfn-type="element">ocr_chem</h4>
 
 A chemical formula
 
 Must contain either a single `<img>` tag or [[CML]] markup, or be present on
 one
 
-### `ocr_math`
+<h4 id="ocr_math" data-dfn-type="element">ocr_math</h4>
 
 A mathematical formula
 
 Must contain either a single `<img>` tag or [[MathML]] markup, or be present on
 one
 
-Mathematical and chemical formulas that float must be put into an `ocr_float`
+Mathematical and chemical formulas that float must be put into an <{ocr_float}>
 section.
 
 Mathematical and chemical formulas that are “display” mode should be put into
-an `ocr_display` section.
+an <{ocr_display}> section.
 
 ### Non-breaking space
 
@@ -552,9 +553,9 @@ must be represented using their correct Unicode encoding.
 Character-level information may be put on any element that contains only a
 single "line" of text.
 
-### `ocr_cinfo`
+<h4 id="ocr_cinfo" data-dfn-type="element">ocr_cinfo</h4>
 
-If no other layout element applies, the `ocr_cinfo` element may be used.
+If no other layout element applies, the <{ocr_cinfo}> element may be used.
 
 ## Properties for Character Information
 
@@ -616,21 +617,21 @@ Common suggested engine-specific markup are:
 
 ## Classes for engine specific markup
 
-### `ocrx_block`
+<h4 id="ocrx_block" data-dfn-type="element">ocrx_block</h4>
 
 Issue: [ocr_carea vs ocrx_block](https://github.com/kba/hocr-spec/issues/28)
 
   * any kind of "block" returned by an OCR system
   * engine-specific because the definition of a "block" depends on the engine
 
-### `ocrx_line`
+<h4 id="ocrx_line" data-dfn-type="element">ocrx_line</h4>
 
 Issue: [ocr_line vs ocrx_line](https://github.com/kba/hocr-spec/issues/19)
 
   * any kind of "line" returned by an OCR system that differs from the standard ocr_line above
   * might be some kind of "logical" line
 
-### `ocrx_word`
+<h4 id="ocrx_word" data-dfn-type="element">ocrx_word</h4>
 
   * any kind of "word" returned by an OCR system
   * engine specific because the definition of a "word" depends on the engine
@@ -638,13 +639,15 @@ Issue: [ocr_line vs ocrx_line](https://github.com/kba/hocr-spec/issues/19)
 The meaning of these tags is OCR engine specific. However, generators should
 attempt to ensure the following properties:
 
-* an `ocrx_block` should not contain content from multiple ocr_careas
-* the union of all `ocrx_blocks` should approximately cover all `ocr_careas`
-* an `ocrx_block` should contain either a float or body text, but not both
-* an `ocrx_block` should contain either an image or text, but not both
-* an `ocrx_line` should correspond as closely as possible to an `ocr_line`
-* `ocrx_cinfo` should nest inside `ocrx_line`
-* `ocrx_cinfo` should contain only `x_conf`, `x_bboxes`, and `cuts` attributes
+* An <{ocrx_block}> should not contain content from multiple <{ocr_carea}>.
+* The union of all <{ocrx_block|ocrx_blocks}> should approximately cover all <{ocr_carea}>.
+* an <{ocrx_block}> should contain either a float or body text, but not both
+* an <{ocrx_block}> should contain either an image or text, but not both
+* an <{ocrx_line}> should correspond as closely as possible to an <{ocr_line}>
+* <{ocrx_cinfo}> should nest inside <{ocrx_line}>
+* <{ocrx_cinfo}> should contain only `x_conf`, `x_bboxes`, and `cuts` attributes
+
+Issue: ocrx_cinfo?
 
 ## Properties for engine-specific markup
 
@@ -744,7 +747,7 @@ when viewed in a browser.
 
 The different levels of layout information (logical, physical, engine-specific)
 each form hierarchies, but those hierarchies may not be mutually compatible;
-for example, a single `ocr_page` may contain information from multiple sections
+for example, a single <{ocr_page}> may contain information from multiple sections
 or chapters. To represent both hierarchies within a single document, elements
 may be grouped together.  That is, two elements with the same class may be
 treated as one element by adding a "groupid identifier" property to them and
@@ -762,8 +765,8 @@ removing tags that are not of interest for the subsequent processing step, and
 then collapsing grouped elements into single elements.  For example, output
 that contains both logical and physical layout information, where the logical
 layout information uses grouped elements, can be transformed by removing all
-the physical layout information, and then collapsing all split `ocr_chapter`
-elements into single `ocr_chapter` elements based on the groupid.  The result is
+the physical layout information, and then collapsing all split <{ocr_chapter}>
+elements into single <{ocr_chapter}> elements based on the groupid.  The result is
 a simple DOM tree.  This transformation can be provided generically as a
 pre-processor or Javascript.
 
@@ -784,23 +787,23 @@ document.
 The capability to generate specific properties is given by the prefix `ocrp_...`;
 the important properties are:
 
-## `ocrp_lang`
+<h3 id="ocrp_lang" data-dfn-type="element">ocrp_lang</h3>
 
 Capable of generating `lang=` attributes
 
-## `ocrp_dir`
+<h3 id="ocrp_dir" data-dfn-type="element">ocrp_dir</h3>
 
 Capable of generating `dir=` attributes
 
-## `ocrp_poly`
+<h3 id="ocrp_poly" data-dfn-type="element">ocrp_poly</h3>
 
 Capable of generating [polygonal bounds](#poly)
 
-## `ocrp_font`
+<h3 id="ocrp_font" data-dfn-type="element">ocrp_font</h3>
 
 Capable of generating font information (standard font information)
 
-## `ocrp_nlp`
+<h3 id="ocrp_nlp" data-dfn-type="element">ocrp_nlp</h3>
 
 Capable of generating [nlp confidences](#nlp)
 
@@ -877,7 +880,7 @@ document classes:
 
   * common commercial OCR output (e.g., Abbyy)
     * ocr_page
-    * ocrx_block, ocrx_line, ocrx_word
+    * ocrx_block, ocrx_line, <{ocrx_word}>
     * ocrp_lang
     * ocrp_font
   * book target

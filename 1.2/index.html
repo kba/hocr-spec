@@ -1185,93 +1185,6 @@ Possible extra rowspan handling
             [data-md] > :last-child {
                 margin-bottom: 0;
             }</style>
-<style>/* style-counters */
-
-            body {
-                counter-reset: example figure issue;
-            }
-            .issue {
-                counter-increment: issue;
-            }
-            .issue:not(.no-marker)::before {
-                content: "Issue " counter(issue);
-            }
-
-            .example {
-                counter-increment: example;
-            }
-            .example:not(.no-marker)::before {
-                content: "Example " counter(example);
-            }
-            .invalid.example:not(.no-marker)::before,
-            .illegal.example:not(.no-marker)::before {
-                content: "Invalid Example" counter(example);
-            }
-
-            figcaption {
-                counter-increment: figure;
-            }
-            figcaption:not(.no-marker)::before {
-                content: "Figure " counter(figure) " ";
-            }</style>
-<style>/* style-syntax-highlighting */
-
-        .highlight:not(.idl) { background: hsl(24, 20%, 95%); }
-        code.highlight { padding: .1em; border-radius: .3em; }
-        pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em 0; overflow: auto; border-radius: 0; }
-        .highlight .c { color: #708090 } /* Comment */
-        .highlight .k { color: #990055 } /* Keyword */
-        .highlight .l { color: #000000 } /* Literal */
-        .highlight .n { color: #0077aa } /* Name */
-        .highlight .o { color: #999999 } /* Operator */
-        .highlight .p { color: #999999 } /* Punctuation */
-        .highlight .cm { color: #708090 } /* Comment.Multiline */
-        .highlight .cp { color: #708090 } /* Comment.Preproc */
-        .highlight .c1 { color: #708090 } /* Comment.Single */
-        .highlight .cs { color: #708090 } /* Comment.Special */
-        .highlight .kc { color: #990055 } /* Keyword.Constant */
-        .highlight .kd { color: #990055 } /* Keyword.Declaration */
-        .highlight .kn { color: #990055 } /* Keyword.Namespace */
-        .highlight .kp { color: #990055 } /* Keyword.Pseudo */
-        .highlight .kr { color: #990055 } /* Keyword.Reserved */
-        .highlight .kt { color: #990055 } /* Keyword.Type */
-        .highlight .ld { color: #000000 } /* Literal.Date */
-        .highlight .m { color: #000000 } /* Literal.Number */
-        .highlight .s { color: #a67f59 } /* Literal.String */
-        .highlight .na { color: #0077aa } /* Name.Attribute */
-        .highlight .nc { color: #0077aa } /* Name.Class */
-        .highlight .no { color: #0077aa } /* Name.Constant */
-        .highlight .nd { color: #0077aa } /* Name.Decorator */
-        .highlight .ni { color: #0077aa } /* Name.Entity */
-        .highlight .ne { color: #0077aa } /* Name.Exception */
-        .highlight .nf { color: #0077aa } /* Name.Function */
-        .highlight .nl { color: #0077aa } /* Name.Label */
-        .highlight .nn { color: #0077aa } /* Name.Namespace */
-        .highlight .py { color: #0077aa } /* Name.Property */
-        .highlight .nt { color: #669900 } /* Name.Tag */
-        .highlight .nv { color: #222222 } /* Name.Variable */
-        .highlight .ow { color: #999999 } /* Operator.Word */
-        .highlight .mb { color: #000000 } /* Literal.Number.Bin */
-        .highlight .mf { color: #000000 } /* Literal.Number.Float */
-        .highlight .mh { color: #000000 } /* Literal.Number.Hex */
-        .highlight .mi { color: #000000 } /* Literal.Number.Integer */
-        .highlight .mo { color: #000000 } /* Literal.Number.Oct */
-        .highlight .sb { color: #a67f59 } /* Literal.String.Backtick */
-        .highlight .sc { color: #a67f59 } /* Literal.String.Char */
-        .highlight .sd { color: #a67f59 } /* Literal.String.Doc */
-        .highlight .s2 { color: #a67f59 } /* Literal.String.Double */
-        .highlight .se { color: #a67f59 } /* Literal.String.Escape */
-        .highlight .sh { color: #a67f59 } /* Literal.String.Heredoc */
-        .highlight .si { color: #a67f59 } /* Literal.String.Interpol */
-        .highlight .sx { color: #a67f59 } /* Literal.String.Other */
-        .highlight .sr { color: #a67f59 } /* Literal.String.Regex */
-        .highlight .s1 { color: #a67f59 } /* Literal.String.Single */
-        .highlight .ss { color: #a67f59 } /* Literal.String.Symbol */
-        .highlight .vc { color: #0077aa } /* Name.Variable.Class */
-        .highlight .vg { color: #0077aa } /* Name.Variable.Global */
-        .highlight .vi { color: #0077aa } /* Name.Variable.Instance */
-        .highlight .il { color: #000000 } /* Literal.Number.Integer.Long */
-        </style>
 <style>/* style-selflinks */
 
             .heading, .issue, .note, .example, li, dt {
@@ -1318,6 +1231,35 @@ Possible extra rowspan handling
             a.self-link::before            { content: "¶"; }
             .heading > a.self-link::before { content: "§"; }
             dfn > a.self-link::before      { content: "#"; }</style>
+<style>/* style-counters */
+
+            body {
+                counter-reset: example figure issue;
+            }
+            .issue {
+                counter-increment: issue;
+            }
+            .issue:not(.no-marker)::before {
+                content: "Issue " counter(issue);
+            }
+
+            .example {
+                counter-increment: example;
+            }
+            .example:not(.no-marker)::before {
+                content: "Example " counter(example);
+            }
+            .invalid.example:not(.no-marker)::before,
+            .illegal.example:not(.no-marker)::before {
+                content: "Invalid Example" counter(example);
+            }
+
+            figcaption {
+                counter-increment: figure;
+            }
+            figcaption:not(.no-marker)::before {
+                content: "Figure " counter(figure) " ";
+            }</style>
 <style>/* style-autolinks */
 
             .css.css, .property.property, .descriptor.descriptor {
@@ -1380,6 +1322,101 @@ Possible extra rowspan handling
             [data-link-type=biblio] {
                 white-space: pre;
             }</style>
+<style>/* style-dfn-panel */
+
+        .dfn-panel {
+            position: absolute;
+            z-index: 35;
+            height: auto;
+            width: -webkit-fit-content;
+            width: fit-content;
+            max-width: 300px;
+            max-height: 500px;
+            overflow: auto;
+            padding: 0.5em 0.75em;
+            font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
+            background: #DDDDDD;
+            color: black;
+            border: outset 0.2em;
+        }
+        .dfn-panel:not(.on) { display: none; }
+        .dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
+        .dfn-panel > b { display: block; }
+        .dfn-panel a { color: black; }
+        .dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
+        .dfn-panel > b + b { margin-top: 0.25em; }
+        .dfn-panel ul { padding: 0; }
+        .dfn-panel li { list-style: inside; }
+        .dfn-panel.activated {
+            display: inline-block;
+            position: fixed;
+            left: .5em;
+            bottom: 2em;
+            margin: 0 auto;
+            max-width: calc(100vw - 1.5em - .4em - .5em);
+            max-height: 30vh;
+        }
+
+        .dfn-paneled { cursor: pointer; }
+        </style>
+<style>/* style-syntax-highlighting */
+
+        .highlight:not(.idl) { background: hsl(24, 20%, 95%); }
+        code.highlight { padding: .1em; border-radius: .3em; }
+        pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em 0; overflow: auto; border-radius: 0; }
+        .highlight .c { color: #708090 } /* Comment */
+        .highlight .k { color: #990055 } /* Keyword */
+        .highlight .l { color: #000000 } /* Literal */
+        .highlight .n { color: #0077aa } /* Name */
+        .highlight .o { color: #999999 } /* Operator */
+        .highlight .p { color: #999999 } /* Punctuation */
+        .highlight .cm { color: #708090 } /* Comment.Multiline */
+        .highlight .cp { color: #708090 } /* Comment.Preproc */
+        .highlight .c1 { color: #708090 } /* Comment.Single */
+        .highlight .cs { color: #708090 } /* Comment.Special */
+        .highlight .kc { color: #990055 } /* Keyword.Constant */
+        .highlight .kd { color: #990055 } /* Keyword.Declaration */
+        .highlight .kn { color: #990055 } /* Keyword.Namespace */
+        .highlight .kp { color: #990055 } /* Keyword.Pseudo */
+        .highlight .kr { color: #990055 } /* Keyword.Reserved */
+        .highlight .kt { color: #990055 } /* Keyword.Type */
+        .highlight .ld { color: #000000 } /* Literal.Date */
+        .highlight .m { color: #000000 } /* Literal.Number */
+        .highlight .s { color: #a67f59 } /* Literal.String */
+        .highlight .na { color: #0077aa } /* Name.Attribute */
+        .highlight .nc { color: #0077aa } /* Name.Class */
+        .highlight .no { color: #0077aa } /* Name.Constant */
+        .highlight .nd { color: #0077aa } /* Name.Decorator */
+        .highlight .ni { color: #0077aa } /* Name.Entity */
+        .highlight .ne { color: #0077aa } /* Name.Exception */
+        .highlight .nf { color: #0077aa } /* Name.Function */
+        .highlight .nl { color: #0077aa } /* Name.Label */
+        .highlight .nn { color: #0077aa } /* Name.Namespace */
+        .highlight .py { color: #0077aa } /* Name.Property */
+        .highlight .nt { color: #669900 } /* Name.Tag */
+        .highlight .nv { color: #222222 } /* Name.Variable */
+        .highlight .ow { color: #999999 } /* Operator.Word */
+        .highlight .mb { color: #000000 } /* Literal.Number.Bin */
+        .highlight .mf { color: #000000 } /* Literal.Number.Float */
+        .highlight .mh { color: #000000 } /* Literal.Number.Hex */
+        .highlight .mi { color: #000000 } /* Literal.Number.Integer */
+        .highlight .mo { color: #000000 } /* Literal.Number.Oct */
+        .highlight .sb { color: #a67f59 } /* Literal.String.Backtick */
+        .highlight .sc { color: #a67f59 } /* Literal.String.Char */
+        .highlight .sd { color: #a67f59 } /* Literal.String.Doc */
+        .highlight .s2 { color: #a67f59 } /* Literal.String.Double */
+        .highlight .se { color: #a67f59 } /* Literal.String.Escape */
+        .highlight .sh { color: #a67f59 } /* Literal.String.Heredoc */
+        .highlight .si { color: #a67f59 } /* Literal.String.Interpol */
+        .highlight .sx { color: #a67f59 } /* Literal.String.Other */
+        .highlight .sr { color: #a67f59 } /* Literal.String.Regex */
+        .highlight .s1 { color: #a67f59 } /* Literal.String.Single */
+        .highlight .ss { color: #a67f59 } /* Literal.String.Symbol */
+        .highlight .vc { color: #0077aa } /* Name.Variable.Class */
+        .highlight .vg { color: #0077aa } /* Name.Variable.Global */
+        .highlight .vi { color: #0077aa } /* Name.Variable.Instance */
+        .highlight .il { color: #000000 } /* Literal.Number.Integer.Long */
+        </style>
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"></p>
@@ -1425,7 +1462,7 @@ Parts of this work may be from another specification document.  If so, those par
       <li>
        <a href="#general-properties"><span class="secno">3.1</span> <span class="content">General Properties</span></a>
        <ol class="toc">
-        <li><a href="#bbox"><span class="secno">3.1.1</span> <span class="content"><code>bbox</code></span></a>
+        <li><a href="#bbox"><span class="secno">3.1.1</span> <span class="content">bbox</span></a>
         <li><a href="#textangle"><span class="secno">3.1.2</span> <span class="content"><code>textangle</code></span></a>
        </ol>
       <li>
@@ -1441,19 +1478,22 @@ Parts of this work may be from another specification document.  If so, those par
     <li>
      <a href="#logical-structuring-elements"><span class="secno">4</span> <span class="content">Logical Structuring Elements</span></a>
      <ol class="toc">
-      <li><a href="#ocr_document"><span class="secno">4.1</span> <span class="content"><code>ocr_document</code></span></a>
-      <li><a href="#ocr_title"><span class="secno">4.2</span> <span class="content"><code>ocr_title</code></span></a>
-      <li><a href="#ocr_author"><span class="secno">4.3</span> <span class="content"><code>ocr_author</code></span></a>
-      <li><a href="#ocr_abstract"><span class="secno">4.4</span> <span class="content"><code>ocr_abstract</code></span></a>
-      <li><a href="#ocr_part"><span class="secno">4.5</span> <span class="content"><code>ocr_part</code></span></a>
-      <li><a href="#ocr_chapter"><span class="secno">4.6</span> <span class="content"><code>ocr_chapter</code></span></a>
-      <li><a href="#ocr_section"><span class="secno">4.7</span> <span class="content"><code>ocr_section</code></span></a>
-      <li><a href="#ocr_subsubsection"><span class="secno">4.8</span> <span class="content"><code>ocr_subsubsection</code></span></a>
-      <li><a href="#ocr_display"><span class="secno">4.9</span> <span class="content"><code>ocr_display</code></span></a>
-      <li><a href="#ocr_blockquote"><span class="secno">4.10</span> <span class="content"><code>ocr_blockquote</code></span></a>
-      <li><a href="#ocr_par"><span class="secno">4.11</span> <span class="content"><code>ocr_par</code></span></a>
-      <li><a href="#ocr_linear"><span class="secno">4.12</span> <span class="content"><code>ocr_linear</code></span></a>
-      <li><a href="#ocr_caption"><span class="secno">4.13</span> <span class="content"><code>ocr_caption</code></span></a>
+      <li><a href="#ocr_document"><span class="secno">4.1</span> <span class="content">ocr_document</span></a>
+      <li><a href="#ocr_title"><span class="secno">4.2</span> <span class="content">ocr_title</span></a>
+      <li><a href="#ocr_author"><span class="secno">4.3</span> <span class="content">ocr_author</span></a>
+      <li><a href="#ocr_abstract"><span class="secno">4.4</span> <span class="content">ocr_abstract</span></a>
+      <li><a href="#ocr_part"><span class="secno">4.5</span> <span class="content">ocr_part</span></a>
+      <li><a href="#ocr_chapter"><span class="secno">4.6</span> <span class="content">ocr_chapter</span></a>
+      <li><a href="#ocr_section"><span class="secno">4.7</span> <span class="content">ocr_section</span></a>
+      <li><a href="#ocr_subsubsection"><span class="secno">4.8</span> <span class="content">ocr_subsubsection</span></a>
+      <li><a href="#ocr_display"><span class="secno">4.9</span> <span class="content">ocr_display</span></a>
+      <li><a href="#ocr_blockquote"><span class="secno">4.10</span> <span class="content">ocr_blockquote</span></a>
+      <li>
+       <a href="#ocr_par"><span class="secno">4.11</span> <span class="content">ocr_par</span></a>
+       <ol class="toc">
+        <li><a href="#ocr_linear"><span class="secno">4.11.1</span> <span class="content">ocr_linear</span></a>
+       </ol>
+      <li><a href="#ocr_caption"><span class="secno">4.12</span> <span class="content">ocr_caption</span></a>
      </ol>
     <li>
      <a href="#typesetting-related-elements"><span class="secno">5</span> <span class="content">Typesetting Related Elements</span></a>
@@ -1461,12 +1501,12 @@ Parts of this work may be from another specification document.  If so, those par
       <li>
        <a href="#classes-for-typesetting-elements"><span class="secno">5.1</span> <span class="content">Classes for typesetting elements</span></a>
        <ol class="toc">
-        <li><a href="#ocr_page"><span class="secno">5.1.1</span> <span class="content"><code>ocr_page</code></span></a>
-        <li><a href="#ocr_column"><span class="secno">5.1.2</span> <span class="content"><code>ocr_column</code></span></a>
+        <li><a href="#ocr_page"><span class="secno">5.1.1</span> <span class="content">ocr_page</span></a>
+        <li><a href="#ocr_column"><span class="secno">5.1.2</span> <span class="content">ocr_column</span></a>
         <li><a href="#ocr_carea"><span class="secno">5.1.3</span> <span class="content">ocr_carea</span></a>
-        <li><a href="#ocr_line"><span class="secno">5.1.4</span> <span class="content"><code>ocr_line</code></span></a>
-        <li><a href="#ocr_separator"><span class="secno">5.1.5</span> <span class="content"><code>ocr_separator</code></span></a>
-        <li><a href="#ocr_noise"><span class="secno">5.1.6</span> <span class="content"><code>ocr_noise</code></span></a>
+        <li><a href="#ocr_line"><span class="secno">5.1.4</span> <span class="content">ocr_line</span></a>
+        <li><a href="#ocr_separator"><span class="secno">5.1.5</span> <span class="content">ocr_separator</span></a>
+        <li><a href="#ocr_noise"><span class="secno">5.1.6</span> <span class="content">ocr_noise</span></a>
        </ol>
       <li>
        <a href="#recommended-properties-for-typesetting-elements"><span class="secno">5.2</span> <span class="content">Recommended Properties for typesetting elements</span></a>
@@ -1488,17 +1528,17 @@ Parts of this work may be from another specification document.  If so, those par
       <li>
        <a href="#classes-for-floats"><span class="secno">5.4</span> <span class="content">Classes for floats</span></a>
        <ol class="toc">
-        <li><a href="#ocr_float"><span class="secno">5.4.1</span> <span class="content"><code>ocr_float</code></span></a>
-        <li><a href="#ocr_separator0"><span class="secno">5.4.2</span> <span class="content"><code>ocr_separator</code></span></a>
-        <li><a href="#ocr_textfloat"><span class="secno">5.4.3</span> <span class="content"><code>ocr_textfloat</code></span></a>
-        <li><a href="#ocr_textimage"><span class="secno">5.4.4</span> <span class="content"><code>ocr_textimage</code></span></a>
-        <li><a href="#ocr_image"><span class="secno">5.4.5</span> <span class="content"><code>ocr_image</code></span></a>
-        <li><a href="#ocr_linedrawing"><span class="secno">5.4.6</span> <span class="content"><code>ocr_linedrawing</code></span></a>
-        <li><a href="#ocr_photo"><span class="secno">5.4.7</span> <span class="content"><code>ocr_photo</code></span></a>
-        <li><a href="#ocr_header"><span class="secno">5.4.8</span> <span class="content"><code>ocr_header</code></span></a>
-        <li><a href="#ocr_footer"><span class="secno">5.4.9</span> <span class="content"><code>ocr_footer</code></span></a>
-        <li><a href="#ocr_pageno"><span class="secno">5.4.10</span> <span class="content"><code>ocr_pageno</code></span></a>
-        <li><a href="#ocr_table"><span class="secno">5.4.11</span> <span class="content"><code>ocr_table</code></span></a>
+        <li><a href="#ocr_float"><span class="secno">5.4.1</span> <span class="content">ocr_float</span></a>
+        <li><a href="#ocr_separator-float"><span class="secno">5.4.2</span> <span class="content">ocr_separator</span></a>
+        <li><a href="#ocr_textfloat"><span class="secno">5.4.3</span> <span class="content">ocr_textfloat</span></a>
+        <li><a href="#ocr_textimage"><span class="secno">5.4.4</span> <span class="content">ocr_textimage</span></a>
+        <li><a href="#ocr_image"><span class="secno">5.4.5</span> <span class="content">ocr_image</span></a>
+        <li><a href="#ocr_linedrawing"><span class="secno">5.4.6</span> <span class="content">ocr_linedrawing</span></a>
+        <li><a href="#ocr_photo"><span class="secno">5.4.7</span> <span class="content">ocr_photo</span></a>
+        <li><a href="#ocr_header"><span class="secno">5.4.8</span> <span class="content">ocr_header</span></a>
+        <li><a href="#ocr_footer"><span class="secno">5.4.9</span> <span class="content">ocr_footer</span></a>
+        <li><a href="#ocr_pageno"><span class="secno">5.4.10</span> <span class="content">ocr_pageno</span></a>
+        <li><a href="#ocr_table"><span class="secno">5.4.11</span> <span class="content">ocr_table</span></a>
        </ol>
      </ol>
     <li>
@@ -1507,11 +1547,11 @@ Parts of this work may be from another specification document.  If so, those par
       <li>
        <a href="#classes-for-inline-representation"><span class="secno">6.1</span> <span class="content">Classes for Inline Representation</span></a>
        <ol class="toc">
-        <li><a href="#ocr_glyph"><span class="secno">6.1.1</span> <span class="content"><code>ocr_glyph</code></span></a>
-        <li><a href="#ocr_glyphs"><span class="secno">6.1.2</span> <span class="content"><code>ocr_glyphs</code></span></a>
-        <li><a href="#ocr_dropcap"><span class="secno">6.1.3</span> <span class="content"><code>ocr_dropcap</code></span></a>
-        <li><a href="#ocr_chem"><span class="secno">6.1.4</span> <span class="content"><code>ocr_chem</code></span></a>
-        <li><a href="#ocr_math"><span class="secno">6.1.5</span> <span class="content"><code>ocr_math</code></span></a>
+        <li><a href="#ocr_glyph"><span class="secno">6.1.1</span> <span class="content">ocr_glyph</span></a>
+        <li><a href="#ocr_glyphs"><span class="secno">6.1.2</span> <span class="content">ocr_glyphs</span></a>
+        <li><a href="#ocr_dropcap"><span class="secno">6.1.3</span> <span class="content">ocr_dropcap</span></a>
+        <li><a href="#ocr_chem"><span class="secno">6.1.4</span> <span class="content">ocr_chem</span></a>
+        <li><a href="#ocr_math"><span class="secno">6.1.5</span> <span class="content">ocr_math</span></a>
         <li><a href="#non-breaking-space"><span class="secno">6.1.6</span> <span class="content">Non-breaking space</span></a>
         <li><a href="#non-default-spaces"><span class="secno">6.1.7</span> <span class="content">Non-default spaces</span></a>
         <li><a href="#hyphenation"><span class="secno">6.1.8</span> <span class="content">Hyphenation</span></a>
@@ -1525,7 +1565,7 @@ Parts of this work may be from another specification document.  If so, those par
       <li>
        <a href="#classes-for-character-information"><span class="secno">7.1</span> <span class="content">Classes for Character Information</span></a>
        <ol class="toc">
-        <li><a href="#ocr_cinfo"><span class="secno">7.1.1</span> <span class="content"><code>ocr_cinfo</code></span></a>
+        <li><a href="#ocr_cinfo"><span class="secno">7.1.1</span> <span class="content">ocr_cinfo</span></a>
        </ol>
       <li>
        <a href="#properties-for-character-information"><span class="secno">7.2</span> <span class="content">Properties for Character Information</span></a>
@@ -1540,9 +1580,9 @@ Parts of this work may be from another specification document.  If so, those par
       <li>
        <a href="#classes-for-engine-specific-markup"><span class="secno">8.1</span> <span class="content">Classes for engine specific markup</span></a>
        <ol class="toc">
-        <li><a href="#ocrx_block"><span class="secno">8.1.1</span> <span class="content"><code>ocrx_block</code></span></a>
-        <li><a href="#ocrx_line"><span class="secno">8.1.2</span> <span class="content"><code>ocrx_line</code></span></a>
-        <li><a href="#ocrx_word"><span class="secno">8.1.3</span> <span class="content"><code>ocrx_word</code></span></a>
+        <li><a href="#ocrx_block"><span class="secno">8.1.1</span> <span class="content">ocrx_block</span></a>
+        <li><a href="#ocrx_line"><span class="secno">8.1.2</span> <span class="content">ocrx_line</span></a>
+        <li><a href="#ocrx_word"><span class="secno">8.1.3</span> <span class="content">ocrx_word</span></a>
        </ol>
       <li>
        <a href="#properties-for-engine-specific-markup"><span class="secno">8.2</span> <span class="content">Properties for engine-specific markup</span></a>
@@ -1560,11 +1600,11 @@ Parts of this work may be from another specification document.  If so, those par
     <li>
      <a href="#capabilities"><span class="secno">12</span> <span class="content">Capabilities</span></a>
      <ol class="toc">
-      <li><a href="#ocrp_lang"><span class="secno">12.1</span> <span class="content"><code>ocrp_lang</code></span></a>
-      <li><a href="#ocrp_dir"><span class="secno">12.2</span> <span class="content"><code>ocrp_dir</code></span></a>
-      <li><a href="#ocrp_poly"><span class="secno">12.3</span> <span class="content"><code>ocrp_poly</code></span></a>
-      <li><a href="#ocrp_font"><span class="secno">12.4</span> <span class="content"><code>ocrp_font</code></span></a>
-      <li><a href="#ocrp_nlp"><span class="secno">12.5</span> <span class="content"><code>ocrp_nlp</code></span></a>
+      <li><a href="#ocrp_lang"><span class="secno">12.1</span> <span class="content">ocrp_lang</span></a>
+      <li><a href="#ocrp_dir"><span class="secno">12.2</span> <span class="content">ocrp_dir</span></a>
+      <li><a href="#ocrp_poly"><span class="secno">12.3</span> <span class="content">ocrp_poly</span></a>
+      <li><a href="#ocrp_font"><span class="secno">12.4</span> <span class="content">ocrp_font</span></a>
+      <li><a href="#ocrp_nlp"><span class="secno">12.5</span> <span class="content">ocrp_nlp</span></a>
       <li><a href="#ocr_embeddedformat_formatname"><span class="secno">12.6</span> <span class="content"><code>ocr_embeddedformat_&lt;formatname></code></span></a>
       <li><a href="#ocr_tag_unordered"><span class="secno">12.7</span> <span class="content"><code>ocr_&lt;tag>_unordered</code></span></a>
      </ol>
@@ -1611,6 +1651,11 @@ Parts of this work may be from another specification document.  If so, those par
      </ol>
     <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
     <li>
+     <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
+     <ol class="toc">
+      <li><a href="#index-defined-here"><span class="secno"></span> <span class="content">Terms defined by this specification</span></a>
+     </ol>
+    <li>
      <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
      <ol class="toc">
       <li><a href="#normative"><span class="secno"></span> <span class="content">Normative References</span></a>
@@ -1630,7 +1675,7 @@ results. The goal is to reuse as much existing technology as possible, and to
 arrive at a representation that makes it easy to reuse OCR results.</p>
    <p>This document describes many tags and a lot of information that can be output.
 However, getting started with hOCR is easy: you only need to output the tags
-and information you actually want to.  For example, just outputting <code>ocr_line</code> tags with bounding boxes is already very useful for many applications.  Just
+and information you actually want to.  For example, just outputting <code><a data-link-type="element" href="#ocr_line" id="ref-for-ocr_line-1">ocr_line</a></code> tags with bounding boxes is already very useful for many applications.  Just
 start simple and add more output information as the need arises.</p>
    <h2 class="heading settled" data-level="3" id="terminology-and-representation"><span class="secno">3. </span><span class="content">Terminology and Representation</span><a class="self-link" href="#terminology-and-representation"></a></h2>
    <p>This document describes a representation of various aspects of OCR output in an
@@ -1680,14 +1725,14 @@ multiple properties are separated by semicolons.</p>
    </div>
    <h3 class="heading settled" data-level="3.1" id="general-properties"><span class="secno">3.1. </span><span class="content">General Properties</span><a class="self-link" href="#general-properties"></a></h3>
    <p>The following properties can apply to most elements (where it makes sense):</p>
-   <h4 class="heading settled" data-level="3.1.1" id="bbox"><span class="secno">3.1.1. </span><span class="content"><code>bbox</code></span><a class="self-link" href="#bbox"></a></h4>
+   <h4 class="heading settled idl-code" data-dfn-for="ocr_page" data-dfn-type="attribute" data-export="" data-level="3.1.1" data-lt="bbox" id="bbox"><span class="secno">3.1.1. </span><span class="content">bbox</span><a class="self-link" href="#bbox"></a></h4>
    <p><code>bbox x0 y0 x1 y1</code></p>
    <p>The bounding box of the element relative to the binarized document image</p>
    <ul>
     <li data-md="">
      <p>use <code>x_bboxes</code> below for character bounding boxes</p>
     <li data-md="">
-     <p>do not use <code>bbox</code> unless the bounding box of the layout component is, in
+     <p>do not use bbox unless the bounding box of the layout component is, in
 fact, rectangular</p>
     <li data-md="">
      <p>some non-rectangular layout components may have rectangular bounding boxes
@@ -1736,14 +1781,14 @@ many tools will not be able to deal with content that is not in reading order</p
    <p><code>presence</code> presence must be declared in the document meta data</p>
    <h4 class="heading settled" data-level="3.2.4" id="cflow"><span class="secno">3.2.4. </span><span class="content"><code>cflow</code></span><a class="self-link" href="#cflow"></a></h4>
    <p><code>cflow s</code></p>
-   <p>This property relates the flow between multiple <a href="#ocr_carea">§5.1.3 ocr_carea</a> elements,
-and between <a href="#ocr_carea">§5.1.3 ocr_carea</a> and <a href="#ocr_linear">§4.12 ocr_linear</a> elements.</p>
+   <p>This property relates the flow between multiple <code><a data-link-type="element" href="#ocr_carea" id="ref-for-ocr_carea-1">ocr_carea</a></code> elements,
+and between <code><a data-link-type="element" href="#ocr_carea" id="ref-for-ocr_carea-2">ocr_carea</a></code> and <code><a data-link-type="element" href="#ocr_linear" id="ref-for-ocr_linear-1">ocr_linear</a></code> elements.</p>
    <p>The content flow on the page that this element is a part of</p>
    <ul>
     <li data-md="">
      <p>s must be a unique string for each content flow</p>
     <li data-md="">
-     <p>must be present on <a href="#ocr_carea">§5.1.3 ocr_carea</a> and <a href="#ocrx_block">§8.1.1 ocrx_block</a> tags when reading
+     <p>must be present on <code><a data-link-type="element" href="#ocr_carea" id="ref-for-ocr_carea-3">ocr_carea</a></code> and <code><a data-link-type="element" href="#ocrx_block" id="ref-for-ocrx_block-1">ocrx_block</a></code> tags when reading
 order is attempted and multiple content flows are present</p>
     <li data-md="">
      <p>presence must be declared in the document meta data</p>
@@ -1770,71 +1815,71 @@ left corner of the bounding box (red). The baseline crosses the y-axis at <code>
    <p>We recognize the following logical structuring elements:</p>
    <ul>
     <li data-md="">
-     <p><code>ocr_document</code></p>
+     <p><code><a data-link-type="element" href="#ocr_document" id="ref-for-ocr_document-1">ocr_document</a></code></p>
      <ul>
       <li data-md="">
-       <p><code>ocr_linear</code></p>
+       <p><code><a data-link-type="element" href="#ocr_linear" id="ref-for-ocr_linear-2">ocr_linear</a></code></p>
       <li data-md="">
-       <p><code>ocr_title</code></p>
+       <p><code><a data-link-type="element" href="#ocr_title" id="ref-for-ocr_title-1">ocr_title</a></code></p>
       <li data-md="">
-       <p><code>ocr_author</code></p>
+       <p><code><a data-link-type="element" href="#ocr_author" id="ref-for-ocr_author-1">ocr_author</a></code></p>
       <li data-md="">
-       <p><code>ocr_abstract</code></p>
+       <p><code><a data-link-type="element" href="#ocr_abstract" id="ref-for-ocr_abstract-1">ocr_abstract</a></code></p>
       <li data-md="">
-       <p><code>ocr_part</code> [<code>&lt;h1></code>]</p>
+       <p><code><a data-link-type="element" href="#ocr_part" id="ref-for-ocr_part-1">ocr_part</a></code> [<code>&lt;h1></code>]</p>
        <ul>
         <li data-md="">
-         <p><code>ocr_chapter</code> [<code>&lt;h1></code>]</p>
+         <p><code><a data-link-type="element" href="#ocr_chapter" id="ref-for-ocr_chapter-1">ocr_chapter</a></code> [<code>&lt;h1></code>]</p>
         <li data-md="">
-         <p><code>ocr_section</code> [<code>&lt;h2></code>]</p>
+         <p><code><a data-link-type="element" href="#ocr_section" id="ref-for-ocr_section-1">ocr_section</a></code> [<code>&lt;h2></code>]</p>
          <ul>
           <li data-md="">
            <p><code>ocr_sub*section</code> [<code>&lt;h3></code>,<code>&lt;h4></code>]</p>
           <li data-md="">
-           <p><code>ocr_display</code></p>
+           <p><code><a data-link-type="element" href="#ocr_display" id="ref-for-ocr_display-1">ocr_display</a></code></p>
           <li data-md="">
-           <p><code>ocr_blockquote</code> [<code>&lt;blockquote></code>]</p>
+           <p><code><a data-link-type="element" href="#ocr_blockquote" id="ref-for-ocr_blockquote-1">ocr_blockquote</a></code> [<code>&lt;blockquote></code>]</p>
           <li data-md="">
-           <p><code>ocr_par</code> [<code>&lt;p></code>]</p>
+           <p><code><a data-link-type="element" href="#ocr_par" id="ref-for-ocr_par-1">ocr_par</a></code> [<code>&lt;p></code>]</p>
          </ul>
        </ul>
      </ul>
    </ul>
-   <h3 class="heading settled" data-level="4.1" id="ocr_document"><span class="secno">4.1. </span><span class="content"><code>ocr_document</code></span><a class="self-link" href="#ocr_document"></a></h3>
-   <h3 class="heading settled" data-level="4.2" id="ocr_title"><span class="secno">4.2. </span><span class="content"><code>ocr_title</code></span><a class="self-link" href="#ocr_title"></a></h3>
-   <h3 class="heading settled" data-level="4.3" id="ocr_author"><span class="secno">4.3. </span><span class="content"><code>ocr_author</code></span><a class="self-link" href="#ocr_author"></a></h3>
-   <h3 class="heading settled" data-level="4.4" id="ocr_abstract"><span class="secno">4.4. </span><span class="content"><code>ocr_abstract</code></span><a class="self-link" href="#ocr_abstract"></a></h3>
-   <h3 class="heading settled" data-level="4.5" id="ocr_part"><span class="secno">4.5. </span><span class="content"><code>ocr_part</code></span><a class="self-link" href="#ocr_part"></a></h3>
-   <h3 class="heading settled" data-level="4.6" id="ocr_chapter"><span class="secno">4.6. </span><span class="content"><code>ocr_chapter</code></span><a class="self-link" href="#ocr_chapter"></a></h3>
-   <h3 class="heading settled" data-level="4.7" id="ocr_section"><span class="secno">4.7. </span><span class="content"><code>ocr_section</code></span><a class="self-link" href="#ocr_section"></a></h3>
-   <h3 class="heading settled" data-level="4.8" id="ocr_subsubsection"><span class="secno">4.8. </span><span class="content"><code>ocr_subsubsection</code></span><a class="self-link" href="#ocr_subsubsection"></a></h3>
-   <h3 class="heading settled" data-level="4.9" id="ocr_display"><span class="secno">4.9. </span><span class="content"><code>ocr_display</code></span><a class="self-link" href="#ocr_display"></a></h3>
-   <h3 class="heading settled" data-level="4.10" id="ocr_blockquote"><span class="secno">4.10. </span><span class="content"><code>ocr_blockquote</code></span><a class="self-link" href="#ocr_blockquote"></a></h3>
-   <h3 class="heading settled" data-level="4.11" id="ocr_par"><span class="secno">4.11. </span><span class="content"><code>ocr_par</code></span><a class="self-link" href="#ocr_par"></a></h3>
+   <h3 class="heading settled dfn-paneled" data-dfn-type="element" data-export="" data-level="4.1" data-lt="ocr_document" id="ocr_document"><span class="secno">4.1. </span><span class="content">ocr_document</span></h3>
+   <h3 class="heading settled dfn-paneled" data-dfn-type="element" data-export="" data-level="4.2" data-lt="ocr_title" id="ocr_title"><span class="secno">4.2. </span><span class="content">ocr_title</span></h3>
+   <h3 class="heading settled dfn-paneled" data-dfn-type="element" data-export="" data-level="4.3" data-lt="ocr_author" id="ocr_author"><span class="secno">4.3. </span><span class="content">ocr_author</span></h3>
+   <h3 class="heading settled dfn-paneled" data-dfn-type="element" data-export="" data-level="4.4" data-lt="ocr_abstract" id="ocr_abstract"><span class="secno">4.4. </span><span class="content">ocr_abstract</span></h3>
+   <h3 class="heading settled dfn-paneled" data-dfn-type="element" data-export="" data-level="4.5" data-lt="ocr_part" id="ocr_part"><span class="secno">4.5. </span><span class="content">ocr_part</span></h3>
+   <h3 class="heading settled dfn-paneled" data-dfn-type="element" data-export="" data-level="4.6" data-lt="ocr_chapter" id="ocr_chapter"><span class="secno">4.6. </span><span class="content">ocr_chapter</span></h3>
+   <h3 class="heading settled dfn-paneled" data-dfn-type="element" data-export="" data-level="4.7" data-lt="ocr_section" id="ocr_section"><span class="secno">4.7. </span><span class="content">ocr_section</span></h3>
+   <h3 class="heading settled" data-dfn-type="element" data-export="" data-level="4.8" data-lt="ocr_subsubsection" id="ocr_subsubsection"><span class="secno">4.8. </span><span class="content">ocr_subsubsection</span><a class="self-link" href="#ocr_subsubsection"></a></h3>
+   <h3 class="heading settled dfn-paneled" data-dfn-type="element" data-export="" data-level="4.9" data-lt="ocr_display" id="ocr_display"><span class="secno">4.9. </span><span class="content">ocr_display</span></h3>
+   <h3 class="heading settled dfn-paneled" data-dfn-type="element" data-export="" data-level="4.10" data-lt="ocr_blockquote" id="ocr_blockquote"><span class="secno">4.10. </span><span class="content">ocr_blockquote</span></h3>
+   <h3 class="heading settled dfn-paneled" data-dfn-type="element" data-export="" data-level="4.11" data-lt="ocr_par" id="ocr_par"><span class="secno">4.11. </span><span class="content">ocr_par</span></h3>
    <p>These logical tags have their standard meaning as used in the publishing
 industry and tools like LaTeX, MS Word, and others.</p>
    <p>The standard HTML tags given in brackets specify the preferred HTML tags to use
 with those logical structuring elements, but it may not be possible or
 desirable to actually chose those tags (e.g., when adding hOCR information to
 an existing HTML output routine).</p>
-   <h3 class="heading settled" data-level="4.12" id="ocr_linear"><span class="secno">4.12. </span><span class="content"><code>ocr_linear</code></span><a class="self-link" href="#ocr_linear"></a></h3>
-   <p>For all of these elements except <code>ocr_linear</code>, there exists a natural linear
-ordering defined by reading order (<code>ocr_linear</code> indicates that the elements
-contained in it have a linear ordering). At the level of <code>ocr_linear</code>, there
-may not be a single distinguished order. A common example of <code>ocr_linear</code> is a
+   <h4 class="heading settled dfn-paneled" data-dfn-type="element" data-export="" data-level="4.11.1" data-lt="ocr_linear" id="ocr_linear"><span class="secno">4.11.1. </span><span class="content">ocr_linear</span></h4>
+   <p>For all of these elements except <code><a data-link-type="element" href="#ocr_linear" id="ref-for-ocr_linear-3">ocr_linear</a></code>, there exists a natural linear
+ordering defined by reading order (<code><a data-link-type="element" href="#ocr_linear" id="ref-for-ocr_linear-4">ocr_linear</a></code> indicates that the elements
+contained in it have a linear ordering). At the level of <code><a data-link-type="element" href="#ocr_linear" id="ref-for-ocr_linear-5">ocr_linear</a></code>, there
+may not be a single distinguished order. A common example of <code><a data-link-type="element" href="#ocr_linear" id="ref-for-ocr_linear-6">ocr_linear</a></code> is a
 newspaper, in which a single newspaper may contain many linear, but there is no
 unique reading order for the different linear. OCR evaluation tools should
-therefore be sensitive to the order of all elements other than <code>ocr_linear</code>.</p>
+therefore be sensitive to the order of all elements other than <code><a data-link-type="element" href="#ocr_linear" id="ref-for-ocr_linear-7">ocr_linear</a></code>.</p>
    <p>Tags must be nested as indicated by nesting above, but not all tags within the
 hierarchy need to be present.</p>
    <p>Textual information like section numbers and bullets must be represented as
 text inside the containing element.</p>
    <p>Documents whose logical structure does not map naturally onto these logical
 structuring elemetns must not use them for other purpose.</p>
-   <h3 class="heading settled" data-level="4.13" id="ocr_caption"><span class="secno">4.13. </span><span class="content"><code>ocr_caption</code></span><a class="self-link" href="#ocr_caption"></a></h3>
-   <p>Image captions may be indicated using the <code>ocr_caption</code> element; such an
+   <h3 class="heading settled dfn-paneled" data-dfn-type="element" data-export="" data-level="4.12" data-lt="ocr_caption" id="ocr_caption"><span class="secno">4.12. </span><span class="content">ocr_caption</span></h3>
+   <p>Image captions may be indicated using the <code><a data-link-type="element" href="#ocr_caption" id="ref-for-ocr_caption-1">ocr_caption</a></code> element; such an
 element refers to the image(s) contained within the same float, or the
-immediately adjacent image if both the image and the <code>ocr_caption</code> element are
+immediately adjacent image if both the image and the <code><a data-link-type="element" href="#ocr_caption" id="ref-for-ocr_caption-2">ocr_caption</a></code> element are
 in running text.</p>
    <h2 class="heading settled" data-level="5" id="typesetting-related-elements"><span class="secno">5. </span><span class="content">Typesetting Related Elements</span><a class="self-link" href="#typesetting-related-elements"></a></h2>
    <p>The following typesetting related elements are based on a typesetting model as
@@ -1861,32 +1906,32 @@ properties for floating elements; properties need to be defined for this.</p>
    <h3 class="heading settled" data-level="5.1" id="classes-for-typesetting-elements"><span class="secno">5.1. </span><span class="content">Classes for typesetting elements</span><a class="self-link" href="#classes-for-typesetting-elements"></a></h3>
    <p>The following classes, as well as <a href="#classes-for-floats">floats</a> are used for type-setting
 elements.</p>
-   <h4 class="heading settled" data-level="5.1.1" id="ocr_page"><span class="secno">5.1.1. </span><span class="content"><code>ocr_page</code></span><a class="self-link" href="#ocr_page"></a></h4>
-   <p>The <code>ocr_page</code> element must be present in all hOCR documents.</p>
-   <h4 class="heading settled" data-level="5.1.2" id="ocr_column"><span class="secno">5.1.2. </span><span class="content"><code>ocr_column</code></span><a class="self-link" href="#ocr_column"></a></h4>
+   <h4 class="heading settled dfn-paneled" data-dfn-type="element" data-export="" data-level="5.1.1" data-lt="ocr_page" id="ocr_page"><span class="secno">5.1.1. </span><span class="content">ocr_page</span></h4>
+   <p>The <code><a data-link-type="element" href="#ocr_page" id="ref-for-ocr_page-1">ocr_page</a></code> element must be present in all hOCR documents.</p>
+   <h4 class="heading settled" data-dfn-type="element" data-export="" data-level="5.1.2" data-lt="ocr_column" id="ocr_column"><span class="secno">5.1.2. </span><span class="content">ocr_column</span><a class="self-link" href="#ocr_column"></a></h4>
    <div class="annoying-warning">
      <strong>OBSOLETE</strong> 
-    <p>Please use <a href="#ocr_carea">§5.1.3 ocr_carea</a> instead</p>
+    <p>Please use <a href="#ocr_carea" id="ref-for-ocr_carea-4">§5.1.3 ocr_carea</a> instead</p>
    </div>
-   <h4 class="heading settled" data-level="5.1.3" id="ocr_carea"><span class="secno">5.1.3. </span><span class="content">ocr_carea</span><a class="self-link" href="#ocr_carea"></a></h4>
+   <h4 class="heading settled dfn-paneled" data-dfn-type="element" data-export="" data-level="5.1.3" data-lt="ocr_carea" id="ocr_carea"><span class="secno">5.1.3. </span><span class="content">ocr_carea</span></h4>
    <p>"ocr content area" or "body area"</p>
    <p>
     Used to be called 
     <del>ocr_column</del>
    </p>
-   <p>The <code>ocr_carea</code> elements should appear in reading order unless this is impossible
-because of some other structuring requirement. If the document contains multiple <code>ocr_linear</code> streams, then each <code>ocr_carea</code> must indicate which stream it belongs
+   <p>The <code><a data-link-type="element" href="#ocr_carea" id="ref-for-ocr_carea-5">ocr_carea</a></code> elements should appear in reading order unless this is impossible
+because of some other structuring requirement. If the document contains multiple <code><a data-link-type="element" href="#ocr_linear" id="ref-for-ocr_linear-8">ocr_linear</a></code> streams, then each <code><a data-link-type="element" href="#ocr_carea" id="ref-for-ocr_carea-6">ocr_carea</a></code> must indicate which stream it belongs
 to.</p>
-   <h4 class="heading settled" data-level="5.1.4" id="ocr_line"><span class="secno">5.1.4. </span><span class="content"><code>ocr_line</code></span><a class="self-link" href="#ocr_line"></a></h4>
+   <h4 class="heading settled dfn-paneled" data-dfn-type="element" data-export="" data-level="5.1.4" data-lt="ocr_line" id="ocr_line"><span class="secno">5.1.4. </span><span class="content">ocr_line</span></h4>
    <p>In typesetting systems, content areas are filled with “blocks”, but most of
 those blocks are not recoverable or semantically meaningful. However, one type
 of block is visible and very important for OCR engines: the line. Lines are
 typesetting blocks that only contain glyphs (“inlines” in XSL terminology).
-They are represented by the <code>ocr_line</code> area.</p>
-   <p><code>ocr_line</code> should be in a <code>&lt;span></code></p>
-   <h4 class="heading settled" data-level="5.1.5" id="ocr_separator"><span class="secno">5.1.5. </span><span class="content"><code>ocr_separator</code></span><a class="self-link" href="#ocr_separator"></a></h4>
+They are represented by the <code><a data-link-type="element" href="#ocr_line" id="ref-for-ocr_line-2">ocr_line</a></code> area.</p>
+   <p><code><a data-link-type="element" href="#ocr_line" id="ref-for-ocr_line-3">ocr_line</a></code> should be in a <code>&lt;span></code></p>
+   <h4 class="heading settled" data-dfn-type="element" data-export="" data-level="5.1.5" data-lt="ocr_separator" id="ocr_separator"><span class="secno">5.1.5. </span><span class="content">ocr_separator</span><a class="self-link" href="#ocr_separator"></a></h4>
    <p>Any separator or similar element</p>
-   <h4 class="heading settled" data-level="5.1.6" id="ocr_noise"><span class="secno">5.1.6. </span><span class="content"><code>ocr_noise</code></span><a class="self-link" href="#ocr_noise"></a></h4>
+   <h4 class="heading settled" data-dfn-type="element" data-export="" data-level="5.1.6" data-lt="ocr_noise" id="ocr_noise"><span class="secno">5.1.6. </span><span class="content">ocr_noise</span><a class="self-link" href="#ocr_noise"></a></h4>
    <p>Any noise element that isn’t part of typesetting</p>
    <h3 class="heading settled" data-level="5.2" id="recommended-properties-for-typesetting-elements"><span class="secno">5.2. </span><span class="content">Recommended Properties for typesetting elements</span><a class="self-link" href="#recommended-properties-for-typesetting-elements"></a></h3>
    <p>The following properties should be present:</p>
@@ -1976,7 +2021,7 @@ additional strings or using URL parameters or fragments</p>
      </ul>
    </ul>
    <p>In addition to the standard
-properties, the <code>ocr_line</code> area supports the following additional properties:</p>
+properties, the <code><a data-link-type="element" href="#ocr_line" id="ref-for-ocr_line-4">ocr_line</a></code> area supports the following additional properties:</p>
    <h4 class="heading settled" data-level="5.3.4" id="hardbreak"><span class="secno">5.3.4. </span><span class="content"><code>hardbreak</code></span><a class="self-link" href="#hardbreak"></a></h4>
    <p><code>hardbreak n</code></p>
    <ul>
@@ -1987,74 +2032,74 @@ properties, the <code>ocr_line</code> area supports the following additional pro
      <p>a one indicates that the line is a hard (explicit) line break</p>
    </ul>
    <p>Any special characters representing the desired end-of-line processing must be
-present inside the <code>ocr_line</code> element. Examples of such special characters are a
+present inside the <code><a data-link-type="element" href="#ocr_line" id="ref-for-ocr_line-5">ocr_line</a></code> element. Examples of such special characters are a
 soft hyphen ("­", <code>U+00AD</code>), a hard line break (<code>&lt;br></code>), or whitespace (<code></code>) for soft
 line breaks.</p>
    <p>Note that for many documents, the actual ground truth careas are well-defined
 by the document style of the original document before printing and scanning.
 From a single page, the <code>careas</code> of the original document style cannot be
-recovered exactly. However, the partition of a document by <code>ocr_carea</code> for an
+recovered exactly. However, the partition of a document by <code><a data-link-type="element" href="#ocr_carea" id="ref-for-ocr_carea-7">ocr_carea</a></code> for an
 individual page shall be considered correct relative to ground truth if</p>
    <ol>
     <li data-md="">
      <p>all the text contained in a ground truth carea is fully contained within a
-single <code>ocr_carea</code>,</p>
+single <code><a data-link-type="element" href="#ocr_carea" id="ref-for-ocr_carea-8">ocr_carea</a></code>,</p>
     <li data-md="">
-     <p>no text outside a ground truth <code>carea</code> is contained within an <code>ocr_carea</code>, and</p>
+     <p>no text outside a ground truth <code>carea</code> is contained within an <code><a data-link-type="element" href="#ocr_carea" id="ref-for-ocr_carea-9">ocr_carea</a></code>, and</p>
     <li data-md="">
-     <p>the <code>ocr_careas</code> appear in the same order as the text flow
+     <p>the <code><a data-link-type="element" href="#ocr_carea" id="ref-for-ocr_carea-10">ocr_carea</a></code> appear in the same order as the text flow
 relationships between the ground truth careas.</p>
    </ol>
    <h3 class="heading settled" data-level="5.4" id="classes-for-floats"><span class="secno">5.4. </span><span class="content">Classes for floats</span><a class="self-link" href="#classes-for-floats"></a></h3>
    <p>Floats should not be nested.</p>
    <p>The following floats are defined:</p>
-   <h4 class="heading settled" data-level="5.4.1" id="ocr_float"><span class="secno">5.4.1. </span><span class="content"><code>ocr_float</code></span><a class="self-link" href="#ocr_float"></a></h4>
+   <h4 class="heading settled dfn-paneled" data-dfn-type="element" data-export="" data-level="5.4.1" data-lt="ocr_float" id="ocr_float"><span class="secno">5.4.1. </span><span class="content">ocr_float</span></h4>
    <p><code>ocr_float</code></p>
-   <h4 class="heading settled" data-level="5.4.2" id="ocr_separator0"><span class="secno">5.4.2. </span><span class="content"><code>ocr_separator</code></span><a class="self-link" href="#ocr_separator0"></a></h4>
-   <p><code>ocr_separator</code></p>
-   <h4 class="heading settled" data-level="5.4.3" id="ocr_textfloat"><span class="secno">5.4.3. </span><span class="content"><code>ocr_textfloat</code></span><a class="self-link" href="#ocr_textfloat"></a></h4>
+   <h4 class="heading settled" data-dfn-type="element" data-export="" data-level="5.4.2" data-lt="ocr_separator" id="ocr_separator-float"><span class="secno">5.4.2. </span><span class="content">ocr_separator</span><a class="self-link" href="#ocr_separator-float"></a></h4>
+   <p><code>ocr_separator</code> in the context of float classes.</p>
+   <h4 class="heading settled" data-dfn-type="element" data-export="" data-level="5.4.3" data-lt="ocr_textfloat" id="ocr_textfloat"><span class="secno">5.4.3. </span><span class="content">ocr_textfloat</span><a class="self-link" href="#ocr_textfloat"></a></h4>
    <p><code>ocr_textfloat</code></p>
-   <h4 class="heading settled" data-level="5.4.4" id="ocr_textimage"><span class="secno">5.4.4. </span><span class="content"><code>ocr_textimage</code></span><a class="self-link" href="#ocr_textimage"></a></h4>
+   <h4 class="heading settled" data-dfn-type="element" data-export="" data-level="5.4.4" data-lt="ocr_textimage" id="ocr_textimage"><span class="secno">5.4.4. </span><span class="content">ocr_textimage</span><a class="self-link" href="#ocr_textimage"></a></h4>
    <p><code>ocr_textimage</code></p>
-   <h4 class="heading settled" data-level="5.4.5" id="ocr_image"><span class="secno">5.4.5. </span><span class="content"><code>ocr_image</code></span><a class="self-link" href="#ocr_image"></a></h4>
+   <h4 class="heading settled" data-dfn-type="element" data-export="" data-level="5.4.5" data-lt="ocr_image" id="ocr_image"><span class="secno">5.4.5. </span><span class="content">ocr_image</span><a class="self-link" href="#ocr_image"></a></h4>
    <p><code>ocr_image</code></p>
-   <h4 class="heading settled" data-level="5.4.6" id="ocr_linedrawing"><span class="secno">5.4.6. </span><span class="content"><code>ocr_linedrawing</code></span><a class="self-link" href="#ocr_linedrawing"></a></h4>
+   <h4 class="heading settled" data-dfn-type="element" data-export="" data-level="5.4.6" data-lt="ocr_linedrawing" id="ocr_linedrawing"><span class="secno">5.4.6. </span><span class="content">ocr_linedrawing</span><a class="self-link" href="#ocr_linedrawing"></a></h4>
    <p>Something that could be represented well and naturally in a vector graphics
 format like SVG (even if it is actually represented as PNG)</p>
-   <h4 class="heading settled" data-level="5.4.7" id="ocr_photo"><span class="secno">5.4.7. </span><span class="content"><code>ocr_photo</code></span><a class="self-link" href="#ocr_photo"></a></h4>
+   <h4 class="heading settled" data-dfn-type="element" data-export="" data-level="5.4.7" data-lt="ocr_photo" id="ocr_photo"><span class="secno">5.4.7. </span><span class="content">ocr_photo</span><a class="self-link" href="#ocr_photo"></a></h4>
    <p>Something that requires JPEG or PNG to be represented well</p>
-   <h4 class="heading settled" data-level="5.4.8" id="ocr_header"><span class="secno">5.4.8. </span><span class="content"><code>ocr_header</code></span><a class="self-link" href="#ocr_header"></a></h4>
+   <h4 class="heading settled" data-dfn-type="element" data-export="" data-level="5.4.8" data-lt="ocr_header" id="ocr_header"><span class="secno">5.4.8. </span><span class="content">ocr_header</span><a class="self-link" href="#ocr_header"></a></h4>
    <p><code>ocr_header</code></p>
-   <h4 class="heading settled" data-level="5.4.9" id="ocr_footer"><span class="secno">5.4.9. </span><span class="content"><code>ocr_footer</code></span><a class="self-link" href="#ocr_footer"></a></h4>
+   <h4 class="heading settled" data-dfn-type="element" data-export="" data-level="5.4.9" data-lt="ocr_footer" id="ocr_footer"><span class="secno">5.4.9. </span><span class="content">ocr_footer</span><a class="self-link" href="#ocr_footer"></a></h4>
    <p><code>ocr_footer</code></p>
-   <h4 class="heading settled" data-level="5.4.10" id="ocr_pageno"><span class="secno">5.4.10. </span><span class="content"><code>ocr_pageno</code></span><a class="self-link" href="#ocr_pageno"></a></h4>
+   <h4 class="heading settled" data-dfn-type="element" data-export="" data-level="5.4.10" data-lt="ocr_pageno" id="ocr_pageno"><span class="secno">5.4.10. </span><span class="content">ocr_pageno</span><a class="self-link" href="#ocr_pageno"></a></h4>
    <p><code>ocr_pageno</code></p>
-   <h4 class="heading settled" data-level="5.4.11" id="ocr_table"><span class="secno">5.4.11. </span><span class="content"><code>ocr_table</code></span><a class="self-link" href="#ocr_table"></a></h4>
+   <h4 class="heading settled" data-dfn-type="element" data-export="" data-level="5.4.11" data-lt="ocr_table" id="ocr_table"><span class="secno">5.4.11. </span><span class="content">ocr_table</span><a class="self-link" href="#ocr_table"></a></h4>
    <p><code>ocr_table</code></p>
    <h2 class="heading settled" data-level="6" id="inline-representations"><span class="secno">6. </span><span class="content">Inline Representations</span><a class="self-link" href="#inline-representations"></a></h2>
    <p>There is some content that should behave and flow like text</p>
    <h3 class="heading settled" data-level="6.1" id="classes-for-inline-representation"><span class="secno">6.1. </span><span class="content">Classes for Inline Representation</span><a class="self-link" href="#classes-for-inline-representation"></a></h3>
-   <h4 class="heading settled" data-level="6.1.1" id="ocr_glyph"><span class="secno">6.1.1. </span><span class="content"><code>ocr_glyph</code></span><a class="self-link" href="#ocr_glyph"></a></h4>
+   <h4 class="heading settled" data-dfn-type="element" data-export="" data-level="6.1.1" data-lt="ocr_glyph" id="ocr_glyph"><span class="secno">6.1.1. </span><span class="content">ocr_glyph</span><a class="self-link" href="#ocr_glyph"></a></h4>
    <p>An individual glyph represented as an image (e.g., an unrecognized character)</p>
    <p>Must contain a single <code>&lt;img></code> tag, or be present on one</p>
-   <h4 class="heading settled" data-level="6.1.2" id="ocr_glyphs"><span class="secno">6.1.2. </span><span class="content"><code>ocr_glyphs</code></span><a class="self-link" href="#ocr_glyphs"></a></h4>
+   <h4 class="heading settled" data-dfn-type="element" data-export="" data-level="6.1.2" data-lt="ocr_glyphs" id="ocr_glyphs"><span class="secno">6.1.2. </span><span class="content">ocr_glyphs</span><a class="self-link" href="#ocr_glyphs"></a></h4>
    <p>Multiple glyphs represented as an image (e.g., an unrecognized word)</p>
    <p>Must contain a single <code>&lt;img></code> tag, or be present on one</p>
-   <h4 class="heading settled" data-level="6.1.3" id="ocr_dropcap"><span class="secno">6.1.3. </span><span class="content"><code>ocr_dropcap</code></span><a class="self-link" href="#ocr_dropcap"></a></h4>
+   <h4 class="heading settled" data-dfn-type="element" data-export="" data-level="6.1.3" data-lt="ocr_dropcap" id="ocr_dropcap"><span class="secno">6.1.3. </span><span class="content">ocr_dropcap</span><a class="self-link" href="#ocr_dropcap"></a></h4>
    <p>An individual glyph representing a dropcap</p>
    <p>May contain text or an <code>&lt;img></code> tag; the <code>alt</code> of the image tag should contain
 the corresponding text</p>
-   <h4 class="heading settled" data-level="6.1.4" id="ocr_chem"><span class="secno">6.1.4. </span><span class="content"><code>ocr_chem</code></span><a class="self-link" href="#ocr_chem"></a></h4>
+   <h4 class="heading settled" data-dfn-type="element" data-export="" data-level="6.1.4" data-lt="ocr_chem" id="ocr_chem"><span class="secno">6.1.4. </span><span class="content">ocr_chem</span><a class="self-link" href="#ocr_chem"></a></h4>
    <p>A chemical formula</p>
    <p>Must contain either a single <code>&lt;img></code> tag or <a data-link-type="biblio" href="#biblio-cml">[CML]</a> markup, or be present on
 one</p>
-   <h4 class="heading settled" data-level="6.1.5" id="ocr_math"><span class="secno">6.1.5. </span><span class="content"><code>ocr_math</code></span><a class="self-link" href="#ocr_math"></a></h4>
+   <h4 class="heading settled" data-dfn-type="element" data-export="" data-level="6.1.5" data-lt="ocr_math" id="ocr_math"><span class="secno">6.1.5. </span><span class="content">ocr_math</span><a class="self-link" href="#ocr_math"></a></h4>
    <p>A mathematical formula</p>
    <p>Must contain either a single <code>&lt;img></code> tag or <a data-link-type="biblio" href="#biblio-mathml">[MathML]</a> markup, or be present on
 one</p>
-   <p>Mathematical and chemical formulas that float must be put into an <code>ocr_float</code> section.</p>
+   <p>Mathematical and chemical formulas that float must be put into an <code><a data-link-type="element" href="#ocr_float" id="ref-for-ocr_float-1">ocr_float</a></code> section.</p>
    <p>Mathematical and chemical formulas that are “display” mode should be put into
-an <code>ocr_display</code> section.</p>
+an <code><a data-link-type="element" href="#ocr_display" id="ref-for-ocr_display-2">ocr_display</a></code> section.</p>
    <h4 class="heading settled" data-level="6.1.6" id="non-breaking-space"><span class="secno">6.1.6. </span><span class="content">Non-breaking space</span><a class="self-link" href="#non-breaking-space"></a></h4>
    <p>Non-breaking spaces must be represented using the HTML <code>&amp;nbsp;</code> entity.</p>
    <h4 class="heading settled" data-level="6.1.7" id="non-default-spaces"><span class="secno">6.1.7. </span><span class="content">Non-default spaces</span><a class="self-link" href="#non-default-spaces"></a></h4>
@@ -2071,8 +2116,8 @@ be used; all writing direction changes must be indicated with tags.</p>
    <h3 class="heading settled" data-level="7.1" id="classes-for-character-information"><span class="secno">7.1. </span><span class="content">Classes for Character Information</span><a class="self-link" href="#classes-for-character-information"></a></h3>
    <p>Character-level information may be put on any element that contains only a
 single "line" of text.</p>
-   <h4 class="heading settled" data-level="7.1.1" id="ocr_cinfo"><span class="secno">7.1.1. </span><span class="content"><code>ocr_cinfo</code></span><a class="self-link" href="#ocr_cinfo"></a></h4>
-   <p>If no other layout element applies, the <code>ocr_cinfo</code> element may be used.</p>
+   <h4 class="heading settled dfn-paneled" data-dfn-type="element" data-export="" data-level="7.1.1" data-lt="ocr_cinfo" id="ocr_cinfo"><span class="secno">7.1.1. </span><span class="content">ocr_cinfo</span></h4>
+   <p>If no other layout element applies, the <code><a data-link-type="element" href="#ocr_cinfo" id="ref-for-ocr_cinfo-1">ocr_cinfo</a></code> element may be used.</p>
    <h3 class="heading settled" data-level="7.2" id="properties-for-character-information"><span class="secno">7.2. </span><span class="content">Properties for Character Information</span><a class="self-link" href="#properties-for-character-information"></a></h3>
    <h4 class="heading settled" data-level="7.2.1" id="cuts"><span class="secno">7.2.1. </span><span class="content"><code>cuts</code></span><a class="self-link" href="#cuts"></a></h4>
    <p><code>cuts c1 c2 c3 ...</code></p>
@@ -2118,7 +2163,7 @@ typesetting or logical function. Representing them may be useful to represent
 existing OCR output, say for workflow abstractions.</p>
    <p>Common suggested engine-specific markup are:</p>
    <h3 class="heading settled" data-level="8.1" id="classes-for-engine-specific-markup"><span class="secno">8.1. </span><span class="content">Classes for engine specific markup</span><a class="self-link" href="#classes-for-engine-specific-markup"></a></h3>
-   <h4 class="heading settled" data-level="8.1.1" id="ocrx_block"><span class="secno">8.1.1. </span><span class="content"><code>ocrx_block</code></span><a class="self-link" href="#ocrx_block"></a></h4>
+   <h4 class="heading settled dfn-paneled" data-dfn-type="element" data-export="" data-level="8.1.1" data-lt="ocrx_block" id="ocrx_block"><span class="secno">8.1.1. </span><span class="content">ocrx_block</span></h4>
    <p class="issue" id="issue-66c198d9"><a class="self-link" href="#issue-66c198d9"></a> <a href="https://github.com/kba/hocr-spec/issues/28">ocr_carea vs ocrx_block</a></p>
    <ul>
     <li data-md="">
@@ -2126,7 +2171,7 @@ existing OCR output, say for workflow abstractions.</p>
     <li data-md="">
      <p>engine-specific because the definition of a "block" depends on the engine</p>
    </ul>
-   <h4 class="heading settled" data-level="8.1.2" id="ocrx_line"><span class="secno">8.1.2. </span><span class="content"><code>ocrx_line</code></span><a class="self-link" href="#ocrx_line"></a></h4>
+   <h4 class="heading settled dfn-paneled" data-dfn-type="element" data-export="" data-level="8.1.2" data-lt="ocrx_line" id="ocrx_line"><span class="secno">8.1.2. </span><span class="content">ocrx_line</span></h4>
    <p class="issue" id="issue-8ef34561"><a class="self-link" href="#issue-8ef34561"></a> <a href="https://github.com/kba/hocr-spec/issues/19">ocr_line vs ocrx_line</a></p>
    <ul>
     <li data-md="">
@@ -2134,7 +2179,7 @@ existing OCR output, say for workflow abstractions.</p>
     <li data-md="">
      <p>might be some kind of "logical" line</p>
    </ul>
-   <h4 class="heading settled" data-level="8.1.3" id="ocrx_word"><span class="secno">8.1.3. </span><span class="content"><code>ocrx_word</code></span><a class="self-link" href="#ocrx_word"></a></h4>
+   <h4 class="heading settled dfn-paneled" data-dfn-type="element" data-export="" data-level="8.1.3" data-lt="ocrx_word" id="ocrx_word"><span class="secno">8.1.3. </span><span class="content">ocrx_word</span></h4>
    <ul>
     <li data-md="">
      <p>any kind of "word" returned by an OCR system</p>
@@ -2145,20 +2190,21 @@ existing OCR output, say for workflow abstractions.</p>
 attempt to ensure the following properties:</p>
    <ul>
     <li data-md="">
-     <p>an <code>ocrx_block</code> should not contain content from multiple ocr_careas</p>
+     <p>An <code><a data-link-type="element" href="#ocrx_block" id="ref-for-ocrx_block-2">ocrx_block</a></code> should not contain content from multiple <code><a data-link-type="element" href="#ocr_carea" id="ref-for-ocr_carea-11">ocr_carea</a></code>.</p>
     <li data-md="">
-     <p>the union of all <code>ocrx_blocks</code> should approximately cover all <code>ocr_careas</code></p>
+     <p>The union of all <code><a data-link-type="element" href="#ocrx_block" id="ref-for-ocrx_block-3">ocrx_blocks</a></code> should approximately cover all <code><a data-link-type="element" href="#ocr_carea" id="ref-for-ocr_carea-12">ocr_carea</a></code>.</p>
     <li data-md="">
-     <p>an <code>ocrx_block</code> should contain either a float or body text, but not both</p>
+     <p>an <code><a data-link-type="element" href="#ocrx_block" id="ref-for-ocrx_block-4">ocrx_block</a></code> should contain either a float or body text, but not both</p>
     <li data-md="">
-     <p>an <code>ocrx_block</code> should contain either an image or text, but not both</p>
+     <p>an <code><a data-link-type="element" href="#ocrx_block" id="ref-for-ocrx_block-5">ocrx_block</a></code> should contain either an image or text, but not both</p>
     <li data-md="">
-     <p>an <code>ocrx_line</code> should correspond as closely as possible to an <code>ocr_line</code></p>
+     <p>an <code><a data-link-type="element" href="#ocrx_line" id="ref-for-ocrx_line-1">ocrx_line</a></code> should correspond as closely as possible to an <code><a data-link-type="element" href="#ocr_line" id="ref-for-ocr_line-6">ocr_line</a></code></p>
     <li data-md="">
-     <p><code>ocrx_cinfo</code> should nest inside <code>ocrx_line</code></p>
+     <p><code><a data-link-type="element">ocrx_cinfo</a></code> should nest inside <code><a data-link-type="element" href="#ocrx_line" id="ref-for-ocrx_line-2">ocrx_line</a></code></p>
     <li data-md="">
-     <p><code>ocrx_cinfo</code> should contain only <code>x_conf</code>, <code>x_bboxes</code>, and <code>cuts</code> attributes</p>
+     <p><code><a data-link-type="element">ocrx_cinfo</a></code> should contain only <code>x_conf</code>, <code>x_bboxes</code>, and <code>cuts</code> attributes</p>
    </ul>
+   <p class="issue" id="issue-000a0ed5"><a class="self-link" href="#issue-000a0ed5"></a> ocrx_cinfo?</p>
    <h3 class="heading settled" data-level="8.2" id="properties-for-engine-specific-markup"><span class="secno">8.2. </span><span class="content">Properties for engine-specific markup</span><a class="self-link" href="#properties-for-engine-specific-markup"></a></h3>
    <p>The following properties are defined:</p>
    <h4 class="heading settled" data-level="8.2.1" id="x_font"><span class="secno">8.2.1. </span><span class="content"><code>x_font</code></span><a class="self-link" href="#x_font"></a></h4>
@@ -2246,7 +2292,7 @@ when viewed in a browser.</p>
    <h2 class="heading settled" data-level="11" id="grouped-elements-and-multiple-hierarchies"><span class="secno">11. </span><span class="content">Grouped Elements and Multiple Hierarchies</span><a class="self-link" href="#grouped-elements-and-multiple-hierarchies"></a></h2>
    <p>The different levels of layout information (logical, physical, engine-specific)
 each form hierarchies, but those hierarchies may not be mutually compatible;
-for example, a single <code>ocr_page</code> may contain information from multiple sections
+for example, a single <code><a data-link-type="element" href="#ocr_page" id="ref-for-ocr_page-2">ocr_page</a></code> may contain information from multiple sections
 or chapters. To represent both hierarchies within a single document, elements
 may be grouped together.  That is, two elements with the same class may be
 treated as one element by adding a "groupid identifier" property to them and
@@ -2262,7 +2308,7 @@ removing tags that are not of interest for the subsequent processing step, and
 then collapsing grouped elements into single elements.  For example, output
 that contains both logical and physical layout information, where the logical
 layout information uses grouped elements, can be transformed by removing all
-the physical layout information, and then collapsing all split <code>ocr_chapter</code> elements into single <code>ocr_chapter</code> elements based on the groupid.  The result is
+the physical layout information, and then collapsing all split <code><a data-link-type="element" href="#ocr_chapter" id="ref-for-ocr_chapter-2">ocr_chapter</a></code> elements into single <code><a data-link-type="element" href="#ocr_chapter" id="ref-for-ocr_chapter-3">ocr_chapter</a></code> elements based on the groupid.  The result is
 a simple DOM tree.  This transformation can be provided generically as a
 pre-processor or Javascript.</p>
    <p>The presence of grouped elements does not need to be indicated in the header;
@@ -2277,15 +2323,15 @@ generated, even if it did not actually generate them for the particular
 document.</p>
    <p>The capability to generate specific properties is given by the prefix <code>ocrp_...</code>;
 the important properties are:</p>
-   <h3 class="heading settled" data-level="12.1" id="ocrp_lang"><span class="secno">12.1. </span><span class="content"><code>ocrp_lang</code></span><a class="self-link" href="#ocrp_lang"></a></h3>
+   <h3 class="heading settled" data-dfn-type="element" data-export="" data-level="12.1" data-lt="ocrp_lang" id="ocrp_lang"><span class="secno">12.1. </span><span class="content">ocrp_lang</span><a class="self-link" href="#ocrp_lang"></a></h3>
    <p>Capable of generating <code>lang=</code> attributes</p>
-   <h3 class="heading settled" data-level="12.2" id="ocrp_dir"><span class="secno">12.2. </span><span class="content"><code>ocrp_dir</code></span><a class="self-link" href="#ocrp_dir"></a></h3>
+   <h3 class="heading settled" data-dfn-type="element" data-export="" data-level="12.2" data-lt="ocrp_dir" id="ocrp_dir"><span class="secno">12.2. </span><span class="content">ocrp_dir</span><a class="self-link" href="#ocrp_dir"></a></h3>
    <p>Capable of generating <code>dir=</code> attributes</p>
-   <h3 class="heading settled" data-level="12.3" id="ocrp_poly"><span class="secno">12.3. </span><span class="content"><code>ocrp_poly</code></span><a class="self-link" href="#ocrp_poly"></a></h3>
+   <h3 class="heading settled" data-dfn-type="element" data-export="" data-level="12.3" data-lt="ocrp_poly" id="ocrp_poly"><span class="secno">12.3. </span><span class="content">ocrp_poly</span><a class="self-link" href="#ocrp_poly"></a></h3>
    <p>Capable of generating <a href="#poly">polygonal bounds</a></p>
-   <h3 class="heading settled" data-level="12.4" id="ocrp_font"><span class="secno">12.4. </span><span class="content"><code>ocrp_font</code></span><a class="self-link" href="#ocrp_font"></a></h3>
+   <h3 class="heading settled" data-dfn-type="element" data-export="" data-level="12.4" data-lt="ocrp_font" id="ocrp_font"><span class="secno">12.4. </span><span class="content">ocrp_font</span><a class="self-link" href="#ocrp_font"></a></h3>
    <p>Capable of generating font information (standard font information)</p>
-   <h3 class="heading settled" data-level="12.5" id="ocrp_nlp"><span class="secno">12.5. </span><span class="content"><code>ocrp_nlp</code></span><a class="self-link" href="#ocrp_nlp"></a></h3>
+   <h3 class="heading settled" data-dfn-type="element" data-export="" data-level="12.5" data-lt="ocrp_nlp" id="ocrp_nlp"><span class="secno">12.5. </span><span class="content">ocrp_nlp</span><a class="self-link" href="#ocrp_nlp"></a></h3>
    <p>Capable of generating <a href="#nlp">nlp confidences</a></p>
    <h3 class="heading settled" data-level="12.6" id="ocr_embeddedformat_formatname"><span class="secno">12.6. </span><span class="content"><code>ocr_embeddedformat_&lt;formatname></code></span><a class="self-link" href="#ocr_embeddedformat_formatname"></a></h3>
    <p>The capability to generate other specific embedded formats is given by the
@@ -2369,7 +2415,7 @@ document classes:</p>
       <li data-md="">
        <p>ocr_page</p>
       <li data-md="">
-       <p>ocrx_block, ocrx_line, ocrx_word</p>
+       <p>ocrx_block, ocrx_line, <code><a data-link-type="element" href="#ocrx_word" id="ref-for-ocrx_word-1">ocrx_word</a></code></p>
       <li data-md="">
        <p>ocrp_lang</p>
       <li data-md="">
@@ -2790,6 +2836,59 @@ within the same HTML file without interfering with one another.</p>
 
 })();
 </script>
+  <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
+  <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
+  <ul class="index">
+   <li><a href="#bbox">bbox</a><span>, in §3.1</span>
+   <li><a href="#ocr_abstract">ocr_abstract</a><span>, in §4.3</span>
+   <li><a href="#ocr_author">ocr_author</a><span>, in §4.2</span>
+   <li><a href="#ocr_blockquote">ocr_blockquote</a><span>, in §4.9</span>
+   <li><a href="#ocr_caption">ocr_caption</a><span>, in §4.11.1</span>
+   <li><a href="#ocr_carea">ocr_carea</a><span>, in §5.1.2</span>
+   <li><a href="#ocr_chapter">ocr_chapter</a><span>, in §4.5</span>
+   <li><a href="#ocr_chem">ocr_chem</a><span>, in §6.1.3</span>
+   <li><a href="#ocr_cinfo">ocr_cinfo</a><span>, in §7.1</span>
+   <li><a href="#ocr_column">ocr_column</a><span>, in §5.1.1</span>
+   <li><a href="#ocr_display">ocr_display</a><span>, in §4.8</span>
+   <li><a href="#ocr_document">ocr_document</a><span>, in §4</span>
+   <li><a href="#ocr_dropcap">ocr_dropcap</a><span>, in §6.1.2</span>
+   <li><a href="#ocr_float">ocr_float</a><span>, in §5.4</span>
+   <li><a href="#ocr_footer">ocr_footer</a><span>, in §5.4.8</span>
+   <li><a href="#ocr_glyph">ocr_glyph</a><span>, in §6.1</span>
+   <li><a href="#ocr_glyphs">ocr_glyphs</a><span>, in §6.1.1</span>
+   <li><a href="#ocr_header">ocr_header</a><span>, in §5.4.7</span>
+   <li><a href="#ocr_image">ocr_image</a><span>, in §5.4.4</span>
+   <li><a href="#ocr_line">ocr_line</a><span>, in §5.1.3</span>
+   <li><a href="#ocr_linear">ocr_linear</a><span>, in §4.11</span>
+   <li><a href="#ocr_linedrawing">ocr_linedrawing</a><span>, in §5.4.5</span>
+   <li><a href="#ocr_math">ocr_math</a><span>, in §6.1.4</span>
+   <li><a href="#ocr_noise">ocr_noise</a><span>, in §5.1.5</span>
+   <li><a href="#ocr_page">ocr_page</a><span>, in §5.1</span>
+   <li><a href="#ocr_pageno">ocr_pageno</a><span>, in §5.4.9</span>
+   <li><a href="#ocr_par">ocr_par</a><span>, in §4.10</span>
+   <li><a href="#ocr_part">ocr_part</a><span>, in §4.4</span>
+   <li><a href="#ocrp_dir">ocrp_dir</a><span>, in §12.1</span>
+   <li><a href="#ocrp_font">ocrp_font</a><span>, in §12.3</span>
+   <li><a href="#ocr_photo">ocr_photo</a><span>, in §5.4.6</span>
+   <li><a href="#ocrp_lang">ocrp_lang</a><span>, in §12</span>
+   <li><a href="#ocrp_nlp">ocrp_nlp</a><span>, in §12.4</span>
+   <li><a href="#ocrp_poly">ocrp_poly</a><span>, in §12.2</span>
+   <li><a href="#ocr_section">ocr_section</a><span>, in §4.6</span>
+   <li>
+    ocr_separator
+    <ul>
+     <li><a href="#ocr_separator">(element)</a><span>, in §5.1.4</span>
+     <li><a href="#ocr_separator-float">(element)</a><span>, in §5.4.1</span>
+    </ul>
+   <li><a href="#ocr_subsubsection">ocr_subsubsection</a><span>, in §4.7</span>
+   <li><a href="#ocr_table">ocr_table</a><span>, in §5.4.10</span>
+   <li><a href="#ocr_textfloat">ocr_textfloat</a><span>, in §5.4.2</span>
+   <li><a href="#ocr_textimage">ocr_textimage</a><span>, in §5.4.3</span>
+   <li><a href="#ocr_title">ocr_title</a><span>, in §4.1</span>
+   <li><a href="#ocrx_block">ocrx_block</a><span>, in §8.1</span>
+   <li><a href="#ocrx_line">ocrx_line</a><span>, in §8.1.1</span>
+   <li><a href="#ocrx_word">ocrx_word</a><span>, in §8.1.2</span>
+  </ul>
   <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
   <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
   <dl>
@@ -2821,8 +2920,201 @@ within the same HTML file without interfering with one another.</p>
 properties for floating elements; properties need to be defined for this.<a href="#issue-3f2f70ed"> ↵ </a></div>
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/28">ocr_carea vs ocrx_block</a><a href="#issue-66c198d9"> ↵ </a></div>
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/19">ocr_line vs ocrx_line</a><a href="#issue-8ef34561"> ↵ </a></div>
+   <div class="issue"> ocrx_cinfo?<a href="#issue-000a0ed5"> ↵ </a></div>
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/9">Delete x_cost</a><a href="#issue-b35297dd"> ↵ </a></div>
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/2">XML namespace for hOCR HTML?</a><a href="#issue-f6d39356"> ↵ </a></div>
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/1">What DOCTYPE for hOCR HTML?</a><a href="#issue-a3899b99"> ↵ </a></div>
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/27">correct MIME type for hOCR?</a><a href="#issue-19855aac"> ↵ </a></div>
   </div>
+  <aside class="dfn-panel" data-for="ocr_document">
+   <b><a href="#ocr_document">#ocr_document</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ocr_document-1">4. Logical Structuring Elements</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="ocr_title">
+   <b><a href="#ocr_title">#ocr_title</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ocr_title-1">4. Logical Structuring Elements</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="ocr_author">
+   <b><a href="#ocr_author">#ocr_author</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ocr_author-1">4. Logical Structuring Elements</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="ocr_abstract">
+   <b><a href="#ocr_abstract">#ocr_abstract</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ocr_abstract-1">4. Logical Structuring Elements</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="ocr_part">
+   <b><a href="#ocr_part">#ocr_part</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ocr_part-1">4. Logical Structuring Elements</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="ocr_chapter">
+   <b><a href="#ocr_chapter">#ocr_chapter</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ocr_chapter-1">4. Logical Structuring Elements</a>
+    <li><a href="#ref-for-ocr_chapter-2">11. Grouped Elements and Multiple Hierarchies</a> <a href="#ref-for-ocr_chapter-3">(2)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="ocr_section">
+   <b><a href="#ocr_section">#ocr_section</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ocr_section-1">4. Logical Structuring Elements</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="ocr_display">
+   <b><a href="#ocr_display">#ocr_display</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ocr_display-1">4. Logical Structuring Elements</a>
+    <li><a href="#ref-for-ocr_display-2">6.1.5. ocr_math</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="ocr_blockquote">
+   <b><a href="#ocr_blockquote">#ocr_blockquote</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ocr_blockquote-1">4. Logical Structuring Elements</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="ocr_par">
+   <b><a href="#ocr_par">#ocr_par</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ocr_par-1">4. Logical Structuring Elements</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="ocr_linear">
+   <b><a href="#ocr_linear">#ocr_linear</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ocr_linear-1">3.2.4. cflow</a>
+    <li><a href="#ref-for-ocr_linear-2">4. Logical Structuring Elements</a>
+    <li><a href="#ref-for-ocr_linear-3">4.11.1. ocr_linear</a> <a href="#ref-for-ocr_linear-4">(2)</a> <a href="#ref-for-ocr_linear-5">(3)</a> <a href="#ref-for-ocr_linear-6">(4)</a> <a href="#ref-for-ocr_linear-7">(5)</a>
+    <li><a href="#ref-for-ocr_linear-8">5.1.3. ocr_carea</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="ocr_caption">
+   <b><a href="#ocr_caption">#ocr_caption</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ocr_caption-1">4.12. ocr_caption</a> <a href="#ref-for-ocr_caption-2">(2)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="ocr_page">
+   <b><a href="#ocr_page">#ocr_page</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ocr_page-1">5.1.1. ocr_page</a>
+    <li><a href="#ref-for-ocr_page-2">11. Grouped Elements and Multiple Hierarchies</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="ocr_carea">
+   <b><a href="#ocr_carea">#ocr_carea</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ocr_carea-1">3.2.4. cflow</a> <a href="#ref-for-ocr_carea-2">(2)</a> <a href="#ref-for-ocr_carea-3">(3)</a>
+    <li><a href="#ref-for-ocr_carea-4">5.1.2. ocr_column</a>
+    <li><a href="#ref-for-ocr_carea-5">5.1.3. ocr_carea</a> <a href="#ref-for-ocr_carea-6">(2)</a>
+    <li><a href="#ref-for-ocr_carea-7">5.3.4. hardbreak</a> <a href="#ref-for-ocr_carea-8">(2)</a> <a href="#ref-for-ocr_carea-9">(3)</a> <a href="#ref-for-ocr_carea-10">(4)</a>
+    <li><a href="#ref-for-ocr_carea-11">8.1.3. ocrx_word</a> <a href="#ref-for-ocr_carea-12">(2)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="ocr_line">
+   <b><a href="#ocr_line">#ocr_line</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ocr_line-1">2. Introduction</a>
+    <li><a href="#ref-for-ocr_line-2">5.1.4. ocr_line</a> <a href="#ref-for-ocr_line-3">(2)</a>
+    <li><a href="#ref-for-ocr_line-4">5.3.3. x_source</a>
+    <li><a href="#ref-for-ocr_line-5">5.3.4. hardbreak</a>
+    <li><a href="#ref-for-ocr_line-6">8.1.3. ocrx_word</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="ocr_float">
+   <b><a href="#ocr_float">#ocr_float</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ocr_float-1">6.1.5. ocr_math</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="ocr_cinfo">
+   <b><a href="#ocr_cinfo">#ocr_cinfo</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ocr_cinfo-1">7.1.1. ocr_cinfo</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="ocrx_block">
+   <b><a href="#ocrx_block">#ocrx_block</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ocrx_block-1">3.2.4. cflow</a>
+    <li><a href="#ref-for-ocrx_block-2">8.1.3. ocrx_word</a> <a href="#ref-for-ocrx_block-3">(2)</a> <a href="#ref-for-ocrx_block-4">(3)</a> <a href="#ref-for-ocrx_block-5">(4)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="ocrx_line">
+   <b><a href="#ocrx_line">#ocrx_line</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ocrx_line-1">8.1.3. ocrx_word</a> <a href="#ref-for-ocrx_line-2">(2)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="ocrx_word">
+   <b><a href="#ocrx_word">#ocrx_word</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ocrx_word-1">14. Profiles</a>
+   </ul>
+  </aside>
+<script>/* script-dfn-panel */
+
+        document.body.addEventListener("click", function(e) {
+            var queryAll = function(sel) { return [].slice.call(document.querySelectorAll(sel)); }
+            // Find the dfn element or panel, if any, that was clicked on.
+            var el = e.target;
+            var target;
+            var hitALink = false;
+            while(el.parentElement) {
+                if(el.tagName == "A") {
+                    // Clicking on a link in a <dfn> shouldn't summon the panel
+                    hitALink = true;
+                }
+                if(el.classList.contains("dfn-paneled")) {
+                    target = "dfn";
+                    break;
+                }
+                if(el.classList.contains("dfn-panel")) {
+                    target = "dfn-panel";
+                    break;
+                }
+                el = el.parentElement;
+            }
+            if(target != "dfn-panel") {
+                // Turn off any currently "on" or "activated" panels.
+                queryAll(".dfn-panel.on, .dfn-panel.activated").forEach(function(el){
+                    el.classList.remove("on");
+                    el.classList.remove("activated");
+                });
+            }
+            if(target == "dfn" && !hitALink) {
+                // open the panel
+                var dfnPanel = document.querySelector(".dfn-panel[data-for='" + el.id + "']");
+                if(dfnPanel) {
+                    console.log(dfnPanel);
+                    dfnPanel.classList.add("on");
+                    var rect = el.getBoundingClientRect();
+                    dfnPanel.style.left = window.scrollX + rect.right + 5 + "px";
+                    dfnPanel.style.top = window.scrollY + rect.top + "px";
+                    var panelRect = dfnPanel.getBoundingClientRect();
+                    var panelWidth = panelRect.right - panelRect.left;
+                    if(panelRect.right > document.body.scrollWidth && (rect.left - (panelWidth + 5)) > 0) {
+                        // Reposition, because the panel is overflowing
+                        dfnPanel.style.left = window.scrollX + rect.left - (panelWidth + 5) + "px";
+                    }
+                } else {
+                    console.log("Couldn't find .dfn-panel[data-for='" + el.id + "']");
+                }
+            } else if(target == "dfn-panel") {
+                // Switch it to "activated" state, which pins it.
+                el.classList.add("activated");
+                el.style.left = null;
+                el.style.top = null;
+            }
+
+        });
+        </script>
