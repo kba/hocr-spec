@@ -40,7 +40,6 @@ channel](https://gitter.im/kba/hocr-spec).
 
 To build the spec, you will need to have `GNU make` and one of the following
 programs installed:
-
   * [bikeshed](https://github.com/tabatkins/bikeshed)
   * [docker](https://docker.com)
   * `curl`
