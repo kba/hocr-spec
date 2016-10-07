@@ -138,8 +138,9 @@ A closed polygon for elements with non-rectangular bounds
     non-rectangular layouts
   * note that the natural and correct representation of many non-rectangular
     layouts is in terms of rectangular content areas and rectangular floats
-  * documents using polygonal borders anywhere must indicate this in the
-    metadata
+  * documents using polygonal borders anywhere must indicate this by adding
+    [[#ocrp_poly]] to the list of `ocr-capabilities` in the
+    [[#required-meta-information]]
   * documents should attempt to provide a reasonable bbox equivalent as well
 
 ### `order`
