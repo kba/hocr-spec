@@ -72,7 +72,7 @@ The following properties can apply to most elements (where it makes sense):
 
 `bbox x0 y0 x1 y1`
 
-The bounding box of the element relative to the binarized document image
+The bounding box of the element relative to the document image
 
   * use `x_bboxes` below for character bounding boxes
   * do not use `bbox` unless the bounding box of the layout component is, in
@@ -80,7 +80,7 @@ The bounding box of the element relative to the binarized document image
   * some non-rectangular layout components may have rectangular bounding boxes
     if the non-rectangularity is caused by floating elements around which text flows
 
-See also the section [`bbox (typesetting)`](#bbox-typesetting).
+See also the section [[#bbox-typesetting]].
 
 ### `textangle`
 
@@ -290,7 +290,7 @@ The `ocr_page` element must be present in all hOCR documents.
 Please use [[#ocr_carea]] instead
 </div>
 
-### ocr_carea
+### `ocr_carea`
 
 "ocr content area" or "body area"
 
