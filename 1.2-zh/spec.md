@@ -1,9 +1,3 @@
-# Introduction
-
-The purpose of this document is to define an open standard for representing OCR
-results. The goal is to reuse as much existing technology as possible, and to
-arrive at a representation that makes it easy to reuse OCR results.
-
 # Revision History
 
 hOCR has been originally developed by Thomas Breuel.
@@ -11,14 +5,17 @@ hOCR has been originally developed by Thomas Breuel.
 See the [releases](https://github.com/kba/hocr-spec/releases/) and full [commit
 history](https://github.com/kba/hocr-spec/commits/) for a revision history.
 
-# Getting Started
+# Introduction
+
+The purpose of this document is to define an open standard for representing OCR
+results. The goal is to reuse as much existing technology as possible, and to
+arrive at a representation that makes it easy to reuse OCR results.
 
 This document describes many tags and a lot of information that can be output.
 However, getting started with hOCR is easy: you only need to output the tags
 and information you actually want to.  For example, just outputting `ocr_line`
 tags with bounding boxes is already very useful for many applications.  Just
 start simple and add more output information as the need arises.
-
 
 # Terminology and Representation
 
@@ -28,7 +25,7 @@ tags, together with attributes of those tags. However, since the content we are
 representing is formatted text,
 
 However, we are not actually using a new XML for the representation; instead
-embed the representation in XHTML (or HTML) because XHTML and XHTML processing
+embed the representation in XHTML (or HTML) because  [[XHTML1]] and XHTML processing
 already define many aspects of OCR output representation that would otherwise
 need additional, separate and ad-hoc definitions. These aspects include:
 
@@ -75,7 +72,7 @@ The following properties can apply to most elements (where it makes sense):
 
 `bbox x0 y0 x1 y1`
 
-The bounding box of the element relative to the binarized document image
+The bounding box of the element relative to the document image
 
   * use `x_bboxes` below for character bounding boxes
   * do not use `bbox` unless the bounding box of the layout component is, in
@@ -83,7 +80,7 @@ The bounding box of the element relative to the binarized document image
   * some non-rectangular layout components may have rectangular bounding boxes
     if the non-rectangularity is caused by floating elements around which text flows
 
-See also the section [`bbox (typesetting)`](#bbox-typesetting).
+See also the section [[#bbox-typesetting]].
 
 ### `textangle`
 
@@ -112,8 +109,9 @@ A closed polygon for elements with non-rectangular bounds
     non-rectangular layouts
   * note that the natural and correct representation of many non-rectangular
     layouts is in terms of rectangular content areas and rectangular floats
-  * documents using polygonal borders anywhere must indicate this in the
-    metadata
+  * documents using polygonal borders anywhere must indicate this by adding
+    [[#ocrp_poly]] to the list of `ocr-capabilities` in the
+    [[#required-meta-information]]
   * documents should attempt to provide a reasonable bbox equivalent as well
 
 ### `order`
@@ -132,30 +130,55 @@ Issue: [Use of property presence](https://github.com/kba/hocr-spec/issues/10)
 
 `presence` presence must be declared in the document meta data
 
-The following property relates the flow between multiple `ocr_carea` elements,
-and between `ocr_carea` and `ocr_linear` elements.
-
 ### `cflow`
 
 `cflow s`
 
+This property relates the flow between multiple [[#ocr_carea]] elements,
+and between [[#ocr_carea]] and [[#ocr_linear]] elements.
+
 The content flow on the page that this element is a part of
 
   * s must be a unique string for each content flow
-  * must be present on ocr_carea and ocrx_block tags when reading order is
-    attempted and multiple content flows are present
+  * must be present on [[#ocr_carea]] and [[#ocrx_block]] tags when reading
+    order is attempted and multiple content flows are present
   * presence must be declared in the document meta data
-
-This property applies primarily to textlines
 
 ### `baseline`
 
 `baseline pn pn-1 ... p0`
 
-A polynomial describing the baseline of a line of text
+This property applies primarily to textlines.
 
-  * the polynomial is in the coordinate system of the line, with the bottom
-    left of the bounding box as the origin
+The baseline is described by a polynomial of order `n` with the coefficients
+`pn ...  p0` with `n = 1` for a linear (i.e. straight) line.
+
+The polynomial is in the coordinate system of the line, with the bottom left of
+the bounding box as the origin.
+
+<div class="example">
+
+The hOCR output for the first line of
+[eurotext.tif](https://github.com/tesseract-ocr/tesseract/blob/master/testing/eurotext.tif)
+contains the following information:
+
+```html
+<span class='ocr_line' id='line_1_1'
+    title="bbox 105 66 823 113; baseline 0.015 -18">...</span>
+```
+
+bbox is the bounding box of the line in image coordinates (blue). The two
+numbers for the baseline are the slope (1st number) and constant term (2nd
+number) of a linear equation describing the baseline relative to the bottom
+left corner of the bounding box (red). The baseline crosses the y-axis at `-18`
+and its slope angle is `arctan(0.015) = 0.86°`.
+
+<figure><img
+  alt="baseline explained"
+  src="../images/baseline.png"/>
+</figure>
+
+</div>
 
 # Logical Structuring Elements
 
@@ -262,19 +285,32 @@ The `ocr_page` element must be present in all hOCR documents.
 
 ### `ocr_column`
 
-<div class="annoying-warning">**OBSOLETE**</div>
+<div class="annoying-warning">
+**OBSOLETE**
 
-Please use [`ocr_carea`](#ocr_carea) instead
+Please use [[#ocr_carea]] instead
+</div>
 
-### ocr_carea
+### `ocr_carea`
 
 "ocr content area" or "body area"
 
-Used to be called ~~ocr_column~~
+Used to be called <del>ocr_column</del>
+
+The `ocr_carea` elements should appear in reading order unless this is impossible
+because of some other structuring requirement. If the document contains multiple
+`ocr_linear` streams, then each `ocr_carea` must indicate which stream it belongs
+to.
 
 ### `ocr_line`
 
-Should be in a `<span>`
+In typesetting systems, content areas are filled with “blocks”, but most of
+those blocks are not recoverable or semantically meaningful. However, one type
+of block is visible and very important for OCR engines: the line. Lines are
+typesetting blocks that only contain glyphs (“inlines” in XSL terminology).
+They are represented by the `ocr_line` area.
+
+`ocr_line` should be in a `<span>`
 
 ### `ocr_separator`
 
@@ -301,7 +337,7 @@ The bounding box of the page; for pages, the top left corner must be at
   * syntactically, must be a UNIX-like pathname or http URL (no Windows pathnames)
   * may be relative
   * cannot be resolved to the actual file in general (e.g., if the hOCR file
-    becomes separated from the image fiels)
+    becomes separated from the image file)
   * if the hOCR file is present in a directory hierarchy or file archive, should
     resolve to the corresponding image file
 
@@ -359,17 +395,7 @@ The following properties MAY be present:
     * `x_source /gfs/cc/clean/012345678911 17`
     * `x_source http://pageserver/012345678911&page=17`
 
-The `ocr_carea` elements should appear reading order unless this is impossible
-because of some other structuring requirement If the document contains multiple
-`ocr_linear` streams, then each `ocr_carea` must indicate which stream it belongs
-to.
-
-In typesetting systems, content areas are filled with “blocks”, but most of
-those blocks are not recoverable or semantically meaningful. However, one type
-of block is visible and very important for OCR engines: the line. Lines are
-typesetting blocks that only contain glyphs (“inlines” in XSL terminology).
-
-They are represented by the `ocr_line` area. In addition to the standard
+In addition to the standard
 properties, the `ocr_line` area supports the following additional properties:
 
 ### `hardbreak`
@@ -686,8 +712,8 @@ actual presentation information inside that:
 ```
 
 The CSS3 text layout attributes can be used when necessary. For example, CSS
-supports writing-mode, direction, glyph-orientation [ISO-15924-based
-script](http://www.unicode.org/iso15924/codelists.html), text-indent, etc.
+supports writing-mode, direction, glyph-orientation [[ISO15924]]-based
+script ([list of codes](http://www.unicode.org/iso15924/codelists.html)), text-indent, etc.
 
 
 # Alternative Segmentations / Readings
@@ -795,6 +821,31 @@ content is absent in the source document. If a capability is not listed, the
 corresponding element or attribute must not be present in the document.
 
 
+# Metadata
+
+## Required Meta Information
+
+The OCR system is required to indicate the following using meta tags in the header:
+
+  * `<meta name="ocr-system" content="name version"/>`
+  * `<meta name="ocr-capabilities" content="capabilities"/>`
+    * see [[#capabilities]]
+
+The OCR system should indicate the following information
+
+  * `<meta name="ocr-number-of-pages" content="number-of-pages"/>`
+  * `<meta name="ocr-langs" content="languages-considered-by-ocr"/>`
+    * use [ISO 639-1](https://www.loc.gov/standards/iso639-2/php/code_list.php) codes
+    * value may be `unknown`
+  * `<meta name="ocr-scripts" content="scripts-considered-by-ocr"/>`
+    * use [ISO 15924](http://www.unicode.org/iso15924/codelists.html) letter codes
+    * value may be `unknown`
+
+## Document metadata
+
+For document meta information, use the [Dublin Core Embedding into
+HTML](http://dublincore.org/documents/dcq-html/). See also [Citation Guidelines
+for Dublin Core](http://dublincore.org/documents/dc-citation-guidelines/).
 # Profiles
 
 hOCR provides standard means of marking up information, but it does not mandate
@@ -837,25 +888,6 @@ document classes:
     * all logical structuring elements (as applicable)
     * articles map on ocr_linear
     * ocr_page
-
-# Required Meta Information
-
-The OCR system is required to indicate the following using meta tags in the header:
-
-  * `<meta name="ocr-system" content="name version"/>`
-  * `<meta name="ocr-capabilities" content="capabilities"/>`
-    * see the capabilities defined above
-
-The OCR system should indicate the following information
-
-  * `<meta name="ocr-number-of-pages" content="number-of-pages"/>`
-  * `<meta name="ocr-langs" content="languages-considered-by-ocr"/>`
-    * use [ISO 639-1](https://www.loc.gov/standards/iso639-2/php/code_list.php) codes
-    * value may be `unknown`
-  * `<meta name="ocr-scripts" content="scripts-considered-by-ocr"/>`
-    * use [ISO 15924](http://www.unicode.org/iso15924/codelists.html) letter codes
-    * value may be `unknown`
-
 
 # HTML Markup
 
@@ -924,7 +956,7 @@ When possible, any mapping of logical structure onto HTML should try to follow t
     might have entered into a WYSIWYG content creation tool
   * text should be in reading order
   * all tags should be used for the intended purpose (and only for the intended
-    purpose) as defined in the [HTML 4 spec](https://www.w3.org/TR/html4/).
+    purpose) as defined in the [[HTML40]] spec.
   * floats are contained in `<div>` elements with a `style` that includes a float attribute
   * repeating floating page elements (header/footer) should be repeated and occur
     in their natural location in reading order (e.g., between pages)
@@ -1045,11 +1077,6 @@ HTML mapping generated by “Save As HTML”
 HTML mapping generated by official XSL style sheets
 
 
-# Document Meta Information
-
-For document meta information, use the [Dublin Core Embedding into
-HTML](http://dublincore.org/documents/dcq-html/). See also [Citation Guidelines
-for Dublin Core](http://dublincore.org/documents/dc-citation-guidelines/).
 
 # Sample Usage
 
@@ -1096,6 +1123,10 @@ Note that the OCR markup, basic HTML markup, and semantic markup can co-exist
 within the same HTML file without interfering with one another.
 
 # IANA Considerations
+
+Issue: [XML namespace for hOCR HTML?](https://github.com/kba/hocr-spec/issues/2)
+
+Issue: [What DOCTYPE for hOCR HTML?](https://github.com/kba/hocr-spec/issues/1)
 
 ## Media Type
 

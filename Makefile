@@ -1,21 +1,31 @@
-BIKESHED = @$(shell \
-		   if type bikeshed >/dev/null 2>&1;then \
-				echo 'bikeshed';\
-			elif type docker >/dev/null 2>&1;then \
-				echo 'docker run --rm -it -v $(PWD):/data kbai/bikeshed'; \
-			else \
-				echo 'echo "bikeshed and docker not installed";exit 1;';\
-			fi)
-VERSION = 1.2
+VERSION := 1.2
 
-$(VERSION)/index.html: $(VERSION)/index.bs
-	$(BIKESHED) -f spec "$<"
+SPEC_BIBLIO = biblio.json
+SPEC_METADATA = $(VERSION)/metadata
+SPEC_MD = $(VERSION)/spec.md
+SPEC_BS = $(VERSION)/index.bs
+SPEC_HTML = $(VERSION)/index.html
 
-$(VERSION)/index.bs: $(VERSION)/metadata biblio.json $(VERSION)/spec.md
+BIKESHED = $(shell for cmd in bikeshed docker curl;do type >/dev/null 2>&1 $$cmd && echo $$cmd && return;done)
+
+
+
+$(SPEC_HTML): $(SPEC_BS)
+	case "$(BIKESHED)" in \
+		bikeshed) bikeshed -f spec $(SPEC_BS) ;; \
+		docker) docker run --rm -it -v $(PWD):/data kbai/bikeshed -f spec $(SPEC_BS) ;; \
+		curl) curl "https://api.csswg.org/bikeshed/" -o $(SPEC_HTML) -F file=@$(SPEC_BS) ;; \
+		*) echo 'Unsupported bikeshed backend "$(BIKESHED)"'; exit 1 ;;\
+	esac
+
+$(SPEC_BS): $(SPEC_METADATA) biblio.json $(SPEC_MD)
 	echo '<pre class="metadata">' >  $@
-	cat  $(VERSION)/metadata      >> $@
+	cat  $(SPEC_METADATA)         >> $@
 	echo '</pre>'                 >> $@
 	echo '<pre class="biblio">'   >> $@
-	cat  biblio.json              >> $@
+	cat  $(SPEC_BIBLIO)           >> $@
 	echo '</pre>'                 >> $@
-	cat  $(VERSION)/spec.md       >> $@
+	cat  $(SPEC_MD)               >> $@
+
+clean:
+	$(RM) $(SPEC_HTML) $(SPEC_BS)
