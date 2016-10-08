@@ -72,8 +72,13 @@ The following properties can apply to most elements (where it makes sense):
 
 `bbox x0 y0 x1 y1`
 
-The bounding box of the element relative to the document image
+The `bbox` - short for "bounding box" - of an element is a rectangular box 
+around this element, which is defined by the upper-left corner (x0, y0) and
+the lower-right corner (x1, y1).
 
+  * the values are with reference to the the top-left corner of the document image
+    and measured in pixels
+  * the order of the values are `x0 y0 x1 y1` = "left top right bottom"
   * use `x_bboxes` below for character bounding boxes
   * do not use `bbox` unless the bounding box of the layout component is, in
     fact, rectangular
@@ -81,6 +86,25 @@ The bounding box of the element relative to the document image
     if the non-rectangularity is caused by floating elements around which text flows
 
 See also the section [[#bbox-typesetting]].
+
+<div class="example">
+
+```html
+<span class='ocr_line' id='line_1'
+    title="bbox 10 20 160 30">...</span>
+```
+
+The bounding box `bbox` of this line is shown in blue and it is span
+by the upper-left corner (10, 20) and the lower-right corner (160, 30).
+All coordinates are measured with reference to the top-left corner of
+the document image which border is drawn in black.
+
+<figure><img
+  alt="bbox explained"
+  src="../images/bbox-crop.png"/>
+</figure>
+
+</div>
 
 ### `textangle`
 
