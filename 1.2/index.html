@@ -1384,7 +1384,7 @@ Possible extra rowspan handling
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">hOCR - OCR Workflow and Output embedded in HTML</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-10-10">10 October 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-10-17">17 October 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1403,7 +1403,7 @@ Possible extra rowspan handling
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 10 October 2016,
+In addition, as of 17 October 2016,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1682,8 +1682,15 @@ multiple properties are separated by semicolons.</p>
    <p>The following properties can apply to most elements (where it makes sense):</p>
    <h4 class="heading settled" data-level="3.1.1" id="bbox"><span class="secno">3.1.1. </span><span class="content"><code>bbox</code></span><a class="self-link" href="#bbox"></a></h4>
    <p><code>bbox x0 y0 x1 y1</code></p>
-   <p>The bounding box of the element relative to the document image</p>
+   <p>The <code>bbox</code> - short for "bounding box" - of an element is a rectangular box
+around this element, which is defined by the upper-left corner (x0, y0) and
+the lower-right corner (x1, y1).</p>
    <ul>
+    <li data-md="">
+     <p>the values are with reference to the the top-left corner of the document image
+and measured in pixels</p>
+    <li data-md="">
+     <p>the order of the values are <code>x0 y0 x1 y1</code> = "left top right bottom"</p>
     <li data-md="">
      <p>use <code>x_bboxes</code> below for character bounding boxes</p>
     <li data-md="">
@@ -1694,6 +1701,17 @@ fact, rectangular</p>
 if the non-rectangularity is caused by floating elements around which text flows</p>
    </ul>
    <p>See also the section <a href="#bbox-typesetting">§5.2.1 bbox (typesetting)</a>.</p>
+   <div class="example" id="example-d34e6dbe">
+    <a class="self-link" href="#example-d34e6dbe"></a> 
+<pre class="language-html highlight"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">'ocr_line'</span> <span class="na">id=</span><span class="s">'line_1'</span>
+    <span class="na">title=</span><span class="s">"bbox 10 20 160 30"</span><span class="nt">></span>...<span class="nt">&lt;/span></span>
+</pre>
+    <p>The bounding box <code>bbox</code> of this line is shown in blue and it is span
+by the upper-left corner (10, 20) and the lower-right corner (160, 30).
+All coordinates are measured with reference to the top-left corner of
+the document image which border is drawn in black.</p>
+    <figure><img alt="bbox explained" src="../images/bbox-crop.png"> </figure>
+   </div>
    <h4 class="heading settled" data-level="3.1.2" id="textangle"><span class="secno">3.1.2. </span><span class="content"><code>textangle</code></span><a class="self-link" href="#textangle"></a></h4>
    <p><code>textangle alpha</code></p>
    <p>The angle in degrees by which textual content has been rotate relative to the
