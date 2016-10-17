@@ -331,6 +331,19 @@ because of some other structuring requirement. If the document contains multiple
 `ocr_linear` streams, then each `ocr_carea` must indicate which stream it belongs
 to.
 
+Note that for many documents, the actual ground truth careas are well-defined
+by the document style of the original document before printing and scanning.
+From a single page, the `careas` of the original document style cannot be
+recovered exactly. However, the partition of a document by `ocr_carea` for an
+individual page shall be considered correct relative to ground truth if
+
+  1. all the text contained in a ground truth carea is fully contained within a
+    single `ocr_carea`,
+  2. no text outside a ground truth `carea` is contained within an
+    `ocr_carea`, and 
+  3. the `ocr_careas` appear in the same order as the text flow
+    relationships between the ground truth careas.
+
 ### `ocr_line`
 
 In typesetting systems, content areas are filled with “blocks”, but most of
@@ -439,19 +452,6 @@ Any special characters representing the desired end-of-line processing must be
 present inside the `ocr_line` element. Examples of such special characters are a
 soft hyphen ("­", `U+00AD`), a hard line break (`<br>`), or whitespace (` `) for soft
 line breaks.
-
-Note that for many documents, the actual ground truth careas are well-defined
-by the document style of the original document before printing and scanning.
-From a single page, the `careas` of the original document style cannot be
-recovered exactly. However, the partition of a document by `ocr_carea` for an
-individual page shall be considered correct relative to ground truth if
-
-  1. all the text contained in a ground truth carea is fully contained within a
-    single `ocr_carea`,
-  2. no text outside a ground truth `carea` is contained within an
-    `ocr_carea`, and 
-  3. the `ocr_careas` appear in the same order as the text flow
-    relationships between the ground truth careas.
 
 ## Classes for floats
 

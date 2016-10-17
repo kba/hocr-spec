@@ -1384,7 +1384,7 @@ Possible extra rowspan handling
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">hOCR - OCR Workflow and Output embedded in HTML</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-10-07">7 October 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-10-10">10 October 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1403,7 +1403,7 @@ Possible extra rowspan handling
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 7 October 2016,
+In addition, as of 10 October 2016,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1876,6 +1876,21 @@ elements.</p>
    <p>The <code>ocr_carea</code> elements should appear in reading order unless this is impossible
 because of some other structuring requirement. If the document contains multiple <code>ocr_linear</code> streams, then each <code>ocr_carea</code> must indicate which stream it belongs
 to.</p>
+   <p>Note that for many documents, the actual ground truth careas are well-defined
+by the document style of the original document before printing and scanning.
+From a single page, the <code>careas</code> of the original document style cannot be
+recovered exactly. However, the partition of a document by <code>ocr_carea</code> for an
+individual page shall be considered correct relative to ground truth if</p>
+   <ol>
+    <li data-md="">
+     <p>all the text contained in a ground truth carea is fully contained within a
+single <code>ocr_carea</code>,</p>
+    <li data-md="">
+     <p>no text outside a ground truth <code>carea</code> is contained within an <code>ocr_carea</code>, and</p>
+    <li data-md="">
+     <p>the <code>ocr_careas</code> appear in the same order as the text flow
+relationships between the ground truth careas.</p>
+   </ol>
    <h4 class="heading settled" data-level="5.1.4" id="ocr_line"><span class="secno">5.1.4. </span><span class="content"><code>ocr_line</code></span><a class="self-link" href="#ocr_line"></a></h4>
    <p>In typesetting systems, content areas are filled with “blocks”, but most of
 those blocks are not recoverable or semantically meaningful. However, one type
@@ -1989,21 +2004,6 @@ properties, the <code>ocr_line</code> area supports the following additional pro
 present inside the <code>ocr_line</code> element. Examples of such special characters are a
 soft hyphen ("­", <code>U+00AD</code>), a hard line break (<code>&lt;br></code>), or whitespace (<code></code>) for soft
 line breaks.</p>
-   <p>Note that for many documents, the actual ground truth careas are well-defined
-by the document style of the original document before printing and scanning.
-From a single page, the <code>careas</code> of the original document style cannot be
-recovered exactly. However, the partition of a document by <code>ocr_carea</code> for an
-individual page shall be considered correct relative to ground truth if</p>
-   <ol>
-    <li data-md="">
-     <p>all the text contained in a ground truth carea is fully contained within a
-single <code>ocr_carea</code>,</p>
-    <li data-md="">
-     <p>no text outside a ground truth <code>carea</code> is contained within an <code>ocr_carea</code>, and</p>
-    <li data-md="">
-     <p>the <code>ocr_careas</code> appear in the same order as the text flow
-relationships between the ground truth careas.</p>
-   </ol>
    <h3 class="heading settled" data-level="5.4" id="classes-for-floats"><span class="secno">5.4. </span><span class="content">Classes for floats</span><a class="self-link" href="#classes-for-floats"></a></h3>
    <p>Floats should not be nested.</p>
    <p>The following floats are defined:</p>
