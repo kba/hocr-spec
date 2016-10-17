@@ -101,15 +101,39 @@ The following properties can apply to most elements (where it makes sense):
 
 `bbox x0 y0 x1 y1`
 
-The bounding box of the element relative to the binarized document image
+The `bbox` - short for "bounding box" - of an element is a rectangular box 
+around this element, which is defined by the upper-left corner (x0, y0) and
+the lower-right corner (x1, y1).
 
+  * the values are with reference to the the top-left corner of the document image
+    and measured in pixels
+  * the order of the values are `x0 y0 x1 y1` = "left top right bottom"
   * use 'x_bboxes' below for character bounding boxes
   * do not use 'bbox' unless the bounding box of the layout component is, in
     fact, rectangular
   * some non-rectangular layout components may have rectangular bounding boxes
     if the non-rectangularity is caused by floating elements around which text flows
 
-See also the section [`bbox (typesetting)`](#bbox-typesetting).
+See also the section [[#bbox-typesetting]].
+
+<div class="example">
+
+```html
+<span class='ocr_line' id='line_1'
+    title="bbox 10 20 160 30">...</span>
+```
+
+The bounding box `bbox` of this line is shown in blue and it is span
+by the upper-left corner (10, 20) and the lower-right corner (160, 30).
+All coordinates are measured with reference to the top-left corner of
+the document image which border is drawn in black.
+
+<figure><img
+  alt="bbox explained"
+  src="../images/bbox-crop.png"/>
+</figure>
+
+</div>
 
 ### <dfn property>textangle</dfn>
 
@@ -138,8 +162,9 @@ A closed polygon for elements with non-rectangular bounds
     non-rectangular layouts
   * note that the natural and correct representation of many non-rectangular
     layouts is in terms of rectangular content areas and rectangular floats
-  * documents using polygonal borders anywhere must indicate this in the
-    metadata
+  * documents using polygonal borders anywhere must indicate this by adding
+    ''ocr-capabilities/ocrp_poly'' to the list of 'ocr-capabilities' (see
+    [[#required-meta-information]])
   * documents should attempt to provide a reasonable 'bbox' equivalent as well
 
 ### <dfn property>order</dfn>
@@ -319,7 +344,6 @@ The <{ocr_page}> element must be present in all hOCR documents.
 Please use [[#ocr_carea]] instead
 </div>
 
-<!-- ### Content area -->
 ### <dfn element>ocr_carea</dfn>
 
 "ocr content area" or "body area"
@@ -330,6 +354,19 @@ The <{ocr_carea}> elements should appear in reading order unless this is impossi
 because of some other structuring requirement. If the document contains multiple
 <{ocr_linear}> streams, then each <{ocr_carea}> must indicate which stream it belongs
 to.
+
+Note that for many documents, the actual ground truth careas are well-defined
+by the document style of the original document before printing and scanning.
+From a single page, the `careas` of the original document style cannot be
+recovered exactly. However, the partition of a document by <{ocr_carea}> for an
+individual page shall be considered correct relative to ground truth if
+
+  1. all the text contained in a ground truth carea is fully contained within a
+    single <{ocr_carea}>,
+  2. no text outside a ground truth `carea` is contained within an
+    <{ocr_carea}>, and 
+  3. the <{ocr_carea}> appear in the same order as the text flow
+    relationships between the ground truth careas.
 
 ### <dfn element>ocr_line</dfn>
 
@@ -439,19 +476,6 @@ Any special characters representing the desired end-of-line processing must be
 present inside the <{ocr_line}> element. Examples of such special characters are a
 soft hyphen ("­", `U+00AD`), a hard line break (`<br>`), or whitespace (` `) for soft
 line breaks.
-
-Note that for many documents, the actual ground truth careas are well-defined
-by the document style of the original document before printing and scanning.
-From a single page, the `careas` of the original document style cannot be
-recovered exactly. However, the partition of a document by <{ocr_carea}> for an
-individual page shall be considered correct relative to ground truth if
-
-  1. all the text contained in a ground truth carea is fully contained within a
-    single <{ocr_carea}>,
-  2. no text outside a ground truth `carea` is contained within an
-    <{ocr_carea}>, and 
-  3. the <{ocr_carea}> appear in the same order as the text flow
-    relationships between the ground truth careas.
 
 ## Classes for floats
 
@@ -675,7 +699,7 @@ attempt to ensure the following properties:
 * an <{ocrx_block}> should contain either an image or text, but not both
 * an <{ocrx_line}> should correspond as closely as possible to an <{ocr_line}>
 * <{ocrx_cinfo}> should nest inside <{ocrx_line}>
-* <{ocrx_cinfo}> should contain only 'x_conf', 'x_bboxes', and 'cuts' attributes
+* <{ocrx_cinfo}> should contain only 'x_confs', 'x_bboxes', and 'cuts' attributes
 
 Issue: ocrx_cinfo?
 

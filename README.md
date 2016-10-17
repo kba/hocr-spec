@@ -38,17 +38,25 @@ channel](https://gitter.im/kba/hocr-spec).
 
 ## Building the spec
 
-To build the spec, you will need to have GNU make and either
-[bikeshed](https://github.com/tabatkins/bikeshed) or
-[docker](https://docker.com) installed.
+To build the spec, you will need to have `GNU make` and one of the following
+programs installed:
+  * [bikeshed](https://github.com/tabatkins/bikeshed)
+  * [docker](https://docker.com)
+  * `curl`
 
-Adapt `<VERSION>/spec.md` to change the body of the spec, `<VERSION>/metadata`
-to change the [bikeshed
-metadata](https://github.com/tabatkins/bikeshed/blob/master/docs/metadata.md).
+The Makefile will first look for a local bikeshed installation, then for docker
+to use the [bikeshed docker container](https://hub.docker.com/kbai/bikeshed)
+and finally for curl to remotely use the [CSS Spec
+Processor](https://api.csswg.org/bikeshed/) to build the spec.
+
+Adapt
+  * `<VERSION>/spec.md` to change the body of the spec
+  * `<VERSION>/metadata` to change the [bikeshed metadata](https://github.com/tabatkins/bikeshed/blob/master/docs/metadata.md).
+
 Then run `make VERSION=<VERSION>` to build that spec.
 
 Examples:
-  * To build the `1.2` version: `make VERSION=1.2`
+  * To build the `1.2` version: `make VERSION=1.2` or simply `make`
   * To build the `1.2-zh` version: `make VERSION=1.2-zh`
 
 ## Open Tasks
