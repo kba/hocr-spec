@@ -6,7 +6,7 @@ SPEC_MD = $(VERSION)/spec.md
 SPEC_BS = $(VERSION)/index.bs
 SPEC_HTML = $(VERSION)/index.html
 
-BIKESHED = $(shell for cmd in bikeshed docker curl;do type >/dev/null 2>&1 $$cmd && echo $$cmd && return;done)
+BIKESHED = $(shell for cmd in bikeshed docker curl;do type >/dev/null 2>&1 $$cmd && echo $$cmd && break;done)
 
 $(SPEC_HTML): $(SPEC_BS)
 	case "$(BIKESHED)" in \
