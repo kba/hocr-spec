@@ -1589,10 +1589,10 @@ Parts of this work may be from another specification document.  If so, those par
        <ol class="toc">
         <li><a href="#html_none0"><span class="secno">15.7.1</span> <span class="content">html_none</span></a>
         <li><a href="#html_simple"><span class="secno">15.7.2</span> <span class="content">html_simple</span></a>
-        <li><a href="#htmlocr"><span class="secno">15.7.3</span> <span class="content">html<em>ocr</em><engine></engine></span></a>
-        <li><a href="#htmlabsolute"><span class="secno">15.7.4</span> <span class="content">html<em>absolute</em><element></element></span></a>
-        <li><a href="#htmlxytableabsolute"><span class="secno">15.7.5</span> <span class="content">html<em>xytable</em>absolute</span></a>
-        <li><a href="#htmlxytablerelative"><span class="secno">15.7.6</span> <span class="content">html<em>xytable</em>relative</span></a>
+        <li><a href="#html_ocr_"><span class="secno">15.7.3</span> <span class="content">html_ocr_<engine></engine></span></a>
+        <li><a href="#html_absolute_"><span class="secno">15.7.4</span> <span class="content">html_absolute_<element></element></span></a>
+        <li><a href="#html_xytable_absolute"><span class="secno">15.7.5</span> <span class="content">html_xytable_absolute</span></a>
+        <li><a href="#html_xytable_relative"><span class="secno">15.7.6</span> <span class="content">html_xytable_relative</span></a>
         <li>
          <a href="#html_"><span class="secno">15.7.7</span> <span class="content">html_<processor></processor></span></a>
          <ol class="toc">
@@ -1670,12 +1670,12 @@ HTML tag. Properties in title attributes are of the form “name values...”, a
 multiple properties are separated by semicolons.</p>
    <div class="example" id="example-b38b5c14">
     <a class="self-link" href="#example-b38b5c14"></a> 
-<pre class="language-html highlight"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"ocr_page"</span> <span class="na">id</span><span class="o">=</span><span class="s">"page_1"</span><span class="p">></span>
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"ocr_carea"</span> <span class="na">id</span><span class="o">=</span><span class="s">"column_2"</span> <span class="na">title</span><span class="o">=</span><span class="s">"bbox 313 324 733 1922"</span><span class="p">></span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"ocr_par"</span> <span class="na">id</span><span class="o">=</span><span class="s">"par_7"</span><span class="p">></span> ... <span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">></span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"ocr_par"</span> <span class="na">id</span><span class="o">=</span><span class="s">"par_19"</span><span class="p">></span> ... <span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">></span>
-  <span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">></span>
-<span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">></span>
+<pre class="language-html highlight"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ocr_page"</span> <span class="na">id=</span><span class="s">"page_1"</span><span class="nt">></span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ocr_carea"</span> <span class="na">id=</span><span class="s">"column_2"</span> <span class="na">title=</span><span class="s">"bbox 313 324 733 1922"</span><span class="nt">></span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ocr_par"</span> <span class="na">id=</span><span class="s">"par_7"</span><span class="nt">></span> ... <span class="nt">&lt;/div></span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ocr_par"</span> <span class="na">id=</span><span class="s">"par_19"</span><span class="nt">></span> ... <span class="nt">&lt;/div></span>
+  <span class="nt">&lt;/div></span>
+<span class="nt">&lt;/div></span>
 </pre>
    </div>
    <h3 class="heading settled" data-level="3.1" id="general-properties"><span class="secno">3.1. </span><span class="content">General Properties</span><a class="self-link" href="#general-properties"></a></h3>
@@ -1756,8 +1756,8 @@ the bounding box as the origin.</p>
    <div class="example" id="example-11ed160f">
     <a class="self-link" href="#example-11ed160f"></a> 
     <p>The hOCR output for the first line of <a href="https://github.com/tesseract-ocr/tesseract/blob/master/testing/eurotext.tif">eurotext.tif</a> contains the following information:</p>
-<pre class="language-html highlight"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">'ocr_line'</span> <span class="na">id</span><span class="o">=</span><span class="s">'line_1_1'</span>
-    <span class="na">title</span><span class="o">=</span><span class="s">"bbox 105 66 823 113; baseline 0.015 -18"</span><span class="p">></span>...<span class="p">&lt;</span><span class="p">/</span><span class="nt">span</span><span class="p">></span>
+<pre class="language-html highlight"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">'ocr_line'</span> <span class="na">id=</span><span class="s">'line_1_1'</span>
+    <span class="na">title=</span><span class="s">"bbox 105 66 823 113; baseline 0.015 -18"</span><span class="nt">></span>...<span class="nt">&lt;/span></span>
 </pre>
     <p>bbox is the bounding box of the line in image coordinates (blue). The two
 numbers for the baseline are the slope (1st number) and constant term (2nd
@@ -2094,12 +2094,12 @@ alternate between up and right moves.</p>
    <div class="example" id="example-382eb02f">
     <a class="self-link" href="#example-382eb02f"></a> 
     <p>Assume a bounding box of <code>(0,0,300,100)</code>; then</p>
-<pre class="language-python highlight"><span class="n">cuts</span><span class="p">(</span><span class="s2">"</span><span class="s2">10 11 7 19</span><span class="s2">"</span><span class="p">)</span> <span class="o">=</span>
+<pre class="language-python highlight"><span class="n">cuts</span><span class="p">(</span><span class="s">"</span><span class="s">10 11 7 19</span><span class="s">"</span><span class="p">)</span> <span class="o">=</span>
     <span class="p">[</span> <span class="p">[</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="p">,</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span><span class="p">]</span><span class="p">,</span> <span class="p">[</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="p">,</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span><span class="p">]</span><span class="p">,</span> <span class="p">[</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="p">,</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span><span class="p">]</span><span class="p">,</span> <span class="p">[</span><span class="p">(</span><span class="mi">47</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="p">,</span><span class="p">(</span><span class="mi">47</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span><span class="p">]</span> <span class="p">]</span>
-<span class="n">cuts</span><span class="p">(</span><span class="s2">"</span><span class="s2">10,50,3 11,30,-3</span><span class="s2">"</span><span class="p">)</span> <span class="o">=</span>
+<span class="n">cuts</span><span class="p">(</span><span class="s">"</span><span class="s">10,50,3 11,30,-3</span><span class="s">"</span><span class="p">)</span> <span class="o">=</span>
     <span class="p">[</span> <span class="p">[</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="p">,</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span><span class="p">,</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span><span class="p">,</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span><span class="p">]</span><span class="p">,</span> <span class="p">[</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="p">,</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span><span class="p">,</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span><span class="p">,</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span><span class="p">]</span> <span class="p">]</span>
 </pre>
-<pre class="language-html highlight"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"ocr_cinfo"</span> <span class="na">title</span><span class="o">=</span><span class="s">"bbox 0 0 300 100; nlp 1.7 2.3 3.9 2.7; cuts 9 11 7,8,-2 15 3"</span><span class="p">></span>hello<span class="p">&lt;</span><span class="p">/</span><span class="nt">span</span><span class="p">></span>
+<pre class="language-html highlight"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"ocr_cinfo"</span> <span class="na">title=</span><span class="s">"bbox 0 0 300 100; nlp 1.7 2.3 3.9 2.7; cuts 9 11 7,8,-2 15 3"</span><span class="nt">></span>hello<span class="nt">&lt;/span></span>
 </pre>
    </div>
    <p>Cuts are between all codepoints contained within the element, including any
@@ -2234,10 +2234,10 @@ property of either <code>nlp</code> or <code>x_cost</code>. These <code>&lt;span
 arbitrarily.</p>
    <div class="example" id="example-861f64bd">
     <a class="self-link" href="#example-861f64bd"></a> 
-<pre class="language-html highlight"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"alternatives"</span><span class="p">></span>
-<span class="p">&lt;</span><span class="nt">ins</span> <span class="na">class</span><span class="o">=</span><span class="s">"alt"</span> <span class="na">title</span><span class="o">=</span><span class="s">"nlp 0.3"</span><span class="p">></span>hello<span class="p">&lt;</span><span class="p">/</span><span class="nt">ins</span><span class="p">></span>
-<span class="p">&lt;</span><span class="nt">del</span> <span class="na">class</span><span class="o">=</span><span class="s">"alt"</span> <span class="na">title</span><span class="o">=</span><span class="s">"nlp 1.1"</span><span class="p">></span>hallo<span class="p">&lt;</span><span class="p">/</span><span class="nt">del</span><span class="p">></span>
-<span class="p">&lt;</span><span class="p">/</span><span class="nt">span</span><span class="p">></span>
+<pre class="language-html highlight"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"alternatives"</span><span class="nt">></span>
+<span class="nt">&lt;ins</span> <span class="na">class=</span><span class="s">"alt"</span> <span class="na">title=</span><span class="s">"nlp 0.3"</span><span class="nt">></span>hello<span class="nt">&lt;/ins></span>
+<span class="nt">&lt;del</span> <span class="na">class=</span><span class="s">"alt"</span> <span class="na">title=</span><span class="s">"nlp 1.1"</span><span class="nt">></span>hallo<span class="nt">&lt;/del></span>
+<span class="nt">&lt;/span></span>
 </pre>
    </div>
    <p>Whitespace within the <code>&lt;span></code> but outside the contained <code>&lt;ins></code>/<code>&lt;del></code> elements is ignored and should be inserted to improve readability of the HTML
@@ -2368,7 +2368,7 @@ document classes:</p>
       <li data-md="">
        <p>ocr_page</p>
       <li data-md="">
-       <p>ocrx<em>block, ocrx_line, ocrx</em>word</p>
+       <p>ocrx_block, ocrx_line, ocrx_word</p>
       <li data-md="">
        <p>ocrp_lang</p>
       <li data-md="">
@@ -2516,7 +2516,7 @@ the use of CSS.</p>
     <li data-md="">
      <p>all other uses of <code>&lt;div></code>, <code>&lt;span></code>, <code>&lt;ins></code>, and <code>&lt;del></code> only for hOCR tags or other embedded formats (hCard, …)</p>
    </ul>
-   <h4 class="heading settled" data-level="15.7.3" id="htmlocr"><span class="secno">15.7.3. </span><span class="content">html<em>ocr</em><engine></engine></span><a class="self-link" href="#htmlocr"></a></h4>
+   <h4 class="heading settled" data-level="15.7.3" id="html_ocr_"><span class="secno">15.7.3. </span><span class="content">html_ocr_<engine></engine></span><a class="self-link" href="#html_ocr_"></a></h4>
    <p>The HTML markup produced by default by the OCR engine for the given document.
 Examples of possible values are:</p>
    <ul>
@@ -2527,7 +2527,7 @@ Examples of possible values are:</p>
     <li data-md="">
      <p><code>html_ocr_unknown</code> – the HTML was generated by some OCR engine, but it’s unknown which one</p>
    </ul>
-   <h4 class="heading settled" data-level="15.7.4" id="htmlabsolute"><span class="secno">15.7.4. </span><span class="content">html<em>absolute</em><element></element></span><a class="self-link" href="#htmlabsolute"></a></h4>
+   <h4 class="heading settled" data-level="15.7.4" id="html_absolute_"><span class="secno">15.7.4. </span><span class="content">html_absolute_<element></element></span><a class="self-link" href="#html_absolute_"></a></h4>
    <p>The HTML represents absolute positioning of elements on each page. The possible subformats are:</p>
    <ul>
     <li data-md="">
@@ -2544,16 +2544,16 @@ Examples of possible values are:</p>
    <p>The <a href="https://googlewebmastercentral.blogspot.de/2011/09/pdfs-in-google-search-results.html">"View as HTML" for PDF
 files</a> feature of Google Search uses <code>html_absolute_lines</code>; this is probably the most
 reasonable choice for approximating the appearance of the original document.</p>
-   <h4 class="heading settled" data-level="15.7.5" id="htmlxytableabsolute"><span class="secno">15.7.5. </span><span class="content">html<em>xytable</em>absolute</span><a class="self-link" href="#htmlxytableabsolute"></a></h4>
+   <h4 class="heading settled" data-level="15.7.5" id="html_xytable_absolute"><span class="secno">15.7.5. </span><span class="content">html_xytable_absolute</span><a class="self-link" href="#html_xytable_absolute"></a></h4>
    <p>The HTML is a table that gives the XY-cut layout segmentation structure of the
 page in tabular form. Note that in this format, text order does not necessarily
 correspond to reading order.</p>
    <p>The format must contain one <code>&lt;table></code> of class ocr_xycut representing each page.
 The <code>&lt;table></code> structure must represent the absolute size of the original page
 element. The markup of the content of the table itself is as in html_simple.</p>
-   <h4 class="heading settled" data-level="15.7.6" id="htmlxytablerelative"><span class="secno">15.7.6. </span><span class="content">html<em>xytable</em>relative</span><a class="self-link" href="#htmlxytablerelative"></a></h4>
+   <h4 class="heading settled" data-level="15.7.6" id="html_xytable_relative"><span class="secno">15.7.6. </span><span class="content">html_xytable_relative</span><a class="self-link" href="#html_xytable_relative"></a></h4>
    <p>The page representation is as in
-[<code>html_xytable_absolute</code>](#1525-html<em>xytable</em>absolute), but table element sizes
+[<code>html_xytable_absolute</code>](#1525-html_xytable_absolute), but table element sizes
 are expressed relative (percentages).</p>
    <h4 class="heading settled" data-level="15.7.7" id="html_"><span class="secno">15.7.7. </span><span class="content">html_<processor></processor></span><a class="self-link" href="#html_"></a></h4>
    <p>The HTML represents markup that follows the mappings of the given document
@@ -2577,32 +2577,32 @@ parse, but because there are lots of tools for manipulating HTML documents,
 they’re actually pretty easy to manipulate. Here are some examples:</p>
 <pre class="language-python highlight"><span class="kn">import</span> <span class="nn">libxml2</span><span class="o">,</span><span class="nn">re</span><span class="o">,</span><span class="nn">os</span><span class="o">,</span><span class="nn">string</span>
 
-<span class="c1"># convert the HTML to XHTML (if necessary)</span>
-<span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">"</span><span class="s2">tidy -q -asxhtml &lt; page.html > page.xhtml 2> /dev/null</span><span class="s2">"</span><span class="p">)</span>
+<span class="c"># convert the HTML to XHTML (if necessary)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">"</span><span class="s">tidy -q -asxhtml &lt; page.html > page.xhtml 2> /dev/null</span><span class="s">"</span><span class="p">)</span>
 
-<span class="c1"># parse the XML</span>
-<span class="n">doc</span> <span class="o">=</span> <span class="n">libxml2</span><span class="o">.</span><span class="n">parseFile</span><span class="p">(</span><span class="s1">'</span><span class="s1">page.xhtml</span><span class="s1">'</span><span class="p">)</span>
+<span class="c"># parse the XML</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">libxml2</span><span class="o">.</span><span class="n">parseFile</span><span class="p">(</span><span class="s">'</span><span class="s">page.xhtml</span><span class="s">'</span><span class="p">)</span>
 
-<span class="c1"># search all nodes having a class of ocr_line</span>
-<span class="n">lines</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">xpathEval</span><span class="p">(</span><span class="s2">"</span><span class="s2">//*[@class=</span><span class="s2">'</span><span class="s2">ocr_line</span><span class="s2">'</span><span class="s2">]</span><span class="s2">"</span><span class="p">)</span>
+<span class="c"># search all nodes having a class of ocr_line</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">xpathEval</span><span class="p">(</span><span class="s">"</span><span class="s">//*[@class=</span><span class="s">'</span><span class="s">ocr_line</span><span class="s">'</span><span class="s">]</span><span class="s">"</span><span class="p">)</span>
 
-<span class="c1"># a function for extracting the text from a node</span>
+<span class="c"># a function for extracting the text from a node</span>
 <span class="k">def</span> <span class="nf">get_text</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="p">:</span>
-    <span class="n">textnodes</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">xpathEval</span><span class="p">(</span><span class="s2">"</span><span class="s2">.//text()</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">textnodes</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">xpathEval</span><span class="p">(</span><span class="s">"</span><span class="s">.//text()</span><span class="s">"</span><span class="p">)</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">getContent</span><span class="p">(</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">textnodes</span><span class="p">]</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">r'</span><span class="s1">\</span><span class="s1">s+</span><span class="s1">'</span><span class="p">,</span><span class="s1">'</span><span class="s1"> </span><span class="s1">'</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">r'</span><span class="s">\</span><span class="s">s+</span><span class="s">'</span><span class="p">,</span><span class="s">'</span><span class="s"> </span><span class="s">'</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
 
-<span class="c1"># a function for extracting the bbox property from a node</span>
-<span class="c1"># note that the title= attribute on a node with an ocr_ class must</span>
-<span class="c1"># conform with the OCR spec</span>
+<span class="c"># a function for extracting the bbox property from a node</span>
+<span class="c"># note that the title= attribute on a node with an ocr_ class must</span>
+<span class="c"># conform with the OCR spec</span>
 
 <span class="k">def</span> <span class="nf">get_bbox</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="p">:</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">prop</span><span class="p">(</span><span class="s1">'</span><span class="s1">title</span><span class="s1">'</span><span class="p">)</span>
-    <span class="n">bboxre</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">r'</span><span class="s1">\</span><span class="s1">bbbox</span><span class="s1">\</span><span class="s1">s+(</span><span class="s1">\</span><span class="s1">d+)</span><span class="s1">\</span><span class="s1">s+(</span><span class="s1">\</span><span class="s1">d+)</span><span class="s1">\</span><span class="s1">s+(</span><span class="s1">\</span><span class="s1">d+)</span><span class="s1">\</span><span class="s1">s+(</span><span class="s1">\</span><span class="s1">d+)</span><span class="s1">'</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">prop</span><span class="p">(</span><span class="s">'</span><span class="s">title</span><span class="s">'</span><span class="p">)</span>
+    <span class="n">bboxre</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r'</span><span class="s">\</span><span class="s">bbbox</span><span class="s">\</span><span class="s">s+(</span><span class="s">\</span><span class="s">d+)</span><span class="s">\</span><span class="s">s+(</span><span class="s">\</span><span class="s">d+)</span><span class="s">\</span><span class="s">s+(</span><span class="s">\</span><span class="s">d+)</span><span class="s">\</span><span class="s">s+(</span><span class="s">\</span><span class="s">d+)</span><span class="s">'</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">[</span>int<span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">bboxre</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span><span class="p">(</span><span class="p">)</span><span class="p">]</span>
 
-<span class="c1"># this extracts all the bounding boxes and the text they contain</span>
-<span class="c1"># it doesn’t matter what other markup the line node may contain</span>
+<span class="c"># this extracts all the bounding boxes and the text they contain</span>
+<span class="c"># it doesn’t matter what other markup the line node may contain</span>
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
     <span class="k">print</span> <span class="n">get_bbox</span><span class="p">(</span><span class="n">line</span><span class="p">)</span><span class="p">,</span><span class="n">get_text</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre>
