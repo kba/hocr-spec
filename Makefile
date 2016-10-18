@@ -12,7 +12,7 @@ $(SPEC_HTML): $(SPEC_BS)
 	case "$(BIKESHED)" in \
 		bikeshed) bikeshed -f spec $(SPEC_BS) ;; \
 		docker) docker run --rm -it -v $(PWD):/data kbai/bikeshed -f spec $(SPEC_BS) ;; \
-		curl) curl "https://api.csswg.org/bikeshed/" -o $(SPEC_HTML) -F file=@$(SPEC_BS) ;; \
+		curl) curl "https://api.csswg.org/bikeshed/" -o $(SPEC_HTML) -F force=true -F file=@$(SPEC_BS) ;; \
 		*) echo 'Unsupported bikeshed backend "$(BIKESHED)"'; exit 1 ;;\
 	esac
 
