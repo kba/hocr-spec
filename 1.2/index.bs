@@ -1175,6 +1175,34 @@ for line in lines:
 Note that the OCR markup, basic HTML markup, and semantic markup can co-exist
 within the same HTML file without interfering with one another.
 
+# IDL
+
+<pre class=idl>
+dictionary Point2D {
+  unsigned short x;
+  unsigned short y;
+};
+interface BoundingBox {
+  attribute Point2D topleft;
+  attribute Point2D bottomright;
+};
+interface TextAngle {
+  attribute float alpha;
+};
+interface Polygon {
+  attribute Point2D origin;
+  attribute Point2D[] vertices;
+};
+dictionary TitleProperties {
+  BoundingBox bbox;
+  Polygon poly;
+  TextAngle textangle;
+};
+interface HOCRElement {
+  attribute TitleProperties ocrProperties;
+};
+</pre>
+
 # IANA Considerations
 
 Issue: [XML namespace for hOCR HTML?](https://github.com/kba/hocr-spec/issues/2)

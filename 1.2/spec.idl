@@ -1,0 +1,18 @@
+interface Point2D {
+  attribute unsigned short x0;
+  attribute unsigned short y0;
+}
+interface BoundingBox {
+  attribute Point2D topleft;
+  attribute Point2D bottomright;
+};
+interface TextAngle {
+  attribute float alpha;
+};
+interface Polygon {
+  attribute Point2D origin;
+  attribute Point2D[] vertices;
+};
+interface HOCRElement : DOMElement {
+  attribute BoundingBox bbox;
+};

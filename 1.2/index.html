@@ -1185,93 +1185,6 @@ Possible extra rowspan handling
             [data-md] > :last-child {
                 margin-bottom: 0;
             }</style>
-<style>/* style-counters */
-
-            body {
-                counter-reset: example figure issue;
-            }
-            .issue {
-                counter-increment: issue;
-            }
-            .issue:not(.no-marker)::before {
-                content: "Issue " counter(issue);
-            }
-
-            .example {
-                counter-increment: example;
-            }
-            .example:not(.no-marker)::before {
-                content: "Example " counter(example);
-            }
-            .invalid.example:not(.no-marker)::before,
-            .illegal.example:not(.no-marker)::before {
-                content: "Invalid Example" counter(example);
-            }
-
-            figcaption {
-                counter-increment: figure;
-            }
-            figcaption:not(.no-marker)::before {
-                content: "Figure " counter(figure) " ";
-            }</style>
-<style>/* style-syntax-highlighting */
-
-        .highlight:not(.idl) { background: hsl(24, 20%, 95%); }
-        code.highlight { padding: .1em; border-radius: .3em; }
-        pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em 0; overflow: auto; border-radius: 0; }
-        .highlight .c { color: #708090 } /* Comment */
-        .highlight .k { color: #990055 } /* Keyword */
-        .highlight .l { color: #000000 } /* Literal */
-        .highlight .n { color: #0077aa } /* Name */
-        .highlight .o { color: #999999 } /* Operator */
-        .highlight .p { color: #999999 } /* Punctuation */
-        .highlight .cm { color: #708090 } /* Comment.Multiline */
-        .highlight .cp { color: #708090 } /* Comment.Preproc */
-        .highlight .c1 { color: #708090 } /* Comment.Single */
-        .highlight .cs { color: #708090 } /* Comment.Special */
-        .highlight .kc { color: #990055 } /* Keyword.Constant */
-        .highlight .kd { color: #990055 } /* Keyword.Declaration */
-        .highlight .kn { color: #990055 } /* Keyword.Namespace */
-        .highlight .kp { color: #990055 } /* Keyword.Pseudo */
-        .highlight .kr { color: #990055 } /* Keyword.Reserved */
-        .highlight .kt { color: #990055 } /* Keyword.Type */
-        .highlight .ld { color: #000000 } /* Literal.Date */
-        .highlight .m { color: #000000 } /* Literal.Number */
-        .highlight .s { color: #a67f59 } /* Literal.String */
-        .highlight .na { color: #0077aa } /* Name.Attribute */
-        .highlight .nc { color: #0077aa } /* Name.Class */
-        .highlight .no { color: #0077aa } /* Name.Constant */
-        .highlight .nd { color: #0077aa } /* Name.Decorator */
-        .highlight .ni { color: #0077aa } /* Name.Entity */
-        .highlight .ne { color: #0077aa } /* Name.Exception */
-        .highlight .nf { color: #0077aa } /* Name.Function */
-        .highlight .nl { color: #0077aa } /* Name.Label */
-        .highlight .nn { color: #0077aa } /* Name.Namespace */
-        .highlight .py { color: #0077aa } /* Name.Property */
-        .highlight .nt { color: #669900 } /* Name.Tag */
-        .highlight .nv { color: #222222 } /* Name.Variable */
-        .highlight .ow { color: #999999 } /* Operator.Word */
-        .highlight .mb { color: #000000 } /* Literal.Number.Bin */
-        .highlight .mf { color: #000000 } /* Literal.Number.Float */
-        .highlight .mh { color: #000000 } /* Literal.Number.Hex */
-        .highlight .mi { color: #000000 } /* Literal.Number.Integer */
-        .highlight .mo { color: #000000 } /* Literal.Number.Oct */
-        .highlight .sb { color: #a67f59 } /* Literal.String.Backtick */
-        .highlight .sc { color: #a67f59 } /* Literal.String.Char */
-        .highlight .sd { color: #a67f59 } /* Literal.String.Doc */
-        .highlight .s2 { color: #a67f59 } /* Literal.String.Double */
-        .highlight .se { color: #a67f59 } /* Literal.String.Escape */
-        .highlight .sh { color: #a67f59 } /* Literal.String.Heredoc */
-        .highlight .si { color: #a67f59 } /* Literal.String.Interpol */
-        .highlight .sx { color: #a67f59 } /* Literal.String.Other */
-        .highlight .sr { color: #a67f59 } /* Literal.String.Regex */
-        .highlight .s1 { color: #a67f59 } /* Literal.String.Single */
-        .highlight .ss { color: #a67f59 } /* Literal.String.Symbol */
-        .highlight .vc { color: #0077aa } /* Name.Variable.Class */
-        .highlight .vg { color: #0077aa } /* Name.Variable.Global */
-        .highlight .vi { color: #0077aa } /* Name.Variable.Instance */
-        .highlight .il { color: #000000 } /* Literal.Number.Integer.Long */
-        </style>
 <style>/* style-selflinks */
 
             .heading, .issue, .note, .example, li, dt {
@@ -1318,6 +1231,35 @@ Possible extra rowspan handling
             a.self-link::before            { content: "¶"; }
             .heading > a.self-link::before { content: "§"; }
             dfn > a.self-link::before      { content: "#"; }</style>
+<style>/* style-counters */
+
+            body {
+                counter-reset: example figure issue;
+            }
+            .issue {
+                counter-increment: issue;
+            }
+            .issue:not(.no-marker)::before {
+                content: "Issue " counter(issue);
+            }
+
+            .example {
+                counter-increment: example;
+            }
+            .example:not(.no-marker)::before {
+                content: "Example " counter(example);
+            }
+            .invalid.example:not(.no-marker)::before,
+            .illegal.example:not(.no-marker)::before {
+                content: "Invalid Example" counter(example);
+            }
+
+            figcaption {
+                counter-increment: figure;
+            }
+            figcaption:not(.no-marker)::before {
+                content: "Figure " counter(figure) " ";
+            }</style>
 <style>/* style-autolinks */
 
             .css.css, .property.property, .descriptor.descriptor {
@@ -1380,11 +1322,106 @@ Possible extra rowspan handling
             [data-link-type=biblio] {
                 white-space: pre;
             }</style>
+<style>/* style-dfn-panel */
+
+        .dfn-panel {
+            position: absolute;
+            z-index: 35;
+            height: auto;
+            width: -webkit-fit-content;
+            width: fit-content;
+            max-width: 300px;
+            max-height: 500px;
+            overflow: auto;
+            padding: 0.5em 0.75em;
+            font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
+            background: #DDDDDD;
+            color: black;
+            border: outset 0.2em;
+        }
+        .dfn-panel:not(.on) { display: none; }
+        .dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
+        .dfn-panel > b { display: block; }
+        .dfn-panel a { color: black; }
+        .dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
+        .dfn-panel > b + b { margin-top: 0.25em; }
+        .dfn-panel ul { padding: 0; }
+        .dfn-panel li { list-style: inside; }
+        .dfn-panel.activated {
+            display: inline-block;
+            position: fixed;
+            left: .5em;
+            bottom: 2em;
+            margin: 0 auto;
+            max-width: calc(100vw - 1.5em - .4em - .5em);
+            max-height: 30vh;
+        }
+
+        .dfn-paneled { cursor: pointer; }
+        </style>
+<style>/* style-syntax-highlighting */
+pre.idl.highlight { color: #708090; }
+        .highlight:not(.idl) { background: hsl(24, 20%, 95%); }
+        code.highlight { padding: .1em; border-radius: .3em; }
+        pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em 0; overflow: auto; border-radius: 0; }
+        .highlight .c { color: #708090 } /* Comment */
+        .highlight .k { color: #990055 } /* Keyword */
+        .highlight .l { color: #000000 } /* Literal */
+        .highlight .n { color: #0077aa } /* Name */
+        .highlight .o { color: #999999 } /* Operator */
+        .highlight .p { color: #999999 } /* Punctuation */
+        .highlight .cm { color: #708090 } /* Comment.Multiline */
+        .highlight .cp { color: #708090 } /* Comment.Preproc */
+        .highlight .c1 { color: #708090 } /* Comment.Single */
+        .highlight .cs { color: #708090 } /* Comment.Special */
+        .highlight .kc { color: #990055 } /* Keyword.Constant */
+        .highlight .kd { color: #990055 } /* Keyword.Declaration */
+        .highlight .kn { color: #990055 } /* Keyword.Namespace */
+        .highlight .kp { color: #990055 } /* Keyword.Pseudo */
+        .highlight .kr { color: #990055 } /* Keyword.Reserved */
+        .highlight .kt { color: #990055 } /* Keyword.Type */
+        .highlight .ld { color: #000000 } /* Literal.Date */
+        .highlight .m { color: #000000 } /* Literal.Number */
+        .highlight .s { color: #a67f59 } /* Literal.String */
+        .highlight .na { color: #0077aa } /* Name.Attribute */
+        .highlight .nc { color: #0077aa } /* Name.Class */
+        .highlight .no { color: #0077aa } /* Name.Constant */
+        .highlight .nd { color: #0077aa } /* Name.Decorator */
+        .highlight .ni { color: #0077aa } /* Name.Entity */
+        .highlight .ne { color: #0077aa } /* Name.Exception */
+        .highlight .nf { color: #0077aa } /* Name.Function */
+        .highlight .nl { color: #0077aa } /* Name.Label */
+        .highlight .nn { color: #0077aa } /* Name.Namespace */
+        .highlight .py { color: #0077aa } /* Name.Property */
+        .highlight .nt { color: #669900 } /* Name.Tag */
+        .highlight .nv { color: #222222 } /* Name.Variable */
+        .highlight .ow { color: #999999 } /* Operator.Word */
+        .highlight .mb { color: #000000 } /* Literal.Number.Bin */
+        .highlight .mf { color: #000000 } /* Literal.Number.Float */
+        .highlight .mh { color: #000000 } /* Literal.Number.Hex */
+        .highlight .mi { color: #000000 } /* Literal.Number.Integer */
+        .highlight .mo { color: #000000 } /* Literal.Number.Oct */
+        .highlight .sb { color: #a67f59 } /* Literal.String.Backtick */
+        .highlight .sc { color: #a67f59 } /* Literal.String.Char */
+        .highlight .sd { color: #a67f59 } /* Literal.String.Doc */
+        .highlight .s2 { color: #a67f59 } /* Literal.String.Double */
+        .highlight .se { color: #a67f59 } /* Literal.String.Escape */
+        .highlight .sh { color: #a67f59 } /* Literal.String.Heredoc */
+        .highlight .si { color: #a67f59 } /* Literal.String.Interpol */
+        .highlight .sx { color: #a67f59 } /* Literal.String.Other */
+        .highlight .sr { color: #a67f59 } /* Literal.String.Regex */
+        .highlight .s1 { color: #a67f59 } /* Literal.String.Single */
+        .highlight .ss { color: #a67f59 } /* Literal.String.Symbol */
+        .highlight .vc { color: #0077aa } /* Name.Variable.Class */
+        .highlight .vg { color: #0077aa } /* Name.Variable.Global */
+        .highlight .vi { color: #0077aa } /* Name.Variable.Instance */
+        .highlight .il { color: #000000 } /* Literal.Number.Integer.Long */
+        </style>
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">hOCR - OCR Workflow and Output embedded in HTML</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-10-17">17 October 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-10-18">18 October 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1403,7 +1440,7 @@ Possible extra rowspan handling
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 17 October 2016,
+In addition, as of 18 October 2016,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1604,18 +1641,25 @@ Parts of this work may be from another specification document.  If so, those par
        </ol>
      </ol>
     <li><a href="#sample-usage"><span class="secno">16</span> <span class="content">Sample Usage</span></a>
+    <li><a href="#idl"><span class="secno">17</span> <span class="content">IDL</span></a>
     <li>
-     <a href="#iana-considerations"><span class="secno">17</span> <span class="content">IANA Considerations</span></a>
+     <a href="#iana-considerations"><span class="secno">18</span> <span class="content">IANA Considerations</span></a>
      <ol class="toc">
-      <li><a href="#media-type"><span class="secno">17.1</span> <span class="content">Media Type</span></a>
+      <li><a href="#media-type"><span class="secno">18.1</span> <span class="content">Media Type</span></a>
      </ol>
     <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
+    <li>
+     <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
+     <ol class="toc">
+      <li><a href="#index-defined-here"><span class="secno"></span> <span class="content">Terms defined by this specification</span></a>
+     </ol>
     <li>
      <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
      <ol class="toc">
       <li><a href="#normative"><span class="secno"></span> <span class="content">Normative References</span></a>
       <li><a href="#informative"><span class="secno"></span> <span class="content">Informative References</span></a>
      </ol>
+    <li><a href="#idl-index"><span class="secno"></span> <span class="content">IDL Index</span></a>
     <li><a href="#issues-index"><span class="secno"></span> <span class="content">Issues Index</span></a>
    </ol>
   </nav>
@@ -2626,10 +2670,35 @@ they’re actually pretty easy to manipulate. Here are some examples:</p>
 </pre>
    <p>Note that the OCR markup, basic HTML markup, and semantic markup can co-exist
 within the same HTML file without interfering with one another.</p>
-   <h2 class="heading settled" data-level="17" id="iana-considerations"><span class="secno">17. </span><span class="content">IANA Considerations</span><a class="self-link" href="#iana-considerations"></a></h2>
+   <h2 class="heading settled" data-level="17" id="idl"><span class="secno">17. </span><span class="content">IDL</span><a class="self-link" href="#idl"></a></h2>
+<pre class="idl highlight def"><span class="kt">dictionary</span> <dfn class="nv dfn-paneled idl-code" data-dfn-type="dictionary" data-export="" id="dictdef-point2d">Point2D</dfn> {
+  <span class="kt">unsigned</span> <span class="kt">short</span> <dfn class="nv idl-code" data-dfn-for="Point2D" data-dfn-type="dict-member" data-export="" data-type="unsigned short " id="dom-point2d-x">x<a class="self-link" href="#dom-point2d-x"></a></dfn>;
+  <span class="kt">unsigned</span> <span class="kt">short</span> <dfn class="nv idl-code" data-dfn-for="Point2D" data-dfn-type="dict-member" data-export="" data-type="unsigned short " id="dom-point2d-y">y<a class="self-link" href="#dom-point2d-y"></a></dfn>;
+};
+<span class="kt">interface</span> <dfn class="nv dfn-paneled idl-code" data-dfn-type="interface" data-export="" id="boundingbox">BoundingBox</dfn> {
+  <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#dictdef-point2d" id="ref-for-dictdef-point2d-1">Point2D</a> <dfn class="nv idl-code" data-dfn-for="BoundingBox" data-dfn-type="attribute" data-export="" data-type="Point2D" id="dom-boundingbox-topleft">topleft<a class="self-link" href="#dom-boundingbox-topleft"></a></dfn>;
+  <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#dictdef-point2d" id="ref-for-dictdef-point2d-2">Point2D</a> <dfn class="nv idl-code" data-dfn-for="BoundingBox" data-dfn-type="attribute" data-export="" data-type="Point2D" id="dom-boundingbox-bottomright">bottomright<a class="self-link" href="#dom-boundingbox-bottomright"></a></dfn>;
+};
+<span class="kt">interface</span> <dfn class="nv dfn-paneled idl-code" data-dfn-type="interface" data-export="" id="textangle0">TextAngle</dfn> {
+  <span class="kt">attribute</span> <span class="kt">float</span> <dfn class="nv idl-code" data-dfn-for="TextAngle" data-dfn-type="attribute" data-export="" data-type="float" id="dom-textangle-alpha">alpha<a class="self-link" href="#dom-textangle-alpha"></a></dfn>;
+};
+<span class="kt">interface</span> <dfn class="nv dfn-paneled idl-code" data-dfn-type="interface" data-export="" id="polygon">Polygon</dfn> {
+  <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#dictdef-point2d" id="ref-for-dictdef-point2d-3">Point2D</a> <dfn class="nv idl-code" data-dfn-for="Polygon" data-dfn-type="attribute" data-export="" data-type="Point2D" id="dom-polygon-origin">origin<a class="self-link" href="#dom-polygon-origin"></a></dfn>;
+  <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#dictdef-point2d" id="ref-for-dictdef-point2d-4">Point2D</a>[] <dfn class="nv idl-code" data-dfn-for="Polygon" data-dfn-type="attribute" data-export="" data-type="Point2D[]" id="dom-polygon-vertices">vertices<a class="self-link" href="#dom-polygon-vertices"></a></dfn>;
+};
+<span class="kt">dictionary</span> <dfn class="nv dfn-paneled idl-code" data-dfn-type="dictionary" data-export="" id="dictdef-titleproperties">TitleProperties</dfn> {
+  <a class="n" data-link-type="idl-name" href="#boundingbox" id="ref-for-boundingbox-1">BoundingBox</a> <dfn class="nv idl-code" data-dfn-for="TitleProperties" data-dfn-type="dict-member" data-export="" data-type="BoundingBox " id="dom-titleproperties-bbox">bbox<a class="self-link" href="#dom-titleproperties-bbox"></a></dfn>;
+  <a class="n" data-link-type="idl-name" href="#polygon" id="ref-for-polygon-1">Polygon</a> <dfn class="nv idl-code" data-dfn-for="TitleProperties" data-dfn-type="dict-member" data-export="" data-type="Polygon " id="dom-titleproperties-poly">poly<a class="self-link" href="#dom-titleproperties-poly"></a></dfn>;
+  <a class="n" data-link-type="idl-name" href="#textangle0" id="ref-for-textangle0-1">TextAngle</a> <dfn class="nv idl-code" data-dfn-for="TitleProperties" data-dfn-type="dict-member" data-export="" data-type="TextAngle " id="dom-titleproperties-textangle">textangle<a class="self-link" href="#dom-titleproperties-textangle"></a></dfn>;
+};
+<span class="kt">interface</span> <dfn class="nv idl-code" data-dfn-type="interface" data-export="" id="hocrelement">HOCRElement<a class="self-link" href="#hocrelement"></a></dfn> {
+  <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#dictdef-titleproperties" id="ref-for-dictdef-titleproperties-1">TitleProperties</a> <dfn class="nv idl-code" data-dfn-for="HOCRElement" data-dfn-type="attribute" data-export="" data-type="TitleProperties" id="dom-hocrelement-ocrproperties">ocrProperties<a class="self-link" href="#dom-hocrelement-ocrproperties"></a></dfn>;
+};
+</pre>
+   <h2 class="heading settled" data-level="18" id="iana-considerations"><span class="secno">18. </span><span class="content">IANA Considerations</span><a class="self-link" href="#iana-considerations"></a></h2>
    <p class="issue" id="issue-f6d39356"><a class="self-link" href="#issue-f6d39356"></a> <a href="https://github.com/kba/hocr-spec/issues/2">XML namespace for hOCR HTML?</a></p>
    <p class="issue" id="issue-a3899b99"><a class="self-link" href="#issue-a3899b99"></a> <a href="https://github.com/kba/hocr-spec/issues/1">What DOCTYPE for hOCR HTML?</a></p>
-   <h3 class="heading settled" data-level="17.1" id="media-type"><span class="secno">17.1. </span><span class="content">Media Type</span><a class="self-link" href="#media-type"></a></h3>
+   <h3 class="heading settled" data-level="18.1" id="media-type"><span class="secno">18.1. </span><span class="content">Media Type</span><a class="self-link" href="#media-type"></a></h3>
    <p>In accordance to <a data-link-type="biblio" href="#biblio-rfc2048">[RFC2048]</a></p>
    <p class="issue" id="issue-19855aac"><a class="self-link" href="#issue-19855aac"></a> <a href="https://github.com/kba/hocr-spec/issues/27">correct MIME type for hOCR?</a></p>
    <dl>
@@ -2807,6 +2876,27 @@ within the same HTML file without interfering with one another.</p>
 
 })();
 </script>
+  <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
+  <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
+  <ul class="index">
+   <li><a href="#dom-textangle-alpha">alpha</a><span>, in §17</span>
+   <li><a href="#dom-titleproperties-bbox">bbox</a><span>, in §17</span>
+   <li><a href="#dom-boundingbox-bottomright">bottomright</a><span>, in §17</span>
+   <li><a href="#boundingbox">BoundingBox</a><span>, in §17</span>
+   <li><a href="#hocrelement">HOCRElement</a><span>, in §17</span>
+   <li><a href="#dom-hocrelement-ocrproperties">ocrProperties</a><span>, in §17</span>
+   <li><a href="#dom-polygon-origin">origin</a><span>, in §17</span>
+   <li><a href="#dictdef-point2d">Point2D</a><span>, in §17</span>
+   <li><a href="#dom-titleproperties-poly">poly</a><span>, in §17</span>
+   <li><a href="#polygon">Polygon</a><span>, in §17</span>
+   <li><a href="#dom-titleproperties-textangle">textangle</a><span>, in §17</span>
+   <li><a href="#textangle0">TextAngle</a><span>, in §17</span>
+   <li><a href="#dictdef-titleproperties">TitleProperties</a><span>, in §17</span>
+   <li><a href="#dom-boundingbox-topleft">topleft</a><span>, in §17</span>
+   <li><a href="#dom-polygon-vertices">vertices</a><span>, in §17</span>
+   <li><a href="#dom-point2d-x">x</a><span>, in §17</span>
+   <li><a href="#dom-point2d-y">y</a><span>, in §17</span>
+  </ul>
   <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
   <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
   <dl>
@@ -2830,6 +2920,32 @@ within the same HTML file without interfering with one another.</p>
    <dt id="biblio-xhtml1">[XHTML1]
    <dd>Steven Pemberton. <a href="https://www.w3.org/TR/xhtml1">XHTML™ 1.0 The Extensible HyperText Markup Language (Second Edition)</a>. 1 August 2002. REC. URL: <a href="https://www.w3.org/TR/xhtml1">https://www.w3.org/TR/xhtml1</a>
   </dl>
+  <h2 class="no-num no-ref heading settled" id="idl-index"><span class="content">IDL Index</span><a class="self-link" href="#idl-index"></a></h2>
+<pre class="idl def"><span class="kt">dictionary</span> <a class="nv" href="#dictdef-point2d">Point2D</a> {
+  <span class="kt">unsigned</span> <span class="kt">short</span> <a class="nv" data-type="unsigned short " href="#dom-point2d-x">x</a>;
+  <span class="kt">unsigned</span> <span class="kt">short</span> <a class="nv" data-type="unsigned short " href="#dom-point2d-y">y</a>;
+};
+<span class="kt">interface</span> <a class="nv" href="#boundingbox">BoundingBox</a> {
+  <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#dictdef-point2d">Point2D</a> <a class="nv" data-type="Point2D" href="#dom-boundingbox-topleft">topleft</a>;
+  <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#dictdef-point2d">Point2D</a> <a class="nv" data-type="Point2D" href="#dom-boundingbox-bottomright">bottomright</a>;
+};
+<span class="kt">interface</span> <a class="nv" href="#textangle0">TextAngle</a> {
+  <span class="kt">attribute</span> <span class="kt">float</span> <a class="nv" data-type="float" href="#dom-textangle-alpha">alpha</a>;
+};
+<span class="kt">interface</span> <a class="nv" href="#polygon">Polygon</a> {
+  <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#dictdef-point2d">Point2D</a> <a class="nv" data-type="Point2D" href="#dom-polygon-origin">origin</a>;
+  <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#dictdef-point2d">Point2D</a>[] <a class="nv" data-type="Point2D[]" href="#dom-polygon-vertices">vertices</a>;
+};
+<span class="kt">dictionary</span> <a class="nv" href="#dictdef-titleproperties">TitleProperties</a> {
+  <a class="n" data-link-type="idl-name" href="#boundingbox">BoundingBox</a> <a class="nv" data-type="BoundingBox " href="#dom-titleproperties-bbox">bbox</a>;
+  <a class="n" data-link-type="idl-name" href="#polygon">Polygon</a> <a class="nv" data-type="Polygon " href="#dom-titleproperties-poly">poly</a>;
+  <a class="n" data-link-type="idl-name" href="#textangle0">TextAngle</a> <a class="nv" data-type="TextAngle " href="#dom-titleproperties-textangle">textangle</a>;
+};
+<span class="kt">interface</span> <a class="nv" href="#hocrelement">HOCRElement</a> {
+  <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#dictdef-titleproperties">TitleProperties</a> <a class="nv" data-type="TitleProperties" href="#dom-hocrelement-ocrproperties">ocrProperties</a>;
+};
+
+</pre>
   <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
   <div style="counter-reset:issue">
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/22">Specify that class must be a single value</a><a href="#issue-80996a43"> ↵ </a></div>
@@ -2843,3 +2959,90 @@ properties for floating elements; properties need to be defined for this.<a href
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/1">What DOCTYPE for hOCR HTML?</a><a href="#issue-a3899b99"> ↵ </a></div>
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/27">correct MIME type for hOCR?</a><a href="#issue-19855aac"> ↵ </a></div>
   </div>
+  <aside class="dfn-panel" data-for="dictdef-point2d">
+   <b><a href="#dictdef-point2d">#dictdef-point2d</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-dictdef-point2d-1">17. IDL</a> <a href="#ref-for-dictdef-point2d-2">(2)</a> <a href="#ref-for-dictdef-point2d-3">(3)</a> <a href="#ref-for-dictdef-point2d-4">(4)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="boundingbox">
+   <b><a href="#boundingbox">#boundingbox</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-boundingbox-1">17. IDL</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="textangle0">
+   <b><a href="#textangle0">#textangle0</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-textangle0-1">17. IDL</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="polygon">
+   <b><a href="#polygon">#polygon</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-polygon-1">17. IDL</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="dictdef-titleproperties">
+   <b><a href="#dictdef-titleproperties">#dictdef-titleproperties</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-dictdef-titleproperties-1">17. IDL</a>
+   </ul>
+  </aside>
+<script>/* script-dfn-panel */
+
+        document.body.addEventListener("click", function(e) {
+            var queryAll = function(sel) { return [].slice.call(document.querySelectorAll(sel)); }
+            // Find the dfn element or panel, if any, that was clicked on.
+            var el = e.target;
+            var target;
+            var hitALink = false;
+            while(el.parentElement) {
+                if(el.tagName == "A") {
+                    // Clicking on a link in a <dfn> shouldn't summon the panel
+                    hitALink = true;
+                }
+                if(el.classList.contains("dfn-paneled")) {
+                    target = "dfn";
+                    break;
+                }
+                if(el.classList.contains("dfn-panel")) {
+                    target = "dfn-panel";
+                    break;
+                }
+                el = el.parentElement;
+            }
+            if(target != "dfn-panel") {
+                // Turn off any currently "on" or "activated" panels.
+                queryAll(".dfn-panel.on, .dfn-panel.activated").forEach(function(el){
+                    el.classList.remove("on");
+                    el.classList.remove("activated");
+                });
+            }
+            if(target == "dfn" && !hitALink) {
+                // open the panel
+                var dfnPanel = document.querySelector(".dfn-panel[data-for='" + el.id + "']");
+                if(dfnPanel) {
+                    console.log(dfnPanel);
+                    dfnPanel.classList.add("on");
+                    var rect = el.getBoundingClientRect();
+                    dfnPanel.style.left = window.scrollX + rect.right + 5 + "px";
+                    dfnPanel.style.top = window.scrollY + rect.top + "px";
+                    var panelRect = dfnPanel.getBoundingClientRect();
+                    var panelWidth = panelRect.right - panelRect.left;
+                    if(panelRect.right > document.body.scrollWidth && (rect.left - (panelWidth + 5)) > 0) {
+                        // Reposition, because the panel is overflowing
+                        dfnPanel.style.left = window.scrollX + rect.left - (panelWidth + 5) + "px";
+                    }
+                } else {
+                    console.log("Couldn't find .dfn-panel[data-for='" + el.id + "']");
+                }
+            } else if(target == "dfn-panel") {
+                // Switch it to "activated" state, which pins it.
+                el.classList.add("activated");
+                el.style.left = null;
+                el.style.top = null;
+            }
+
+        });
+        </script>
