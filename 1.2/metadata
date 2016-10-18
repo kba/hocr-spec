@@ -9,4 +9,4 @@ Editor: Konstantin Baierer, UB Mannheim http://github.com/UB-Mannheim, konstanti
 Former Editor: Thomas Breuel, http://www.9x9.com/
 Previous Version: https://github.com/kba/hocr-spec/blob/master/1.1/spec.md
 Abstract: A subset of HTML for marking up OCR results
-Markup Shorthands: markdown on, biblio on
+Markup Shorthands: markdown on, biblio on, markup on
