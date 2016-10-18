@@ -312,7 +312,7 @@ The <{ocr_page}> element must be present in all hOCR documents.
 <div class="annoying-warning">
 **OBSOLETE**
 
-Please use [[#ocr_carea]] instead
+Please use <{ocr_carea}> instead
 </div>
 
 ### <dfn element>ocr_carea</dfn>
@@ -653,7 +653,7 @@ Issue: [ocr_carea vs ocrx_block](https://github.com/kba/hocr-spec/issues/28)
 
 Issue: [ocr_line vs ocrx_line](https://github.com/kba/hocr-spec/issues/19)
 
-  * any kind of "line" returned by an OCR system that differs from the standard ocr_line above
+  * any kind of "line" returned by an OCR system that differs from the standard <{ocr_line}> above
   * might be some kind of "logical" line
 
 ### <dfn element>ocrx_word</dfn>
@@ -919,17 +919,17 @@ Other possible profiles might be defined for specific engines or specific
 document classes:
 
   * common commercial OCR output (e.g., Abbyy)
-    * ocr_page
-    * ocrx_block, ocrx_line, <{ocrx_word}>
+    * <{ocr_page}>
+    * <{ocrx_block}>, <{ocrx_line}>, <{ocrx_word}>
     * ''ocr-capabilities/ocrp_lang''
     * ''ocr-capabilities/ocrp_font''
   * book target
-    * all logical structuring elements (as applicable), except ocr_linear
-    * ocr_page
+    * all logical structuring elements (as applicable), except <{ocr_linear}>
+    * <{ocr_page}>
   * newspaper target
     * all logical structuring elements (as applicable)
-    * articles map on ocr_linear
-    * ocr_page
+    * articles map on <{ocr_linear}>
+    * <{ocr_page}>
 
 # HTML Markup
 
