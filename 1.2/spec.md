@@ -1,3 +1,10 @@
+<pre class=link-defaults>
+spec:html; type:element;
+	text:a
+	text:script
+	text:style
+</pre>
+
 # Revision History
 
 hOCR has been originally developed by Thomas Breuel.
@@ -912,7 +919,9 @@ Document metadata {#document-metadata}
 For document meta information, use the [Dublin Core Embedding into
 HTML](http://dublincore.org/documents/dcq-html/). See also [Citation Guidelines
 for Dublin Core](http://dublincore.org/documents/dc-citation-guidelines/).
-# Profiles
+
+Profiles {#profiles}
+========
 
 hOCR provides standard means of marking up information, but it does not mandate
 the presence or absence of particular kinds of information.  For example, an
@@ -962,7 +971,7 @@ The HTML-based markup is orthogonal to the hOCR-based markup; that is, both can
 be chosen independent of one another. The only thing that needs to be
 consistent between the two markups is the text contained within the tags. hOCR
 and other embedded format tags can be put on HTML tags, or they can be put on
-their own `<div>`/`<span>` tags.
+their own <{div}>/<{span}> tags.
 
 There are many different choices possible and reasonable for the HTML markup,
 depending on the use and further processing of the document. Each such choice
@@ -976,32 +985,24 @@ Depending on the particular HTML markup used in the document, the document is
 suitable for different kinds of processing and use. The formats have the
 following intents:
 
-## `html_none`
-
-Straightforward equivalent of Goodoc or [[XDOC]]
-
-## `html_ocr`
-
-Straightforward recording of commercial OCR system output
-
-## `html_absolute`
-
-Target format for services like Google's View as HTML
-
-## `html_xytable`
-
-Target format for layout-preserving on-screen document viewing
-
-## `html_simpl`
-
-Target format for convenient on-line viewing and intermediate format for indexing
+  : <a>html_none</a> (see [[#format-none]])
+  :: Straightforward equivalent of Goodoc or [[XDOC]]
+  : <a>html_simple</a>
+  :: Target format for convenient on-line viewing and intermediate format for indexing
+  : <a>html_xytable_absolute</a>, <a>html_xytable_relative</a>
+  :: Target format for layout-preserving on-screen document viewing
+  : Formats defined in [[#format-ocr]]
+  :: Straightforward recording of commercial OCR system output
+  : Formats defined in [[#format-absolute]]
+  :: Target format for services like Google's View as HTML
 
 As long as a format contains the hOCR information, it can be reprocessed by
 layout analysis software and converted into one of the other formats. In
 particular, we envision layout analysis tools for converting any hOCR document
-into `html_absolute`, `html_xytable`, and `html_simple`. Furthermore,
-internally, a layout analysis system might use `html_xytable` as an
-intermediate format for converting hOCR into `html_simple`.
+into <a>html_absolute</a>, <a>html_xytable_absolute</a>, and
+<a>html_simple</a>. Furthermore, internally, a layout analysis system might
+use <a>html_xytable_absolute</a> as an intermediate format for converting hOCR
+into <a>html_simple</a>.
 
 
 Restrictions on HTML Content {#html-restrictions}
@@ -1026,125 +1027,134 @@ When possible, any mapping of logical structure onto HTML should try to follow t
   * text should be in reading order
   * all tags should be used for the intended purpose (and only for the intended
     purpose) as defined in the [[HTML40]] spec.
-  * floats are contained in `<div>` elements with a `style` that includes a float attribute
+  * floats are contained in <{div}> elements with a `style` that includes a float attribute
   * repeating floating page elements (header/footer) should be repeated and occur
     in their natural location in reading order (e.g., between pages)
   * embedded images and SVG should be contained in files in the same directory
-    (no `/` in the URL) and embedded with `<img>` and `<embed>` tags, respectively
+    (no `/` in the URL) and embedded with <{img}> and <{embed}> tags, respectively
 
 Specifically
 
-  * `<em>` and `<strong>` should represent emphasis, and are preferred to `<b>`, `<i>`, and `<u>`
-  * `<b>`, `<i>`, and `<u>` should represent a change in the corresponding
+  * <{em}> and <{strong}> should represent emphasis, and are preferred to <{b}>, <{i}>, and <{u}>
+  * <{b}>, <{i}>, and <{u}> should represent a change in the corresponding
     attribute for the current font (but an OCR font specification must still be
     given)
-  * `<p>` should represent paragraph breaks
-  * `<br>` should represent explicit linebreaks (not linebreak that happen because of text flow)
-  * `<h1>`, ..., `<h6>` should represent the logical nesting structure (if any) of the document
-  * `<a>` should represent hyperlinks and references within the document
-  * `<blockquote>` should represent indented quotations, but not other uses of indented text.
-  * `<ul>`, `<ol>`, `<dl>` should represent lists
-  * `<table>` should represent tables, including correct use of the `<th>` tag
+  * <{p}> should represent paragraph breaks
+  * <{br}> should represent explicit linebreaks (not linebreak that happen because of text flow)
+  * <{h1}>, ..., <{h6}> should represent the logical nesting structure (if any) of the document
+  * <{a}> should represent hyperlinks and references within the document
+  * <{blockquote}> should represent indented quotations, but not other uses of indented text.
+  * <{ul}>, <{ol}>, <{dl}> should represent lists
+  * <{table}> should represent tables, including correct use of the <{th}> tag
 
 If necessary, the markup may use the following non-standard tags:
 
-  * `<nobr>` to indicate that line breaking is not permitted for the enclosed content
-  * `<wbr>` to indicate that line breaking is permitted at that location
+  * <{nobr}> to indicate that line breaking is not permitted for the enclosed content
+  * <{wbr}> to indicate that line breaking is permitted at that location
 
+HTML without logical markup {#format-none}
+---------------------------
 
-### html_none
-
-The simplest HTML markup for hOCR formats contains no logical markup at all; it
-is simply a collection of `<div>` and `<span>` elements with associated hOCR
+The <dfn>html_none</dfn> format contains no logical markup at all; it is
+simply a collection of <{div}> and <{span}> elements with associated hOCR
 information. Note that such documents can still be rendered visually through
 the use of CSS.
 
+HTML with limited logical elements {#format-simple}
+----------------------------------
 
-### html_simple
+The <dfn>html_simple</dfn> format follows the restrictions and
+recommendations above, and only uses the following tags:
 
-This is a format that follows the restrictions and recommendations above, and only uses the following tags:
-
-  * `<h1>` ...  `<h6>`
-  * `<p>`, `<br>`
-  * `<b>`, `<i>`, and `<u>` for appearance changes (bold, italic, underline)
-  * `<font>` for any other appearance changes
-  * `<a>`
-  * `<div>` with a float style for floats
-  * `<table>` for tables
-  * `<img>` for images
-  * all SVG must be externally embedded with the `<embed>` tag
+  * <{h1}> ...  <{h6}>
+  * <{p}>, <{br}>
+  * <{b}>, <{i}>, and <{u}> for appearance changes (bold, italic, underline)
+  * <{font}> for any other appearance changes
+  * <{a}>
+  * <{div}> with a float style for floats
+  * <{table}> for tables
+  * <{img}> for images
+  * all SVG must be externally embedded with the <{embed}> tag
   * the use of other embedded formats is permitted
-  * all other uses of `<div>`, `<span>`, `<ins>`, and `<del>` only for hOCR tags or other embedded formats (hCard, …)
+  * all other uses of <{div}>, <{span}>, <{ins}>, and <{del}> only for hOCR tags or other embedded formats (hCard, …)
 
-### html_ocr_<engine>
+HTML produced by OCR engines {#format-ocr}
+----------------------------
 
-The HTML markup produced by default by the OCR engine for the given document.
+HTML markup produced by default by the OCR engine for the given document
+must follow the template `html_ocr_<engine>`.
+
 Examples of possible values are:
 
-  * `html_ocr_finereader_8`
-  * `html_ocr_textbridge_11`
-  * `html_ocr_unknown` – the HTML was generated by some OCR engine, but it's unknown which one
+  : <dfn>html_ocr_unknown</dfn>
+  :: The HTML was generated by some OCR engine, but it's unknown which one
+  : <dfn>html_ocr_finereader_8</dfn>
+  : <dfn>html_ocr_textbridge_11</dfn>
 
+HTML with absolute positioning {#format-absolute}
+------------------------------
 
-### html_absolute_<element>
+The HTML represents absolute positioning of elements on each page. 
 
-The HTML represents absolute positioning of elements on each page. The possible subformats are:
+Possible subformats are:
 
-  * `html_absolute_cols` – absolute positioning of cols
-  * `html_absolute_pars` – absolute positioning of paragraphs
-  * `html_absolute_lines` – absolute positioning of lines
-  * `html_absolute_words` – absolute positioning of words
-  * `html_absolute_chars` – absolute positioning of characters
+  : <dfn>html_absolute_cols</dfn>
+  :: absolute positioning of cols
+  : <dfn>html_absolute_pars</dfn> 
+  :: absolute positioning of paragraphs
+  : <dfn>html_absolute_lines</dfn> 
+  :: absolute positioning of lines
+  : <dfn>html_absolute_words</dfn> 
+  :: absolute positioning of words
+  : <dfn>html_absolute_chars</dfn> 
+  :: absolute positioning of characters
 
 The ["View as HTML" for PDF
 files](https://googlewebmastercentral.blogspot.de/2011/09/pdfs-in-google-search-results.html)
-feature of Google Search uses `html_absolute_lines`; this is probably the most
+feature of Google Search uses <a>html_absolute_lines</a>; this is probably the most
 reasonable choice for approximating the appearance of the original document.
 
-
-### html_xytable_absolute
+HTML as table {#format-table}
+-------------
 
 The HTML is a table that gives the XY-cut layout segmentation structure of the
-page in tabular form. Note that in this format, text order does not necessarily
-correspond to reading order.
+page in tabular form.
 
-The format must contain one `<table>` of class ocr_xycut representing each page.
-The `<table>` structure must represent the absolute size of the original page
-element. The markup of the content of the table itself is as in html_simple.
+Note that in this format, text order does not necessarily correspond to
+reading order.
 
+The format must contain one <{table}> of class <dfn element>ocr_xycut</dfn>
+representing each page. The markup of the content of the table
+itself is as in <a>html_simple</a>.
 
-### html_xytable_relative
+Possible subformats are:
 
-The page representation is as in
-[`html_xytable_absolute`](#1525-html_xytable_absolute), but table element sizes
-are expressed relative (percentages).
+: <dfn>html_xytable_absolute</dfn>
+:: The <{table}> structure must represent the absolute size of the original page element.
 
+: <dfn>html_xytable_relative</dfn>
+:: Table element sizes are expressed relative (percentages).
 
-### html_<processor>
+HTML from word processors {#format-wordprocessor}
+-------------------------
 
-The HTML represents markup that follows the mappings of the given document
-processor to HTML. Note that the document doesn't actually need to have been
-constructed in the processor and that the processor doesn't need to have been
-used to generate the HTML. For example, the `html_latex2html` tag merely
-indicates that, say, a scanned and ocr'ed article uses the same conventions for
-logical markup tags that an equivalent article actually written in LaTeX and
-actually converted to HTML would have used. Possible subformats are:
+The HTML represents markup that follows the mappings of the given document processor to HTML.
 
+Note that the document doesn't actually need to have been constructed in the
+processor and that the processor doesn't need to have been used to generate
+the HTML. For example, the <a>html_latex2html</a> tag merely indicates that,
+say, a scanned and ocr'ed article uses the same conventions for logical markup
+tags that an equivalent article actually written in LaTeX and actually
+converted to HTML would have used.
 
-#### `html_latex2html`
-
-#### `html_msword`
-
-HTML mapping generated by “Save As HTML”
-
-#### `html_ooffice`
-
-HTML mapping generated by “Save As HTML”
-
-#### `html_docbook_xsl`
-
-HTML mapping generated by official XSL style sheets
-
+Possible subformats are:
+  : <dfn>html_latex2html</dfn>
+  : <dfn>html_msword</dfn>
+  :: HTML mapping generated by “Save As HTML”
+  : <dfn>html_ooffice</dfn>
+  :: HTML mapping generated by “Save As HTML”
+  : <dfn>html_docbook_xsl</dfn>
+  :: HTML mapping generated by official XSL style sheets
 
 
 Sample Usage {#sample-usage}
@@ -1222,4 +1232,6 @@ Issue: [correct MIME type for hOCR?](https://github.com/kba/hocr-spec/issues/27)
 
 
 
-<!-- vim: set textwidth=120: -->
+<!--
+vim: tw=120 sw=2 ts=2 et
+-->
