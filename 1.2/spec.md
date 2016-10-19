@@ -544,6 +544,12 @@ section.
 Mathematical and chemical formulas that are “display” mode should be put into
 an <{ocr_display}> section.
 
+### Superscript and Subscript
+
+Superscripts and subscripts, when not in <{ocr_math}> or <{ocr_chem}> formulas,
+must be represented using the HTML `<sup>` and `<sub>` tags, even if special
+Unicode characters are available.
+
 ### Non-breaking space
 
 Non-breaking spaces must be represented using the HTML `&nbsp;` entity.
@@ -560,11 +566,6 @@ Soft hyphens must be represented using the HTML `&shy;` entity.
 The HTML <a href="https://www.w3.org/TR/REC-html40/struct/dirlang.html#h-8.2.5">`&lrm;` and
 `&rlm;` entities</a> (indicating writing direction) must not be used; all
 writing direction changes must be indicated with tags.
-
-### Superscript and Subscript
-
-Other superscripts and subscripts must be represented using the HTML `<sup>` and
-`<sub>` tags, even if special Unicode characters are available.
 
 ### Ruby characters
 
