@@ -566,11 +566,6 @@ writing direction changes must be indicated with tags.
 Other superscripts and subscripts must be represented using the HTML `<sup>` and
 `<sub>` tags, even if special Unicode characters are available.
 
-### Ruby characters
-
-[Furigana and similar constructs](https://en.wikipedia.org/wiki/Ruby_character)
-must be represented using their correct Unicode encoding.
-
 # Character Information
 
 ## Classes for Character Information
@@ -741,6 +736,9 @@ actual presentation information inside that:
 The CSS3 text layout attributes can be used when necessary. For example, CSS
 supports writing-mode, direction, glyph-orientation [[ISO15924]]-based
 script ([list of codes](http://www.unicode.org/iso15924/codelists.html)), text-indent, etc.
+
+[Furigana and similar constructs](https://en.wikipedia.org/wiki/Ruby_character)
+must be represented using their correct Unicode encoding.
 
 
 # Alternative Segmentations / Readings
