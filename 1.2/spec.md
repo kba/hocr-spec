@@ -7,17 +7,21 @@ history](https://github.com/kba/hocr-spec/commits/) for a revision history.
 
 # Introduction
 
-The purpose of this document is to define an open standard for representing OCR
-results. The goal is to reuse as much existing technology as possible, and to
-arrive at a representation that makes it easy to reuse OCR results.
+The purpose of this document is to define an open standard for representing
+document layout analysis and OCR results as a subset of HTML. The goal is to
+reuse as much existing technology as possible, and to arrive at a representation
+that makes it easy to store, share, process and display OCR results.
 
-This document describes many tags and a lot of information that can be output.
-However, getting started with hOCR is easy: you only need to output the tags
-and information you actually want to.  For example, just outputting <{ocr_line}>
-tags with bounding boxes is already very useful for many applications.  Just
-start simple and add more output information as the need arises.
+This specification defines many [features](#terminology) that can represent a
+variety of OCR-related information. However, being built on top of HTML, hOCR is
+designed to make it easy to start simple and gradually use more complex
+constructs when necessary.
 
-# Terminology and Representation
+Consider you have an HTML document that encodes a book: Wrapping page elements
+in [`<div class="ocr_page">`](#ocr_page) tags will convey the page boundaries to
+hOCR-capable agents and turn the HTML document into an hOCR document.
+
+# Terminology and Representation # {#terminology}
 
 This document describes a representation of various aspects of OCR output in an
 XML-like format. That is, we define as set of tags containing text and other
