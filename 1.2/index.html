@@ -1448,7 +1448,7 @@ Parts of this work may be from another specification document.  If so, those par
   </div>
   <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
   <div class="p-summary" data-fill-with="abstract">
-   <p>A subset of HTML for marking up OCR results</p>
+   <p>The purpose of this document is to define an open standard for representing document layout analysis and <a data-link-type="dfn">OCR</a> results as a subset of HTML.</p>
   </div>
   <div data-fill-with="at-risk"></div>
   <nav data-fill-with="table-of-contents" id="toc">
@@ -1457,7 +1457,7 @@ Parts of this work may be from another specification document.  If so, those par
     <li><a href="#revision-history"><span class="secno">1</span> <span class="content">Revision History</span></a>
     <li><a href="#introduction"><span class="secno">2</span> <span class="content">Introduction</span></a>
     <li>
-     <a href="#terminology-and-representation"><span class="secno">3</span> <span class="content">Terminology and Representation</span></a>
+     <a href="#terminology"><span class="secno">3</span> <span class="content">Terminology and Representation</span></a>
      <ol class="toc">
       <li>
        <a href="#general-properties"><span class="secno">3.1</span> <span class="content">General Properties</span></a>
@@ -1476,7 +1476,7 @@ Parts of this work may be from another specification document.  If so, those par
        </ol>
      </ol>
     <li>
-     <a href="#logical-structuring-elements"><span class="secno">4</span> <span class="content">Logical Structuring Elements</span></a>
+     <a href="#logical-elements"><span class="secno">4</span> <span class="content">Logical Structuring Elements</span></a>
      <ol class="toc">
       <li><a href="#ocr_document"><span class="secno">4.1</span> <span class="content"><span>ocr_document</span></span></a>
       <li><a href="#ocr_title"><span class="secno">4.2</span> <span class="content"><span>ocr_title</span></span></a>
@@ -1496,10 +1496,10 @@ Parts of this work may be from another specification document.  If so, those par
       <li><a href="#ocr_caption"><span class="secno">4.12</span> <span class="content"><span>ocr_caption</span></span></a>
      </ol>
     <li>
-     <a href="#typesetting-related-elements"><span class="secno">5</span> <span class="content">Typesetting Related Elements</span></a>
+     <a href="#typesetting-elements"><span class="secno">5</span> <span class="content">Typesetting Related Elements</span></a>
      <ol class="toc">
       <li>
-       <a href="#classes-for-typesetting-elements"><span class="secno">5.1</span> <span class="content">Classes for typesetting elements</span></a>
+       <a href="#typesetting-classes"><span class="secno">5.1</span> <span class="content">Classes for typesetting elements</span></a>
        <ol class="toc">
         <li><a href="#ocr_page"><span class="secno">5.1.1</span> <span class="content"><span>ocr_page</span></span></a>
         <li><a href="#ocr_column"><span class="secno">5.1.2</span> <span class="content"><span>ocr_column</span></span></a>
@@ -1542,10 +1542,10 @@ Parts of this work may be from another specification document.  If so, those par
        </ol>
      </ol>
     <li>
-     <a href="#inline-representations"><span class="secno">6</span> <span class="content">Inline Representations</span></a>
+     <a href="#inline-representation"><span class="secno">6</span> <span class="content">Inline Representations</span></a>
      <ol class="toc">
       <li>
-       <a href="#classes-for-inline-representation"><span class="secno">6.1</span> <span class="content">Classes for Inline Representation</span></a>
+       <a href="#inline-classes"><span class="secno">6.1</span> <span class="content">Classes for Inline Representation</span></a>
        <ol class="toc">
         <li><a href="#ocr_glyph"><span class="secno">6.1.1</span> <span class="content"><span>ocr_glyph</span></span></a>
         <li><a href="#ocr_glyphs"><span class="secno">6.1.2</span> <span class="content"><span>ocr_glyphs</span></span></a>
@@ -1563,7 +1563,7 @@ Parts of this work may be from another specification document.  If so, those par
      <a href="#character-information"><span class="secno">7</span> <span class="content">Character Information</span></a>
      <ol class="toc">
       <li>
-       <a href="#classes-for-character-information"><span class="secno">7.1</span> <span class="content">Classes for Character Information</span></a>
+       <a href="#character-classes"><span class="secno">7.1</span> <span class="content">Classes for Character Information</span></a>
        <ol class="toc">
         <li><a href="#ocr_cinfo"><span class="secno">7.1.1</span> <span class="content"><span>ocr_cinfo</span></span></a>
        </ol>
@@ -1575,10 +1575,10 @@ Parts of this work may be from another specification document.  If so, those par
        </ol>
      </ol>
     <li>
-     <a href="#ocr-engine-specific-markup"><span class="secno">8</span> <span class="content">OCR Engine-Specific Markup</span></a>
+     <a href="#engine-markup"><span class="secno">8</span> <span class="content">OCR Engine-Specific Markup</span></a>
      <ol class="toc">
       <li>
-       <a href="#classes-for-engine-specific-markup"><span class="secno">8.1</span> <span class="content">Classes for engine specific markup</span></a>
+       <a href="#engine-classes"><span class="secno">8.1</span> <span class="content">Classes for engine specific markup</span></a>
        <ol class="toc">
         <li><a href="#ocrx_block"><span class="secno">8.1.1</span> <span class="content"><span>ocrx_block</span></span></a>
         <li><a href="#ocrx_line"><span class="secno">8.1.2</span> <span class="content"><span>ocrx_line</span></span></a>
@@ -1594,9 +1594,9 @@ Parts of this work may be from another specification document.  If so, those par
         <li><a href="#x_wconf"><span class="secno">8.2.5</span> <span class="content"><span>x_wconf</span></span></a>
        </ol>
      </ol>
-    <li><a href="#font-text-color-language-direction"><span class="secno">9</span> <span class="content">Font, Text Color, Language, Direction</span></a>
-    <li><a href="#alternative-segmentations-readings"><span class="secno">10</span> <span class="content">Alternative Segmentations / Readings</span></a>
-    <li><a href="#grouped-elements-and-multiple-hierarchies"><span class="secno">11</span> <span class="content">Grouped Elements and Multiple Hierarchies</span></a>
+    <li><a href="#font-lang"><span class="secno">9</span> <span class="content">Font, Text Color, Language, Direction</span></a>
+    <li><a href="#segmentation"><span class="secno">10</span> <span class="content">Alternative Segmentations / Readings</span></a>
+    <li><a href="#groups"><span class="secno">11</span> <span class="content">Grouped Elements and Multiple Hierarchies</span></a>
     <li>
      <a href="#capabilities"><span class="secno">12</span> <span class="content">Capabilities</span></a>
      <ol class="toc">
@@ -1612,13 +1612,13 @@ Parts of this work may be from another specification document.  If so, those par
      <a href="#metadata"><span class="secno">13</span> <span class="content">Metadata</span></a>
      <ol class="toc">
       <li>
-       <a href="#required-meta-information"><span class="secno">13.1</span> <span class="content">Required Meta Information</span></a>
+       <a href="#required-metadata"><span class="secno">13.1</span> <span class="content">Required Meta Information</span></a>
        <ol class="toc">
         <li><a href="#ocr-system"><span class="secno">13.1.1</span> <span class="content"><span>ocr-system</span></span></a>
         <li><a href="#ocr-capabilities"><span class="secno">13.1.2</span> <span class="content"><span>ocr-capabilities</span></span></a>
        </ol>
       <li>
-       <a href="#recommended-meta-information"><span class="secno">13.2</span> <span class="content">Recommended Meta Information</span></a>
+       <a href="#recommended-metadata"><span class="secno">13.2</span> <span class="content">Recommended Meta Information</span></a>
        <ol class="toc">
         <li><a href="#ocr-number-of-pages"><span class="secno">13.2.1</span> <span class="content"><span>ocr-number-of-pages</span></span></a>
         <li><a href="#ocr-langs"><span class="secno">13.2.2</span> <span class="content"><span>ocr-langs</span></span></a>
@@ -1635,9 +1635,9 @@ Parts of this work may be from another specification document.  If so, those par
       <li><a href="#html_absolute"><span class="secno">15.3</span> <span class="content"><code>html_absolute</code></span></a>
       <li><a href="#html_xytable"><span class="secno">15.4</span> <span class="content"><code>html_xytable</code></span></a>
       <li><a href="#html_simpl"><span class="secno">15.5</span> <span class="content"><code>html_simpl</code></span></a>
-      <li><a href="#restrictions-on-html-content"><span class="secno">15.6</span> <span class="content">Restrictions on HTML Content</span></a>
+      <li><a href="#html-restrictions"><span class="secno">15.6</span> <span class="content">Restrictions on HTML Content</span></a>
       <li>
-       <a href="#recommendations-for-mappings"><span class="secno">15.7</span> <span class="content">Recommendations for Mappings</span></a>
+       <a href="#html-mappings"><span class="secno">15.7</span> <span class="content">Recommendations for Mappings</span></a>
        <ol class="toc">
         <li><a href="#html_none0"><span class="secno">15.7.1</span> <span class="content">html_none</span></a>
         <li><a href="#html_simple"><span class="secno">15.7.2</span> <span class="content">html_simple</span></a>
@@ -1657,7 +1657,7 @@ Parts of this work may be from another specification document.  If so, those par
      </ol>
     <li><a href="#sample-usage"><span class="secno">16</span> <span class="content">Sample Usage</span></a>
     <li>
-     <a href="#iana-considerations"><span class="secno">17</span> <span class="content">IANA Considerations</span></a>
+     <a href="#iana"><span class="secno">17</span> <span class="content">IANA Considerations</span></a>
      <ol class="toc">
       <li><a href="#media-type"><span class="secno">17.1</span> <span class="content">Media Type</span></a>
      </ol>
@@ -1682,14 +1682,18 @@ Parts of this work may be from another specification document.  If so, those par
    <p>See the <a href="https://github.com/kba/hocr-spec/releases/">releases</a> and full <a href="https://github.com/kba/hocr-spec/commits/">commit
 history</a> for a revision history.</p>
    <h2 class="heading settled" data-level="2" id="introduction"><span class="secno">2. </span><span class="content">Introduction</span><a class="self-link" href="#introduction"></a></h2>
-   <p>The purpose of this document is to define an open standard for representing OCR
-results. The goal is to reuse as much existing technology as possible, and to
-arrive at a representation that makes it easy to reuse OCR results.</p>
-   <p>This document describes many tags and a lot of information that can be output.
-However, getting started with hOCR is easy: you only need to output the tags
-and information you actually want to.  For example, just outputting <code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-1">ocr_line</a></code> tags with bounding boxes is already very useful for many applications.  Just
-start simple and add more output information as the need arises.</p>
-   <h2 class="heading settled" data-level="3" id="terminology-and-representation"><span class="secno">3. </span><span class="content">Terminology and Representation</span><a class="self-link" href="#terminology-and-representation"></a></h2>
+   <p>The purpose of this document is to define an open standard for representing
+document layout analysis and OCR results as a subset of HTML. The goal is to
+reuse as much existing technology as possible, and to arrive at a representation
+that makes it easy to store, share, process and display OCR results.</p>
+   <p>This specification defines many <a href="#terminology">features</a> that can represent a
+variety of OCR-related information. However, being built on top of HTML, hOCR is
+designed to make it easy to start simple and gradually use more complex
+constructs when necessary.</p>
+   <p>Consider you have an HTML document that encodes a book: Wrapping page elements
+in [<code>&lt;div class="ocr_page"></code>](#ocr_page) tags will convey the page boundaries to
+hOCR-capable agents and turn the HTML document into an hOCR document.</p>
+   <h2 class="heading settled" data-level="3" id="terminology"><span class="secno">3. </span><span class="content">Terminology and Representation</span><a class="self-link" href="#terminology"></a></h2>
    <p>This document describes a representation of various aspects of OCR output in an
 XML-like format. That is, we define as set of tags containing text and other
 tags, together with attributes of those tags. However, since the content we are
@@ -1792,7 +1796,7 @@ non-rectangular layouts</p>
      <p>note that the natural and correct representation of many non-rectangular
 layouts is in terms of rectangular content areas and rectangular floats</p>
     <li data-md="">
-     <p>documents using polygonal borders anywhere must indicate this by adding <a class="css" data-link-type="maybe" href="#valdef-ocr-capabilities-ocrp_poly" id="ref-for-valdef-ocr-capabilities-ocrp_poly-1">ocrp_poly</a> to the list of <a class="property" data-link-type="propdesc" href="#propdef-ocr-capabilities" id="ref-for-propdef-ocr-capabilities-1">ocr-capabilities</a> (see <a href="#required-meta-information">§13.1 Required Meta Information</a>)</p>
+     <p>documents using polygonal borders anywhere must indicate this by adding <a class="css" data-link-type="maybe" href="#valdef-ocr-capabilities-ocrp_poly" id="ref-for-valdef-ocr-capabilities-ocrp_poly-1">ocrp_poly</a> to the list of <a class="property" data-link-type="propdesc" href="#propdef-ocr-capabilities" id="ref-for-propdef-ocr-capabilities-1">ocr-capabilities</a> (see <a href="#required-metadata">§13.1 Required Meta Information</a>)</p>
     <li data-md="">
      <p>documents should attempt to provide a reasonable <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-2">bbox</a> equivalent as well</p>
    </ul>
@@ -1840,7 +1844,7 @@ number) of a linear equation describing the baseline relative to the bottom
 left corner of the bounding box (red). The baseline crosses the y-axis at <code>-18</code> and its slope angle is <code>arctan(0.015) = 0.86°</code>.</p>
     <figure><img alt="baseline explained" src="../images/baseline.png"> </figure>
    </div>
-   <h2 class="heading settled" data-level="4" id="logical-structuring-elements"><span class="secno">4. </span><span class="content">Logical Structuring Elements</span><a class="self-link" href="#logical-structuring-elements"></a></h2>
+   <h2 class="heading settled" data-level="4" id="logical-elements"><span class="secno">4. </span><span class="content">Logical Structuring Elements</span><a class="self-link" href="#logical-elements"></a></h2>
    <p>We recognize the following logical structuring elements:</p>
    <ul>
     <li data-md="">
@@ -1910,7 +1914,7 @@ structuring elemetns must not use them for other purpose.</p>
 element refers to the image(s) contained within the same float, or the
 immediately adjacent image if both the image and the <code><a data-link-type="element" href="#elementdef-ocr_caption" id="ref-for-elementdef-ocr_caption-2">ocr_caption</a></code> element are
 in running text.</p>
-   <h2 class="heading settled" data-level="5" id="typesetting-related-elements"><span class="secno">5. </span><span class="content">Typesetting Related Elements</span><a class="self-link" href="#typesetting-related-elements"></a></h2>
+   <h2 class="heading settled" data-level="5" id="typesetting-elements"><span class="secno">5. </span><span class="content">Typesetting Related Elements</span><a class="self-link" href="#typesetting-elements"></a></h2>
    <p>The following typesetting related elements are based on a typesetting model as
 found in most typesetting systems, including <a href="https://www.w3.org/TR/xsl11/#fo-section">XSL:FO</a>, <a href="https://latex-project.org/guides/usrguide.pdf">(La)TeX</a>, <a href="https://wiki.documentfoundation.org/images/e/e6/WG42-WriterGuideLO.pdf">LibreOffice</a>,
 and Microsoft Word.</p>
@@ -1932,7 +1936,7 @@ areas and rectangular floats, already a wide variety of non-rectangular text
 shapes can be realized.</p>
    <p class="issue" id="issue-3f2f70ed"><a class="self-link" href="#issue-3f2f70ed"></a> There is currently no way of indicating anchoring or flow-around
 properties for floating elements; properties need to be defined for this.</p>
-   <h3 class="heading settled" data-level="5.1" id="classes-for-typesetting-elements"><span class="secno">5.1. </span><span class="content">Classes for typesetting elements</span><a class="self-link" href="#classes-for-typesetting-elements"></a></h3>
+   <h3 class="heading settled" data-level="5.1" id="typesetting-classes"><span class="secno">5.1. </span><span class="content">Classes for typesetting elements</span><a class="self-link" href="#typesetting-classes"></a></h3>
    <p>The following classes, as well as <a href="#classes-for-floats">floats</a> are used for type-setting
 elements.</p>
    <h4 class="heading settled" data-level="5.1.1" id="ocr_page"><span class="secno">5.1.1. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_page">ocr_page</dfn></span><a class="self-link" href="#ocr_page"></a></h4>
@@ -1971,8 +1975,8 @@ relationships between the ground truth careas.</p>
 those blocks are not recoverable or semantically meaningful. However, one type
 of block is visible and very important for OCR engines: the line. Lines are
 typesetting blocks that only contain glyphs (“inlines” in XSL terminology).
-They are represented by the <code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-2">ocr_line</a></code> area.</p>
-   <p><code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-3">ocr_line</a></code> should be in a <code>&lt;span></code></p>
+They are represented by the <code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-1">ocr_line</a></code> area.</p>
+   <p><code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-2">ocr_line</a></code> should be in a <code>&lt;span></code></p>
    <h4 class="heading settled" data-level="5.1.5" id="ocr_separator"><span class="secno">5.1.5. </span><span class="content"><dfn data-dfn-type="element" data-export="" id="elementdef-ocr_separator">ocr_separator<a class="self-link" href="#elementdef-ocr_separator"></a></dfn></span><a class="self-link" href="#ocr_separator"></a></h4>
    <p>Any separator or similar element</p>
    <h4 class="heading settled" data-level="5.1.6" id="ocr_noise"><span class="secno">5.1.6. </span><span class="content"><dfn data-dfn-type="element" data-export="" id="elementdef-ocr_noise">ocr_noise<a class="self-link" href="#elementdef-ocr_noise"></a></dfn></span><a class="self-link" href="#ocr_noise"></a></h4>
@@ -2065,7 +2069,7 @@ additional strings or using URL parameters or fragments</p>
      </ul>
    </ul>
    <p>In addition to the standard
-properties, the <code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-4">ocr_line</a></code> area supports the following additional properties:</p>
+properties, the <code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-3">ocr_line</a></code> area supports the following additional properties:</p>
    <h4 class="heading settled" data-level="5.3.4" id="hardbreak"><span class="secno">5.3.4. </span><span class="content"><dfn class="css" data-dfn-type="property" data-export="" id="propdef-hardbreak">hardbreak<a class="self-link" href="#propdef-hardbreak"></a></dfn></span><a class="self-link" href="#hardbreak"></a></h4>
    <p><code>hardbreak n</code></p>
    <ul>
@@ -2076,7 +2080,7 @@ properties, the <code><a data-link-type="element" href="#elementdef-ocr_line" id
      <p>a one indicates that the line is a hard (explicit) line break</p>
    </ul>
    <p>Any special characters representing the desired end-of-line processing must be
-present inside the <code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-5">ocr_line</a></code> element. Examples of such special characters are a
+present inside the <code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-4">ocr_line</a></code> element. Examples of such special characters are a
 soft hyphen ("­", <code>U+00AD</code>), a hard line break (<code>&lt;br></code>), or whitespace (<code></code>) for soft
 line breaks.</p>
    <h3 class="heading settled" data-level="5.4" id="classes-for-floats"><span class="secno">5.4. </span><span class="content">Classes for floats</span><a class="self-link" href="#classes-for-floats"></a></h3>
@@ -2105,9 +2109,9 @@ format like SVG (even if it is actually represented as PNG)</p>
    <p><code>ocr_pageno</code></p>
    <h4 class="heading settled" data-level="5.4.11" id="ocr_table"><span class="secno">5.4.11. </span><span class="content"><dfn data-dfn-type="element" data-export="" id="elementdef-ocr_table">ocr_table<a class="self-link" href="#elementdef-ocr_table"></a></dfn></span><a class="self-link" href="#ocr_table"></a></h4>
    <p><code>ocr_table</code></p>
-   <h2 class="heading settled" data-level="6" id="inline-representations"><span class="secno">6. </span><span class="content">Inline Representations</span><a class="self-link" href="#inline-representations"></a></h2>
+   <h2 class="heading settled" data-level="6" id="inline-representation"><span class="secno">6. </span><span class="content">Inline Representations</span><a class="self-link" href="#inline-representation"></a></h2>
    <p>There is some content that should behave and flow like text</p>
-   <h3 class="heading settled" data-level="6.1" id="classes-for-inline-representation"><span class="secno">6.1. </span><span class="content">Classes for Inline Representation</span><a class="self-link" href="#classes-for-inline-representation"></a></h3>
+   <h3 class="heading settled" data-level="6.1" id="inline-classes"><span class="secno">6.1. </span><span class="content">Classes for Inline Representation</span><a class="self-link" href="#inline-classes"></a></h3>
    <h4 class="heading settled" data-level="6.1.1" id="ocr_glyph"><span class="secno">6.1.1. </span><span class="content"><dfn data-dfn-type="element" data-export="" id="elementdef-ocr_glyph">ocr_glyph<a class="self-link" href="#elementdef-ocr_glyph"></a></dfn></span><a class="self-link" href="#ocr_glyph"></a></h4>
    <p>An individual glyph represented as an image (e.g., an unrecognized character)</p>
    <p>Must contain a single <code>&lt;img></code> tag, or be present on one</p>
@@ -2142,7 +2146,7 @@ writing direction changes must be indicated with tags.</p>
    <h4 class="heading settled" data-level="6.1.10" id="ruby-characters"><span class="secno">6.1.10. </span><span class="content">Ruby characters</span><a class="self-link" href="#ruby-characters"></a></h4>
    <p><a href="https://en.wikipedia.org/wiki/Ruby_character">Furigana and similar constructs</a> must be represented using their correct Unicode encoding.</p>
    <h2 class="heading settled" data-level="7" id="character-information"><span class="secno">7. </span><span class="content">Character Information</span><a class="self-link" href="#character-information"></a></h2>
-   <h3 class="heading settled" data-level="7.1" id="classes-for-character-information"><span class="secno">7.1. </span><span class="content">Classes for Character Information</span><a class="self-link" href="#classes-for-character-information"></a></h3>
+   <h3 class="heading settled" data-level="7.1" id="character-classes"><span class="secno">7.1. </span><span class="content">Classes for Character Information</span><a class="self-link" href="#character-classes"></a></h3>
    <p>Character-level information may be put on any element that contains only a
 single "line" of text.</p>
    <h4 class="heading settled" data-level="7.1.1" id="ocr_cinfo"><span class="secno">7.1.1. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_cinfo">ocr_cinfo</dfn></span><a class="self-link" href="#ocr_cinfo"></a></h4>
@@ -2185,13 +2189,13 @@ for the element had been rotated by a multiple of 90 degrees such that the
 writing direction is left to right, then rotated back.</p>
    <p>It is undefined what happens when cut paths intersect, with the exception that
 a delta of 0 always corresponds to an invisible codepoint.</p>
-   <h2 class="heading settled" data-level="8" id="ocr-engine-specific-markup"><span class="secno">8. </span><span class="content">OCR Engine-Specific Markup</span><a class="self-link" href="#ocr-engine-specific-markup"></a></h2>
+   <h2 class="heading settled" data-level="8" id="engine-markup"><span class="secno">8. </span><span class="content">OCR Engine-Specific Markup</span><a class="self-link" href="#engine-markup"></a></h2>
    <p>A few abstractions are used as intermediate abstractions in OCR engines,
 although they do not have a meaning that can be defined either in terms of
 typesetting or logical function. Representing them may be useful to represent
 existing OCR output, say for workflow abstractions.</p>
    <p>Common suggested engine-specific markup are:</p>
-   <h3 class="heading settled" data-level="8.1" id="classes-for-engine-specific-markup"><span class="secno">8.1. </span><span class="content">Classes for engine specific markup</span><a class="self-link" href="#classes-for-engine-specific-markup"></a></h3>
+   <h3 class="heading settled" data-level="8.1" id="engine-classes"><span class="secno">8.1. </span><span class="content">Classes for engine specific markup</span><a class="self-link" href="#engine-classes"></a></h3>
    <h4 class="heading settled" data-level="8.1.1" id="ocrx_block"><span class="secno">8.1.1. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocrx_block">ocrx_block</dfn></span><a class="self-link" href="#ocrx_block"></a></h4>
    <p class="issue" id="issue-66c198d9"><a class="self-link" href="#issue-66c198d9"></a> <a href="https://github.com/kba/hocr-spec/issues/28">ocr_carea vs ocrx_block</a></p>
    <ul>
@@ -2204,7 +2208,7 @@ existing OCR output, say for workflow abstractions.</p>
    <p class="issue" id="issue-8ef34561"><a class="self-link" href="#issue-8ef34561"></a> <a href="https://github.com/kba/hocr-spec/issues/19">ocr_line vs ocrx_line</a></p>
    <ul>
     <li data-md="">
-     <p>any kind of "line" returned by an OCR system that differs from the standard <code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-6">ocr_line</a></code> above</p>
+     <p>any kind of "line" returned by an OCR system that differs from the standard <code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-5">ocr_line</a></code> above</p>
     <li data-md="">
      <p>might be some kind of "logical" line</p>
    </ul>
@@ -2227,7 +2231,7 @@ attempt to ensure the following properties:</p>
     <li data-md="">
      <p>an <code><a data-link-type="element" href="#elementdef-ocrx_block" id="ref-for-elementdef-ocrx_block-5">ocrx_block</a></code> should contain either an image or text, but not both</p>
     <li data-md="">
-     <p>an <code><a data-link-type="element" href="#elementdef-ocrx_line" id="ref-for-elementdef-ocrx_line-1">ocrx_line</a></code> should correspond as closely as possible to an <code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-7">ocr_line</a></code></p>
+     <p>an <code><a data-link-type="element" href="#elementdef-ocrx_line" id="ref-for-elementdef-ocrx_line-1">ocrx_line</a></code> should correspond as closely as possible to an <code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-6">ocr_line</a></code></p>
     <li data-md="">
      <p><code><a data-link-type="element">ocrx_cinfo</a></code> should nest inside <code><a data-link-type="element" href="#elementdef-ocrx_line" id="ref-for-elementdef-ocrx_line-2">ocrx_line</a></code></p>
     <li data-md="">
@@ -2286,7 +2290,7 @@ have them approximate posterior probabilities (expressed in %)</p>
      <p>if possible, convert word confidences to values between 0 and 100 and have
 them approximate posterior probabilities (expressed in %)</p>
    </ul>
-   <h2 class="heading settled" data-level="9" id="font-text-color-language-direction"><span class="secno">9. </span><span class="content">Font, Text Color, Language, Direction</span><a class="self-link" href="#font-text-color-language-direction"></a></h2>
+   <h2 class="heading settled" data-level="9" id="font-lang"><span class="secno">9. </span><span class="content">Font, Text Color, Language, Direction</span><a class="self-link" href="#font-lang"></a></h2>
    <p>OCR-generated font and text color information is encoded using standard HTML
 and CSS attributes on elements with a class of <code>ocr_...</code> or <code>ocrx_...</code>.
 Language and writing direction should be indicated using the HTML standard
@@ -2301,7 +2305,7 @@ actual presentation information inside that:</p>
    <p>The CSS3 text layout attributes can be used when necessary. For example, CSS
 supports writing-mode, direction, glyph-orientation <a data-link-type="biblio" href="#biblio-iso15924">[ISO15924]</a>-based
 script (<a href="http://www.unicode.org/iso15924/codelists.html">list of codes</a>), text-indent, etc.</p>
-   <h2 class="heading settled" data-level="10" id="alternative-segmentations-readings"><span class="secno">10. </span><span class="content">Alternative Segmentations / Readings</span><a class="self-link" href="#alternative-segmentations-readings"></a></h2>
+   <h2 class="heading settled" data-level="10" id="segmentation"><span class="secno">10. </span><span class="content">Alternative Segmentations / Readings</span><a class="self-link" href="#segmentation"></a></h2>
    <p class="issue" id="issue-b35297dd"><a class="self-link" href="#issue-b35297dd"></a> <a href="https://github.com/kba/hocr-spec/issues/9">Delete x_cost</a></p>
    <p>Alternative segmentations and readings are indicated by a <code>&lt;span></code> with <code>class="alternatives"</code>. It must contains <code>&lt;ins></code> and <code>&lt;del></code> elements. The first
 contained element should be <code>&lt;ins></code> and represent the most probable interpretation,
@@ -2318,7 +2322,7 @@ arbitrarily.</p>
    </div>
    <p>Whitespace within the <code>&lt;span></code> but outside the contained <code>&lt;ins></code>/<code>&lt;del></code> elements is ignored and should be inserted to improve readability of the HTML
 when viewed in a browser.</p>
-   <h2 class="heading settled" data-level="11" id="grouped-elements-and-multiple-hierarchies"><span class="secno">11. </span><span class="content">Grouped Elements and Multiple Hierarchies</span><a class="self-link" href="#grouped-elements-and-multiple-hierarchies"></a></h2>
+   <h2 class="heading settled" data-level="11" id="groups"><span class="secno">11. </span><span class="content">Grouped Elements and Multiple Hierarchies</span><a class="self-link" href="#groups"></a></h2>
    <p>The different levels of layout information (logical, physical, engine-specific)
 each form hierarchies, but those hierarchies may not be mutually compatible;
 for example, a single <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-2">ocr_page</a></code> may contain information from multiple sections
@@ -2373,7 +2377,7 @@ that corresponds to that capability, users of the document may infer that the
 content is absent in the source document. If a capability is not listed, the
 corresponding element or attribute must not be present in the document.</p>
    <h2 class="heading settled" data-level="13" id="metadata"><span class="secno">13. </span><span class="content">Metadata</span><a class="self-link" href="#metadata"></a></h2>
-   <h3 class="heading settled" data-level="13.1" id="required-meta-information"><span class="secno">13.1. </span><span class="content">Required Meta Information</span><a class="self-link" href="#required-meta-information"></a></h3>
+   <h3 class="heading settled" data-level="13.1" id="required-metadata"><span class="secno">13.1. </span><span class="content">Required Meta Information</span><a class="self-link" href="#required-metadata"></a></h3>
    <p>The OCR system is required to indicate the following using meta tags in the header:</p>
    <h4 class="heading settled" data-level="13.1.1" id="ocr-system"><span class="secno">13.1.1. </span><span class="content"><dfn class="css" data-dfn-type="property" data-export="" id="propdef-ocr-system">ocr-system<a class="self-link" href="#propdef-ocr-system"></a></dfn></span><a class="self-link" href="#ocr-system"></a></h4>
    <ul>
@@ -2389,7 +2393,7 @@ corresponding element or attribute must not be present in the document.</p>
        <p>see <a href="#capabilities">§12 Capabilities</a></p>
      </ul>
    </ul>
-   <h3 class="heading settled" data-level="13.2" id="recommended-meta-information"><span class="secno">13.2. </span><span class="content">Recommended Meta Information</span><a class="self-link" href="#recommended-meta-information"></a></h3>
+   <h3 class="heading settled" data-level="13.2" id="recommended-metadata"><span class="secno">13.2. </span><span class="content">Recommended Meta Information</span><a class="self-link" href="#recommended-metadata"></a></h3>
    <p>The OCR system should indicate the following information</p>
    <h4 class="heading settled" data-level="13.2.1" id="ocr-number-of-pages"><span class="secno">13.2.1. </span><span class="content"><dfn class="css" data-dfn-type="property" data-export="" id="propdef-ocr-number-of-pages">ocr-number-of-pages<a class="self-link" href="#propdef-ocr-number-of-pages"></a></dfn></span><a class="self-link" href="#ocr-number-of-pages"></a></h4>
    <ul>
@@ -2512,7 +2516,7 @@ particular, we envision layout analysis tools for converting any hOCR document
 into <code>html_absolute</code>, <code>html_xytable</code>, and <code>html_simple</code>. Furthermore,
 internally, a layout analysis system might use <code>html_xytable</code> as an
 intermediate format for converting hOCR into <code>html_simple</code>.</p>
-   <h3 class="heading settled" data-level="15.6" id="restrictions-on-html-content"><span class="secno">15.6. </span><span class="content">Restrictions on HTML Content</span><a class="self-link" href="#restrictions-on-html-content"></a></h3>
+   <h3 class="heading settled" data-level="15.6" id="html-restrictions"><span class="secno">15.6. </span><span class="content">Restrictions on HTML Content</span><a class="self-link" href="#html-restrictions"></a></h3>
    <p>To avoid problems, any use of HTML markup must follow the following rules:</p>
    <ul>
     <li data-md="">
@@ -2523,7 +2527,7 @@ in this document (<code>ocr_*</code>)</p>
 class for any purposes other than encoding OCR-related properties as
 described in this document</p>
    </ul>
-   <h3 class="heading settled" data-level="15.7" id="recommendations-for-mappings"><span class="secno">15.7. </span><span class="content">Recommendations for Mappings</span><a class="self-link" href="#recommendations-for-mappings"></a></h3>
+   <h3 class="heading settled" data-level="15.7" id="html-mappings"><span class="secno">15.7. </span><span class="content">Recommendations for Mappings</span><a class="self-link" href="#html-mappings"></a></h3>
    <p>When possible, any mapping of logical structure onto HTML should try to follow the following rules:</p>
    <ul>
     <li data-md="">
@@ -2696,7 +2700,7 @@ they’re actually pretty easy to manipulate. Here are some examples:</p>
 </pre>
    <p>Note that the OCR markup, basic HTML markup, and semantic markup can co-exist
 within the same HTML file without interfering with one another.</p>
-   <h2 class="heading settled" data-level="17" id="iana-considerations"><span class="secno">17. </span><span class="content">IANA Considerations</span><a class="self-link" href="#iana-considerations"></a></h2>
+   <h2 class="heading settled" data-level="17" id="iana"><span class="secno">17. </span><span class="content">IANA Considerations</span><a class="self-link" href="#iana"></a></h2>
    <p class="issue" id="issue-f6d39356"><a class="self-link" href="#issue-f6d39356"></a> <a href="https://github.com/kba/hocr-spec/issues/2">XML namespace for hOCR HTML?</a></p>
    <p class="issue" id="issue-a3899b99"><a class="self-link" href="#issue-a3899b99"></a> <a href="https://github.com/kba/hocr-spec/issues/1">What DOCTYPE for hOCR HTML?</a></p>
    <h3 class="heading settled" data-level="17.1" id="media-type"><span class="secno">17.1. </span><span class="content">Media Type</span><a class="self-link" href="#media-type"></a></h3>
@@ -3107,12 +3111,11 @@ properties for floating elements; properties need to be defined for this.<a href
   <aside class="dfn-panel" data-for="elementdef-ocr_line">
    <b><a href="#elementdef-ocr_line">#elementdef-ocr_line</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-elementdef-ocr_line-1">2. Introduction</a>
-    <li><a href="#ref-for-elementdef-ocr_line-2">5.1.4. ocr_line</a> <a href="#ref-for-elementdef-ocr_line-3">(2)</a>
-    <li><a href="#ref-for-elementdef-ocr_line-4">5.3.3. x_source</a>
-    <li><a href="#ref-for-elementdef-ocr_line-5">5.3.4. hardbreak</a>
-    <li><a href="#ref-for-elementdef-ocr_line-6">8.1.2. ocrx_line</a>
-    <li><a href="#ref-for-elementdef-ocr_line-7">8.1.3. ocrx_word</a>
+    <li><a href="#ref-for-elementdef-ocr_line-1">5.1.4. ocr_line</a> <a href="#ref-for-elementdef-ocr_line-2">(2)</a>
+    <li><a href="#ref-for-elementdef-ocr_line-3">5.3.3. x_source</a>
+    <li><a href="#ref-for-elementdef-ocr_line-4">5.3.4. hardbreak</a>
+    <li><a href="#ref-for-elementdef-ocr_line-5">8.1.2. ocrx_line</a>
+    <li><a href="#ref-for-elementdef-ocr_line-6">8.1.3. ocrx_word</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_float">

@@ -5,7 +5,8 @@ hOCR has been originally developed by Thomas Breuel.
 See the [releases](https://github.com/kba/hocr-spec/releases/) and full [commit
 history](https://github.com/kba/hocr-spec/commits/) for a revision history.
 
-# Introduction
+Introduction {#introduction}
+============
 
 The purpose of this document is to define an open standard for representing
 document layout analysis and OCR results as a subset of HTML. The goal is to
@@ -21,7 +22,8 @@ Consider you have an HTML document that encodes a book: Wrapping page elements
 in [`<div class="ocr_page">`](#ocr_page) tags will convey the page boundaries to
 hOCR-capable agents and turn the HTML document into an hOCR document.
 
-# Terminology and Representation # {#terminology}
+Terminology and Representation {#terminology}
+==============================
 
 This document describes a representation of various aspects of OCR output in an
 XML-like format. That is, we define as set of tags containing text and other
@@ -68,7 +70,8 @@ multiple properties are separated by semicolons.
 ```
 </div>
 
-## General Properties
+General Properties {#general-properties}
+------------------
 
 The following properties can apply to most elements (where it makes sense):
 
@@ -139,7 +142,7 @@ A closed polygon for elements with non-rectangular bounds
     layouts is in terms of rectangular content areas and rectangular floats
   * documents using polygonal borders anywhere must indicate this by adding
     ''ocr-capabilities/ocrp_poly'' to the list of 'ocr-capabilities' (see
-    [[#required-meta-information]])
+    [[#required-metadata]])
   * documents should attempt to provide a reasonable 'bbox' equivalent as well
 
 ### <dfn property>order</dfn>
@@ -208,7 +211,8 @@ and its slope angle is `arctan(0.015) = 0.86°`.
 
 </div>
 
-# Logical Structuring Elements
+Logical Structuring Elements {#logical-elements}
+============================
 
 We recognize the following logical structuring elements:
 
@@ -272,7 +276,8 @@ immediately adjacent image if both the image and the <{ocr_caption}> element are
 in running text.
 
 
-# Typesetting Related Elements
+Typesetting Related Elements {#typesetting-elements}
+============================
 
 The following typesetting related elements are based on a typesetting model as
 found in most typesetting systems, including
@@ -302,7 +307,8 @@ shapes can be realized.
 Issue: There is currently no way of indicating anchoring or flow-around
 properties for floating elements; properties need to be defined for this.
 
-## Classes for typesetting elements
+Classes for typesetting elements {#typesetting-classes}
+--------------------------------
 
 The following classes, as well as [floats](#classes-for-floats) are used for type-setting
 elements.
@@ -503,11 +509,13 @@ Something that requires JPEG or PNG to be represented well
 
 `ocr_table`
 
-# Inline Representations
+Inline Representations {#inline-representation}
+======================
 
 There is some content that should behave and flow like text
 
-## Classes for Inline Representation
+Classes for Inline Representation {#inline-classes}
+---------------------------------
 
 ### <dfn element>ocr_glyph</dfn>
 
@@ -575,9 +583,11 @@ Other superscripts and subscripts must be represented using the HTML `<sup>` and
 [Furigana and similar constructs](https://en.wikipedia.org/wiki/Ruby_character)
 must be represented using their correct Unicode encoding.
 
-# Character Information
+Character Information {#character-information}
+=====================
 
-## Classes for Character Information
+Classes for Character Information {#character-classes}
+---------------------------------
 
 Character-level information may be put on any element that contains only a
 single "line" of text.
@@ -635,7 +645,8 @@ It is undefined what happens when cut paths intersect, with the exception that
 a delta of 0 always corresponds to an invisible codepoint.
 
 
-# OCR Engine-Specific Markup
+OCR Engine-Specific Markup {#engine-markup}
+==========================
 
 A few abstractions are used as intermediate abstractions in OCR engines,
 although they do not have a meaning that can be defined either in terms of
@@ -644,7 +655,8 @@ existing OCR output, say for workflow abstractions.
 
 Common suggested engine-specific markup are:
 
-## Classes for engine specific markup
+Classes for engine specific markup {#engine-classes}
+----------------------------------
 
 ### <dfn element>ocrx_block</dfn>
 
@@ -725,7 +737,8 @@ The following properties are defined:
   * if possible, convert word confidences to values between 0 and 100 and have
     them approximate posterior probabilities (expressed in %)
 
-# Font, Text Color, Language, Direction
+Font, Text Color, Language, Direction {#font-lang}
+=====================================
 
 OCR-generated font and text color information is encoded using standard HTML
 and CSS attributes on elements with a class of `ocr_...` or `ocrx_...`.
@@ -747,7 +760,8 @@ supports writing-mode, direction, glyph-orientation [[ISO15924]]-based
 script ([list of codes](http://www.unicode.org/iso15924/codelists.html)), text-indent, etc.
 
 
-# Alternative Segmentations / Readings
+Alternative Segmentations / Readings {#segmentation}
+====================================
 
 Issue: [Delete x_cost](https://github.com/kba/hocr-spec/issues/9)
 
@@ -772,7 +786,8 @@ elements is ignored and should be inserted to improve readability of the HTML
 when viewed in a browser.
 
 
-# Grouped Elements and Multiple Hierarchies
+Grouped Elements and Multiple Hierarchies {#groups}
+=========================================
 
 The different levels of layout information (logical, physical, engine-specific)
 each form hierarchies, but those hierarchies may not be mutually compatible;
@@ -805,7 +820,8 @@ of grouped elements in the output and fail with an error message if they cannot
 correctly process the hOCR information.
 
 
-# Capabilities
+Capabilities {#capabilities}
+============
 
 Any program generating files in this output format must indicate in the
 document metadata what kind of markup it is capable of generating. This
@@ -852,9 +868,11 @@ content is absent in the source document. If a capability is not listed, the
 corresponding element or attribute must not be present in the document.
 
 
-# Metadata
+Metadata {#metadata}
+========
 
-## Required Meta Information
+Required Meta Information {#required-metadata}
+-------------------------
 
 The OCR system is required to indicate the following using meta tags in the header:
 
@@ -867,7 +885,8 @@ The OCR system is required to indicate the following using meta tags in the head
   * `<meta name="ocr-capabilities" content="capabilities"/>`
     * see [[#capabilities]]
 
-## Recommended Meta Information
+Recommended Meta Information {#recommended-metadata}
+----------------------------
 
 The OCR system should indicate the following information
 
@@ -887,7 +906,8 @@ The OCR system should indicate the following information
     * use [ISO 15924](http://www.unicode.org/iso15924/codelists.html) letter codes
     * value may be `unknown`
 
-## Document metadata
+Document metadata {#document-metadata}
+-----------------
 
 For document meta information, use the [Dublin Core Embedding into
 HTML](http://dublincore.org/documents/dcq-html/). See also [Citation Guidelines
@@ -935,7 +955,8 @@ document classes:
     * articles map on <{ocr_linear}>
     * <{ocr_page}>
 
-# HTML Markup
+HTML Markup {#html-markup}
+===========
 
 The HTML-based markup is orthogonal to the hOCR-based markup; that is, both can
 be chosen independent of one another. The only thing that needs to be
@@ -983,7 +1004,8 @@ internally, a layout analysis system might use `html_xytable` as an
 intermediate format for converting hOCR into `html_simple`.
 
 
-## Restrictions on HTML Content
+Restrictions on HTML Content {#html-restrictions}
+----------------------------
 
 To avoid problems, any use of HTML markup must follow the following rules:
 
@@ -994,7 +1016,8 @@ To avoid problems, any use of HTML markup must follow the following rules:
     described in this document
 
 
-## Recommendations for Mappings
+Recommendations for Mappings {#html-mappings}
+----------------------------
 
 When possible, any mapping of logical structure onto HTML should try to follow the following rules:
 
@@ -1124,7 +1147,8 @@ HTML mapping generated by official XSL style sheets
 
 
 
-# Sample Usage
+Sample Usage {#sample-usage}
+============
 
 See also the [hocr-tools](https://github.com/tmbdev/hocr-tools) for more samples.
 
@@ -1168,13 +1192,15 @@ for line in lines:
 Note that the OCR markup, basic HTML markup, and semantic markup can co-exist
 within the same HTML file without interfering with one another.
 
-# IANA Considerations
+IANA Considerations {#iana}
+===================
 
 Issue: [XML namespace for hOCR HTML?](https://github.com/kba/hocr-spec/issues/2)
 
 Issue: [What DOCTYPE for hOCR HTML?](https://github.com/kba/hocr-spec/issues/1)
 
-## Media Type
+Media Type {#media-type}
+----------
 
 In accordance to [[RFC2048]]
 
