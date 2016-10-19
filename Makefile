@@ -8,22 +8,21 @@ SPEC_HTML = $(VERSION)/index.html
 
 BIKESHED = $(shell for cmd in bikeshed docker curl;do type >/dev/null 2>&1 $$cmd && echo $$cmd && break;done)
 
-$(SPEC_HTML): $(SPEC_BS)
+$(SPEC_HTML): $(SPEC_METADATA) biblio.json $(SPEC_MD)
+	echo '<pre class="metadata">' >  $(SPEC_BS)
+	cat  $(SPEC_METADATA)         >> $(SPEC_BS)
+	echo '</pre>'                 >> $(SPEC_BS)
+	echo '<pre class="biblio">'   >> $(SPEC_BS)
+	cat  $(SPEC_BIBLIO)           >> $(SPEC_BS)
+	echo '</pre>'                 >> $(SPEC_BS)
+	cat  $(SPEC_MD)               >> $(SPEC_BS)
 	case "$(BIKESHED)" in \
 		bikeshed) bikeshed -f spec $(SPEC_BS) ;; \
 		docker) docker run --rm -it -v $(PWD):/data kbai/bikeshed -f spec $(SPEC_BS) ;; \
 		curl) curl "https://api.csswg.org/bikeshed/" -o $(SPEC_HTML) -F force=true -F file=@$(SPEC_BS) ;; \
 		*) echo 'Unsupported bikeshed backend "$(BIKESHED)"'; exit 1 ;;\
 	esac
-
-$(SPEC_BS): $(SPEC_METADATA) biblio.json $(SPEC_MD)
-	echo '<pre class="metadata">' >  $@
-	cat  $(SPEC_METADATA)         >> $@
-	echo '</pre>'                 >> $@
-	echo '<pre class="biblio">'   >> $@
-	cat  $(SPEC_BIBLIO)           >> $@
-	echo '</pre>'                 >> $@
-	cat  $(SPEC_MD)               >> $@
+	rm -f $(SPEC_BS)
 
 clean:
 	$(RM) $(SPEC_HTML) $(SPEC_BS)
