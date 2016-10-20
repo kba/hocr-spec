@@ -1,3 +1,13 @@
+<pre class="anchors">
+type:element;spec:html;url:https://html.spec.whatwg.org/multipage/semantics.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements;
+	text:h1
+	text:h2
+	text:h3
+	text:h4
+	text:h5
+	text:h6
+</pre>
+
 # Revision History
 
 hOCR has been originally developed by Thomas Breuel.
@@ -206,42 +216,72 @@ and its slope angle is `arctan(0.015) = 0.86°`.
 
 # Logical Structuring Elements
 
-We recognize the following logical structuring elements:
+Issue: [Logical Tags/classes](https://github.com/kba/hocr-spec/issues/66)
+
+The classes defined in this section for logically structuring a hOCR document
+have their standard meaning as used in the publishing industry and tools like
+LaTeX, MS Word, and others.
+
+Elements with these classes should use the recommended HTML tag given below.
+This is entirely optional, it may not be possible or desirable to actually
+choose those tags (e.g., when adding hOCR information to an existing HTML
+output routine).
+
+  : <dfn element>ocr_document</dfn>
+  :: Recommended HTML Tag: <{div}>
+
+  : <dfn element>ocr_title</dfn>
+  :: Recommended HTML Tag: <a element>h1</a>
+
+  : <dfn element>ocr_author</dfn>
+
+  : <dfn element>ocr_abstract</dfn>
+
+  : <dfn element>ocr_part</dfn>
+  :: Recommended HTML Tag: <{h1}>
+
+  : <dfn element>ocr_chapter</dfn>
+  :: Recommended HTML Tag: <{h1}>
+
+  : <dfn element>ocr_section</dfn>
+  :: Recommended HTML Tag: <{h2}>
+
+  : <dfn element>ocr_subsection</dfn>
+  :: Recommended HTML Tag: <{h3}>
+
+  : <dfn element>ocr_subsubsection</dfn>
+  :: Recommended HTML Tag: <{h4}>
+
+  : <dfn element>ocr_display</dfn>
+
+  : <dfn element>ocr_blockquote</dfn>
+  :: Recommended HTML Tag: <{blockquote}>
+
+  : <dfn element>ocr_par</dfn>
+  :: Recommended HTML Tag: <{p}>
+
+  : <dfn element>ocr_linear</dfn>
+
+  : <dfn element>ocr_caption</dfn>
+  :: Image captions may be indicated using the <{ocr_caption}> element; such an
+    element refers to the image(s) contained within the same float, or the
+    immediately adjacent image if both the image and the <{ocr_caption}> element
+    are in running text.
+
+Tags must be nested as indicated by the following list, but not all tags within the
+hierarchy need to be present.
 
   * <{ocr_document}>
     * <{ocr_linear}>
       * <{ocr_title}>
       * <{ocr_author}>
       * <{ocr_abstract}>
-      * <{ocr_part}> [`<h1>`]
-        * <{ocr_chapter}> [`<h1>`]
-          * <{ocr_section}> [`<h2>`]
-            * `ocr_sub*section` [`<h3>`,`<h4>`]
+      * <{ocr_part}>
+        * <{ocr_chapter}>
+          * <{ocr_section}> ▻ <{ocr_subsection}> ▻ <{ocr_subsubsection}>
               * <{ocr_display}> 
-              * <{ocr_blockquote}> [`<blockquote>`]
-              * <{ocr_par}> [`<p>`]
-
-## <dfn element>ocr_document</dfn>
-## <dfn element>ocr_title</dfn>
-## <dfn element>ocr_author</dfn>
-## <dfn element>ocr_abstract</dfn>
-## <dfn element>ocr_part</dfn>
-## <dfn element>ocr_chapter</dfn>
-## <dfn element>ocr_section</dfn>
-## <dfn element>ocr_subsubsection</dfn>
-## <dfn element>ocr_display</dfn>
-## <dfn element>ocr_blockquote</dfn>
-## <dfn element>ocr_par</dfn>
-
-These logical tags have their standard meaning as used in the publishing
-industry and tools like LaTeX, MS Word, and others.
-
-The standard HTML tags given in brackets specify the preferred HTML tags to use
-with those logical structuring elements, but it may not be possible or
-desirable to actually chose those tags (e.g., when adding hOCR information to
-an existing HTML output routine).
-
-### <dfn element>ocr_linear</dfn>
+              * <{ocr_blockquote}>
+              * <{ocr_par}>
 
 For all of these elements except <{ocr_linear}>, there exists a natural linear
 ordering defined by reading order (<{ocr_linear}> indicates that the elements
@@ -251,21 +291,11 @@ newspaper, in which a single newspaper may contain many linear, but there is no
 unique reading order for the different linear. OCR evaluation tools should
 therefore be sensitive to the order of all elements other than <{ocr_linear}>.
 
-Tags must be nested as indicated by nesting above, but not all tags within the
-hierarchy need to be present.
-
 Textual information like section numbers and bullets must be represented as
 text inside the containing element.
 
 Documents whose logical structure does not map naturally onto these logical
-structuring elemetns must not use them for other purpose.
-
-## <dfn element>ocr_caption</dfn>
-
-Image captions may be indicated using the <{ocr_caption}> element; such an
-element refers to the image(s) contained within the same float, or the
-immediately adjacent image if both the image and the <{ocr_caption}> element are
-in running text.
+structuring elemetns must not use them for other purposes.
 
 
 # Typesetting Related Elements
