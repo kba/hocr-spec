@@ -811,12 +811,12 @@ information using <{meta}> tags in the <{head}> section.
 
   : <dfn property>ocr-system</dfn>
   :: Indicates software and version that generated the hOCR document
-  :: Every hOCR document *must* have one 'ocr-system' metadata field
+  :: Every hOCR document *must* have exactly one 'ocr-system' metadata field
 
   : <dfn property>ocr-capabilities</dfn>
   :: Features consumers of the hOCR document can expect
   :: See [[#capabilities]] for possible values
-  :: Every hOCR document *must* have one 'ocr-capabilities' metadata field
+  :: Every hOCR document *must* have exactly one 'ocr-capabilities' metadata field
 
   : <dfn property>ocr-number-of-pages</dfn>
   :: The number of <{ocr_page}> in the document
