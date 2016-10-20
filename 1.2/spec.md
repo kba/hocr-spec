@@ -851,16 +851,16 @@ the important properties are:
   : <dfn value>ocrp_lang</dfn>
   :: Capable of generating `lang=` attributes
 
-  : <dfn value for="ocr-capabilities">ocrp_dir</dfn>
+  : <dfn value>ocrp_dir</dfn>
   :: Capable of generating `dir=` attributes
 
-  : <dfn value for="ocr-capabilities">ocrp_poly</dfn>
+  : <dfn value>ocrp_poly</dfn>
   :: Capable of generating [polygonal bounds](#poly)
 
-  : <dfn value for="ocr-capabilities">ocrp_font</dfn>
+  : <dfn value>ocrp_font</dfn>
   :: Capable of generating font information (standard font information)
 
-  : <dfn value for="ocr-capabilities">ocrp_nlp</dfn>
+  : <dfn value>ocrp_nlp</dfn>
   :: Capable of generating [nlp confidences](#nlp)
 
   : `ocr_embeddedformat_<formatname>`
