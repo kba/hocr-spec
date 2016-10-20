@@ -135,7 +135,7 @@ A closed polygon for elements with non-rectangular bounds
     layouts is in terms of rectangular content areas and rectangular floats
   * documents using polygonal borders anywhere must indicate this by adding
     ''ocr-capabilities/ocrp_poly'' to the list of 'ocr-capabilities' (see
-    [[#required-meta-information]])
+    [[#capabilities]])
   * documents should attempt to provide a reasonable 'bbox' equivalent as well
 
 ### <dfn property>order</dfn>
@@ -544,6 +544,12 @@ section.
 Mathematical and chemical formulas that are “display” mode should be put into
 an <{ocr_display}> section.
 
+### Superscript and Subscript
+
+Superscripts and subscripts, when not in <{ocr_math}> or <{ocr_chem}> formulas,
+must be represented using the HTML `<sup>` and `<sub>` tags, even if special
+Unicode characters are available.
+
 ### Non-breaking space
 
 Non-breaking spaces must be represented using the HTML `&nbsp;` entity.
@@ -561,10 +567,6 @@ The HTML <a href="https://www.w3.org/TR/REC-html40/struct/dirlang.html#h-8.2.5">
 `&rlm;` entities</a> (indicating writing direction) must not be used; all
 writing direction changes must be indicated with tags.
 
-### Superscript and Subscript
-
-Other superscripts and subscripts must be represented using the HTML `<sup>` and
-`<sub>` tags, even if special Unicode characters are available.
 
 # Character Information
 
@@ -799,7 +801,35 @@ of grouped elements in the output and fail with an error message if they cannot
 correctly process the hOCR information.
 
 
-# Capabilities
+
+Metadata {#metadata}
+========
+
+The creator of the hOCR document can indicate the following information
+information using <{meta}> tags in the <{head}> section.
+
+  : <dfn property>ocr-system</dfn>
+  :: Indicates software and version that generated the hOCR document
+  :: Every hOCR document *must* have exactly one 'ocr-system' metadata field
+
+  : <dfn property>ocr-capabilities</dfn>
+  :: Features consumers of the hOCR document can expect
+  :: See [[#capabilities]] for possible values
+  :: Every hOCR document *must* have exactly one 'ocr-capabilities' metadata field
+
+  : <dfn property>ocr-number-of-pages</dfn>
+  :: The number of <{ocr_page}> in the document
+
+  : <dfn property>ocr-langs</dfn>
+  :: Use [ISO 639-1](https://www.loc.gov/standards/iso639-2/php/code_list.php) codes
+  :: Value may be `unknown`
+
+  : <dfn property>ocr-scripts</dfn>
+  :: Use [ISO 15924](http://www.unicode.org/iso15924/codelists.html) letter codes
+  :: Value may be `unknown`
+
+Capabilities {#capabilities}
+------------
 
 Any program generating files in this output format must indicate in the
 document metadata what kind of markup it is capable of generating. This
@@ -807,85 +837,80 @@ includes listing the exact set of markup sections that the system could have
 generated, even if it did not actually generate them for the particular
 document.
 
-The capability to generate specific properties is given by the prefix `ocrp_...`;
-the important properties are:
-
-## <dfn value for="ocr-capabilities">ocrp_lang</dfn>
-
-Capable of generating `lang=` attributes
-
-## <dfn value for="ocr-capabilities">ocrp_dir</dfn>
-
-Capable of generating `dir=` attributes
-
-## <dfn value for="ocr-capabilities">ocrp_poly</dfn>
-
-Capable of generating [polygonal bounds](#poly)
-
-## <dfn value for="ocr-capabilities">ocrp_font</dfn>
-
-Capable of generating font information (standard font information)
-
-## <dfn value for="ocr-capabilities">ocrp_nlp</dfn>
-
-Capable of generating [nlp confidences](#nlp)
-
-## `ocr_embeddedformat_<formatname>`
-
-The capability to generate other specific embedded formats is given by the
-prefix `ocr_embeddedformat_<formatname>`.
-
-## `ocr_<tag>_unordered`
-
-If an OCR engine represents a particular tag but cannot determine reading order
-for that tag, it must must specify a capability of `ocr_<tag>_unordered`.
-
 If a document lists a certain capabilities but no element or attribute is found
 that corresponds to that capability, users of the document may infer that the
 content is absent in the source document. If a capability is not listed, the
 corresponding element or attribute must not be present in the document.
 
+The capability to generate specific properties is given by the prefix `ocrp_...`;
+the important properties are:
 
-# Metadata
+<dl dfn-for="ocr-capabilities">
 
-## Required Meta Information
+  : <dfn value>ocrp_lang</dfn>
+  :: Capable of generating `lang=` attributes
 
-The OCR system is required to indicate the following using meta tags in the header:
+  : <dfn value>ocrp_dir</dfn>
+  :: Capable of generating `dir=` attributes
 
-### <dfn property>ocr-system</dfn>
+  : <dfn value>ocrp_poly</dfn>
+  :: Capable of generating [polygonal bounds](#poly)
 
-  * `<meta name="ocr-system" content="name version"/>`
+  : <dfn value>ocrp_font</dfn>
+  :: Capable of generating font information (standard font information)
 
-### <dfn property>ocr-capabilities</dfn>
+  : <dfn value>ocrp_nlp</dfn>
+  :: Capable of generating [nlp confidences](#nlp)
 
-  * `<meta name="ocr-capabilities" content="capabilities"/>`
-    * see [[#capabilities]]
+  : `ocr_embeddedformat_<formatname>`
+  :: The capability to generate other specific embedded formats is given by the
+    prefix `ocr_embeddedformat_<formatname>`.
 
-## Recommended Meta Information
+  : `ocr_<tag>_unordered`
+  :: If an OCR engine represents a particular tag but cannot determine reading
+    order for that tag, it must must specify a capability of
+    `ocr_<tag>_unordered`.
 
-The OCR system should indicate the following information
+</dl>
 
-### <dfn property>ocr-number-of-pages</dfn>
 
-  * `<meta name="ocr-number-of-pages" content="number-of-pages"/>`
-
-### <dfn property>ocr-langs</dfn>
-
-  * `<meta name="ocr-langs" content="languages-considered-by-ocr"/>`
-    * use [ISO 639-1](https://www.loc.gov/standards/iso639-2/php/code_list.php) codes
-    * value may be `unknown`
-
-### <dfn property>ocr-scripts</dfn>
-
-  * `<meta name="ocr-scripts" content="scripts-considered-by-ocr"/>`
-    * use [ISO 15924](http://www.unicode.org/iso15924/codelists.html) letter codes
-    * value may be `unknown`
-
-## Document metadata
+Document metadata {#document-metadata}
+-----------------
 
 For document meta information, use the [Dublin Core Embedding into
 HTML](http://dublincore.org/documents/dcq-html/). See also [Citation Guidelines
 for Dublin Core](http://dublincore.org/documents/dc-citation-guidelines/).
+
+
+Example {#metadata-example}
+-------
+
+<div class=example>
+```html
+<html>
+  <head>
+    <meta name="ocr-system" content="tesseract v3.03"/>
+    <meta name="ocr-capabilities" content="ocr_page ocr_line ocrp_lang"/>
+    <meta name="ocr-langs" content="aa la zu"/>
+    <meta name="ocr-scripts" content="Arab Khmr"/>
+    <meta name="ocr-number-of-pages" content="112"/>
+    ...
+  </head>
+  ...
+</html>
+```
+
+Indicate that the work this hOCR file represents:
+
+  * was produced by Tesseract v3.03
+  * will provide <{ocr_page}> and <{ocr_line}> elements with `lang=` attribute
+  * contains text written in the Afar, Latin or Zulu languages
+  * contains text written in Arabic and Khmer script
+  * has `112` pages
+
+</div>
+
+
 # Profiles
 
 hOCR provides standard means of marking up information, but it does not mandate
