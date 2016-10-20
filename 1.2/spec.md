@@ -803,31 +803,31 @@ correctly process the hOCR information.
 
 
 
-# Metadata
+Metadata {#metadata}
+========
 
 The creator of the hOCR document can indicate the following information
 information using <{meta}> tags in the <{head}> section.
 
   : <dfn property>ocr-system</dfn>
-  :: indicates software and version that generated the hOCR document
-  :: every hOCR document *must* have one 'ocr-system' metadata field
+  :: Indicates software and version that generated the hOCR document
+  :: Every hOCR document *must* have one 'ocr-system' metadata field
 
   : <dfn property>ocr-capabilities</dfn>
-  :: features consumers of the hOCR document can expect
-  :: every hOCR document *must* have one <a>ocr-system</a> metadata field
-  :: see [[#capabilities]] for possible values
+  :: Features consumers of the hOCR document can expect
+  :: See [[#capabilities]] for possible values
+  :: Every hOCR document *must* have one 'ocr-capabilities' metadata field
 
   : <dfn property>ocr-number-of-pages</dfn>
-  :: the number of <{ocr_page}> in the document
+  :: The number of <{ocr_page}> in the document
 
   : <dfn property>ocr-langs</dfn>
-  :: use [ISO 639-1](https://www.loc.gov/standards/iso639-2/php/code_list.php) codes
-  :: value may be `unknown`
+  :: Use [ISO 639-1](https://www.loc.gov/standards/iso639-2/php/code_list.php) codes
+  :: Value may be `unknown`
 
   : <dfn property>ocr-scripts</dfn>
-  :: use [ISO 15924](http://www.unicode.org/iso15924/codelists.html) letter codes
-  :: value may be `unknown`
-
+  :: Use [ISO 15924](http://www.unicode.org/iso15924/codelists.html) letter codes
+  :: Value may be `unknown`
 
 Capabilities {#capabilities}
 ------------
@@ -888,19 +888,26 @@ Example {#metadata-example}
 
 <div class=example>
 ```html
-  <meta name="ocr-system" content="tesseract v3.03"/>
-  <meta name="ocr-capabilities" content="TODO"/>
-  <meta name="ocr-number-of-pages" content="112"/>
-  <meta name="ocr-langs" content="aa la zu"/>
-  <meta name="ocr-scripts" content="Arab Khmr"/>
+<html>
+  <head>
+    <meta name="ocr-system" content="tesseract v3.03"/>
+    <meta name="ocr-capabilities" content="ocr_page ocr_line ocrp_lang"/>
+    <meta name="ocr-langs" content="aa la zu"/>
+    <meta name="ocr-scripts" content="Arab Khmr"/>
+    <meta name="ocr-number-of-pages" content="112"/>
+    ...
+  </head>
+  ...
+</html>
 ```
 
 Indicate that the work this hOCR file represents:
 
   * was produced by Tesseract v3.03
-  * has `112` pages
+  * will provide <{ocr_page}> and <{ocr_line}> elements with `lang=` attribute
   * contains text written in the Afar, Latin or Zulu languages
   * contains text written in Arabic and Khmer script
+  * has `112` pages
 
 </div>
 
