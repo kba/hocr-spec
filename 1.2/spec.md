@@ -295,7 +295,7 @@ Textual information like section numbers and bullets must be represented as
 text inside the containing element.
 
 Documents whose logical structure does not map naturally onto these logical
-structuring elemetns must not use them for other purposes.
+structuring elements must not use them for other purposes.
 
 
 # Typesetting Related Elements
