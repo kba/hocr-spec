@@ -2688,12 +2688,18 @@ must follow the template <code>html_ocr_&lt;engine></code>.</p>
 files</a> feature of Google Search uses <a data-link-type="dfn" href="#html_absolute_lines" id="ref-for-html_absolute_lines-1">html_absolute_lines</a>; this is probably the most
 reasonable choice for approximating the appearance of the original document.</p>
    <h3 class="heading settled" data-level="14.7" id="format-table"><span class="secno">14.7. </span><span class="content">HTML as table</span><a class="self-link" href="#format-table"></a></h3>
-   <p>The HTML is a table that gives the XY-cut layout segmentation structure of the
-page in tabular form.</p>
-   <p>Note that in this format, text order does not necessarily correspond to
+   <dl>
+    <dt data-md="">
+     <p><dfn data-dfn-type="dfn" data-noexport="" id="html_xytable">html_xytable<a class="self-link" href="#html_xytable"></a></dfn></p>
+    <dd data-md="">
+     <p>The HTML is a table that gives the XY-cut layout segmentation structure of
+the page in tabular form.</p>
+    <dd data-md="">
+     <p>Note that in this format, text order does not necessarily correspond to
 reading order.</p>
-   <p>The format must contain one <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/tables.html#the-table-element">table</a></code> of class <dfn data-dfn-type="element" data-export="" id="elementdef-ocr_xycut">ocr_xycut<a class="self-link" href="#elementdef-ocr_xycut"></a></dfn> representing each page. The markup of the content of the table
-itself is as in <a data-link-type="dfn" href="#html_simple" id="ref-for-html_simple-4">html_simple</a>.</p>
+    <dd data-md="">
+     <p>The format must contain one <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/tables.html#the-table-element">table</a></code> of class <dfn data-dfn-type="element" data-export="" id="elementdef-ocr_xycut">ocr_xycut<a class="self-link" href="#elementdef-ocr_xycut"></a></dfn> representing each page. The markup of the content of the table itself is as in <a data-link-type="dfn" href="#html_simple" id="ref-for-html_simple-4">html_simple</a>.</p>
+   </dl>
    <p>Possible subformats are:</p>
    <dl>
     <dt data-md="">
@@ -2706,14 +2712,14 @@ itself is as in <a data-link-type="dfn" href="#html_simple" id="ref-for-html_sim
      <p>Table element sizes are expressed relative (percentages).</p>
    </dl>
    <h3 class="heading settled" data-level="14.8" id="format-wordprocessor"><span class="secno">14.8. </span><span class="content">HTML from word processors</span><a class="self-link" href="#format-wordprocessor"></a></h3>
-   <p>The HTML represents markup that follows the mappings of the given document processor to HTML.</p>
+   <p>The HTML represents markup that follows the mappings of the given document
+processor to HTML.</p>
    <p>Note that the document doesn’t actually need to have been constructed in the
 processor and that the processor doesn’t need to have been used to generate
 the HTML. For example, the <a data-link-type="dfn" href="#html_latex2html" id="ref-for-html_latex2html-1">html_latex2html</a> tag merely indicates that,
 say, a scanned and ocr’ed article uses the same conventions for logical markup
 tags that an equivalent article actually written in LaTeX and actually
 converted to HTML would have used.</p>
-   <p>Possible subformats are:</p>
    <dl>
     <dt data-md="">
      <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="html_latex2html">html_latex2html</dfn></p>
@@ -2972,6 +2978,7 @@ within the same HTML file without interfering with one another.</p>
    <li><a href="#html_ocr_unknown">html_ocr_unknown</a><span>, in §14.5</span>
    <li><a href="#html_ooffice">html_ooffice</a><span>, in §14.8</span>
    <li><a href="#html_simple">html_simple</a><span>, in §14.4</span>
+   <li><a href="#html_xytable">html_xytable</a><span>, in §14.7</span>
    <li><a href="#html_xytable_absolute">html_xytable_absolute</a><span>, in §14.7</span>
    <li><a href="#html_xytable_relative">html_xytable_relative</a><span>, in §14.7</span>
    <li><a href="#propdef-image">image</a><span>, in §5.2.2</span>
