@@ -2544,7 +2544,7 @@ following intents:</p>
    <p>As long as a format contains the hOCR information, it can be reprocessed by
 layout analysis software and converted into one of the other formats. In
 particular, we envision layout analysis tools for converting any hOCR document
-into <a data-link-type="dfn">html_absolute</a>, <a data-link-type="dfn" href="#html_xytable_absolute" id="ref-for-html_xytable_absolute-2">html_xytable_absolute</a>, and <a data-link-type="dfn" href="#html_simple" id="ref-for-html_simple-2">html_simple</a>. Furthermore, internally, a layout analysis system might
+into <a data-link-type="dfn" href="#html_absolute" id="ref-for-html_absolute-1">html_absolute</a>, <a data-link-type="dfn" href="#html_xytable_absolute" id="ref-for-html_xytable_absolute-2">html_xytable_absolute</a>, and <a data-link-type="dfn" href="#html_simple" id="ref-for-html_simple-2">html_simple</a>. Furthermore, internally, a layout analysis system might
 use <a data-link-type="dfn" href="#html_xytable_absolute" id="ref-for-html_xytable_absolute-3">html_xytable_absolute</a> as an intermediate format for converting hOCR
 into <a data-link-type="dfn" href="#html_simple" id="ref-for-html_simple-3">html_simple</a>.</p>
    <h3 class="heading settled" data-level="14.1" id="html-restrictions"><span class="secno">14.1. </span><span class="content">Restrictions on HTML Content</span><a class="self-link" href="#html-restrictions"></a></h3>
@@ -2655,7 +2655,12 @@ must follow the template <code>html_ocr_&lt;engine></code>.</p>
      <p><dfn data-dfn-type="dfn" data-noexport="" id="html_ocr_textbridge_11">html_ocr_textbridge_11<a class="self-link" href="#html_ocr_textbridge_11"></a></dfn></p>
    </dl>
    <h3 class="heading settled" data-level="14.6" id="format-absolute"><span class="secno">14.6. </span><span class="content">HTML with absolute positioning</span><a class="self-link" href="#format-absolute"></a></h3>
-   <p>The HTML represents absolute positioning of elements on each page.</p>
+   <dl>
+    <dt data-md="">
+     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="html_absolute">html_absolute</dfn></p>
+    <dd data-md="">
+     <p>The HTML represents absolute positioning of elements on each page.</p>
+   </dl>
    <p>Possible subformats are:</p>
    <dl>
     <dt data-md="">
@@ -2952,6 +2957,7 @@ within the same HTML file without interfering with one another.</p>
    <li><a href="#propdef-cflow">cflow</a><span>, in §3.2.4</span>
    <li><a href="#propdef-cuts">cuts</a><span>, in §7.2.1</span>
    <li><a href="#propdef-hardbreak">hardbreak</a><span>, in §5.3.4</span>
+   <li><a href="#html_absolute">html_absolute</a><span>, in §14.6</span>
    <li><a href="#html_absolute_chars">html_absolute_chars</a><span>, in §14.6</span>
    <li><a href="#html_absolute_cols">html_absolute_cols</a><span>, in §14.6</span>
    <li><a href="#html_absolute_lines">html_absolute_lines</a><span>, in §14.6</span>
@@ -3364,6 +3370,12 @@ properties for floating elements; properties need to be defined for this.<a href
    <ul>
     <li><a href="#ref-for-html_simple-1">14. HTML Markup</a> <a href="#ref-for-html_simple-2">(2)</a> <a href="#ref-for-html_simple-3">(3)</a>
     <li><a href="#ref-for-html_simple-4">14.7. HTML as table</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="html_absolute">
+   <b><a href="#html_absolute">#html_absolute</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-html_absolute-1">14. HTML Markup</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="html_absolute_lines">

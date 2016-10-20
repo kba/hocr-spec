@@ -1142,18 +1142,23 @@ Examples of possible values are:
 HTML with absolute positioning {#format-absolute}
 ------------------------------
 
-The HTML represents absolute positioning of elements on each page. 
+  : <dfn>html_absolute</dfn>
+  :: The HTML represents absolute positioning of elements on each page. 
 
 Possible subformats are:
 
   : <dfn>html_absolute_cols</dfn>
   :: absolute positioning of cols
+
   : <dfn>html_absolute_pars</dfn> 
   :: absolute positioning of paragraphs
+
   : <dfn>html_absolute_lines</dfn> 
   :: absolute positioning of lines
+
   : <dfn>html_absolute_words</dfn> 
   :: absolute positioning of words
+
   : <dfn>html_absolute_chars</dfn> 
   :: absolute positioning of characters
 
