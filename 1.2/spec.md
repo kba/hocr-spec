@@ -271,17 +271,17 @@ output routine).
 Tags must be nested as indicated by the following list, but not all tags within the
 hierarchy need to be present.
 
-  * <{ocr_document}>
-    * <{ocr_linear}>
-      * <{ocr_title}>
-      * <{ocr_author}>
-      * <{ocr_abstract}>
-      * <{ocr_part}>
-        * <{ocr_chapter}>
-          * <{ocr_section}> ▻ <{ocr_subsection}> ▻ <{ocr_subsubsection}>
-              * <{ocr_display}> 
-              * <{ocr_blockquote}>
-              * <{ocr_par}>
+	* <{ocr_document}>
+		* <{ocr_linear}>
+			* <{ocr_title}>
+			* <{ocr_author}>
+			* <{ocr_abstract}>
+			* <{ocr_part}>
+				* <{ocr_chapter}>
+					* <{ocr_section}> ▻ <{ocr_subsection}> ▻ <{ocr_subsubsection}>
+						* <{ocr_display}>
+						* <{ocr_blockquote}>
+						* <{ocr_par}>
 
 For all of these elements except <{ocr_linear}>, there exists a natural linear
 ordering defined by reading order (<{ocr_linear}> indicates that the elements
