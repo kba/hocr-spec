@@ -1421,7 +1421,7 @@ Possible extra rowspan handling
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">hOCR - OCR Workflow and Output embedded in HTML</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-10-19">19 October 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-10-20">20 October 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1440,7 +1440,7 @@ Possible extra rowspan handling
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 19 October 2016,
+In addition, as of 20 October 2016,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1598,52 +1598,30 @@ Parts of this work may be from another specification document.  If so, those par
     <li><a href="#segmentation"><span class="secno">10</span> <span class="content">Alternative Segmentations / Readings</span></a>
     <li><a href="#groups"><span class="secno">11</span> <span class="content">Grouped Elements and Multiple Hierarchies</span></a>
     <li>
-     <a href="#capabilities"><span class="secno">12</span> <span class="content">Capabilities</span></a>
+     <a href="#metadata"><span class="secno">12</span> <span class="content">Metadata</span></a>
      <ol class="toc">
-      <li><a href="#ocrp_lang"><span class="secno">12.1</span> <span class="content"><span>ocrp_lang</span></span></a>
-      <li><a href="#ocrp_dir"><span class="secno">12.2</span> <span class="content"><span>ocrp_dir</span></span></a>
-      <li><a href="#ocrp_poly"><span class="secno">12.3</span> <span class="content"><span>ocrp_poly</span></span></a>
-      <li><a href="#ocrp_font"><span class="secno">12.4</span> <span class="content"><span>ocrp_font</span></span></a>
-      <li><a href="#ocrp_nlp"><span class="secno">12.5</span> <span class="content"><span>ocrp_nlp</span></span></a>
-      <li><a href="#ocr_embeddedformat_formatname"><span class="secno">12.6</span> <span class="content"><code>ocr_embeddedformat_&lt;formatname></code></span></a>
-      <li><a href="#ocr_tag_unordered"><span class="secno">12.7</span> <span class="content"><code>ocr_&lt;tag>_unordered</code></span></a>
+      <li><a href="#capabilities"><span class="secno">12.1</span> <span class="content">Capabilities</span></a>
+      <li><a href="#document-metadata"><span class="secno">12.2</span> <span class="content">Document metadata</span></a>
+      <li><a href="#metadata-example"><span class="secno">12.3</span> <span class="content">Example</span></a>
      </ol>
+    <li><a href="#profiles"><span class="secno">13</span> <span class="content">Profiles</span></a>
     <li>
-     <a href="#metadata"><span class="secno">13</span> <span class="content">Metadata</span></a>
+     <a href="#html-markup"><span class="secno">14</span> <span class="content">HTML Markup</span></a>
      <ol class="toc">
-      <li>
-       <a href="#required-metadata"><span class="secno">13.1</span> <span class="content">Required Meta Information</span></a>
-       <ol class="toc">
-        <li><a href="#ocr-system"><span class="secno">13.1.1</span> <span class="content"><span>ocr-system</span></span></a>
-        <li><a href="#ocr-capabilities"><span class="secno">13.1.2</span> <span class="content"><span>ocr-capabilities</span></span></a>
-       </ol>
-      <li>
-       <a href="#recommended-metadata"><span class="secno">13.2</span> <span class="content">Recommended Meta Information</span></a>
-       <ol class="toc">
-        <li><a href="#ocr-number-of-pages"><span class="secno">13.2.1</span> <span class="content"><span>ocr-number-of-pages</span></span></a>
-        <li><a href="#ocr-langs"><span class="secno">13.2.2</span> <span class="content"><span>ocr-langs</span></span></a>
-        <li><a href="#ocr-scripts"><span class="secno">13.2.3</span> <span class="content"><span>ocr-scripts</span></span></a>
-       </ol>
-      <li><a href="#document-metadata"><span class="secno">13.3</span> <span class="content">Document metadata</span></a>
+      <li><a href="#html-restrictions"><span class="secno">14.1</span> <span class="content">Restrictions on HTML Content</span></a>
+      <li><a href="#html-mappings"><span class="secno">14.2</span> <span class="content">Recommendations for Mappings</span></a>
+      <li><a href="#format-none"><span class="secno">14.3</span> <span class="content">HTML without logical markup</span></a>
+      <li><a href="#format-simple"><span class="secno">14.4</span> <span class="content">HTML with limited logical elements</span></a>
+      <li><a href="#format-ocr"><span class="secno">14.5</span> <span class="content">HTML produced by OCR engines</span></a>
+      <li><a href="#format-absolute"><span class="secno">14.6</span> <span class="content">HTML with absolute positioning</span></a>
+      <li><a href="#format-table"><span class="secno">14.7</span> <span class="content">HTML as table</span></a>
+      <li><a href="#format-wordprocessor"><span class="secno">14.8</span> <span class="content">HTML from word processors</span></a>
      </ol>
-    <li><a href="#profiles"><span class="secno">14</span> <span class="content">Profiles</span></a>
+    <li><a href="#sample-usage"><span class="secno">15</span> <span class="content">Sample Usage</span></a>
     <li>
-     <a href="#html-markup"><span class="secno">15</span> <span class="content">HTML Markup</span></a>
+     <a href="#iana"><span class="secno">16</span> <span class="content">IANA Considerations</span></a>
      <ol class="toc">
-      <li><a href="#html-restrictions"><span class="secno">15.1</span> <span class="content">Restrictions on HTML Content</span></a>
-      <li><a href="#html-mappings"><span class="secno">15.2</span> <span class="content">Recommendations for Mappings</span></a>
-      <li><a href="#format-none"><span class="secno">15.3</span> <span class="content">HTML without logical markup</span></a>
-      <li><a href="#format-simple"><span class="secno">15.4</span> <span class="content">HTML with limited logical elements</span></a>
-      <li><a href="#format-ocr"><span class="secno">15.5</span> <span class="content">HTML produced by OCR engines</span></a>
-      <li><a href="#format-absolute"><span class="secno">15.6</span> <span class="content">HTML with absolute positioning</span></a>
-      <li><a href="#format-table"><span class="secno">15.7</span> <span class="content">HTML as table</span></a>
-      <li><a href="#format-wordprocessor"><span class="secno">15.8</span> <span class="content">HTML from word processors</span></a>
-     </ol>
-    <li><a href="#sample-usage"><span class="secno">16</span> <span class="content">Sample Usage</span></a>
-    <li>
-     <a href="#iana"><span class="secno">17</span> <span class="content">IANA Considerations</span></a>
-     <ol class="toc">
-      <li><a href="#media-type"><span class="secno">17.1</span> <span class="content">Media Type</span></a>
+      <li><a href="#media-type"><span class="secno">16.1</span> <span class="content">Media Type</span></a>
      </ol>
     <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
     <li>
@@ -1781,7 +1759,7 @@ non-rectangular layouts</p>
      <p>note that the natural and correct representation of many non-rectangular
 layouts is in terms of rectangular content areas and rectangular floats</p>
     <li data-md="">
-     <p>documents using polygonal borders anywhere must indicate this by adding <a class="css" data-link-type="maybe" href="#valdef-ocr-capabilities-ocrp_poly" id="ref-for-valdef-ocr-capabilities-ocrp_poly-1">ocrp_poly</a> to the list of <a class="property" data-link-type="propdesc" href="#propdef-ocr-capabilities" id="ref-for-propdef-ocr-capabilities-1">ocr-capabilities</a> (see <a href="#required-metadata">§13.1 Required Meta Information</a>)</p>
+     <p>documents using polygonal borders anywhere must indicate this by adding <a class="css" data-link-type="maybe" href="#valdef-ocr-capabilities-ocrp_poly" id="ref-for-valdef-ocr-capabilities-ocrp_poly-1">ocrp_poly</a> to the list of <a class="property" data-link-type="propdesc" href="#propdef-ocr-capabilities" id="ref-for-propdef-ocr-capabilities-1">ocr-capabilities</a> (see <a href="#capabilities">§12.1 Capabilities</a>)</p>
     <li data-md="">
      <p>documents should attempt to provide a reasonable <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-2">bbox</a> equivalent as well</p>
    </ul>
@@ -2335,85 +2313,119 @@ pre-processor or Javascript.</p>
 when it affects their operations, hOCR processors should check for the presence
 of grouped elements in the output and fail with an error message if they cannot
 correctly process the hOCR information.</p>
-   <h2 class="heading settled" data-level="12" id="capabilities"><span class="secno">12. </span><span class="content">Capabilities</span><a class="self-link" href="#capabilities"></a></h2>
+   <h2 class="heading settled" data-level="12" id="metadata"><span class="secno">12. </span><span class="content">Metadata</span><a class="self-link" href="#metadata"></a></h2>
+   <p>The creator of the hOCR document can indicate the following information
+information using <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#meta">meta</a></code> tags in the <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-head-element">head</a></code> section.</p>
+   <dl>
+    <dt data-md="">
+     <p><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-ocr-system">ocr-system</dfn></p>
+    <dd data-md="">
+     <p>Indicates software and version that generated the hOCR document</p>
+    <dd data-md="">
+     <p>Every hOCR document <em>must</em> have exactly one <a class="property" data-link-type="propdesc" href="#propdef-ocr-system" id="ref-for-propdef-ocr-system-1">ocr-system</a> metadata field</p>
+    <dt data-md="">
+     <p><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-ocr-capabilities">ocr-capabilities</dfn></p>
+    <dd data-md="">
+     <p>Features consumers of the hOCR document can expect</p>
+    <dd data-md="">
+     <p>See <a href="#capabilities">§12.1 Capabilities</a> for possible values</p>
+    <dd data-md="">
+     <p>Every hOCR document <em>must</em> have exactly one <a class="property" data-link-type="propdesc" href="#propdef-ocr-capabilities" id="ref-for-propdef-ocr-capabilities-2">ocr-capabilities</a> metadata field</p>
+    <dt data-md="">
+     <p><dfn class="css" data-dfn-type="property" data-export="" id="propdef-ocr-number-of-pages">ocr-number-of-pages<a class="self-link" href="#propdef-ocr-number-of-pages"></a></dfn></p>
+    <dd data-md="">
+     <p>The number of <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-3">ocr_page</a></code> in the document</p>
+    <dt data-md="">
+     <p><dfn class="css" data-dfn-type="property" data-export="" id="propdef-ocr-langs">ocr-langs<a class="self-link" href="#propdef-ocr-langs"></a></dfn></p>
+    <dd data-md="">
+     <p>Use <a href="https://www.loc.gov/standards/iso639-2/php/code_list.php">ISO 639-1</a> codes</p>
+    <dd data-md="">
+     <p>Value may be <code>unknown</code></p>
+    <dt data-md="">
+     <p><dfn class="css" data-dfn-type="property" data-export="" id="propdef-ocr-scripts">ocr-scripts<a class="self-link" href="#propdef-ocr-scripts"></a></dfn></p>
+    <dd data-md="">
+     <p>Use <a href="http://www.unicode.org/iso15924/codelists.html">ISO 15924</a> letter codes</p>
+    <dd data-md="">
+     <p>Value may be <code>unknown</code></p>
+   </dl>
+   <h3 class="heading settled" data-level="12.1" id="capabilities"><span class="secno">12.1. </span><span class="content">Capabilities</span><a class="self-link" href="#capabilities"></a></h3>
    <p>Any program generating files in this output format must indicate in the
 document metadata what kind of markup it is capable of generating. This
 includes listing the exact set of markup sections that the system could have
 generated, even if it did not actually generate them for the particular
 document.</p>
-   <p>The capability to generate specific properties is given by the prefix <code>ocrp_...</code>;
-the important properties are:</p>
-   <h3 class="heading settled" data-level="12.1" id="ocrp_lang"><span class="secno">12.1. </span><span class="content"><dfn class="dfn-paneled css" data-dfn-for="ocr-capabilities" data-dfn-type="value" data-export="" id="valdef-ocr-capabilities-ocrp_lang">ocrp_lang</dfn></span><a class="self-link" href="#ocrp_lang"></a></h3>
-   <p>Capable of generating <code>lang=</code> attributes</p>
-   <h3 class="heading settled" data-level="12.2" id="ocrp_dir"><span class="secno">12.2. </span><span class="content"><dfn class="css" data-dfn-for="ocr-capabilities" data-dfn-type="value" data-export="" id="valdef-ocr-capabilities-ocrp_dir">ocrp_dir<a class="self-link" href="#valdef-ocr-capabilities-ocrp_dir"></a></dfn></span><a class="self-link" href="#ocrp_dir"></a></h3>
-   <p>Capable of generating <code>dir=</code> attributes</p>
-   <h3 class="heading settled" data-level="12.3" id="ocrp_poly"><span class="secno">12.3. </span><span class="content"><dfn class="dfn-paneled css" data-dfn-for="ocr-capabilities" data-dfn-type="value" data-export="" id="valdef-ocr-capabilities-ocrp_poly">ocrp_poly</dfn></span><a class="self-link" href="#ocrp_poly"></a></h3>
-   <p>Capable of generating <a href="#poly">polygonal bounds</a></p>
-   <h3 class="heading settled" data-level="12.4" id="ocrp_font"><span class="secno">12.4. </span><span class="content"><dfn class="dfn-paneled css" data-dfn-for="ocr-capabilities" data-dfn-type="value" data-export="" id="valdef-ocr-capabilities-ocrp_font">ocrp_font</dfn></span><a class="self-link" href="#ocrp_font"></a></h3>
-   <p>Capable of generating font information (standard font information)</p>
-   <h3 class="heading settled" data-level="12.5" id="ocrp_nlp"><span class="secno">12.5. </span><span class="content"><dfn class="css" data-dfn-for="ocr-capabilities" data-dfn-type="value" data-export="" id="valdef-ocr-capabilities-ocrp_nlp">ocrp_nlp<a class="self-link" href="#valdef-ocr-capabilities-ocrp_nlp"></a></dfn></span><a class="self-link" href="#ocrp_nlp"></a></h3>
-   <p>Capable of generating <a href="#nlp">nlp confidences</a></p>
-   <h3 class="heading settled" data-level="12.6" id="ocr_embeddedformat_formatname"><span class="secno">12.6. </span><span class="content"><code>ocr_embeddedformat_&lt;formatname></code></span><a class="self-link" href="#ocr_embeddedformat_formatname"></a></h3>
-   <p>The capability to generate other specific embedded formats is given by the
-prefix <code>ocr_embeddedformat_&lt;formatname></code>.</p>
-   <h3 class="heading settled" data-level="12.7" id="ocr_tag_unordered"><span class="secno">12.7. </span><span class="content"><code>ocr_&lt;tag>_unordered</code></span><a class="self-link" href="#ocr_tag_unordered"></a></h3>
-   <p>If an OCR engine represents a particular tag but cannot determine reading order
-for that tag, it must must specify a capability of <code>ocr_&lt;tag>_unordered</code>.</p>
    <p>If a document lists a certain capabilities but no element or attribute is found
 that corresponds to that capability, users of the document may infer that the
 content is absent in the source document. If a capability is not listed, the
 corresponding element or attribute must not be present in the document.</p>
-   <h2 class="heading settled" data-level="13" id="metadata"><span class="secno">13. </span><span class="content">Metadata</span><a class="self-link" href="#metadata"></a></h2>
-   <h3 class="heading settled" data-level="13.1" id="required-metadata"><span class="secno">13.1. </span><span class="content">Required Meta Information</span><a class="self-link" href="#required-metadata"></a></h3>
-   <p>The OCR system is required to indicate the following using meta tags in the header:</p>
-   <h4 class="heading settled" data-level="13.1.1" id="ocr-system"><span class="secno">13.1.1. </span><span class="content"><dfn class="css" data-dfn-type="property" data-export="" id="propdef-ocr-system">ocr-system<a class="self-link" href="#propdef-ocr-system"></a></dfn></span><a class="self-link" href="#ocr-system"></a></h4>
-   <ul>
-    <li data-md="">
-     <p><code>&lt;meta name="ocr-system" content="name version"/></code></p>
-   </ul>
-   <h4 class="heading settled" data-level="13.1.2" id="ocr-capabilities"><span class="secno">13.1.2. </span><span class="content"><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-ocr-capabilities">ocr-capabilities</dfn></span><a class="self-link" href="#ocr-capabilities"></a></h4>
-   <ul>
-    <li data-md="">
-     <p><code>&lt;meta name="ocr-capabilities" content="capabilities"/></code></p>
-     <ul>
-      <li data-md="">
-       <p>see <a href="#capabilities">§12 Capabilities</a></p>
-     </ul>
-   </ul>
-   <h3 class="heading settled" data-level="13.2" id="recommended-metadata"><span class="secno">13.2. </span><span class="content">Recommended Meta Information</span><a class="self-link" href="#recommended-metadata"></a></h3>
-   <p>The OCR system should indicate the following information</p>
-   <h4 class="heading settled" data-level="13.2.1" id="ocr-number-of-pages"><span class="secno">13.2.1. </span><span class="content"><dfn class="css" data-dfn-type="property" data-export="" id="propdef-ocr-number-of-pages">ocr-number-of-pages<a class="self-link" href="#propdef-ocr-number-of-pages"></a></dfn></span><a class="self-link" href="#ocr-number-of-pages"></a></h4>
-   <ul>
-    <li data-md="">
-     <p><code>&lt;meta name="ocr-number-of-pages" content="number-of-pages"/></code></p>
-   </ul>
-   <h4 class="heading settled" data-level="13.2.2" id="ocr-langs"><span class="secno">13.2.2. </span><span class="content"><dfn class="css" data-dfn-type="property" data-export="" id="propdef-ocr-langs">ocr-langs<a class="self-link" href="#propdef-ocr-langs"></a></dfn></span><a class="self-link" href="#ocr-langs"></a></h4>
-   <ul>
-    <li data-md="">
-     <p><code>&lt;meta name="ocr-langs" content="languages-considered-by-ocr"/></code></p>
-     <ul>
-      <li data-md="">
-       <p>use <a href="https://www.loc.gov/standards/iso639-2/php/code_list.php">ISO 639-1</a> codes</p>
-      <li data-md="">
-       <p>value may be <code>unknown</code></p>
-     </ul>
-   </ul>
-   <h4 class="heading settled" data-level="13.2.3" id="ocr-scripts"><span class="secno">13.2.3. </span><span class="content"><dfn class="css" data-dfn-type="property" data-export="" id="propdef-ocr-scripts">ocr-scripts<a class="self-link" href="#propdef-ocr-scripts"></a></dfn></span><a class="self-link" href="#ocr-scripts"></a></h4>
-   <ul>
-    <li data-md="">
-     <p><code>&lt;meta name="ocr-scripts" content="scripts-considered-by-ocr"/></code></p>
-     <ul>
-      <li data-md="">
-       <p>use <a href="http://www.unicode.org/iso15924/codelists.html">ISO 15924</a> letter codes</p>
-      <li data-md="">
-       <p>value may be <code>unknown</code></p>
-     </ul>
-   </ul>
-   <h3 class="heading settled" data-level="13.3" id="document-metadata"><span class="secno">13.3. </span><span class="content">Document metadata</span><a class="self-link" href="#document-metadata"></a></h3>
+   <p>The capability to generate specific properties is given by the prefix <code>ocrp_...</code>;
+the important properties are:</p>
+   <dl>
+    <dt data-md="">
+     <p><dfn class="dfn-paneled css" data-dfn-for="ocr-capabilities" data-dfn-type="value" data-export="" id="valdef-ocr-capabilities-ocrp_lang">ocrp_lang</dfn></p>
+    <dd data-md="">
+     <p>Capable of generating <code>lang=</code> attributes</p>
+    <dt data-md="">
+     <p><dfn class="css" data-dfn-for="ocr-capabilities" data-dfn-type="value" data-export="" id="valdef-ocr-capabilities-ocrp_dir">ocrp_dir<a class="self-link" href="#valdef-ocr-capabilities-ocrp_dir"></a></dfn></p>
+    <dd data-md="">
+     <p>Capable of generating <code>dir=</code> attributes</p>
+    <dt data-md="">
+     <p><dfn class="dfn-paneled css" data-dfn-for="ocr-capabilities" data-dfn-type="value" data-export="" id="valdef-ocr-capabilities-ocrp_poly">ocrp_poly</dfn></p>
+    <dd data-md="">
+     <p>Capable of generating <a href="#poly">polygonal bounds</a></p>
+    <dt data-md="">
+     <p><dfn class="dfn-paneled css" data-dfn-for="ocr-capabilities" data-dfn-type="value" data-export="" id="valdef-ocr-capabilities-ocrp_font">ocrp_font</dfn></p>
+    <dd data-md="">
+     <p>Capable of generating font information (standard font information)</p>
+    <dt data-md="">
+     <p><dfn class="css" data-dfn-for="ocr-capabilities" data-dfn-type="value" data-export="" id="valdef-ocr-capabilities-ocrp_nlp">ocrp_nlp<a class="self-link" href="#valdef-ocr-capabilities-ocrp_nlp"></a></dfn></p>
+    <dd data-md="">
+     <p>Capable of generating <a href="#nlp">nlp confidences</a></p>
+    <dt data-md="">
+     <p><code>ocr_embeddedformat_&lt;formatname></code></p>
+    <dd data-md="">
+     <p>The capability to generate other specific embedded formats is given by the
+prefix <code>ocr_embeddedformat_&lt;formatname></code>.</p>
+    <dt data-md="">
+     <p><code>ocr_&lt;tag>_unordered</code></p>
+    <dd data-md="">
+     <p>If an OCR engine represents a particular tag but cannot determine reading
+order for that tag, it must must specify a capability of <code>ocr_&lt;tag>_unordered</code>.</p>
+   </dl>
+   <h3 class="heading settled" data-level="12.2" id="document-metadata"><span class="secno">12.2. </span><span class="content">Document metadata</span><a class="self-link" href="#document-metadata"></a></h3>
    <p>For document meta information, use the <a href="http://dublincore.org/documents/dcq-html/">Dublin Core Embedding into
 HTML</a>. See also <a href="http://dublincore.org/documents/dc-citation-guidelines/">Citation Guidelines
 for Dublin Core</a>.</p>
-   <h2 class="heading settled" data-level="14" id="profiles"><span class="secno">14. </span><span class="content">Profiles</span><a class="self-link" href="#profiles"></a></h2>
+   <h3 class="heading settled" data-level="12.3" id="metadata-example"><span class="secno">12.3. </span><span class="content">Example</span><a class="self-link" href="#metadata-example"></a></h3>
+   <div class="example" id="example-be5dd045">
+    <a class="self-link" href="#example-be5dd045"></a> 
+<pre class="language-html highlight"><span class="p">&lt;</span><span class="nt">html</span><span class="p">></span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">></span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"ocr-system"</span> <span class="na">content</span><span class="o">=</span><span class="s">"tesseract v3.03"</span><span class="p">/</span><span class="p">></span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"ocr-capabilities"</span> <span class="na">content</span><span class="o">=</span><span class="s">"ocr_page ocr_line ocrp_lang"</span><span class="p">/</span><span class="p">></span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"ocr-langs"</span> <span class="na">content</span><span class="o">=</span><span class="s">"aa la zu"</span><span class="p">/</span><span class="p">></span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"ocr-scripts"</span> <span class="na">content</span><span class="o">=</span><span class="s">"Arab Khmr"</span><span class="p">/</span><span class="p">></span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"ocr-number-of-pages"</span> <span class="na">content</span><span class="o">=</span><span class="s">"112"</span><span class="p">/</span><span class="p">></span>
+    ...
+  <span class="p">&lt;</span><span class="p">/</span><span class="nt">head</span><span class="p">></span>
+  ...
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">html</span><span class="p">></span>
+</pre>
+    <p>Indicate that the work this hOCR file represents:</p>
+    <ul>
+     <li data-md="">
+      <p>was produced by Tesseract v3.03</p>
+     <li data-md="">
+      <p>will provide <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-4">ocr_page</a></code> and <code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-7">ocr_line</a></code> elements with <code>lang=</code> attribute</p>
+     <li data-md="">
+      <p>contains text written in the Afar, Latin or Zulu languages</p>
+     <li data-md="">
+      <p>contains text written in Arabic and Khmer script</p>
+     <li data-md="">
+      <p>has <code>112</code> pages</p>
+    </ul>
+   </div>
+   <h2 class="heading settled" data-level="13" id="profiles"><span class="secno">13. </span><span class="content">Profiles</span><a class="self-link" href="#profiles"></a></h2>
    <p>hOCR provides standard means of marking up information, but it does not mandate
 the presence or absence of particular kinds of information.  For example, an
 hOCR file may contain only logical markup, only physical markup, or only
@@ -2445,7 +2457,7 @@ document classes:</p>
      <p>common commercial OCR output (e.g., Abbyy)</p>
      <ul>
       <li data-md="">
-       <p><code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-3">ocr_page</a></code></p>
+       <p><code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-5">ocr_page</a></code></p>
       <li data-md="">
        <p><code><a data-link-type="element" href="#elementdef-ocrx_block" id="ref-for-elementdef-ocrx_block-6">ocrx_block</a></code>, <code><a data-link-type="element" href="#elementdef-ocrx_line" id="ref-for-elementdef-ocrx_line-3">ocrx_line</a></code>, <code><a data-link-type="element" href="#elementdef-ocrx_word" id="ref-for-elementdef-ocrx_word-1">ocrx_word</a></code></p>
       <li data-md="">
@@ -2459,7 +2471,7 @@ document classes:</p>
       <li data-md="">
        <p>all logical structuring elements (as applicable), except <code><a data-link-type="element" href="#elementdef-ocr_linear" id="ref-for-elementdef-ocr_linear-9">ocr_linear</a></code></p>
       <li data-md="">
-       <p><code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-4">ocr_page</a></code></p>
+       <p><code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-6">ocr_page</a></code></p>
      </ul>
     <li data-md="">
      <p>newspaper target</p>
@@ -2469,10 +2481,10 @@ document classes:</p>
       <li data-md="">
        <p>articles map on <code><a data-link-type="element" href="#elementdef-ocr_linear" id="ref-for-elementdef-ocr_linear-10">ocr_linear</a></code></p>
       <li data-md="">
-       <p><code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-5">ocr_page</a></code></p>
+       <p><code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-7">ocr_page</a></code></p>
      </ul>
    </ul>
-   <h2 class="heading settled" data-level="15" id="html-markup"><span class="secno">15. </span><span class="content">HTML Markup</span><a class="self-link" href="#html-markup"></a></h2>
+   <h2 class="heading settled" data-level="14" id="html-markup"><span class="secno">14. </span><span class="content">HTML Markup</span><a class="self-link" href="#html-markup"></a></h2>
    <p>The HTML-based markup is orthogonal to the hOCR-based markup; that is, both can
 be chosen independent of one another. The only thing that needs to be
 consistent between the two markups is the text contained within the tags. hOCR
@@ -2489,7 +2501,7 @@ suitable for different kinds of processing and use. The formats have the
 following intents:</p>
    <dl>
     <dt data-md="">
-     <p><a data-link-type="dfn" href="#html_none" id="ref-for-html_none-1">html_none</a> (see <a href="#format-none">§15.3 HTML without logical markup</a>)</p>
+     <p><a data-link-type="dfn" href="#html_none" id="ref-for-html_none-1">html_none</a> (see <a href="#format-none">§14.3 HTML without logical markup</a>)</p>
     <dd data-md="">
      <p>Straightforward equivalent of Goodoc or <a data-link-type="biblio" href="#biblio-xdoc">[XDOC]</a></p>
     <dt data-md="">
@@ -2501,11 +2513,11 @@ following intents:</p>
     <dd data-md="">
      <p>Target format for layout-preserving on-screen document viewing</p>
     <dt data-md="">
-     <p>Formats defined in <a href="#format-ocr">§15.5 HTML produced by OCR engines</a></p>
+     <p>Formats defined in <a href="#format-ocr">§14.5 HTML produced by OCR engines</a></p>
     <dd data-md="">
      <p>Straightforward recording of commercial OCR system output</p>
     <dt data-md="">
-     <p>Formats defined in <a href="#format-absolute">§15.6 HTML with absolute positioning</a></p>
+     <p>Formats defined in <a href="#format-absolute">§14.6 HTML with absolute positioning</a></p>
     <dd data-md="">
      <p>Target format for services like Google’s View as HTML</p>
    </dl>
@@ -2515,7 +2527,7 @@ particular, we envision layout analysis tools for converting any hOCR document
 into <a data-link-type="dfn">html_absolute</a>, <a data-link-type="dfn" href="#html_xytable_absolute" id="ref-for-html_xytable_absolute-2">html_xytable_absolute</a>, and <a data-link-type="dfn" href="#html_simple" id="ref-for-html_simple-2">html_simple</a>. Furthermore, internally, a layout analysis system might
 use <a data-link-type="dfn" href="#html_xytable_absolute" id="ref-for-html_xytable_absolute-3">html_xytable_absolute</a> as an intermediate format for converting hOCR
 into <a data-link-type="dfn" href="#html_simple" id="ref-for-html_simple-3">html_simple</a>.</p>
-   <h3 class="heading settled" data-level="15.1" id="html-restrictions"><span class="secno">15.1. </span><span class="content">Restrictions on HTML Content</span><a class="self-link" href="#html-restrictions"></a></h3>
+   <h3 class="heading settled" data-level="14.1" id="html-restrictions"><span class="secno">14.1. </span><span class="content">Restrictions on HTML Content</span><a class="self-link" href="#html-restrictions"></a></h3>
    <p>To avoid problems, any use of HTML markup must follow the following rules:</p>
    <ul>
     <li data-md="">
@@ -2526,7 +2538,7 @@ in this document (<code>ocr_*</code>)</p>
 class for any purposes other than encoding OCR-related properties as
 described in this document</p>
    </ul>
-   <h3 class="heading settled" data-level="15.2" id="html-mappings"><span class="secno">15.2. </span><span class="content">Recommendations for Mappings</span><a class="self-link" href="#html-mappings"></a></h3>
+   <h3 class="heading settled" data-level="14.2" id="html-mappings"><span class="secno">14.2. </span><span class="content">Recommendations for Mappings</span><a class="self-link" href="#html-mappings"></a></h3>
    <p>When possible, any mapping of logical structure onto HTML should try to follow the following rules:</p>
    <ul>
     <li data-md="">
@@ -2576,12 +2588,12 @@ given)</p>
     <li data-md="">
      <p><code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-wbr-element">wbr</a></code> to indicate that line breaking is permitted at that location</p>
    </ul>
-   <h3 class="heading settled" data-level="15.3" id="format-none"><span class="secno">15.3. </span><span class="content">HTML without logical markup</span><a class="self-link" href="#format-none"></a></h3>
+   <h3 class="heading settled" data-level="14.3" id="format-none"><span class="secno">14.3. </span><span class="content">HTML without logical markup</span><a class="self-link" href="#format-none"></a></h3>
    <p>The <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="html_none">html_none</dfn> format contains no logical markup at all; it is
 simply a collection of <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-div-element">div</a></code> and <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-span-element">span</a></code> elements with associated hOCR
 information. Note that such documents can still be rendered visually through
 the use of CSS.</p>
-   <h3 class="heading settled" data-level="15.4" id="format-simple"><span class="secno">15.4. </span><span class="content">HTML with limited logical elements</span><a class="self-link" href="#format-simple"></a></h3>
+   <h3 class="heading settled" data-level="14.4" id="format-simple"><span class="secno">14.4. </span><span class="content">HTML with limited logical elements</span><a class="self-link" href="#format-simple"></a></h3>
    <p>The <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="html_simple">html_simple</dfn> format follows the restrictions and
 recommendations above, and only uses the following tags:</p>
    <ul>
@@ -2608,7 +2620,7 @@ recommendations above, and only uses the following tags:</p>
     <li data-md="">
      <p>all other uses of <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-div-element">div</a></code>, <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-span-element">span</a></code>, <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-ins-element">ins</a></code>, and <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-del-element">del</a></code> only for hOCR tags or other embedded formats (hCard, …)</p>
    </ul>
-   <h3 class="heading settled" data-level="15.5" id="format-ocr"><span class="secno">15.5. </span><span class="content">HTML produced by OCR engines</span><a class="self-link" href="#format-ocr"></a></h3>
+   <h3 class="heading settled" data-level="14.5" id="format-ocr"><span class="secno">14.5. </span><span class="content">HTML produced by OCR engines</span><a class="self-link" href="#format-ocr"></a></h3>
    <p>HTML markup produced by default by the OCR engine for the given document
 must follow the template <code>html_ocr_&lt;engine></code>.</p>
    <p>Examples of possible values are:</p>
@@ -2622,7 +2634,7 @@ must follow the template <code>html_ocr_&lt;engine></code>.</p>
     <dt data-md="">
      <p><dfn data-dfn-type="dfn" data-noexport="" id="html_ocr_textbridge_11">html_ocr_textbridge_11<a class="self-link" href="#html_ocr_textbridge_11"></a></dfn></p>
    </dl>
-   <h3 class="heading settled" data-level="15.6" id="format-absolute"><span class="secno">15.6. </span><span class="content">HTML with absolute positioning</span><a class="self-link" href="#format-absolute"></a></h3>
+   <h3 class="heading settled" data-level="14.6" id="format-absolute"><span class="secno">14.6. </span><span class="content">HTML with absolute positioning</span><a class="self-link" href="#format-absolute"></a></h3>
    <p>The HTML represents absolute positioning of elements on each page.</p>
    <p>Possible subformats are:</p>
    <dl>
@@ -2650,7 +2662,7 @@ must follow the template <code>html_ocr_&lt;engine></code>.</p>
    <p>The <a href="https://googlewebmastercentral.blogspot.de/2011/09/pdfs-in-google-search-results.html">"View as HTML" for PDF
 files</a> feature of Google Search uses <a data-link-type="dfn" href="#html_absolute_lines" id="ref-for-html_absolute_lines-1">html_absolute_lines</a>; this is probably the most
 reasonable choice for approximating the appearance of the original document.</p>
-   <h3 class="heading settled" data-level="15.7" id="format-table"><span class="secno">15.7. </span><span class="content">HTML as table</span><a class="self-link" href="#format-table"></a></h3>
+   <h3 class="heading settled" data-level="14.7" id="format-table"><span class="secno">14.7. </span><span class="content">HTML as table</span><a class="self-link" href="#format-table"></a></h3>
    <p>The HTML is a table that gives the XY-cut layout segmentation structure of the
 page in tabular form.</p>
    <p>Note that in this format, text order does not necessarily correspond to
@@ -2668,7 +2680,7 @@ itself is as in <a data-link-type="dfn" href="#html_simple" id="ref-for-html_sim
     <dd data-md="">
      <p>Table element sizes are expressed relative (percentages).</p>
    </dl>
-   <h3 class="heading settled" data-level="15.8" id="format-wordprocessor"><span class="secno">15.8. </span><span class="content">HTML from word processors</span><a class="self-link" href="#format-wordprocessor"></a></h3>
+   <h3 class="heading settled" data-level="14.8" id="format-wordprocessor"><span class="secno">14.8. </span><span class="content">HTML from word processors</span><a class="self-link" href="#format-wordprocessor"></a></h3>
    <p>The HTML represents markup that follows the mappings of the given document processor to HTML.</p>
    <p>Note that the document doesn’t actually need to have been constructed in the
 processor and that the processor doesn’t need to have been used to generate
@@ -2693,7 +2705,7 @@ converted to HTML would have used.</p>
     <dd data-md="">
      <p>HTML mapping generated by official XSL style sheets</p>
    </dl>
-   <h2 class="heading settled" data-level="16" id="sample-usage"><span class="secno">16. </span><span class="content">Sample Usage</span><a class="self-link" href="#sample-usage"></a></h2>
+   <h2 class="heading settled" data-level="15" id="sample-usage"><span class="secno">15. </span><span class="content">Sample Usage</span><a class="self-link" href="#sample-usage"></a></h2>
    <p>See also the <a href="https://github.com/tmbdev/hocr-tools">hocr-tools</a> for more samples.</p>
    <p>The HTML format described here may seem fairly complicated and difficult to
 parse, but because there are lots of tools for manipulating HTML documents,
@@ -2731,10 +2743,10 @@ they’re actually pretty easy to manipulate. Here are some examples:</p>
 </pre>
    <p>Note that the OCR markup, basic HTML markup, and semantic markup can co-exist
 within the same HTML file without interfering with one another.</p>
-   <h2 class="heading settled" data-level="17" id="iana"><span class="secno">17. </span><span class="content">IANA Considerations</span><a class="self-link" href="#iana"></a></h2>
+   <h2 class="heading settled" data-level="16" id="iana"><span class="secno">16. </span><span class="content">IANA Considerations</span><a class="self-link" href="#iana"></a></h2>
    <p class="issue" id="issue-f6d39356"><a class="self-link" href="#issue-f6d39356"></a> <a href="https://github.com/kba/hocr-spec/issues/2">XML namespace for hOCR HTML?</a></p>
    <p class="issue" id="issue-a3899b99"><a class="self-link" href="#issue-a3899b99"></a> <a href="https://github.com/kba/hocr-spec/issues/1">What DOCTYPE for hOCR HTML?</a></p>
-   <h3 class="heading settled" data-level="17.1" id="media-type"><span class="secno">17.1. </span><span class="content">Media Type</span><a class="self-link" href="#media-type"></a></h3>
+   <h3 class="heading settled" data-level="16.1" id="media-type"><span class="secno">16.1. </span><span class="content">Media Type</span><a class="self-link" href="#media-type"></a></h3>
    <p>In accordance to <a data-link-type="biblio" href="#biblio-rfc2048">[RFC2048]</a></p>
    <p class="issue" id="issue-19855aac"><a class="self-link" href="#issue-19855aac"></a> <a href="https://github.com/kba/hocr-spec/issues/27">correct MIME type for hOCR?</a></p>
    <dl>
@@ -2920,22 +2932,22 @@ within the same HTML file without interfering with one another.</p>
    <li><a href="#propdef-cflow">cflow</a><span>, in §3.2.4</span>
    <li><a href="#propdef-cuts">cuts</a><span>, in §7.2.1</span>
    <li><a href="#propdef-hardbreak">hardbreak</a><span>, in §5.3.4</span>
-   <li><a href="#html_absolute_chars">html_absolute_chars</a><span>, in §15.6</span>
-   <li><a href="#html_absolute_cols">html_absolute_cols</a><span>, in §15.6</span>
-   <li><a href="#html_absolute_lines">html_absolute_lines</a><span>, in §15.6</span>
-   <li><a href="#html_absolute_pars">html_absolute_pars</a><span>, in §15.6</span>
-   <li><a href="#html_absolute_words">html_absolute_words</a><span>, in §15.6</span>
-   <li><a href="#html_docbook_xsl">html_docbook_xsl</a><span>, in §15.8</span>
-   <li><a href="#html_latex2html">html_latex2html</a><span>, in §15.8</span>
-   <li><a href="#html_msword">html_msword</a><span>, in §15.8</span>
-   <li><a href="#html_none">html_none</a><span>, in §15.3</span>
-   <li><a href="#html_ocr_finereader_8">html_ocr_finereader_8</a><span>, in §15.5</span>
-   <li><a href="#html_ocr_textbridge_11">html_ocr_textbridge_11</a><span>, in §15.5</span>
-   <li><a href="#html_ocr_unknown">html_ocr_unknown</a><span>, in §15.5</span>
-   <li><a href="#html_ooffice">html_ooffice</a><span>, in §15.8</span>
-   <li><a href="#html_simple">html_simple</a><span>, in §15.4</span>
-   <li><a href="#html_xytable_absolute">html_xytable_absolute</a><span>, in §15.7</span>
-   <li><a href="#html_xytable_relative">html_xytable_relative</a><span>, in §15.7</span>
+   <li><a href="#html_absolute_chars">html_absolute_chars</a><span>, in §14.6</span>
+   <li><a href="#html_absolute_cols">html_absolute_cols</a><span>, in §14.6</span>
+   <li><a href="#html_absolute_lines">html_absolute_lines</a><span>, in §14.6</span>
+   <li><a href="#html_absolute_pars">html_absolute_pars</a><span>, in §14.6</span>
+   <li><a href="#html_absolute_words">html_absolute_words</a><span>, in §14.6</span>
+   <li><a href="#html_docbook_xsl">html_docbook_xsl</a><span>, in §14.8</span>
+   <li><a href="#html_latex2html">html_latex2html</a><span>, in §14.8</span>
+   <li><a href="#html_msword">html_msword</a><span>, in §14.8</span>
+   <li><a href="#html_none">html_none</a><span>, in §14.3</span>
+   <li><a href="#html_ocr_finereader_8">html_ocr_finereader_8</a><span>, in §14.5</span>
+   <li><a href="#html_ocr_textbridge_11">html_ocr_textbridge_11</a><span>, in §14.5</span>
+   <li><a href="#html_ocr_unknown">html_ocr_unknown</a><span>, in §14.5</span>
+   <li><a href="#html_ooffice">html_ooffice</a><span>, in §14.8</span>
+   <li><a href="#html_simple">html_simple</a><span>, in §14.4</span>
+   <li><a href="#html_xytable_absolute">html_xytable_absolute</a><span>, in §14.7</span>
+   <li><a href="#html_xytable_relative">html_xytable_relative</a><span>, in §14.7</span>
    <li><a href="#propdef-image">image</a><span>, in §5.2.2</span>
    <li><a href="#propdef-imagemd5">imagemd5</a><span>, in §5.2.3</span>
    <li><a href="#propdef-lpageno">lpageno</a><span>, in §5.2.5</span>
@@ -2943,7 +2955,7 @@ within the same HTML file without interfering with one another.</p>
    <li><a href="#elementdef-ocr_abstract">ocr_abstract</a><span>, in §4.4</span>
    <li><a href="#elementdef-ocr_author">ocr_author</a><span>, in §4.3</span>
    <li><a href="#elementdef-ocr_blockquote">ocr_blockquote</a><span>, in §4.10</span>
-   <li><a href="#propdef-ocr-capabilities">ocr-capabilities</a><span>, in §13.1.2</span>
+   <li><a href="#propdef-ocr-capabilities">ocr-capabilities</a><span>, in §12</span>
    <li><a href="#elementdef-ocr_caption">ocr_caption</a><span>, in §4.12</span>
    <li><a href="#elementdef-ocr_carea">ocr_carea</a><span>, in §5.1.3</span>
    <li><a href="#elementdef-ocr_chapter">ocr_chapter</a><span>, in §4.6</span>
@@ -2959,24 +2971,24 @@ within the same HTML file without interfering with one another.</p>
    <li><a href="#elementdef-ocr_glyphs">ocr_glyphs</a><span>, in §6.1.2</span>
    <li><a href="#elementdef-ocr_header">ocr_header</a><span>, in §5.4.8</span>
    <li><a href="#elementdef-ocr_image">ocr_image</a><span>, in §5.4.5</span>
-   <li><a href="#propdef-ocr-langs">ocr-langs</a><span>, in §13.2.2</span>
+   <li><a href="#propdef-ocr-langs">ocr-langs</a><span>, in §12</span>
    <li><a href="#elementdef-ocr_line">ocr_line</a><span>, in §5.1.4</span>
    <li><a href="#elementdef-ocr_linear">ocr_linear</a><span>, in §4.11.1</span>
    <li><a href="#elementdef-ocr_linedrawing">ocr_linedrawing</a><span>, in §5.4.6</span>
    <li><a href="#elementdef-ocr_math">ocr_math</a><span>, in §6.1.5</span>
    <li><a href="#elementdef-ocr_noise">ocr_noise</a><span>, in §5.1.6</span>
-   <li><a href="#propdef-ocr-number-of-pages">ocr-number-of-pages</a><span>, in §13.2.1</span>
+   <li><a href="#propdef-ocr-number-of-pages">ocr-number-of-pages</a><span>, in §12</span>
    <li><a href="#elementdef-ocr_page">ocr_page</a><span>, in §5.1.1</span>
    <li><a href="#elementdef-ocr_pageno">ocr_pageno</a><span>, in §5.4.10</span>
    <li><a href="#elementdef-ocr_par">ocr_par</a><span>, in §4.11</span>
    <li><a href="#elementdef-ocr_part">ocr_part</a><span>, in §4.5</span>
-   <li><a href="#valdef-ocr-capabilities-ocrp_dir">ocrp_dir</a><span>, in §12.2</span>
-   <li><a href="#valdef-ocr-capabilities-ocrp_font">ocrp_font</a><span>, in §12.4</span>
+   <li><a href="#valdef-ocr-capabilities-ocrp_dir">ocrp_dir</a><span>, in §12.1</span>
+   <li><a href="#valdef-ocr-capabilities-ocrp_font">ocrp_font</a><span>, in §12.1</span>
    <li><a href="#elementdef-ocr_photo">ocr_photo</a><span>, in §5.4.7</span>
    <li><a href="#valdef-ocr-capabilities-ocrp_lang">ocrp_lang</a><span>, in §12.1</span>
-   <li><a href="#valdef-ocr-capabilities-ocrp_nlp">ocrp_nlp</a><span>, in §12.5</span>
-   <li><a href="#valdef-ocr-capabilities-ocrp_poly">ocrp_poly</a><span>, in §12.3</span>
-   <li><a href="#propdef-ocr-scripts">ocr-scripts</a><span>, in §13.2.3</span>
+   <li><a href="#valdef-ocr-capabilities-ocrp_nlp">ocrp_nlp</a><span>, in §12.1</span>
+   <li><a href="#valdef-ocr-capabilities-ocrp_poly">ocrp_poly</a><span>, in §12.1</span>
+   <li><a href="#propdef-ocr-scripts">ocr-scripts</a><span>, in §12</span>
    <li><a href="#elementdef-ocr_section">ocr_section</a><span>, in §4.7</span>
    <li>
     ocr_separator
@@ -2985,7 +2997,7 @@ within the same HTML file without interfering with one another.</p>
      <li><a href="#elementdef-ocr_separator0">(element)</a><span>, in §5.4.2</span>
     </ul>
    <li><a href="#elementdef-ocr_subsubsection">ocr_subsubsection</a><span>, in §4.8</span>
-   <li><a href="#propdef-ocr-system">ocr-system</a><span>, in §13.1.1</span>
+   <li><a href="#propdef-ocr-system">ocr-system</a><span>, in §12</span>
    <li><a href="#elementdef-ocr_table">ocr_table</a><span>, in §5.4.11</span>
    <li><a href="#elementdef-ocr_textfloat">ocr_textfloat</a><span>, in §5.4.3</span>
    <li><a href="#elementdef-ocr_textimage">ocr_textimage</a><span>, in §5.4.4</span>
@@ -2993,7 +3005,7 @@ within the same HTML file without interfering with one another.</p>
    <li><a href="#elementdef-ocrx_block">ocrx_block</a><span>, in §8.1.1</span>
    <li><a href="#elementdef-ocrx_line">ocrx_line</a><span>, in §8.1.2</span>
    <li><a href="#elementdef-ocrx_word">ocrx_word</a><span>, in §8.1.3</span>
-   <li><a href="#elementdef-ocr_xycut">ocr_xycut</a><span>, in §15.7</span>
+   <li><a href="#elementdef-ocr_xycut">ocr_xycut</a><span>, in §14.7</span>
    <li><a href="#propdef-order">order</a><span>, in §3.2.2</span>
    <li><a href="#propdef-poly">poly</a><span>, in §3.2.1</span>
    <li><a href="#propdef-ppageno">ppageno</a><span>, in §5.2.4</span>
@@ -3022,9 +3034,11 @@ within the same HTML file without interfering with one another.</p>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-dl-element">dl</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-em-element">em</a>
      <li><a href="https://html.spec.whatwg.org/multipage/embedded-content.html#the-embed-element">embed</a>
+     <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-head-element">head</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-i-element">i</a>
      <li><a href="https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element">img</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-ins-element">ins</a>
+     <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#meta">meta</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-ol-element">ol</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-p-element">p</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-span-element">span</a>
@@ -3167,7 +3181,7 @@ properties for floating elements; properties need to be defined for this.<a href
     <li><a href="#ref-for-elementdef-ocr_linear-2">4. Logical Structuring Elements</a>
     <li><a href="#ref-for-elementdef-ocr_linear-3">4.11.1. ocr_linear</a> <a href="#ref-for-elementdef-ocr_linear-4">(2)</a> <a href="#ref-for-elementdef-ocr_linear-5">(3)</a> <a href="#ref-for-elementdef-ocr_linear-6">(4)</a> <a href="#ref-for-elementdef-ocr_linear-7">(5)</a>
     <li><a href="#ref-for-elementdef-ocr_linear-8">5.1.3. ocr_carea</a>
-    <li><a href="#ref-for-elementdef-ocr_linear-9">14. Profiles</a> <a href="#ref-for-elementdef-ocr_linear-10">(2)</a>
+    <li><a href="#ref-for-elementdef-ocr_linear-9">13. Profiles</a> <a href="#ref-for-elementdef-ocr_linear-10">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_caption">
@@ -3181,7 +3195,9 @@ properties for floating elements; properties need to be defined for this.<a href
    <ul>
     <li><a href="#ref-for-elementdef-ocr_page-1">5.1.1. ocr_page</a>
     <li><a href="#ref-for-elementdef-ocr_page-2">11. Grouped Elements and Multiple Hierarchies</a>
-    <li><a href="#ref-for-elementdef-ocr_page-3">14. Profiles</a> <a href="#ref-for-elementdef-ocr_page-4">(2)</a> <a href="#ref-for-elementdef-ocr_page-5">(3)</a>
+    <li><a href="#ref-for-elementdef-ocr_page-3">12. Metadata</a>
+    <li><a href="#ref-for-elementdef-ocr_page-4">12.3. Example</a>
+    <li><a href="#ref-for-elementdef-ocr_page-5">13. Profiles</a> <a href="#ref-for-elementdef-ocr_page-6">(2)</a> <a href="#ref-for-elementdef-ocr_page-7">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_carea">
@@ -3201,6 +3217,7 @@ properties for floating elements; properties need to be defined for this.<a href
     <li><a href="#ref-for-elementdef-ocr_line-4">5.3.4. hardbreak</a>
     <li><a href="#ref-for-elementdef-ocr_line-5">8.1.2. ocrx_line</a>
     <li><a href="#ref-for-elementdef-ocr_line-6">8.1.3. ocrx_word</a>
+    <li><a href="#ref-for-elementdef-ocr_line-7">12.3. Example</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_float">
@@ -3245,20 +3262,20 @@ properties for floating elements; properties need to be defined for this.<a href
    <ul>
     <li><a href="#ref-for-elementdef-ocrx_block-1">3.2.4. cflow</a>
     <li><a href="#ref-for-elementdef-ocrx_block-2">8.1.3. ocrx_word</a> <a href="#ref-for-elementdef-ocrx_block-3">(2)</a> <a href="#ref-for-elementdef-ocrx_block-4">(3)</a> <a href="#ref-for-elementdef-ocrx_block-5">(4)</a>
-    <li><a href="#ref-for-elementdef-ocrx_block-6">14. Profiles</a>
+    <li><a href="#ref-for-elementdef-ocrx_block-6">13. Profiles</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocrx_line">
    <b><a href="#elementdef-ocrx_line">#elementdef-ocrx_line</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-elementdef-ocrx_line-1">8.1.3. ocrx_word</a> <a href="#ref-for-elementdef-ocrx_line-2">(2)</a>
-    <li><a href="#ref-for-elementdef-ocrx_line-3">14. Profiles</a>
+    <li><a href="#ref-for-elementdef-ocrx_line-3">13. Profiles</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocrx_word">
    <b><a href="#elementdef-ocrx_word">#elementdef-ocrx_word</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-elementdef-ocrx_word-1">14. Profiles</a>
+    <li><a href="#ref-for-elementdef-ocrx_word-1">13. Profiles</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="propdef-x_bboxes">
@@ -3274,10 +3291,23 @@ properties for floating elements; properties need to be defined for this.<a href
     <li><a href="#ref-for-propdef-x_confs-1">8.1.3. ocrx_word</a>
    </ul>
   </aside>
+  <aside class="dfn-panel" data-for="propdef-ocr-system">
+   <b><a href="#propdef-ocr-system">#propdef-ocr-system</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-propdef-ocr-system-1">12. Metadata</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="propdef-ocr-capabilities">
+   <b><a href="#propdef-ocr-capabilities">#propdef-ocr-capabilities</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-propdef-ocr-capabilities-1">3.2.1. poly</a>
+    <li><a href="#ref-for-propdef-ocr-capabilities-2">12. Metadata</a>
+   </ul>
+  </aside>
   <aside class="dfn-panel" data-for="valdef-ocr-capabilities-ocrp_lang">
    <b><a href="#valdef-ocr-capabilities-ocrp_lang">#valdef-ocr-capabilities-ocrp_lang</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-valdef-ocr-capabilities-ocrp_lang-1">14. Profiles</a>
+    <li><a href="#ref-for-valdef-ocr-capabilities-ocrp_lang-1">13. Profiles</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="valdef-ocr-capabilities-ocrp_poly">
@@ -3289,50 +3319,44 @@ properties for floating elements; properties need to be defined for this.<a href
   <aside class="dfn-panel" data-for="valdef-ocr-capabilities-ocrp_font">
    <b><a href="#valdef-ocr-capabilities-ocrp_font">#valdef-ocr-capabilities-ocrp_font</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-valdef-ocr-capabilities-ocrp_font-1">14. Profiles</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="propdef-ocr-capabilities">
-   <b><a href="#propdef-ocr-capabilities">#propdef-ocr-capabilities</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-propdef-ocr-capabilities-1">3.2.1. poly</a>
+    <li><a href="#ref-for-valdef-ocr-capabilities-ocrp_font-1">13. Profiles</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="html_none">
    <b><a href="#html_none">#html_none</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-html_none-1">15. HTML Markup</a>
+    <li><a href="#ref-for-html_none-1">14. HTML Markup</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="html_simple">
    <b><a href="#html_simple">#html_simple</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-html_simple-1">15. HTML Markup</a> <a href="#ref-for-html_simple-2">(2)</a> <a href="#ref-for-html_simple-3">(3)</a>
-    <li><a href="#ref-for-html_simple-4">15.7. HTML as table</a>
+    <li><a href="#ref-for-html_simple-1">14. HTML Markup</a> <a href="#ref-for-html_simple-2">(2)</a> <a href="#ref-for-html_simple-3">(3)</a>
+    <li><a href="#ref-for-html_simple-4">14.7. HTML as table</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="html_absolute_lines">
    <b><a href="#html_absolute_lines">#html_absolute_lines</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-html_absolute_lines-1">15.6. HTML with absolute positioning</a>
+    <li><a href="#ref-for-html_absolute_lines-1">14.6. HTML with absolute positioning</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="html_xytable_absolute">
    <b><a href="#html_xytable_absolute">#html_xytable_absolute</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-html_xytable_absolute-1">15. HTML Markup</a> <a href="#ref-for-html_xytable_absolute-2">(2)</a> <a href="#ref-for-html_xytable_absolute-3">(3)</a>
+    <li><a href="#ref-for-html_xytable_absolute-1">14. HTML Markup</a> <a href="#ref-for-html_xytable_absolute-2">(2)</a> <a href="#ref-for-html_xytable_absolute-3">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="html_xytable_relative">
    <b><a href="#html_xytable_relative">#html_xytable_relative</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-html_xytable_relative-1">15. HTML Markup</a>
+    <li><a href="#ref-for-html_xytable_relative-1">14. HTML Markup</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="html_latex2html">
    <b><a href="#html_latex2html">#html_latex2html</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-html_latex2html-1">15.8. HTML from word processors</a>
+    <li><a href="#ref-for-html_latex2html-1">14.8. HTML from word processors</a>
    </ul>
   </aside>
 <script>/* script-dfn-panel */
