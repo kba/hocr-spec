@@ -6,11 +6,14 @@ spec:html;type:element;
 </pre>
 
 <pre class="anchors">
-text:font;type:element;url:https://www.w3.org/TR/html401/present/graphics.html#edef-FONT
-type:element;spec:html;url:https://www.w3.org/TR/html5/text-level-semantics.html#the-sub-and-sup-elements
+spec:html40;text:font;type:element;url:https://www.w3.org/TR/html401/present/graphics.html#edef-FONT
+spec:html;type:element;url:https://www.w3.org/TR/html5/text-level-semantics.html#the-sub-and-sup-elements
 	text:sub
 	text:sup
-type:element;spec:html;url:https://html.spec.whatwg.org/multipage/semantics.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements;
+spec:html;type:element-attr;urlPrefix:https://html.spec.whatwg.org/multipage/dom.html
+	text:lang;for:*;url:#attr-lang
+	text:dir;for:*;url:#the-dir-attribute
+spec:html;type:element;url:https://html.spec.whatwg.org/multipage/semantics.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements;
 	text:h1
 	text:h2
 	text:h3
@@ -612,11 +615,11 @@ Different space widths should be indicated using HTML and `&ensp;`, `&emsp;`,
 Hyphenation {#hyphenation}
 -----------
 
-Soft hyphens must be represented using the HTML `&shy;` entity.
+Issue(7): How to handle hyphens?
 
-The HTML <a href="https://www.w3.org/TR/REC-html40/struct/dirlang.html#h-8.2.5">`&lrm;` and
-`&rlm;` entities</a> (indicating writing direction) must not be used; all
-writing direction changes must be indicated with tags.
+Issue(altoxml/schema#41): Non Linear Hyphens
+
+Soft hyphens must be represented using the HTML `&shy;` entity.
 
 Ruby characters {#ruby}
 ---------------
@@ -784,9 +787,17 @@ Font, Text Color, Language, Direction {#font-lang}
 
 OCR-generated font and text color information is encoded using standard HTML
 and CSS attributes on elements with a class of `ocr_...` or `ocrx_...`.
+
+Issue(75):
+
 Language and writing direction should be indicated using the HTML standard
-attributes `lang=` and `dir=`, or alternatively can be indicated as properties on
+attributes <{*/lang}> and <{*/dir}>, or alternatively can be indicated as properties on
 elements.
+
+The HTML <a href="https://www.w3.org/TR/REC-html40/struct/dirlang.html#h-8.2.5">`&lrm;` and
+`&rlm;` entities</a> (indicating writing direction) must not be used; all
+writing direction changes must be indicated with new tags with an appropriate
+<{*/dir}> attribute.
 
 OCR information and presentation information can be separated by putting the
 CSS info related to the CSS in an outer element with an `ocr_` or `ocrx_` class,
@@ -908,10 +919,10 @@ the important properties are:
 <dl dfn-for="ocr-capabilities">
 
   : <dfn value>ocrp_lang</dfn>
-  :: Capable of generating `lang=` attributes
+  :: Capable of generating <{*/lang}> attributes
 
   : <dfn value>ocrp_dir</dfn>
-  :: Capable of generating `dir=` attributes
+  :: Capable of generating <{*/dir}> attributes
 
   : <dfn value>ocrp_poly</dfn>
   :: Capable of generating [polygonal bounds](#poly)
@@ -963,7 +974,7 @@ Example {#metadata-example}
 Indicate that the work this hOCR file represents:
 
   * was produced by Tesseract v3.03
-  * will provide <{ocr_page}> and <{ocr_line}> elements with `lang=` attribute
+  * will provide <{ocr_page}> and <{ocr_line}> elements with <{*/lang}> attribute
   * contains text written in the Afar, Latin or Zulu languages
   * contains text written in Arabic and Khmer script
   * has `112` pages
