@@ -54,7 +54,7 @@ We are embedding this information inside HTML by encoding it within valid tags
 and attributes inside HTML; We are going to use the terms "elements" and
 "properties" for referring to embedded markup.
 
-Issue: [Specify that class must be a single value](https://github.com/kba/hocr-spec/issues/22)
+Issue(22):
 
 Elements are defined by the class= attribute on an arbitrary HTML tag. All
 elements in this format have a class name of the form `ocr..._...`.
@@ -160,7 +160,7 @@ The reading order of the element (an integer)
 
 ### <dfn property>presence</dfn>
 
-Issue: [Use of property presence](https://github.com/kba/hocr-spec/issues/10)
+Issue(10):
 
 'presence' presence must be declared in the document meta data
 
@@ -216,7 +216,7 @@ and its slope angle is `arctan(0.015) = 0.86°`.
 
 # Logical Structuring Elements
 
-Issue: [Logical Tags/classes](https://github.com/kba/hocr-spec/issues/66)
+Issue(66):
 
 The classes defined in this section for logically structuring a hOCR document
 have their standard meaning as used in the publishing industry and tools like
@@ -325,8 +325,7 @@ property), and that text flows around them. Note that with rectangular content
 areas and rectangular floats, already a wide variety of non-rectangular text
 shapes can be realized.
 
-Issue: There is currently no way of indicating anchoring or flow-around
-properties for floating elements; properties need to be defined for this.
+Issue(70):
 
 ## Classes for typesetting elements
 
@@ -380,6 +379,8 @@ They are represented by the <{ocr_line}> area.
 <{ocr_line}> should be in a `<span>`
 
 ### <dfn element>ocr_separator</dfn>
+
+Issue(37):
 
 Any separator or similar element
 
@@ -490,6 +491,8 @@ The following floats are defined:
 
 ### <dfn element>ocr_separator</dfn>
 
+Issue(37):
+
 `ocr_separator` in the context of float classes.
 
 ### <dfn element>ocr_textfloat</dfn>
@@ -534,6 +537,8 @@ Something that requires JPEG or PNG to be represented well
 There is some content that should behave and flow like text
 
 ## Classes for Inline Representation
+
+Issue(51):
 
 ### <dfn element>ocr_glyph</dfn>
 
@@ -590,6 +595,8 @@ Different space widths should be indicated using HTML and `&ensp;`, `&emsp`,
 `&thinsp;`, `&zwnj;`, `&zwj;`.
 
 ### Hyphenation
+
+Issue(7):
 
 Soft hyphens must be represented using the HTML `&shy;` entity.
 
@@ -675,14 +682,14 @@ Common suggested engine-specific markup are:
 
 ### <dfn element>ocrx_block</dfn>
 
-Issue: [ocr_carea vs ocrx_block](https://github.com/kba/hocr-spec/issues/28)
+Issue(28):
 
   * any kind of "block" returned by an OCR system
   * engine-specific because the definition of a "block" depends on the engine
 
 ### <dfn element>ocrx_line</dfn>
 
-Issue: [ocr_line vs ocrx_line](https://github.com/kba/hocr-spec/issues/19)
+Issue(19):
 
   * any kind of "line" returned by an OCR system that differs from the standard <{ocr_line}> above
   * might be some kind of "logical" line
@@ -703,7 +710,7 @@ attempt to ensure the following properties:
 * <{ocrx_cinfo}> should nest inside <{ocrx_line}>
 * <{ocrx_cinfo}> should contain only 'x_confs', 'x_bboxes', and 'cuts' attributes
 
-Issue: ocrx_cinfo?
+Issue(69):
 
 ## Properties for engine-specific markup
 
@@ -776,7 +783,9 @@ script ([list of codes](http://www.unicode.org/iso15924/codelists.html)), text-i
 
 # Alternative Segmentations / Readings
 
-Issue: [Delete x_cost](https://github.com/kba/hocr-spec/issues/9)
+Issue(9):
+
+Issue(25):
 
 Alternative segmentations and readings are indicated by a `<span>` with
 `class="alternatives"`. It must contains `<ins>` and `<del>` elements. The first
@@ -861,6 +870,8 @@ information using <{meta}> tags in the <{head}> section.
 
 Capabilities {#capabilities}
 ------------
+
+Issue(65):
 
 Any program generating files in this output format must indicate in the
 document metadata what kind of markup it is capable of generating. This
@@ -1073,6 +1084,8 @@ Specifically
   * `<ul>`, `<ol>`, `<dl>` should represent lists
   * `<table>` should represent tables, including correct use of the `<th>` tag
 
+Issue(68):
+
 If necessary, the markup may use the following non-standard tags:
 
   * `<nobr>` to indicate that line breaking is not permitted for the enclosed content
@@ -1220,15 +1233,15 @@ within the same HTML file without interfering with one another.
 
 # IANA Considerations
 
-Issue: [XML namespace for hOCR HTML?](https://github.com/kba/hocr-spec/issues/2)
+Issue(2):
 
-Issue: [What DOCTYPE for hOCR HTML?](https://github.com/kba/hocr-spec/issues/1)
+Issue(1):
 
 ## Media Type
 
 In accordance to [[RFC2048]]
 
-Issue: [correct MIME type for hOCR?](https://github.com/kba/hocr-spec/issues/27)
+Issue(27):
 
   : MIME media type name
   :: `text`
