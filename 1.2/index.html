@@ -1421,7 +1421,7 @@ Possible extra rowspan handling
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">hOCR - OCR Workflow and Output embedded in HTML</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-10-20">20 October 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-10-21">21 October 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1440,7 +1440,7 @@ Possible extra rowspan handling
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 20 October 2016,
+In addition, as of 21 October 2016,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1635,8 +1635,8 @@ variety of OCR-related information. However, being built on top of HTML, hOCR is
 designed to make it easy to start simple and gradually use more complex
 constructs when necessary.</p>
    <p>Consider you have an HTML document that encodes a book: Wrapping page elements
-in [<code>&lt;div class="ocr_page"></code>](#ocr_page) tags will convey the page boundaries to
-hOCR-capable agents and turn the HTML document into an hOCR document.</p>
+in <code>&lt;div class="<a href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-1">ocr_page</a>"></code> tags will convey the page boundaries to hOCR-capable agents and turn the HTML
+document into an hOCR document.</p>
    <h2 class="heading settled" data-level="3" id="terminology"><span class="secno">3. </span><span class="content">Terminology and Representation</span><a class="self-link" href="#terminology"></a></h2>
    <p>This document describes a representation of various aspects of OCR output in an
 XML-like format. That is, we define as set of tags containing text and other
@@ -1923,7 +1923,7 @@ properties for floating elements; properties need to be defined for this.</p>
    <p>The following classes, as well as <a href="#classes-for-floats">floats</a> are used for type-setting
 elements.</p>
    <h4 class="heading settled" data-level="5.1.1" id="ocr_page"><span class="secno">5.1.1. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_page">ocr_page</dfn></span><a class="self-link" href="#ocr_page"></a></h4>
-   <p>The <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-1">ocr_page</a></code> element must be present in all hOCR documents.</p>
+   <p>The <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-2">ocr_page</a></code> element must be present in all hOCR documents.</p>
    <h4 class="heading settled" data-level="5.1.2" id="ocr_column"><span class="secno">5.1.2. </span><span class="content"><dfn data-dfn-type="element" data-export="" id="elementdef-ocr_column">ocr_column<a class="self-link" href="#elementdef-ocr_column"></a></dfn></span><a class="self-link" href="#ocr_column"></a></h4>
    <div class="annoying-warning">
      <strong>OBSOLETE</strong> 
@@ -2310,7 +2310,7 @@ when viewed in a browser.</p>
    <h2 class="heading settled" data-level="11" id="groups"><span class="secno">11. </span><span class="content">Grouped Elements and Multiple Hierarchies</span><a class="self-link" href="#groups"></a></h2>
    <p>The different levels of layout information (logical, physical, engine-specific)
 each form hierarchies, but those hierarchies may not be mutually compatible;
-for example, a single <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-2">ocr_page</a></code> may contain information from multiple sections
+for example, a single <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-3">ocr_page</a></code> may contain information from multiple sections
 or chapters. To represent both hierarchies within a single document, elements
 may be grouped together.  That is, two elements with the same class may be
 treated as one element by adding a "groupid identifier" property to them and
@@ -2354,7 +2354,7 @@ information using <code><a data-link-type="element" href="https://html.spec.what
     <dt data-md="">
      <p><dfn class="css" data-dfn-type="property" data-export="" id="propdef-ocr-number-of-pages">ocr-number-of-pages<a class="self-link" href="#propdef-ocr-number-of-pages"></a></dfn></p>
     <dd data-md="">
-     <p>The number of <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-3">ocr_page</a></code> in the document</p>
+     <p>The number of <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-4">ocr_page</a></code> in the document</p>
     <dt data-md="">
      <p><dfn class="css" data-dfn-type="property" data-export="" id="propdef-ocr-langs">ocr-langs<a class="self-link" href="#propdef-ocr-langs"></a></dfn></p>
     <dd data-md="">
@@ -2436,7 +2436,7 @@ for Dublin Core</a>.</p>
      <li data-md="">
       <p>was produced by Tesseract v3.03</p>
      <li data-md="">
-      <p>will provide <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-4">ocr_page</a></code> and <code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-7">ocr_line</a></code> elements with <code>lang=</code> attribute</p>
+      <p>will provide <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-5">ocr_page</a></code> and <code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-7">ocr_line</a></code> elements with <code>lang=</code> attribute</p>
      <li data-md="">
       <p>contains text written in the Afar, Latin or Zulu languages</p>
      <li data-md="">
@@ -2477,7 +2477,7 @@ document classes:</p>
      <p>common commercial OCR output (e.g., Abbyy)</p>
      <ul>
       <li data-md="">
-       <p><code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-5">ocr_page</a></code></p>
+       <p><code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-6">ocr_page</a></code></p>
       <li data-md="">
        <p><code><a data-link-type="element" href="#elementdef-ocrx_block" id="ref-for-elementdef-ocrx_block-6">ocrx_block</a></code>, <code><a data-link-type="element" href="#elementdef-ocrx_line" id="ref-for-elementdef-ocrx_line-3">ocrx_line</a></code>, <code><a data-link-type="element" href="#elementdef-ocrx_word" id="ref-for-elementdef-ocrx_word-1">ocrx_word</a></code></p>
       <li data-md="">
@@ -2491,7 +2491,7 @@ document classes:</p>
       <li data-md="">
        <p>all logical structuring elements (as applicable), except <code><a data-link-type="element" href="#elementdef-ocr_linear" id="ref-for-elementdef-ocr_linear-9">ocr_linear</a></code></p>
       <li data-md="">
-       <p><code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-6">ocr_page</a></code></p>
+       <p><code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-7">ocr_page</a></code></p>
      </ul>
     <li data-md="">
      <p>newspaper target</p>
@@ -2501,7 +2501,7 @@ document classes:</p>
       <li data-md="">
        <p>articles map on <code><a data-link-type="element" href="#elementdef-ocr_linear" id="ref-for-elementdef-ocr_linear-10">ocr_linear</a></code></p>
       <li data-md="">
-       <p><code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-7">ocr_page</a></code></p>
+       <p><code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-8">ocr_page</a></code></p>
      </ul>
    </ul>
    <h2 class="heading settled" data-level="14" id="html-markup"><span class="secno">14. </span><span class="content">HTML Markup</span><a class="self-link" href="#html-markup"></a></h2>
@@ -3237,11 +3237,12 @@ properties for floating elements; properties need to be defined for this.<a href
   <aside class="dfn-panel" data-for="elementdef-ocr_page">
    <b><a href="#elementdef-ocr_page">#elementdef-ocr_page</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-elementdef-ocr_page-1">5.1.1. ocr_page</a>
-    <li><a href="#ref-for-elementdef-ocr_page-2">11. Grouped Elements and Multiple Hierarchies</a>
-    <li><a href="#ref-for-elementdef-ocr_page-3">12. Metadata</a>
-    <li><a href="#ref-for-elementdef-ocr_page-4">12.3. Example</a>
-    <li><a href="#ref-for-elementdef-ocr_page-5">13. Profiles</a> <a href="#ref-for-elementdef-ocr_page-6">(2)</a> <a href="#ref-for-elementdef-ocr_page-7">(3)</a>
+    <li><a href="#ref-for-elementdef-ocr_page-1">2. Introduction</a>
+    <li><a href="#ref-for-elementdef-ocr_page-2">5.1.1. ocr_page</a>
+    <li><a href="#ref-for-elementdef-ocr_page-3">11. Grouped Elements and Multiple Hierarchies</a>
+    <li><a href="#ref-for-elementdef-ocr_page-4">12. Metadata</a>
+    <li><a href="#ref-for-elementdef-ocr_page-5">12.3. Example</a>
+    <li><a href="#ref-for-elementdef-ocr_page-6">13. Profiles</a> <a href="#ref-for-elementdef-ocr_page-7">(2)</a> <a href="#ref-for-elementdef-ocr_page-8">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_carea">

@@ -37,8 +37,9 @@ designed to make it easy to start simple and gradually use more complex
 constructs when necessary.
 
 Consider you have an HTML document that encodes a book: Wrapping page elements
-in [`<div class="ocr_page">`](#ocr_page) tags will convey the page boundaries to
-hOCR-capable agents and turn the HTML document into an hOCR document.
+in <code>&lt;div class="<a href="#elementdef-ocr_page">ocr_page</a>"&gt;</code>
+tags will convey the page boundaries to hOCR-capable agents and turn the HTML
+document into an hOCR document.
 
 Terminology and Representation {#terminology}
 ==============================
@@ -1288,5 +1289,5 @@ Issue: [correct MIME type for hOCR?](https://github.com/kba/hocr-spec/issues/27)
 
 
 <!--
-vim: tw=120 sw=2 ts=2 et
+vim: tw=80 sw=2 ts=2 et
 -->
