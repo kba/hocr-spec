@@ -606,7 +606,7 @@ Whitespace {#whitespace}
 
 Non-breaking spaces must be represented using the HTML `&nbsp;` entity.
 
-Different space widths should be indicated using HTML and `&ensp;`, `&emsp`,
+Different space widths should be indicated using HTML and `&ensp;`, `&emsp;`,
 `&thinsp;`, `&zwnj;`, `&zwj;`.
 
 Hyphenation {#hyphenation}
