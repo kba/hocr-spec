@@ -7,6 +7,9 @@ spec:html;type:element;
 
 <pre class="anchors">
 text:font;type:element;url:https://www.w3.org/TR/html401/present/graphics.html#edef-FONT
+type:element;spec:html;url:https://www.w3.org/TR/html5/text-level-semantics.html#the-sub-and-sup-elements
+	text:sub
+	text:sup
 type:element;spec:html;url:https://html.spec.whatwg.org/multipage/semantics.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements;
 	text:h1
 	text:h2
