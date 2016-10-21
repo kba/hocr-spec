@@ -788,11 +788,8 @@ Font, Text Color, Language, Direction {#font-lang}
 OCR-generated font and text color information is encoded using standard HTML
 and CSS attributes on elements with a class of `ocr_...` or `ocrx_...`.
 
-Issue(75):
-
 Language and writing direction should be indicated using the HTML standard
-attributes <{*/lang}> and <{*/dir}>, or alternatively can be indicated as properties on
-elements.
+attributes <{*/lang}> and <{*/dir}>.
 
 The HTML <a href="https://www.w3.org/TR/REC-html40/struct/dirlang.html#h-8.2.5">`&lrm;` and
 `&rlm;` entities</a> (indicating writing direction) must not be used; all
