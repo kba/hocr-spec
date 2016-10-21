@@ -1525,19 +1525,13 @@ Parts of this work may be from another specification document.  If so, those par
     <li>
      <a href="#inline-representation"><span class="secno">6</span> <span class="content">Inline Representations</span></a>
      <ol class="toc">
-      <li>
-       <a href="#inline-classes"><span class="secno">6.1</span> <span class="content">Classes for Inline Representation</span></a>
-       <ol class="toc">
-        <li><a href="#ocr_glyph"><span class="secno">6.1.1</span> <span class="content"><span>ocr_glyph</span></span></a>
-        <li><a href="#ocr_glyphs"><span class="secno">6.1.2</span> <span class="content"><span>ocr_glyphs</span></span></a>
-        <li><a href="#ocr_dropcap"><span class="secno">6.1.3</span> <span class="content"><span>ocr_dropcap</span></span></a>
-        <li><a href="#ocr_chem"><span class="secno">6.1.4</span> <span class="content"><span>ocr_chem</span></span></a>
-        <li><a href="#ocr_math"><span class="secno">6.1.5</span> <span class="content"><span>ocr_math</span></span></a>
-        <li><a href="#superscript-and-subscript"><span class="secno">6.1.6</span> <span class="content">Superscript and Subscript</span></a>
-        <li><a href="#non-breaking-space"><span class="secno">6.1.7</span> <span class="content">Non-breaking space</span></a>
-        <li><a href="#non-default-spaces"><span class="secno">6.1.8</span> <span class="content">Non-default spaces</span></a>
-        <li><a href="#hyphenation"><span class="secno">6.1.9</span> <span class="content">Hyphenation</span></a>
-       </ol>
+      <li><a href="#unrecognized"><span class="secno">6.1</span> <span class="content">Unrecognized characters and words</span></a>
+      <li><a href="#dropcap"><span class="secno">6.2</span> <span class="content">Dropcap</span></a>
+      <li><a href="#formulas"><span class="secno">6.3</span> <span class="content">Mathematical and chemical formulas</span></a>
+      <li><a href="#sub-sup"><span class="secno">6.4</span> <span class="content">Superscript and Subscript</span></a>
+      <li><a href="#whitespace"><span class="secno">6.5</span> <span class="content">Whitespace</span></a>
+      <li><a href="#hyphenation"><span class="secno">6.6</span> <span class="content">Hyphenation</span></a>
+      <li><a href="#ruby"><span class="secno">6.7</span> <span class="content">Ruby characters</span></a>
      </ol>
     <li>
      <a href="#character-information"><span class="secno">7</span> <span class="content">Character Information</span></a>
@@ -2092,41 +2086,64 @@ format like SVG (even if it is actually represented as PNG)</p>
    <h4 class="heading settled" data-level="5.4.11" id="ocr_table"><span class="secno">5.4.11. </span><span class="content"><dfn data-dfn-type="element" data-export="" id="elementdef-ocr_table">ocr_table<a class="self-link" href="#elementdef-ocr_table"></a></dfn></span><a class="self-link" href="#ocr_table"></a></h4>
    <p><code>ocr_table</code></p>
    <h2 class="heading settled" data-level="6" id="inline-representation"><span class="secno">6. </span><span class="content">Inline Representations</span><a class="self-link" href="#inline-representation"></a></h2>
+   <p class="issue" id="issue-d41d8cd9"><a class="self-link" href="#issue-d41d8cd9"></a> <a href="https://github.com/kba/hocr-spec/issues/51">&lt;https://github.com/kba/hocr-spec/issues/51></a></p>
    <p>There is some content that should behave and flow like text</p>
-   <h3 class="heading settled" data-level="6.1" id="inline-classes"><span class="secno">6.1. </span><span class="content">Classes for Inline Representation</span><a class="self-link" href="#inline-classes"></a></h3>
-   <h4 class="heading settled" data-level="6.1.1" id="ocr_glyph"><span class="secno">6.1.1. </span><span class="content"><dfn data-dfn-type="element" data-export="" id="elementdef-ocr_glyph">ocr_glyph<a class="self-link" href="#elementdef-ocr_glyph"></a></dfn></span><a class="self-link" href="#ocr_glyph"></a></h4>
-   <p>An individual glyph represented as an image (e.g., an unrecognized character)</p>
-   <p>Must contain a single <code>&lt;img></code> tag, or be present on one</p>
-   <h4 class="heading settled" data-level="6.1.2" id="ocr_glyphs"><span class="secno">6.1.2. </span><span class="content"><dfn data-dfn-type="element" data-export="" id="elementdef-ocr_glyphs">ocr_glyphs<a class="self-link" href="#elementdef-ocr_glyphs"></a></dfn></span><a class="self-link" href="#ocr_glyphs"></a></h4>
-   <p>Multiple glyphs represented as an image (e.g., an unrecognized word)</p>
-   <p>Must contain a single <code>&lt;img></code> tag, or be present on one</p>
-   <h4 class="heading settled" data-level="6.1.3" id="ocr_dropcap"><span class="secno">6.1.3. </span><span class="content"><dfn data-dfn-type="element" data-export="" id="elementdef-ocr_dropcap">ocr_dropcap<a class="self-link" href="#elementdef-ocr_dropcap"></a></dfn></span><a class="self-link" href="#ocr_dropcap"></a></h4>
-   <p>An individual glyph representing a dropcap</p>
-   <p>May contain text or an <code>&lt;img></code> tag; the <code>alt</code> of the image tag should contain
+   <h3 class="heading settled" data-level="6.1" id="unrecognized"><span class="secno">6.1. </span><span class="content">Unrecognized characters and words</span><a class="self-link" href="#unrecognized"></a></h3>
+   <dl>
+    <dt data-md="">
+     <p><dfn data-dfn-type="element" data-export="" id="elementdef-ocr_glyph">ocr_glyph<a class="self-link" href="#elementdef-ocr_glyph"></a></dfn></p>
+    <dd data-md="">
+     <p>An individual glyph represented as an image (e.g., an unrecognized character)</p>
+    <dd data-md="">
+     <p>Must contain a single <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element">img</a></code> tag, or be present on one</p>
+    <dt data-md="">
+     <p><dfn data-dfn-type="element" data-export="" id="elementdef-ocr_glyphs">ocr_glyphs<a class="self-link" href="#elementdef-ocr_glyphs"></a></dfn></p>
+    <dd data-md="">
+     <p>Multiple glyphs represented as an image (e.g., an unrecognized word)</p>
+    <dd data-md="">
+     <p>Must contain a single <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element">img</a></code> tag, or be present on one</p>
+   </dl>
+   <h3 class="heading settled" data-level="6.2" id="dropcap"><span class="secno">6.2. </span><span class="content">Dropcap</span><a class="self-link" href="#dropcap"></a></h3>
+   <dl>
+    <dt data-md="">
+     <p><dfn data-dfn-type="element" data-export="" id="elementdef-ocr_dropcap">ocr_dropcap<a class="self-link" href="#elementdef-ocr_dropcap"></a></dfn></p>
+    <dd data-md="">
+     <p>An individual glyph representing a dropcap</p>
+    <dd data-md="">
+     <p>May contain text or an <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element">img</a></code> tag; the <code>alt=</code> of the image tag should contain
 the corresponding text</p>
-   <h4 class="heading settled" data-level="6.1.4" id="ocr_chem"><span class="secno">6.1.4. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_chem">ocr_chem</dfn></span><a class="self-link" href="#ocr_chem"></a></h4>
-   <p>A chemical formula</p>
-   <p>Must contain either a single <code>&lt;img></code> tag or <a data-link-type="biblio" href="#biblio-cml">[CML]</a> markup, or be present on
-one</p>
-   <h4 class="heading settled" data-level="6.1.5" id="ocr_math"><span class="secno">6.1.5. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_math">ocr_math</dfn></span><a class="self-link" href="#ocr_math"></a></h4>
-   <p>A mathematical formula</p>
-   <p>Must contain either a single <code>&lt;img></code> tag or <a data-link-type="biblio" href="#biblio-mathml">[MathML]</a> markup, or be present on
-one</p>
+   </dl>
+   <h3 class="heading settled" data-level="6.3" id="formulas"><span class="secno">6.3. </span><span class="content">Mathematical and chemical formulas</span><a class="self-link" href="#formulas"></a></h3>
    <p>Mathematical and chemical formulas that float must be put into an <code><a data-link-type="element" href="#elementdef-ocr_float" id="ref-for-elementdef-ocr_float-1">ocr_float</a></code> section.</p>
    <p>Mathematical and chemical formulas that are “display” mode should be put into
 an <code><a data-link-type="element" href="#elementdef-ocr_display" id="ref-for-elementdef-ocr_display-2">ocr_display</a></code> section.</p>
-   <h4 class="heading settled" data-level="6.1.6" id="superscript-and-subscript"><span class="secno">6.1.6. </span><span class="content">Superscript and Subscript</span><a class="self-link" href="#superscript-and-subscript"></a></h4>
+   <dl>
+    <dt data-md="">
+     <p><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_chem">ocr_chem</dfn></p>
+    <dd data-md="">
+     <p>A chemical formula</p>
+    <dd data-md="">
+     <p>Must contain either a single <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element">img</a></code> tag or <a data-link-type="biblio" href="#biblio-cml">[CML]</a> markup, or be present on one</p>
+    <dt data-md="">
+     <p><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_math">ocr_math</dfn></p>
+    <dd data-md="">
+     <p>A mathematical formula</p>
+    <dd data-md="">
+     <p>Must contain either a single <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element">img</a></code> tag or <a data-link-type="biblio" href="#biblio-mathml">[MathML]</a> markup, or be present on one</p>
+   </dl>
+   <h3 class="heading settled" data-level="6.4" id="sub-sup"><span class="secno">6.4. </span><span class="content">Superscript and Subscript</span><a class="self-link" href="#sub-sup"></a></h3>
    <p>Superscripts and subscripts, when not in <code><a data-link-type="element" href="#elementdef-ocr_math" id="ref-for-elementdef-ocr_math-1">ocr_math</a></code> or <code><a data-link-type="element" href="#elementdef-ocr_chem" id="ref-for-elementdef-ocr_chem-1">ocr_chem</a></code> formulas,
-must be represented using the HTML <code>&lt;sup></code> and <code>&lt;sub></code> tags, even if special
+must be represented using the HTML <code><a data-link-type="element" href="https://www.w3.org/TR/html5/text-level-semantics.html#the-sub-and-sup-elements">sup</a></code> and <code><a data-link-type="element" href="https://www.w3.org/TR/html5/text-level-semantics.html#the-sub-and-sup-elements">sub</a></code> tags, even if special
 Unicode characters are available.</p>
-   <h4 class="heading settled" data-level="6.1.7" id="non-breaking-space"><span class="secno">6.1.7. </span><span class="content">Non-breaking space</span><a class="self-link" href="#non-breaking-space"></a></h4>
+   <h3 class="heading settled" data-level="6.5" id="whitespace"><span class="secno">6.5. </span><span class="content">Whitespace</span><a class="self-link" href="#whitespace"></a></h3>
    <p>Non-breaking spaces must be represented using the HTML <code>&amp;nbsp;</code> entity.</p>
-   <h4 class="heading settled" data-level="6.1.8" id="non-default-spaces"><span class="secno">6.1.8. </span><span class="content">Non-default spaces</span><a class="self-link" href="#non-default-spaces"></a></h4>
-   <p>Different space widths should be indicated using HTML and <code>&amp;ensp;</code>, <code>&amp;emsp</code>, <code>&amp;thinsp;</code>, <code>&amp;zwnj;</code>, <code>&amp;zwj;</code>.</p>
-   <h4 class="heading settled" data-level="6.1.9" id="hyphenation"><span class="secno">6.1.9. </span><span class="content">Hyphenation</span><a class="self-link" href="#hyphenation"></a></h4>
+   <p>Different space widths should be indicated using HTML and <code>&amp;ensp;</code>, <code>&amp;emsp;</code>, <code>&amp;thinsp;</code>, <code>&amp;zwnj;</code>, <code>&amp;zwj;</code>.</p>
+   <h3 class="heading settled" data-level="6.6" id="hyphenation"><span class="secno">6.6. </span><span class="content">Hyphenation</span><a class="self-link" href="#hyphenation"></a></h3>
+   <p class="issue" id="issue-b90972d0"><a class="self-link" href="#issue-b90972d0"></a> How to handle hyphens? <a href="https://github.com/kba/hocr-spec/issues/7">&lt;https://github.com/kba/hocr-spec/issues/7></a></p>
+   <p class="issue" id="issue-3040ab4b"><a class="self-link" href="#issue-3040ab4b"></a> Non Linear Hyphens <a href="https://github.com/altoxml/schema/issues/41">&lt;https://github.com/altoxml/schema/issues/41></a></p>
    <p>Soft hyphens must be represented using the HTML <code>&amp;shy;</code> entity.</p>
-   <p>The HTML <a href="https://www.w3.org/TR/REC-html40/struct/dirlang.html#h-8.2.5"><code>&amp;lrm;</code> and <code>&amp;rlm;</code> entities</a> (indicating writing direction) must not be used; all
-writing direction changes must be indicated with tags.</p>
+   <h3 class="heading settled" data-level="6.7" id="ruby"><span class="secno">6.7. </span><span class="content">Ruby characters</span><a class="self-link" href="#ruby"></a></h3>
+   <p><a href="https://en.wikipedia.org/wiki/Ruby_character">Furigana and similar constructs</a> must be represented using their correct Unicode encoding.</p>
    <h2 class="heading settled" data-level="7" id="character-information"><span class="secno">7. </span><span class="content">Character Information</span><a class="self-link" href="#character-information"></a></h2>
    <h3 class="heading settled" data-level="7.1" id="character-classes"><span class="secno">7.1. </span><span class="content">Classes for Character Information</span><a class="self-link" href="#character-classes"></a></h3>
    <p>Character-level information may be put on any element that contains only a
@@ -2274,10 +2291,11 @@ them approximate posterior probabilities (expressed in %)</p>
    </ul>
    <h2 class="heading settled" data-level="9" id="font-lang"><span class="secno">9. </span><span class="content">Font, Text Color, Language, Direction</span><a class="self-link" href="#font-lang"></a></h2>
    <p>OCR-generated font and text color information is encoded using standard HTML
-and CSS attributes on elements with a class of <code>ocr_...</code> or <code>ocrx_...</code>.
-Language and writing direction should be indicated using the HTML standard
-attributes <code>lang=</code> and <code>dir=</code>, or alternatively can be indicated as properties on
-elements.</p>
+and CSS attributes on elements with a class of <code>ocr_...</code> or <code>ocrx_...</code>.</p>
+   <p>Language and writing direction should be indicated using the HTML standard
+attributes <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/dom.html#attr-lang">lang</a></code> and <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/dom.html#the-dir-attribute">dir</a></code>.</p>
+   <p>The HTML <a href="https://www.w3.org/TR/REC-html40/struct/dirlang.html#h-8.2.5"><code>&amp;lrm;</code> and <code>&amp;rlm;</code> entities</a> (indicating writing direction) must not be used; all
+writing direction changes must be indicated with new tags with an appropriate <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/dom.html#the-dir-attribute">dir</a></code> attribute.</p>
    <p>OCR information and presentation information can be separated by putting the
 CSS info related to the CSS in an outer element with an <code>ocr_</code> or <code>ocrx_</code> class,
 and then overriding it for the presentation by nesting another <code>&lt;span></code> with the
@@ -2287,7 +2305,6 @@ actual presentation information inside that:</p>
    <p>The CSS3 text layout attributes can be used when necessary. For example, CSS
 supports writing-mode, direction, glyph-orientation <a data-link-type="biblio" href="#biblio-iso15924">[ISO15924]</a>-based
 script (<a href="http://www.unicode.org/iso15924/codelists.html">list of codes</a>), text-indent, etc.</p>
-   <p><a href="https://en.wikipedia.org/wiki/Ruby_character">Furigana and similar constructs</a> must be represented using their correct Unicode encoding.</p>
    <h2 class="heading settled" data-level="10" id="segmentation"><span class="secno">10. </span><span class="content">Alternative Segmentations / Readings</span><a class="self-link" href="#segmentation"></a></h2>
    <p class="issue" id="issue-b35297dd"><a class="self-link" href="#issue-b35297dd"></a> <a href="https://github.com/kba/hocr-spec/issues/9">Delete x_cost</a></p>
    <p>Alternative segmentations and readings are indicated by a <code>&lt;span></code> with <code>class="alternatives"</code>. It must contains <code>&lt;ins></code> and <code>&lt;del></code> elements. The first
@@ -2382,11 +2399,11 @@ the important properties are:</p>
     <dt data-md="">
      <p><dfn class="dfn-paneled css" data-dfn-for="ocr-capabilities" data-dfn-type="value" data-export="" id="valdef-ocr-capabilities-ocrp_lang">ocrp_lang</dfn></p>
     <dd data-md="">
-     <p>Capable of generating <code>lang=</code> attributes</p>
+     <p>Capable of generating <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/dom.html#attr-lang">lang</a></code> attributes</p>
     <dt data-md="">
      <p><dfn class="css" data-dfn-for="ocr-capabilities" data-dfn-type="value" data-export="" id="valdef-ocr-capabilities-ocrp_dir">ocrp_dir<a class="self-link" href="#valdef-ocr-capabilities-ocrp_dir"></a></dfn></p>
     <dd data-md="">
-     <p>Capable of generating <code>dir=</code> attributes</p>
+     <p>Capable of generating <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/dom.html#the-dir-attribute">dir</a></code> attributes</p>
     <dt data-md="">
      <p><dfn class="dfn-paneled css" data-dfn-for="ocr-capabilities" data-dfn-type="value" data-export="" id="valdef-ocr-capabilities-ocrp_poly">ocrp_poly</dfn></p>
     <dd data-md="">
@@ -2415,8 +2432,8 @@ order for that tag, it must must specify a capability of <code>ocr_&lt;tag>_unor
 HTML</a>. See also <a href="http://dublincore.org/documents/dc-citation-guidelines/">Citation Guidelines
 for Dublin Core</a>.</p>
    <h3 class="heading settled" data-level="12.3" id="metadata-example"><span class="secno">12.3. </span><span class="content">Example</span><a class="self-link" href="#metadata-example"></a></h3>
-   <div class="example" id="example-be5dd045">
-    <a class="self-link" href="#example-be5dd045"></a> 
+   <div class="example" id="example-f760b6f8">
+    <a class="self-link" href="#example-f760b6f8"></a> 
 <pre class="language-html highlight"><span class="p">&lt;</span><span class="nt">html</span><span class="p">></span>
   <span class="p">&lt;</span><span class="nt">head</span><span class="p">></span>
     <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"ocr-system"</span> <span class="na">content</span><span class="o">=</span><span class="s">"tesseract v3.03"</span><span class="p">/</span><span class="p">></span>
@@ -2434,7 +2451,7 @@ for Dublin Core</a>.</p>
      <li data-md="">
       <p>was produced by Tesseract v3.03</p>
      <li data-md="">
-      <p>will provide <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-5">ocr_page</a></code> and <code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-7">ocr_line</a></code> elements with <code>lang=</code> attribute</p>
+      <p>will provide <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-5">ocr_page</a></code> and <code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-7">ocr_line</a></code> elements with <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/dom.html#attr-lang">lang</a></code> attribute</p>
      <li data-md="">
       <p>contains text written in the Afar, Latin or Zulu languages</p>
      <li data-md="">
@@ -2990,23 +3007,23 @@ within the same HTML file without interfering with one another.</p>
    <li><a href="#elementdef-ocr_caption">ocr_caption</a><span>, in §4</span>
    <li><a href="#elementdef-ocr_carea">ocr_carea</a><span>, in §5.1.3</span>
    <li><a href="#elementdef-ocr_chapter">ocr_chapter</a><span>, in §4</span>
-   <li><a href="#elementdef-ocr_chem">ocr_chem</a><span>, in §6.1.4</span>
+   <li><a href="#elementdef-ocr_chem">ocr_chem</a><span>, in §6.3</span>
    <li><a href="#elementdef-ocr_cinfo">ocr_cinfo</a><span>, in §7.1.1</span>
    <li><a href="#elementdef-ocr_column">ocr_column</a><span>, in §5.1.2</span>
    <li><a href="#elementdef-ocr_display">ocr_display</a><span>, in §4</span>
    <li><a href="#elementdef-ocr_document">ocr_document</a><span>, in §4</span>
-   <li><a href="#elementdef-ocr_dropcap">ocr_dropcap</a><span>, in §6.1.3</span>
+   <li><a href="#elementdef-ocr_dropcap">ocr_dropcap</a><span>, in §6.2</span>
    <li><a href="#elementdef-ocr_float">ocr_float</a><span>, in §5.4.1</span>
    <li><a href="#elementdef-ocr_footer">ocr_footer</a><span>, in §5.4.9</span>
-   <li><a href="#elementdef-ocr_glyph">ocr_glyph</a><span>, in §6.1.1</span>
-   <li><a href="#elementdef-ocr_glyphs">ocr_glyphs</a><span>, in §6.1.2</span>
+   <li><a href="#elementdef-ocr_glyph">ocr_glyph</a><span>, in §6.1</span>
+   <li><a href="#elementdef-ocr_glyphs">ocr_glyphs</a><span>, in §6.1</span>
    <li><a href="#elementdef-ocr_header">ocr_header</a><span>, in §5.4.8</span>
    <li><a href="#elementdef-ocr_image">ocr_image</a><span>, in §5.4.5</span>
    <li><a href="#propdef-ocr-langs">ocr-langs</a><span>, in §12</span>
    <li><a href="#elementdef-ocr_line">ocr_line</a><span>, in §5.1.4</span>
    <li><a href="#elementdef-ocr_linear">ocr_linear</a><span>, in §4</span>
    <li><a href="#elementdef-ocr_linedrawing">ocr_linedrawing</a><span>, in §5.4.6</span>
-   <li><a href="#elementdef-ocr_math">ocr_math</a><span>, in §6.1.5</span>
+   <li><a href="#elementdef-ocr_math">ocr_math</a><span>, in §6.3</span>
    <li><a href="#elementdef-ocr_noise">ocr_noise</a><span>, in §5.1.6</span>
    <li><a href="#propdef-ocr-number-of-pages">ocr-number-of-pages</a><span>, in §12</span>
    <li><a href="#elementdef-ocr_page">ocr_page</a><span>, in §5.1.1</span>
@@ -3062,6 +3079,7 @@ within the same HTML file without interfering with one another.</p>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-blockquote-element">blockquote</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-br-element">br</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-del-element">del</a>
+     <li><a href="https://html.spec.whatwg.org/multipage/dom.html#the-dir-attribute">dir</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-div-element">div</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-dl-element">dl</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-em-element">em</a>
@@ -3075,16 +3093,24 @@ within the same HTML file without interfering with one another.</p>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-i-element">i</a>
      <li><a href="https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element">img</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-ins-element">ins</a>
+     <li><a href="https://html.spec.whatwg.org/multipage/dom.html#attr-lang">lang</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#meta">meta</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-ol-element">ol</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-p-element">p</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-span-element">span</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-strong-element">strong</a>
+     <li><a href="https://www.w3.org/TR/html5/text-level-semantics.html#the-sub-and-sup-elements">sub</a>
+     <li><a href="https://www.w3.org/TR/html5/text-level-semantics.html#the-sub-and-sup-elements">sup</a>
      <li><a href="https://html.spec.whatwg.org/multipage/tables.html#the-table-element">table</a>
      <li><a href="https://html.spec.whatwg.org/multipage/tables.html#the-th-element">th</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-u-element">u</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-ul-element">ul</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-wbr-element">wbr</a>
+    </ul>
+   <li>
+    <a data-link-type="biblio">[HTML40]</a> defines the following terms:
+    <ul>
+     <li><a href="https://www.w3.org/TR/html401/present/graphics.html#edef-FONT">font</a>
     </ul>
   </ul>
   <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
@@ -3092,6 +3118,8 @@ within the same HTML file without interfering with one another.</p>
   <dl>
    <dt id="biblio-html">[HTML]
    <dd>Ian Hickson. <a href="https://html.spec.whatwg.org/multipage/">HTML Standard</a>. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
+   <dt id="biblio-html40">[HTML40]
+   <dd>Dave Raggett; Arnaud Le Hors; Ian Jacobs. <a href="https://www.w3.org/TR/html40">HTML 4.0 Recommendation</a>. 24 April 1998. REC. URL: <a href="https://www.w3.org/TR/html40">https://www.w3.org/TR/html40</a>
    <dt id="biblio-rfc2119">[RFC2119]
    <dd>S. Bradner. <a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
   </dl>
@@ -3099,8 +3127,6 @@ within the same HTML file without interfering with one another.</p>
   <dl>
    <dt id="biblio-cml">[CML]
    <dd>Peter Murray-Rust; Henry Rzepa. <a href="http://www.xml-cml.org/">Chemical Markup Language - CML</a>. URL: <a href="http://www.xml-cml.org/">http://www.xml-cml.org/</a>
-   <dt id="biblio-html40">[HTML40]
-   <dd>Dave Raggett; Arnaud Le Hors; Ian Jacobs. <a href="https://www.w3.org/TR/html40">HTML 4.0 Recommendation</a>. 24 April 1998. REC. URL: <a href="https://www.w3.org/TR/html40">https://www.w3.org/TR/html40</a>
    <dt id="biblio-iso15924">[ISO15924]
    <dd><cite>Code for the representation of names of scripts.</cite> International Organization for Standardization. 1998. ISO 15924:1998. Draft International Standard
    <dt id="biblio-mathml">[MathML]
@@ -3119,6 +3145,9 @@ within the same HTML file without interfering with one another.</p>
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/66">Logical Tags/classes</a><a href="#issue-2af02b43"> ↵ </a></div>
    <div class="issue"> There is currently no way of indicating anchoring or flow-around
 properties for floating elements; properties need to be defined for this.<a href="#issue-3f2f70ed"> ↵ </a></div>
+   <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/51">&lt;https://github.com/kba/hocr-spec/issues/51></a><a href="#issue-d41d8cd9"> ↵ </a></div>
+   <div class="issue"> How to handle hyphens? <a href="https://github.com/kba/hocr-spec/issues/7">&lt;https://github.com/kba/hocr-spec/issues/7></a><a href="#issue-b90972d0"> ↵ </a></div>
+   <div class="issue"> Non Linear Hyphens <a href="https://github.com/altoxml/schema/issues/41">&lt;https://github.com/altoxml/schema/issues/41></a><a href="#issue-3040ab4b"> ↵ </a></div>
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/28">ocr_carea vs ocrx_block</a><a href="#issue-66c198d9"> ↵ </a></div>
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/19">ocr_line vs ocrx_line</a><a href="#issue-8ef34561"> ↵ </a></div>
    <div class="issue"> ocrx_cinfo?<a href="#issue-000a0ed5"> ↵ </a></div>
@@ -3202,7 +3231,7 @@ properties for floating elements; properties need to be defined for this.<a href
    <b><a href="#elementdef-ocr_display">#elementdef-ocr_display</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-elementdef-ocr_display-1">4. Logical Structuring Elements</a>
-    <li><a href="#ref-for-elementdef-ocr_display-2">6.1.5. ocr_math</a>
+    <li><a href="#ref-for-elementdef-ocr_display-2">6.3. Mathematical and chemical formulas</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_blockquote">
@@ -3266,19 +3295,19 @@ properties for floating elements; properties need to be defined for this.<a href
   <aside class="dfn-panel" data-for="elementdef-ocr_float">
    <b><a href="#elementdef-ocr_float">#elementdef-ocr_float</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-elementdef-ocr_float-1">6.1.5. ocr_math</a>
+    <li><a href="#ref-for-elementdef-ocr_float-1">6.3. Mathematical and chemical formulas</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_chem">
    <b><a href="#elementdef-ocr_chem">#elementdef-ocr_chem</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-elementdef-ocr_chem-1">6.1.6. Superscript and Subscript</a>
+    <li><a href="#ref-for-elementdef-ocr_chem-1">6.4. Superscript and Subscript</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_math">
    <b><a href="#elementdef-ocr_math">#elementdef-ocr_math</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-elementdef-ocr_math-1">6.1.6. Superscript and Subscript</a>
+    <li><a href="#ref-for-elementdef-ocr_math-1">6.4. Superscript and Subscript</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_cinfo">
