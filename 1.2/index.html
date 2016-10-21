@@ -1537,7 +1537,6 @@ Parts of this work may be from another specification document.  If so, those par
         <li><a href="#non-breaking-space"><span class="secno">6.1.7</span> <span class="content">Non-breaking space</span></a>
         <li><a href="#non-default-spaces"><span class="secno">6.1.8</span> <span class="content">Non-default spaces</span></a>
         <li><a href="#hyphenation"><span class="secno">6.1.9</span> <span class="content">Hyphenation</span></a>
-        <li><a href="#ruby-characters"><span class="secno">6.1.10</span> <span class="content">Ruby characters</span></a>
        </ol>
      </ol>
     <li>
@@ -2128,8 +2127,6 @@ Unicode characters are available.</p>
    <p>Soft hyphens must be represented using the HTML <code>&amp;shy;</code> entity.</p>
    <p>The HTML <a href="https://www.w3.org/TR/REC-html40/struct/dirlang.html#h-8.2.5"><code>&amp;lrm;</code> and <code>&amp;rlm;</code> entities</a> (indicating writing direction) must not be used; all
 writing direction changes must be indicated with tags.</p>
-   <h4 class="heading settled" data-level="6.1.10" id="ruby-characters"><span class="secno">6.1.10. </span><span class="content">Ruby characters</span><a class="self-link" href="#ruby-characters"></a></h4>
-   <p><a href="https://en.wikipedia.org/wiki/Ruby_character">Furigana and similar constructs</a> must be represented using their correct Unicode encoding.</p>
    <h2 class="heading settled" data-level="7" id="character-information"><span class="secno">7. </span><span class="content">Character Information</span><a class="self-link" href="#character-information"></a></h2>
    <h3 class="heading settled" data-level="7.1" id="character-classes"><span class="secno">7.1. </span><span class="content">Classes for Character Information</span><a class="self-link" href="#character-classes"></a></h3>
    <p>Character-level information may be put on any element that contains only a
@@ -2290,6 +2287,7 @@ actual presentation information inside that:</p>
    <p>The CSS3 text layout attributes can be used when necessary. For example, CSS
 supports writing-mode, direction, glyph-orientation <a data-link-type="biblio" href="#biblio-iso15924">[ISO15924]</a>-based
 script (<a href="http://www.unicode.org/iso15924/codelists.html">list of codes</a>), text-indent, etc.</p>
+   <p><a href="https://en.wikipedia.org/wiki/Ruby_character">Furigana and similar constructs</a> must be represented using their correct Unicode encoding.</p>
    <h2 class="heading settled" data-level="10" id="segmentation"><span class="secno">10. </span><span class="content">Alternative Segmentations / Readings</span><a class="self-link" href="#segmentation"></a></h2>
    <p class="issue" id="issue-b35297dd"><a class="self-link" href="#issue-b35297dd"></a> <a href="https://github.com/kba/hocr-spec/issues/9">Delete x_cost</a></p>
    <p>Alternative segmentations and readings are indicated by a <code>&lt;span></code> with <code>class="alternatives"</code>. It must contains <code>&lt;ins></code> and <code>&lt;del></code> elements. The first

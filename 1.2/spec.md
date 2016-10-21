@@ -618,10 +618,6 @@ The HTML <a href="https://www.w3.org/TR/REC-html40/struct/dirlang.html#h-8.2.5">
 `&rlm;` entities</a> (indicating writing direction) must not be used; all
 writing direction changes must be indicated with tags.
 
-### Ruby characters
-
-[Furigana and similar constructs](https://en.wikipedia.org/wiki/Ruby_character)
-must be represented using their correct Unicode encoding.
 
 Character Information {#character-information}
 =====================
@@ -798,6 +794,9 @@ actual presentation information inside that:
 The CSS3 text layout attributes can be used when necessary. For example, CSS
 supports writing-mode, direction, glyph-orientation [[ISO15924]]-based
 script ([list of codes](http://www.unicode.org/iso15924/codelists.html)), text-indent, etc.
+
+[Furigana and similar constructs](https://en.wikipedia.org/wiki/Ruby_character)
+must be represented using their correct Unicode encoding.
 
 
 Alternative Segmentations / Readings {#segmentation}
