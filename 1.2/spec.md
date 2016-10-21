@@ -551,43 +551,31 @@ Something that requires JPEG or PNG to be represented well
 Inline Representations {#inline-representation}
 ======================
 
+Issue(51):
+
 There is some content that should behave and flow like text
 
-Classes for Inline Representation {#inline-classes}
+Unrecognized characters and words {#unrecognized}
 ---------------------------------
 
-### <dfn element>ocr_glyph</dfn>
+  : <dfn element>ocr_glyph</dfn>
+  :: An individual glyph represented as an image (e.g., an unrecognized character)
+  :: Must contain a single <{img}> tag, or be present on one
 
-An individual glyph represented as an image (e.g., an unrecognized character)
+  : <dfn element>ocr_glyphs</dfn>
+  :: Multiple glyphs represented as an image (e.g., an unrecognized word)
+  :: Must contain a single <{img}> tag, or be present on one
 
-Must contain a single `<img>` tag, or be present on one
+Dropcap {#dropcap}
+-------
 
-### <dfn element>ocr_glyphs</dfn>
+  : <dfn element>ocr_dropcap</dfn>
+  :: An individual glyph representing a dropcap
+  :: May contain text or an <{img}> tag; the `alt=` of the image tag should contain
+    the corresponding text
 
-Multiple glyphs represented as an image (e.g., an unrecognized word)
-
-Must contain a single `<img>` tag, or be present on one
-
-### <dfn element>ocr_dropcap</dfn>
-
-An individual glyph representing a dropcap
-
-May contain text or an `<img>` tag; the `alt` of the image tag should contain
-the corresponding text
-
-### <dfn element>ocr_chem</dfn>
-
-A chemical formula
-
-Must contain either a single `<img>` tag or [[CML]] markup, or be present on
-one
-
-### <dfn element>ocr_math</dfn>
-
-A mathematical formula
-
-Must contain either a single `<img>` tag or [[MathML]] markup, or be present on
-one
+Mathematical and chemical formulas {#formulas}
+----------------------------------
 
 Mathematical and chemical formulas that float must be put into an <{ocr_float}>
 section.
@@ -595,28 +583,43 @@ section.
 Mathematical and chemical formulas that are “display” mode should be put into
 an <{ocr_display}> section.
 
-### Superscript and Subscript
+: <dfn element>ocr_chem</dfn>
+:: A chemical formula
+:: Must contain either a single <{img}> tag or [[CML]] markup, or be present on one
+
+: <dfn element>ocr_math</dfn>
+:: A mathematical formula
+:: Must contain either a single <{img}> tag or [[MathML]] markup, or be present on one
+
+Superscript and Subscript {#sub-sup}
+-------------------------
 
 Superscripts and subscripts, when not in <{ocr_math}> or <{ocr_chem}> formulas,
-must be represented using the HTML `<sup>` and `<sub>` tags, even if special
+must be represented using the HTML <{sup}> and <{sub}> tags, even if special
 Unicode characters are available.
 
-### Non-breaking space
+Whitespace {#whitespace}
+----------
 
 Non-breaking spaces must be represented using the HTML `&nbsp;` entity.
-
-### Non-default spaces
 
 Different space widths should be indicated using HTML and `&ensp;`, `&emsp`,
 `&thinsp;`, `&zwnj;`, `&zwj;`.
 
-### Hyphenation
+Hyphenation {#hyphenation}
+-----------
 
 Soft hyphens must be represented using the HTML `&shy;` entity.
 
 The HTML <a href="https://www.w3.org/TR/REC-html40/struct/dirlang.html#h-8.2.5">`&lrm;` and
 `&rlm;` entities</a> (indicating writing direction) must not be used; all
 writing direction changes must be indicated with tags.
+
+Ruby characters {#ruby}
+---------------
+
+[Furigana and similar constructs](https://en.wikipedia.org/wiki/Ruby_character)
+must be represented using their correct Unicode encoding.
 
 
 Character Information {#character-information}
@@ -794,9 +797,6 @@ actual presentation information inside that:
 The CSS3 text layout attributes can be used when necessary. For example, CSS
 supports writing-mode, direction, glyph-orientation [[ISO15924]]-based
 script ([list of codes](http://www.unicode.org/iso15924/codelists.html)), text-indent, etc.
-
-[Furigana and similar constructs](https://en.wikipedia.org/wiki/Ruby_character)
-must be represented using their correct Unicode encoding.
 
 
 Alternative Segmentations / Readings {#segmentation}
