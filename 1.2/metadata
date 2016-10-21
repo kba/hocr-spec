@@ -8,5 +8,5 @@ URL: http://kba.github.io/hocr-spec/1.2/
 Editor: Konstantin Baierer, UB Mannheim http://github.com/UB-Mannheim, konstantin.baierer@gmail.com, http://github.com/kba
 Former Editor: Thomas Breuel, http://www.9x9.com/
 Previous Version: https://github.com/kba/hocr-spec/blob/master/1.1/spec.md
-Abstract: A subset of HTML for marking up OCR results
+Abstract: The purpose of this document is to define an open standard for representing document layout analysis and <a>OCR</a> results as a subset of HTML.
 Markup Shorthands: markdown on, biblio on, markup on
