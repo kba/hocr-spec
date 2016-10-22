@@ -1421,7 +1421,7 @@ Possible extra rowspan handling
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">hOCR - OCR Workflow and Output embedded in HTML</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-10-22">22 October 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-10-23">23 October 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1440,7 +1440,7 @@ Possible extra rowspan handling
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 22 October 2016,
+In addition, as of 23 October 2016,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1469,9 +1469,8 @@ Parts of this work may be from another specification document.  If so, those par
        <ol class="toc">
         <li><a href="#poly"><span class="secno">2.2.1</span> <span class="content"><span>poly</span></span></a>
         <li><a href="#order"><span class="secno">2.2.2</span> <span class="content"><span>order</span></span></a>
-        <li><a href="#presence"><span class="secno">2.2.3</span> <span class="content"><span>presence</span></span></a>
-        <li><a href="#cflow"><span class="secno">2.2.4</span> <span class="content"><span>cflow</span></span></a>
-        <li><a href="#baseline"><span class="secno">2.2.5</span> <span class="content"><span>baseline</span></span></a>
+        <li><a href="#cflow"><span class="secno">2.2.3</span> <span class="content"><span>cflow</span></span></a>
+        <li><a href="#baseline"><span class="secno">2.2.4</span> <span class="content"><span>baseline</span></span></a>
        </ol>
      </ol>
     <li><a href="#logical-elements"><span class="secno">3</span> <span class="content">Logical Structuring Elements</span></a>
@@ -1741,11 +1740,10 @@ layouts is in terms of rectangular content areas and rectangular floats</p>
      <p>this property must not be used unless there is no other way of representing
 the reading order of the page by element ordering within the page, since
 many tools will not be able to deal with content that is not in reading order</p>
+    <li data-md="">
+     <p>presence must be declared in the document meta data</p>
    </ul>
-   <h4 class="heading settled" data-level="2.2.3" id="presence"><span class="secno">2.2.3. </span><span class="content"><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-presence">presence</dfn></span><a class="self-link" href="#presence"></a></h4>
-   <p class="issue" id="issue-4c7527e8"><a class="self-link" href="#issue-4c7527e8"></a> <a href="https://github.com/kba/hocr-spec/issues/10">Use of property presence</a></p>
-   <p><a class="property" data-link-type="propdesc" href="#propdef-presence" id="ref-for-propdef-presence-1">presence</a> presence must be declared in the document meta data</p>
-   <h4 class="heading settled" data-level="2.2.4" id="cflow"><span class="secno">2.2.4. </span><span class="content"><dfn class="css" data-dfn-type="property" data-export="" id="propdef-cflow">cflow<a class="self-link" href="#propdef-cflow"></a></dfn></span><a class="self-link" href="#cflow"></a></h4>
+   <h4 class="heading settled" data-level="2.2.3" id="cflow"><span class="secno">2.2.3. </span><span class="content"><dfn class="css" data-dfn-type="property" data-export="" id="propdef-cflow">cflow<a class="self-link" href="#propdef-cflow"></a></dfn></span><a class="self-link" href="#cflow"></a></h4>
    <p><code>cflow s</code></p>
    <p>This property relates the flow between multiple <code><a data-link-type="element" href="#elementdef-ocr_carea" id="ref-for-elementdef-ocr_carea-1">ocr_carea</a></code> elements,
 and between <code><a data-link-type="element" href="#elementdef-ocr_carea" id="ref-for-elementdef-ocr_carea-2">ocr_carea</a></code> and <code><a data-link-type="element" href="#elementdef-ocr_linear" id="ref-for-elementdef-ocr_linear-1">ocr_linear</a></code> elements.</p>
@@ -1759,7 +1757,7 @@ order is attempted and multiple content flows are present</p>
     <li data-md="">
      <p>presence must be declared in the document meta data</p>
    </ul>
-   <h4 class="heading settled" data-level="2.2.5" id="baseline"><span class="secno">2.2.5. </span><span class="content"><dfn class="css" data-dfn-type="property" data-export="" id="propdef-baseline">baseline<a class="self-link" href="#propdef-baseline"></a></dfn></span><a class="self-link" href="#baseline"></a></h4>
+   <h4 class="heading settled" data-level="2.2.4" id="baseline"><span class="secno">2.2.4. </span><span class="content"><dfn class="css" data-dfn-type="property" data-export="" id="propdef-baseline">baseline<a class="self-link" href="#propdef-baseline"></a></dfn></span><a class="self-link" href="#baseline"></a></h4>
    <p><code>baseline pn pn-1 ... p0</code></p>
    <p>This property applies primarily to textlines.</p>
    <p>The baseline is described by a polynomial of order <code>n</code> with the coefficients <code>pn ... p0</code> with <code>n = 1</code> for a linear (i.e. straight) line.</p>
@@ -2975,9 +2973,9 @@ within the same HTML file without interfering with one another.</p>
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
-   <li><a href="#propdef-baseline">baseline</a><span>, in §2.2.5</span>
+   <li><a href="#propdef-baseline">baseline</a><span>, in §2.2.4</span>
    <li><a href="#propdef-bbox">bbox</a><span>, in §2.1.1</span>
-   <li><a href="#propdef-cflow">cflow</a><span>, in §2.2.4</span>
+   <li><a href="#propdef-cflow">cflow</a><span>, in §2.2.3</span>
    <li><a href="#propdef-cuts">cuts</a><span>, in §6.2.1</span>
    <li><a href="#propdef-hardbreak">hardbreak</a><span>, in §4.3.4</span>
    <li><a href="#html_absolute">html_absolute</a><span>, in §13.6</span>
@@ -3060,7 +3058,6 @@ within the same HTML file without interfering with one another.</p>
    <li><a href="#propdef-order">order</a><span>, in §2.2.2</span>
    <li><a href="#propdef-poly">poly</a><span>, in §2.2.1</span>
    <li><a href="#propdef-ppageno">ppageno</a><span>, in §4.2.4</span>
-   <li><a href="#propdef-presence">presence</a><span>, in §2.2.3</span>
    <li><a href="#propdef-scan_res">scan_res</a><span>, in §4.3.1</span>
    <li><a href="#propdef-textangle">textangle</a><span>, in §2.1.2</span>
    <li><a href="#propdef-x_bboxes">x_bboxes</a><span>, in §7.2.3</span>
@@ -3143,7 +3140,6 @@ within the same HTML file without interfering with one another.</p>
   <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
   <div style="counter-reset:issue">
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/22">Specify that class must be a single value</a><a href="#issue-80996a43"> ↵ </a></div>
-   <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/10">Use of property presence</a><a href="#issue-4c7527e8"> ↵ </a></div>
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/66">Logical Tags/classes</a><a href="#issue-2af02b43"> ↵ </a></div>
    <div class="issue"> There is currently no way of indicating anchoring or flow-around
 properties for floating elements; properties need to be defined for this.<a href="#issue-3f2f70ed"> ↵ </a></div>
@@ -3163,15 +3159,9 @@ properties for floating elements; properties need to be defined for this.<a href
    <ul>
     <li><a href="#ref-for-propdef-bbox-1">2.1.1. bbox</a>
     <li><a href="#ref-for-propdef-bbox-2">2.2.1. poly</a>
-    <li><a href="#ref-for-propdef-bbox-3">2.2.5. baseline</a>
+    <li><a href="#ref-for-propdef-bbox-3">2.2.4. baseline</a>
     <li><a href="#ref-for-propdef-bbox-4">6.2.1. cuts</a>
     <li><a href="#ref-for-propdef-bbox-5">7.2.3. x_bboxes</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="propdef-presence">
-   <b><a href="#propdef-presence">#propdef-presence</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-propdef-presence-1">2.2.3. presence</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_document">
@@ -3251,7 +3241,7 @@ properties for floating elements; properties need to be defined for this.<a href
   <aside class="dfn-panel" data-for="elementdef-ocr_linear">
    <b><a href="#elementdef-ocr_linear">#elementdef-ocr_linear</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-elementdef-ocr_linear-1">2.2.4. cflow</a>
+    <li><a href="#ref-for-elementdef-ocr_linear-1">2.2.3. cflow</a>
     <li><a href="#ref-for-elementdef-ocr_linear-2">3. Logical Structuring Elements</a> <a href="#ref-for-elementdef-ocr_linear-3">(2)</a> <a href="#ref-for-elementdef-ocr_linear-4">(3)</a> <a href="#ref-for-elementdef-ocr_linear-5">(4)</a> <a href="#ref-for-elementdef-ocr_linear-6">(5)</a> <a href="#ref-for-elementdef-ocr_linear-7">(6)</a>
     <li><a href="#ref-for-elementdef-ocr_linear-8">4.1.3. ocr_carea</a>
     <li><a href="#ref-for-elementdef-ocr_linear-9">12. Profiles</a> <a href="#ref-for-elementdef-ocr_linear-10">(2)</a>
@@ -3277,7 +3267,7 @@ properties for floating elements; properties need to be defined for this.<a href
   <aside class="dfn-panel" data-for="elementdef-ocr_carea">
    <b><a href="#elementdef-ocr_carea">#elementdef-ocr_carea</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-elementdef-ocr_carea-1">2.2.4. cflow</a> <a href="#ref-for-elementdef-ocr_carea-2">(2)</a> <a href="#ref-for-elementdef-ocr_carea-3">(3)</a>
+    <li><a href="#ref-for-elementdef-ocr_carea-1">2.2.3. cflow</a> <a href="#ref-for-elementdef-ocr_carea-2">(2)</a> <a href="#ref-for-elementdef-ocr_carea-3">(3)</a>
     <li><a href="#ref-for-elementdef-ocr_carea-4">4.1.2. ocr_column</a>
     <li><a href="#ref-for-elementdef-ocr_carea-5">4.1.3. ocr_carea</a> <a href="#ref-for-elementdef-ocr_carea-6">(2)</a> <a href="#ref-for-elementdef-ocr_carea-7">(3)</a> <a href="#ref-for-elementdef-ocr_carea-8">(4)</a> <a href="#ref-for-elementdef-ocr_carea-9">(5)</a> <a href="#ref-for-elementdef-ocr_carea-10">(6)</a>
     <li><a href="#ref-for-elementdef-ocr_carea-11">7.1.1. ocrx_block</a> <a href="#ref-for-elementdef-ocr_carea-12">(2)</a>
@@ -3333,7 +3323,7 @@ properties for floating elements; properties need to be defined for this.<a href
   <aside class="dfn-panel" data-for="elementdef-ocrx_block">
    <b><a href="#elementdef-ocrx_block">#elementdef-ocrx_block</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-elementdef-ocrx_block-1">2.2.4. cflow</a>
+    <li><a href="#ref-for-elementdef-ocrx_block-1">2.2.3. cflow</a>
     <li><a href="#ref-for-elementdef-ocrx_block-2">7.1.1. ocrx_block</a> <a href="#ref-for-elementdef-ocrx_block-3">(2)</a> <a href="#ref-for-elementdef-ocrx_block-4">(3)</a> <a href="#ref-for-elementdef-ocrx_block-5">(4)</a>
     <li><a href="#ref-for-elementdef-ocrx_block-6">12. Profiles</a>
    </ul>
