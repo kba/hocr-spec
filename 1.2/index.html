@@ -1421,7 +1421,7 @@ Possible extra rowspan handling
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">hOCR - OCR Workflow and Output embedded in HTML</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-10-21">21 October 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-10-22">22 October 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1440,7 +1440,7 @@ Possible extra rowspan handling
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 21 October 2016,
+In addition, as of 22 October 2016,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -2145,7 +2145,15 @@ Unicode characters are available.</p>
    <p>Character-level information may be put on any element that contains only a
 single "line" of text.</p>
    <h4 class="heading settled" data-level="6.1.1" id="ocr_cinfo"><span class="secno">6.1.1. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_cinfo">ocr_cinfo</dfn></span><a class="self-link" href="#ocr_cinfo"></a></h4>
-   <p>If no other layout element applies, the <code><a data-link-type="element" href="#elementdef-ocr_cinfo" id="ref-for-elementdef-ocr_cinfo-1">ocr_cinfo</a></code> element may be used.</p>
+   <p class="issue" id="issue-000a0ed5"><a class="self-link" href="#issue-000a0ed5"></a> ocrx_cinfo?</p>
+   <ul>
+    <li data-md="">
+     <p>If no other layout element applies, the <code><a data-link-type="element" href="#elementdef-ocr_cinfo" id="ref-for-elementdef-ocr_cinfo-1">ocr_cinfo</a></code> element may be used.</p>
+    <li data-md="">
+     <p><code><a data-link-type="element">ocrx_cinfo</a></code> should nest inside <code><a data-link-type="element" href="#elementdef-ocrx_line" id="ref-for-elementdef-ocrx_line-1">ocrx_line</a></code></p>
+    <li data-md="">
+     <p><code><a data-link-type="element">ocrx_cinfo</a></code> should contain only <a class="property" data-link-type="propdesc" href="#propdef-x_confs" id="ref-for-propdef-x_confs-1">x_confs</a>, <a class="property" data-link-type="propdesc" href="#propdef-x_bboxes" id="ref-for-propdef-x_bboxes-2">x_bboxes</a>, and <a class="property" data-link-type="propdesc" href="#propdef-cuts" id="ref-for-propdef-cuts-1">cuts</a> attributes</p>
+   </ul>
    <h3 class="heading settled" data-level="6.2" id="properties-for-character-information"><span class="secno">6.2. </span><span class="content">Properties for Character Information</span><a class="self-link" href="#properties-for-character-information"></a></h3>
    <h4 class="heading settled" data-level="6.2.1" id="cuts"><span class="secno">6.2.1. </span><span class="content"><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-cuts">cuts</dfn></span><a class="self-link" href="#cuts"></a></h4>
    <p><code>cuts c1 c2 c3 ...</code></p>
@@ -2153,7 +2161,7 @@ single "line" of text.</p>
     <li data-md="">
      <p>character segmentation cuts (see below)</p>
     <li data-md="">
-     <p>there must be a <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-4">bbox</a> property relative to which the <a class="property" data-link-type="propdesc" href="#propdef-cuts" id="ref-for-propdef-cuts-1">cuts</a> can be interpreted</p>
+     <p>there must be a <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-4">bbox</a> property relative to which the <a class="property" data-link-type="propdesc" href="#propdef-cuts" id="ref-for-propdef-cuts-2">cuts</a> can be interpreted</p>
    </ul>
    <h4 class="heading settled" data-level="6.2.2" id="nlp"><span class="secno">6.2.2. </span><span class="content"><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-nlp">nlp</dfn></span><a class="self-link" href="#nlp"></a></h4>
    <p><code>nlp c1 c2 c3 ...</code></p>
@@ -2199,23 +2207,7 @@ existing OCR output, say for workflow abstractions.</p>
     <li data-md="">
      <p>engine-specific because the definition of a "block" depends on the engine</p>
    </ul>
-   <h4 class="heading settled" data-level="7.1.2" id="ocrx_line"><span class="secno">7.1.2. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocrx_line">ocrx_line</dfn></span><a class="self-link" href="#ocrx_line"></a></h4>
-   <p class="issue" id="issue-8ef34561"><a class="self-link" href="#issue-8ef34561"></a> <a href="https://github.com/kba/hocr-spec/issues/19">ocr_line vs ocrx_line</a></p>
-   <ul>
-    <li data-md="">
-     <p>any kind of "line" returned by an OCR system that differs from the standard <code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-5">ocr_line</a></code> above</p>
-    <li data-md="">
-     <p>might be some kind of "logical" line</p>
-   </ul>
-   <h4 class="heading settled" data-level="7.1.3" id="ocrx_word"><span class="secno">7.1.3. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocrx_word">ocrx_word</dfn></span><a class="self-link" href="#ocrx_word"></a></h4>
-   <ul>
-    <li data-md="">
-     <p>any kind of "word" returned by an OCR system</p>
-    <li data-md="">
-     <p>engine specific because the definition of a "word" depends on the engine</p>
-   </ul>
-   <p>The meaning of these tags is OCR engine specific. However, generators should
-attempt to ensure the following properties:</p>
+   <p>Generators should attempt to ensure the following properties:</p>
    <ul>
     <li data-md="">
      <p>An <code><a data-link-type="element" href="#elementdef-ocrx_block" id="ref-for-elementdef-ocrx_block-2">ocrx_block</a></code> should not contain content from multiple <code><a data-link-type="element" href="#elementdef-ocr_carea" id="ref-for-elementdef-ocr_carea-11">ocr_carea</a></code>.</p>
@@ -2225,14 +2217,24 @@ attempt to ensure the following properties:</p>
      <p>an <code><a data-link-type="element" href="#elementdef-ocrx_block" id="ref-for-elementdef-ocrx_block-4">ocrx_block</a></code> should contain either a float or body text, but not both</p>
     <li data-md="">
      <p>an <code><a data-link-type="element" href="#elementdef-ocrx_block" id="ref-for-elementdef-ocrx_block-5">ocrx_block</a></code> should contain either an image or text, but not both</p>
-    <li data-md="">
-     <p>an <code><a data-link-type="element" href="#elementdef-ocrx_line" id="ref-for-elementdef-ocrx_line-1">ocrx_line</a></code> should correspond as closely as possible to an <code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-6">ocr_line</a></code></p>
-    <li data-md="">
-     <p><code><a data-link-type="element">ocrx_cinfo</a></code> should nest inside <code><a data-link-type="element" href="#elementdef-ocrx_line" id="ref-for-elementdef-ocrx_line-2">ocrx_line</a></code></p>
-    <li data-md="">
-     <p><code><a data-link-type="element">ocrx_cinfo</a></code> should contain only <a class="property" data-link-type="propdesc" href="#propdef-x_confs" id="ref-for-propdef-x_confs-1">x_confs</a>, <a class="property" data-link-type="propdesc" href="#propdef-x_bboxes" id="ref-for-propdef-x_bboxes-2">x_bboxes</a>, and <a class="property" data-link-type="propdesc" href="#propdef-cuts" id="ref-for-propdef-cuts-2">cuts</a> attributes</p>
    </ul>
-   <p class="issue" id="issue-000a0ed5"><a class="self-link" href="#issue-000a0ed5"></a> ocrx_cinfo?</p>
+   <h4 class="heading settled" data-level="7.1.2" id="ocrx_line"><span class="secno">7.1.2. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocrx_line">ocrx_line</dfn></span><a class="self-link" href="#ocrx_line"></a></h4>
+   <p class="issue" id="issue-8ef34561"><a class="self-link" href="#issue-8ef34561"></a> <a href="https://github.com/kba/hocr-spec/issues/19">ocr_line vs ocrx_line</a></p>
+   <ul>
+    <li data-md="">
+     <p>any kind of "line" returned by an OCR system that differs from the standard <code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-5">ocr_line</a></code> above</p>
+    <li data-md="">
+     <p>might be some kind of "logical" line</p>
+    <li data-md="">
+     <p>an <code><a data-link-type="element" href="#elementdef-ocrx_line" id="ref-for-elementdef-ocrx_line-2">ocrx_line</a></code> should correspond as closely as possible to an <code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-6">ocr_line</a></code></p>
+   </ul>
+   <h4 class="heading settled" data-level="7.1.3" id="ocrx_word"><span class="secno">7.1.3. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocrx_word">ocrx_word</dfn></span><a class="self-link" href="#ocrx_word"></a></h4>
+   <ul>
+    <li data-md="">
+     <p>any kind of "word" returned by an OCR system</p>
+    <li data-md="">
+     <p>engine specific because the definition of a "word" depends on the engine</p>
+   </ul>
    <h3 class="heading settled" data-level="7.2" id="properties-for-engine-specific-markup"><span class="secno">7.2. </span><span class="content">Properties for engine-specific markup</span><a class="self-link" href="#properties-for-engine-specific-markup"></a></h3>
    <p>The following properties are defined:</p>
    <h4 class="heading settled" data-level="7.2.1" id="x_font"><span class="secno">7.2.1. </span><span class="content"><dfn class="css" data-dfn-type="property" data-export="" id="propdef-x_font">x_font<a class="self-link" href="#propdef-x_font"></a></dfn></span><a class="self-link" href="#x_font"></a></h4>
@@ -3148,9 +3150,9 @@ properties for floating elements; properties need to be defined for this.<a href
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/51">&lt;https://github.com/kba/hocr-spec/issues/51></a><a href="#issue-d41d8cd9"> ↵ </a></div>
    <div class="issue"> How to handle hyphens? <a href="https://github.com/kba/hocr-spec/issues/7">&lt;https://github.com/kba/hocr-spec/issues/7></a><a href="#issue-b90972d0"> ↵ </a></div>
    <div class="issue"> Non Linear Hyphens <a href="https://github.com/altoxml/schema/issues/41">&lt;https://github.com/altoxml/schema/issues/41></a><a href="#issue-3040ab4b"> ↵ </a></div>
+   <div class="issue"> ocrx_cinfo?<a href="#issue-000a0ed5"> ↵ </a></div>
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/28">ocr_carea vs ocrx_block</a><a href="#issue-66c198d9"> ↵ </a></div>
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/19">ocr_line vs ocrx_line</a><a href="#issue-8ef34561"> ↵ </a></div>
-   <div class="issue"> ocrx_cinfo?<a href="#issue-000a0ed5"> ↵ </a></div>
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/9">Delete x_cost</a><a href="#issue-b35297dd"> ↵ </a></div>
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/2">XML namespace for hOCR HTML?</a><a href="#issue-f6d39356"> ↵ </a></div>
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/1">What DOCTYPE for hOCR HTML?</a><a href="#issue-a3899b99"> ↵ </a></div>
@@ -3278,7 +3280,7 @@ properties for floating elements; properties need to be defined for this.<a href
     <li><a href="#ref-for-elementdef-ocr_carea-1">2.2.4. cflow</a> <a href="#ref-for-elementdef-ocr_carea-2">(2)</a> <a href="#ref-for-elementdef-ocr_carea-3">(3)</a>
     <li><a href="#ref-for-elementdef-ocr_carea-4">4.1.2. ocr_column</a>
     <li><a href="#ref-for-elementdef-ocr_carea-5">4.1.3. ocr_carea</a> <a href="#ref-for-elementdef-ocr_carea-6">(2)</a> <a href="#ref-for-elementdef-ocr_carea-7">(3)</a> <a href="#ref-for-elementdef-ocr_carea-8">(4)</a> <a href="#ref-for-elementdef-ocr_carea-9">(5)</a> <a href="#ref-for-elementdef-ocr_carea-10">(6)</a>
-    <li><a href="#ref-for-elementdef-ocr_carea-11">7.1.3. ocrx_word</a> <a href="#ref-for-elementdef-ocr_carea-12">(2)</a>
+    <li><a href="#ref-for-elementdef-ocr_carea-11">7.1.1. ocrx_block</a> <a href="#ref-for-elementdef-ocr_carea-12">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_line">
@@ -3287,8 +3289,7 @@ properties for floating elements; properties need to be defined for this.<a href
     <li><a href="#ref-for-elementdef-ocr_line-1">4.1.4. ocr_line</a> <a href="#ref-for-elementdef-ocr_line-2">(2)</a>
     <li><a href="#ref-for-elementdef-ocr_line-3">4.3.3. x_source</a>
     <li><a href="#ref-for-elementdef-ocr_line-4">4.3.4. hardbreak</a>
-    <li><a href="#ref-for-elementdef-ocr_line-5">7.1.2. ocrx_line</a>
-    <li><a href="#ref-for-elementdef-ocr_line-6">7.1.3. ocrx_word</a>
+    <li><a href="#ref-for-elementdef-ocr_line-5">7.1.2. ocrx_line</a> <a href="#ref-for-elementdef-ocr_line-6">(2)</a>
     <li><a href="#ref-for-elementdef-ocr_line-7">11.3. Example</a>
    </ul>
   </aside>
@@ -3319,8 +3320,8 @@ properties for floating elements; properties need to be defined for this.<a href
   <aside class="dfn-panel" data-for="propdef-cuts">
    <b><a href="#propdef-cuts">#propdef-cuts</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-propdef-cuts-1">6.2.1. cuts</a>
-    <li><a href="#ref-for-propdef-cuts-2">7.1.3. ocrx_word</a>
+    <li><a href="#ref-for-propdef-cuts-1">6.1.1. ocr_cinfo</a>
+    <li><a href="#ref-for-propdef-cuts-2">6.2.1. cuts</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="propdef-nlp">
@@ -3333,14 +3334,15 @@ properties for floating elements; properties need to be defined for this.<a href
    <b><a href="#elementdef-ocrx_block">#elementdef-ocrx_block</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-elementdef-ocrx_block-1">2.2.4. cflow</a>
-    <li><a href="#ref-for-elementdef-ocrx_block-2">7.1.3. ocrx_word</a> <a href="#ref-for-elementdef-ocrx_block-3">(2)</a> <a href="#ref-for-elementdef-ocrx_block-4">(3)</a> <a href="#ref-for-elementdef-ocrx_block-5">(4)</a>
+    <li><a href="#ref-for-elementdef-ocrx_block-2">7.1.1. ocrx_block</a> <a href="#ref-for-elementdef-ocrx_block-3">(2)</a> <a href="#ref-for-elementdef-ocrx_block-4">(3)</a> <a href="#ref-for-elementdef-ocrx_block-5">(4)</a>
     <li><a href="#ref-for-elementdef-ocrx_block-6">12. Profiles</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocrx_line">
    <b><a href="#elementdef-ocrx_line">#elementdef-ocrx_line</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-elementdef-ocrx_line-1">7.1.3. ocrx_word</a> <a href="#ref-for-elementdef-ocrx_line-2">(2)</a>
+    <li><a href="#ref-for-elementdef-ocrx_line-1">6.1.1. ocr_cinfo</a>
+    <li><a href="#ref-for-elementdef-ocrx_line-2">7.1.2. ocrx_line</a>
     <li><a href="#ref-for-elementdef-ocrx_line-3">12. Profiles</a>
    </ul>
   </aside>
@@ -3354,13 +3356,13 @@ properties for floating elements; properties need to be defined for this.<a href
    <b><a href="#propdef-x_bboxes">#propdef-x_bboxes</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-propdef-x_bboxes-1">2.1.1. bbox</a>
-    <li><a href="#ref-for-propdef-x_bboxes-2">7.1.3. ocrx_word</a>
+    <li><a href="#ref-for-propdef-x_bboxes-2">6.1.1. ocr_cinfo</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="propdef-x_confs">
    <b><a href="#propdef-x_confs">#propdef-x_confs</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-propdef-x_confs-1">7.1.3. ocrx_word</a>
+    <li><a href="#ref-for-propdef-x_confs-1">6.1.1. ocr_cinfo</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="propdef-ocr-system">
