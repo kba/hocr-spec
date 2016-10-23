@@ -172,12 +172,7 @@ The reading order of the element (an integer)
   * this property must not be used unless there is no other way of representing
     the reading order of the page by element ordering within the page, since
     many tools will not be able to deal with content that is not in reading order
-
-### <dfn property>presence</dfn>
-
-Issue: [Use of property presence](https://github.com/kba/hocr-spec/issues/10)
-
-'presence' presence must be declared in the document meta data
+  * presence must be declared in the document meta data
 
 ### <dfn property>cflow</dfn>
 
