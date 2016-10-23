@@ -103,10 +103,17 @@ The <dfn lt="Properties Format">properties format</dfn> is as follows, using the
 ABNF notation of [[RFC5234]]:
 
 <pre data-dfn-type="grammar" data-link-type="grammar">
+  <dfn>digit</dfn> = %x30-39
+  <dfn>uint</dfn> = +<a>digit</a>
+  <dfn>int</dfn> = *1"-" <a>uint</a>
+  <dfn>fraction</dfn> = "." <a>uint</a>
+  <dfn>float</dfn>   =  *<a>uint</a> <a>fraction</a>
+
   <dfn>whitespace</dfn> = +%20  ; one or more spaces ' '
   <dfn>separator</dfn>  = %3B   ; semicolon ';'
-  <dfn>alnum-word</dfn> = +(%x41-5A / %x30-39) ; lowercase letters or numbers
+  <dfn>alnum-word</dfn> = +(%x41-5A / <a>digit</a>) ; lowercase letters or numbers
   <dfn>ascii-word</dfn> = +(%x21-7E - <a>separator</a>)  ; printable ascii without semicolon
+
   <dfn>properties-format</dfn> = <a>key-value-pair</a> *(<a>whitespace</a> <a>separator</a> <a>key-value-pair</a>)
   <dfn>spec-property-name</dfn> = ("<a href="#propdef-bbox">bbox</a>" / "<a href="#propdef-baseline">baseline</a>" / "<a href="#propdef-cflow">cflow</a>" / "<a href="#propdef-cuts">cuts</a>" / "<a href="#propdef-hardbreak">hardbreak</a>" /
                         "<a href="#propdef-image">image</a>" / "<a href="#propdef-imagemd5">imagemd5</a>" / "<a href="#propdef-lpageno">lpageno</a>" / "<a href="#propdef-nlp">nlp</a>" / "<a href="#propdef-order">order</a>" /
