@@ -93,7 +93,7 @@ element:
 
 property:
   bbox:
-    categories: ['Layout']
+    categories: ['General', 'Layout']
     syntax: '
     <a lt="unsigned short">x0</a>
     <a lt="unsigned short">y0</a>
@@ -122,10 +122,15 @@ property:
   imagemd5:
     categories: ['Page']
     syntax: '<a lt="string">md5</a>'
-  # lpageno:
-  #   categories: ['Page']
-  # nlp:
-  #   categories: ['Confidence']
+  lpageno:
+    categories: ['Page']
+    syntax: '<a lt="string">pagenumber</a>'
+  nlp:
+    categories: ['Confidence']
+    syntax: '
+    <a lt="octet">c1</a>
+    [<a lt="octet">c2</a>]...
+    '
   # order:
   #   categories: ['Flow']
   # poly:

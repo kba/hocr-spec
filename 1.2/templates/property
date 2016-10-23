@@ -3,14 +3,12 @@
   : Property Name
   :: {{ name }}
 
-  {% for category in categories %}
-  {% if loop.first %}
+{% if categories %}
   : <a>Property Categories</a>
-  {% endif %}
-  :: <a>{{ category }} Property</a>
-  {% endfor %}
+  :: {% for cat in categories %}<a>{{ cat }} Properties</a> {% if not loop.last %}, {% endif %} {% endfor %}
+{% endif %}
 
-  : <a>Property Syntax</a>
+  : <a>Property Grammar</a>
   :: <code style='display:block;padding: .5em' highlight=c>{{name}} {{ syntax }}</code>
 
 

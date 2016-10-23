@@ -120,16 +120,21 @@ the exact <dfn>property grammar</dfn> that overrides <a grammar>property-value</
 ```
 </div>
 
-General Properties {#general-properties}
-------------------
+The properties of hOCR {#hocr-props}
+======================
 
-The following properties can apply to most elements (where it makes sense):
+  : <dfn>General Properties</dfn>
+  :: These properties can apply to most elements
+  : <dfn>Non-Recommended Properties</dfn>
+  :: These properties can apply to most elements but should not be used unless
+    there is no alternative:
 
-### <dfn property>bbox</dfn>
+The <dfn property>bbox</dfn> property {#bbox}
+-------------------------------------
 
-`bbox x0 y0 x1 y1`
+<pre class="include">path: 1.2/include/defs/bbox</pre>
 
-The `bbox` - short for "bounding box" - of an element is a rectangular box 
+The 'bbox' - short for "bounding box" - of an element is a rectangular box
 around this element, which is defined by the upper-left corner (x0, y0) and
 the lower-right corner (x1, y1).
 
@@ -142,8 +147,6 @@ the lower-right corner (x1, y1).
   * some non-rectangular layout components may have rectangular bounding boxes
     if the non-rectangularity is caused by floating elements around which text flows
 
-See also the section [[#bbox-typesetting]].
-
 <div class="example">
 
 ```html
@@ -151,7 +154,7 @@ See also the section [[#bbox-typesetting]].
     title="bbox 10 20 160 30">...</span>
 ```
 
-The bounding box `bbox` of this line is shown in blue and it is span
+The bounding box 'bbox' of this line is shown in blue and it is span
 by the upper-left corner (10, 20) and the lower-right corner (160, 30).
 All coordinates are measured with reference to the top-left corner of
 the document image which border is drawn in black.
@@ -255,6 +258,7 @@ and its slope angle is `arctan(0.015) = 0.86°`.
 </figure>
 
 </div>
+
 
 Logical Structuring Elements {#logical-elements}
 ============================
@@ -430,11 +434,6 @@ Any noise element that isn't part of typesetting
 ## Recommended Properties for typesetting elements
 
 The following properties should be present:
-
-### `bbox (typesetting)`
-
-The bounding box of the page; for pages, the top left corner must be at
-`(0,0)`, so a typical page bounding box will look like `bbox 0 0 2300 3200`
 
 ### <dfn property>image</dfn>
 
