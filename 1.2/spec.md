@@ -128,7 +128,8 @@ ABNF notation of [[RFC5234]]:
 </pre>
 
 This is just the general grammar, the individual <a>properties</a> will define
-the exact <dfn>property grammar</dfn> that overrides <a grammar>property-value</a>.
+the exact <dfn>property grammar</dfn> that overrides <a
+grammar>property-name</a> and <a grammar>property-value</a>.
 
 <div class="example">
 ```html
