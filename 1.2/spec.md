@@ -172,12 +172,7 @@ The reading order of the element (an integer)
   * this property must not be used unless there is no other way of representing
     the reading order of the page by element ordering within the page, since
     many tools will not be able to deal with content that is not in reading order
-
-### <dfn property>presence</dfn>
-
-Issue: [Use of property presence](https://github.com/kba/hocr-spec/issues/10)
-
-'presence' presence must be declared in the document meta data
+  * presence must be declared in the document meta data
 
 ### <dfn property>cflow</dfn>
 
@@ -632,7 +627,11 @@ single "line" of text.
 
 ### <dfn element>ocr_cinfo</dfn>
 
-If no other layout element applies, the <{ocr_cinfo}> element may be used.
+Issue: ocrx_cinfo?
+
+  * If no other layout element applies, the <{ocr_cinfo}> element may be used.
+  * <{ocrx_cinfo}> should nest inside <{ocrx_line}>
+  * <{ocrx_cinfo}> should contain only 'x_confs', 'x_bboxes', and 'cuts' attributes
 
 ## Properties for Character Information
 
@@ -703,30 +702,25 @@ Issue: [ocr_carea vs ocrx_block](https://github.com/kba/hocr-spec/issues/28)
   * any kind of "block" returned by an OCR system
   * engine-specific because the definition of a "block" depends on the engine
 
+Generators should attempt to ensure the following properties:
+
+  * An <{ocrx_block}> should not contain content from multiple <{ocr_carea}>.
+  * The union of all <{ocrx_block|ocrx_blocks}> should approximately cover all <{ocr_carea}>.
+  * an <{ocrx_block}> should contain either a float or body text, but not both
+  * an <{ocrx_block}> should contain either an image or text, but not both
+
 ### <dfn element>ocrx_line</dfn>
 
 Issue: [ocr_line vs ocrx_line](https://github.com/kba/hocr-spec/issues/19)
 
   * any kind of "line" returned by an OCR system that differs from the standard <{ocr_line}> above
   * might be some kind of "logical" line
+  * an <{ocrx_line}> should correspond as closely as possible to an <{ocr_line}>
 
 ### <dfn element>ocrx_word</dfn>
 
   * any kind of "word" returned by an OCR system
   * engine specific because the definition of a "word" depends on the engine
-
-The meaning of these tags is OCR engine specific. However, generators should
-attempt to ensure the following properties:
-
-* An <{ocrx_block}> should not contain content from multiple <{ocr_carea}>.
-* The union of all <{ocrx_block|ocrx_blocks}> should approximately cover all <{ocr_carea}>.
-* an <{ocrx_block}> should contain either a float or body text, but not both
-* an <{ocrx_block}> should contain either an image or text, but not both
-* an <{ocrx_line}> should correspond as closely as possible to an <{ocr_line}>
-* <{ocrx_cinfo}> should nest inside <{ocrx_line}>
-* <{ocrx_cinfo}> should contain only 'x_confs', 'x_bboxes', and 'cuts' attributes
-
-Issue: ocrx_cinfo?
 
 ## Properties for engine-specific markup
 
