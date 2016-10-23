@@ -1458,7 +1458,7 @@ Parts of this work may be from another specification document.  If so, those par
     <li>
      <a href="#terminology"><span class="secno">2</span> <span class="content">Terminology and Representation</span></a>
      <ol class="toc">
-      <li><a href="#representation"><span class="secno">2.1</span> <span class="content">Representation</span></a>
+      <li><a href="#representation"><span class="secno">2.1</span> <span class="content">Reusing HTML</span></a>
       <li><a href="#definition-element"><span class="secno">2.2</span> <span class="content">Definition of "element"</span></a>
       <li><a href="#definition-property"><span class="secno">2.3</span> <span class="content">Definition of "property"</span></a>
       <li>
@@ -1629,7 +1629,7 @@ constructs when necessary.</p>
 in <code>&lt;div class="<a href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-1">ocr_page</a>"></code> tags will convey the page boundaries to hOCR-capable agents and turn the HTML
 document into an hOCR document.</p>
    <h2 class="heading settled" data-level="2" id="terminology"><span class="secno">2. </span><span class="content">Terminology and Representation</span><a class="self-link" href="#terminology"></a></h2>
-   <h3 class="heading settled" data-level="2.1" id="representation"><span class="secno">2.1. </span><span class="content">Representation</span><a class="self-link" href="#representation"></a></h3>
+   <h3 class="heading settled" data-level="2.1" id="representation"><span class="secno">2.1. </span><span class="content">Reusing HTML</span><a class="self-link" href="#representation"></a></h3>
    <p>This document describes a representation of various aspects of OCR output in an
 XML-like format. That is, we define as set of tags containing text and other
 tags, together with attributes of those tags. However, since the content we are
@@ -1657,12 +1657,10 @@ used viewers (browsers), editors, conversion tools, and indexing tools</p>
      <p>support for document metadata</p>
    </ul>
    <p>We are embedding this information inside HTML by encoding it within valid tags
-and attributes inside HTML; We are going to use the terms "elements" and
-"properties" for referring to embedded markup.</p>
-   <p class="issue" id="issue-80996a43"><a class="self-link" href="#issue-80996a43"></a> <a href="https://github.com/kba/hocr-spec/issues/22">Specify that class must be a single value</a></p>
+and attributes inside HTML. We are going to use the terms <a data-link-type="dfn" href="#element" id="ref-for-element-1">elements</a> and <a data-link-type="dfn" href="#properties" id="ref-for-properties-1">properties</a> for referring to embedded markup.</p>
    <h3 class="heading settled" data-level="2.2" id="definition-element"><span class="secno">2.2. </span><span class="content">Definition of "element"</span><a class="self-link" href="#definition-element"></a></h3>
    <p>An <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="element">element</dfn> is any HTML tag with a <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/dom.html#the-class-attribute">class</a></code> attribute that contains
-exactly one class name that starts with <code>ocr_</code> or <code>orcx</code>.</p>
+exactly one class name that starts with <code>ocr_</code> or <code>ocrx_</code>.</p>
    <p class="note" role="note">Note: When referring to an HTML tag with class <code>ocr_page</code>, this spec uses the
 notation <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-2">ocr_page</a></code></p>
    <p>For some elements, the specs <dfn data-dfn-type="dfn" data-lt="Recommended HTML Tag" data-noexport="" id="recommended-html-tag">recommends using
@@ -1671,10 +1669,10 @@ desirable to actually choose those tags (e.g., when adding hOCR information to
 an existing HTML output routine).</p>
    <h3 class="heading settled" data-level="2.3" id="definition-property"><span class="secno">2.3. </span><span class="content">Definition of "property"</span><a class="self-link" href="#definition-property"></a></h3>
    <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="properties">Properties</dfn> are a set of key-value pairs that convey OCR-specific
-information related to specific <a data-link-type="dfn" href="#element" id="ref-for-element-1">elements</a>. They are serialized using a <a data-link-type="dfn" href="#properties-format" id="ref-for-properties-format-1">Specific format</a> in the <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/dom.html#the-title-attribute">title</a></code> attribute of
-the <a data-link-type="dfn" href="#element" id="ref-for-element-2">element</a> they refer to.</p>
+information related to specific <a data-link-type="dfn" href="#element" id="ref-for-element-2">elements</a>. They are serialized using a <a data-link-type="dfn" href="#properties-format" id="ref-for-properties-format-1">specific format</a> in the <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/dom.html#the-title-attribute">title</a></code> attribute of
+the <a data-link-type="dfn" href="#element" id="ref-for-element-3">element</a> they refer to.</p>
    <p class="note" role="note">Note: When referring to a property <code>bbox</code>, this spec uses the notation <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-1">bbox</a>.</p>
-   <p>There are four levels of association between any <a data-link-type="dfn" href="#element" id="ref-for-element-3">element</a> to any <a data-link-type="dfn" href="#properties" id="ref-for-properties-1">property</a>:</p>
+   <p>There are four levels of association between any <a data-link-type="dfn" href="#element" id="ref-for-element-4">element</a> to any <a data-link-type="dfn" href="#properties" id="ref-for-properties-2">property</a>:</p>
    <dl>
     <dt data-md="">
      <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="disallowed-property">Disallowed Property</dfn></p>
@@ -1713,7 +1711,7 @@ ABNF notation of <a data-link-type="biblio" href="#biblio-rfc5234">[RFC5234]</a>
 <dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-property-name">property-name</dfn> = <a data-link-type="grammar" href="#grammardef-spec-property-name" id="ref-for-grammardef-spec-property-name-1">spec-property-name</a> / <a data-link-type="grammar" href="#grammardef-engine-property-name" id="ref-for-grammardef-engine-property-name-1">engine-property-name</a>
 <dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-property-value">property-value</dfn> = <a data-link-type="grammar" href="#grammardef-ascii-word" id="ref-for-grammardef-ascii-word-1">ascii-word</a> *(<a data-link-type="grammar" href="#grammardef-whitespace" id="ref-for-grammardef-whitespace-3">whitespace</a> <a data-link-type="grammar" href="#grammardef-ascii-word" id="ref-for-grammardef-ascii-word-2">ascii-word</a>)
 </pre>
-   <p>This is just the general grammar, the individual <a data-link-type="dfn" href="#properties" id="ref-for-properties-2">properties</a> will define
+   <p>This is just the general grammar, the individual <a data-link-type="dfn" href="#properties" id="ref-for-properties-3">properties</a> will define
 the exact <dfn data-dfn-type="dfn" data-noexport="" id="property-grammar">property grammar<a class="self-link" href="#property-grammar"></a></dfn> that overrides <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-2">property-value</a>.</p>
    <div class="example" id="example-b38b5c14">
     <a class="self-link" href="#example-b38b5c14"></a> 
@@ -2872,12 +2870,6 @@ within the same HTML file without interfering with one another.</p>
      <p>File extension(s):</p>
     <dd data-md="">
      <p><code>*.html</code>, <code>*.hocr</code></p>
-<script>
-for (var span of document.querySelectorAll(".toc span:not([class])")) {
-    span.style.color = 'darkred';
-    span.style.fontWeight = 'bold';
-}
-</script>
    </dl>
   </main>
   <div data-fill-with="conformance">
@@ -3219,7 +3211,6 @@ for (var span of document.querySelectorAll(".toc span:not([class])")) {
   </dl>
   <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
   <div style="counter-reset:issue">
-   <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/22">Specify that class must be a single value</a><a href="#issue-80996a43"> ↵ </a></div>
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/66">Logical Tags/classes</a><a href="#issue-2af02b43"> ↵ </a></div>
    <div class="issue"> There is currently no way of indicating anchoring or flow-around
 properties for floating elements; properties need to be defined for this.<a href="#issue-3f2f70ed"> ↵ </a></div>
@@ -3237,13 +3228,15 @@ properties for floating elements; properties need to be defined for this.<a href
   <aside class="dfn-panel" data-for="element">
    <b><a href="#element">#element</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-element-1">2.3. Definition of "property"</a> <a href="#ref-for-element-2">(2)</a> <a href="#ref-for-element-3">(3)</a>
+    <li><a href="#ref-for-element-1">2.1. Reusing HTML</a>
+    <li><a href="#ref-for-element-2">2.3. Definition of "property"</a> <a href="#ref-for-element-3">(2)</a> <a href="#ref-for-element-4">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="properties">
    <b><a href="#properties">#properties</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-properties-1">2.3. Definition of "property"</a> <a href="#ref-for-properties-2">(2)</a>
+    <li><a href="#ref-for-properties-1">2.1. Reusing HTML</a>
+    <li><a href="#ref-for-properties-2">2.3. Definition of "property"</a> <a href="#ref-for-properties-3">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="disallowed-property">

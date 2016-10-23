@@ -44,14 +44,14 @@ need additional, separate and ad-hoc definitions. These aspects include:
   * support for document metadata
 
 We are embedding this information inside HTML by encoding it within valid tags
-and attributes inside HTML; We are going to use the terms <a>elements</a> and
+and attributes inside HTML. We are going to use the terms <a>elements</a> and
 <a>properties</a> for referring to embedded markup.
 
 Definition of "element" {#definition-element}
 -----------------------
 
 An <dfn>element</dfn> is any HTML tag with a <{*/class}> attribute that contains
-exactly one class name that starts with `ocr_` or `orcx`.
+exactly one class name that starts with `ocr_` or `ocrx_`.
 
 Note: When referring to an HTML tag with class `ocr_page`, this spec uses the
 notation <{ocr_page}>
@@ -66,7 +66,7 @@ Definition of "property" {#definition-property}
 
 <dfn>Properties</dfn> are a set of key-value pairs that convey OCR-specific
 information related to specific <a>elements</a>. They are serialized using a
-<a lt="properties format">Specific format</a> in the <{*/title}> attribute of
+<a lt="properties format">specific format</a> in the <{*/title}> attribute of
 the <a>element</a> they refer to.
 
 Note: When referring to a property `bbox`, this spec uses the notation 'bbox'.
