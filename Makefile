@@ -7,7 +7,7 @@ SPEC_MD = $(VERSION)/spec.md
 SPEC_BS = $(VERSION)/index.bs
 SPEC_HTML = $(VERSION)/index.html
 
-BIKESHED = $(shell for cmd in bikeshed docker curl;do type >/dev/null 2>&1 $$cmd && echo $$cmd && break;done)
+BIKESHED = $(shell for cmd in bikeshed docker;do type >/dev/null 2>&1 $$cmd && echo $$cmd && break;done)
 BIKESHED_ARGS = -f
 
 SPEC_DEFS = $(VERSION)/include/defs/bbox
@@ -25,7 +25,6 @@ $(SPEC_HTML): $(SPEC_BEFORE) $(SPEC_MD) $(SPEC_BIBLIO) $(SPEC_AFTER) $(SPEC_DEFS
 	@case "$(BIKESHED)" in \
 		bikeshed) bikeshed $(BIKESHED_ARGS) spec $(SPEC_BS) ;; \
 		docker)   docker run --rm -it -v $(PWD):/data kbai/bikeshed $(BIKESHED_ARGS) spec $(SPEC_BS) ;; \
-		curl)     curl "https://api.csswg.org/bikeshed/" -o $(SPEC_HTML) -Fforce=true -Ffile=@$(SPEC_BS) ;; \
 		*)        echo 'Unsupported bikeshed backend "$(BIKESHED)"'; exit 1 ;; esac
 	@rm -f $(SPEC_BS)
 
