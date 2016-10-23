@@ -50,11 +50,17 @@ and attributes inside HTML. We are going to use the terms <a>elements</a> and
 Definition of "element" {#definition-element}
 -----------------------
 
-An <dfn>element</dfn> is any HTML tag with a <{*/class}> attribute that contains
-exactly one class name that starts with `ocr_` or `ocrx_`.
+An hOCR element (in the following: <dfn>element</dfn>) is any HTML tag with a
+<{*/class}> attribute that contains exactly one class name that starts with
+`ocr_` or `ocrx_`. Non-OCR related HTML content must not use class names that
+begin with `ocr_` or `ocrx_`.
 
 Note: When referring to an HTML tag with class `ocr_page`, this spec uses the
 notation <{ocr_page}>
+
+If an HTML tag is an <a lt="element">hOCR element</a>, then its <{*/title}>
+attribute must not be used for any other purpose than to define <a
+lt="property">hOCR properties</a> and adhere to the <a>properties format</a>.
 
 For some elements, the specs <dfn lt="Recommended HTML Tag">recommends using
 specific HTML tags</dfn>. This is entirely optional, it may not be possible or
@@ -64,7 +70,7 @@ an existing HTML output routine).
 Definition of "property" {#definition-property}
 ------------------------
 
-<dfn>Properties</dfn> are a set of key-value pairs that convey OCR-specific
+<dfn lt="properties">hOCR Properties</dfn> are a set of key-value pairs that convey OCR-specific
 information related to specific <a>elements</a>. They are serialized using a
 <a lt="properties format">specific format</a> in the <{*/title}> attribute of
 the <a>element</a> they refer to.
@@ -1080,18 +1086,6 @@ into <a>html_absolute</a>, <a>html_xytable_absolute</a>, and
 <a>html_simple</a>. Furthermore, internally, a layout analysis system might
 use <a>html_xytable_absolute</a> as an intermediate format for converting hOCR
 into <a>html_simple</a>.
-
-
-Restrictions on HTML Content {#html-restrictions}
-----------------------------
-
-To avoid problems, any use of HTML markup must follow the following rules:
-
-  * HTML content must not use class names that conflict with any of those defined
-    in this document (`ocr_*`)
-  * HTML content must not use the title= attribute on any element with an ocr_*
-    class for any purposes other than encoding OCR-related properties as
-    described in this document
 
 
 Recommendations for Mappings {#html-mappings}
