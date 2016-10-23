@@ -145,11 +145,25 @@ grammar>property-name</a> and <a grammar>property-value</a>.
 The properties of hOCR {#hocr-props}
 ======================
 
+The <a>properties</a> in hOCR can be broadly <dfn lt="Property
+Categories">categorized</dfn> as follows:
+
   : <dfn>General Properties</dfn>
   :: These properties can apply to most elements
+
   : <dfn>Non-Recommended Properties</dfn>
   :: These properties can apply to most elements but should not be used unless
     there is no alternative:
+
+  : <dfn>Inline Properties</dfn>
+  :: These properties apply to content on or below the level of <{ocr_line}> /
+    <{ocrx_line}>
+
+  : <dfn>Layout Properties</dfn>
+  :: These properties relate to placement of <a>elements</a> on the page
+
+  : <dfn>Content Flow Properties</dfn>
+  :: These properties are related to the reading order and flow of content on the page
 
 The <dfn property>bbox</dfn> property {#bbox}
 -------------------------------------
