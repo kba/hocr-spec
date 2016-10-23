@@ -71,6 +71,11 @@ the <a>element</a> they refer to.
 
 Note: When referring to a property `bbox`, this spec uses the notation 'bbox'.
 
+The <dfn lt="Property Name">name of a property</dfn> must only consist of
+lowercase letters and numbers. Property names must be either from those defined
+in [[#hocr-props]] or begin with `x_` to denote implementation-specific
+extensions.
+
 There are four levels of association between any <a>element</a> to any
 <a>property</a>:
 
