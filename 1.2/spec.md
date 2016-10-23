@@ -110,11 +110,14 @@ ABNF notation of [[RFC5234]]:
   <dfn>float</dfn>   =  *<a>uint</a> <a>fraction</a>
 
   <dfn>whitespace</dfn> = +%20  ; one or more spaces ' '
-  <dfn>separator</dfn>  = %3B   ; semicolon ';'
+  <dfn>semicolon</dfn>  = %3B   ; semicolon ';'
+  <dfn>doublequote</dfn> = %22  ; double quote '"'
   <dfn>alnum-word</dfn> = +(%x41-5A / <a>digit</a>) ; lowercase letters or numbers
-  <dfn>ascii-word</dfn> = +(%x21-7E - <a>separator</a>)  ; printable ascii without semicolon
+  <dfn>ascii-word</dfn> = +(%x21-7E - <a>semicolon</a>)  ; printable w/o space/semicolon
+  <dfn>ascii-string</dfn> = +(%x01-FF - <a>semicolon</a>)  ; printable ascii without semicolon
+  <dfn>delimited-string</dfn> = <a>doublequote</a> <a>ascii-string</a> <a>doublequote</a>
 
-  <dfn>properties-format</dfn> = <a>key-value-pair</a> *(<a>whitespace</a> <a>separator</a> <a>key-value-pair</a>)
+  <dfn>properties-format</dfn> = <a>key-value-pair</a> *(<a>whitespace</a> <a>semicolon</a> <a>key-value-pair</a>)
   <dfn>spec-property-name</dfn> = ("<a href="#propdef-bbox">bbox</a>" / "<a href="#propdef-baseline">baseline</a>" / "<a href="#propdef-cflow">cflow</a>" / "<a href="#propdef-cuts">cuts</a>" / "<a href="#propdef-hardbreak">hardbreak</a>" /
                         "<a href="#propdef-image">image</a>" / "<a href="#propdef-imagemd5">imagemd5</a>" / "<a href="#propdef-lpageno">lpageno</a>" / "<a href="#propdef-nlp">nlp</a>" / "<a href="#propdef-order">order</a>" /
                         "<a href="#propdef-poly">poly</a>" / "<a href="#propdef-ppageno">ppageno</a>" / "<a href="#propdef-scan_res">scan_res</a>" / "<a href="#propdef-textangle">textangle</a>")
