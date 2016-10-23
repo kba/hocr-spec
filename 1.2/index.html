@@ -2822,6 +2822,12 @@ within the same HTML file without interfering with one another.</p>
      <p>File extension(s):</p>
     <dd data-md="">
      <p><code>*.html</code>, <code>*.hocr</code></p>
+<script>
+for (var span of document.querySelectorAll(".toc span:not([class])")) {
+    span.style.color = 'darkred';
+    span.style.fontWeight = 'bold';
+}
+</script>
    </dl>
   </main>
   <div data-fill-with="conformance">
