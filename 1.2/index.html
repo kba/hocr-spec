@@ -1707,9 +1707,9 @@ ABNF notation of <a data-link-type="biblio" href="#biblio-rfc5234">[RFC5234]</a>
                       "<a href="#propdef-image" id="ref-for-propdef-image-1">image</a>" / "<a href="#propdef-imagemd5" id="ref-for-propdef-imagemd5-1">imagemd5</a>" / "<a href="#propdef-lpageno" id="ref-for-propdef-lpageno-1">lpageno</a>" / "<a href="#propdef-nlp" id="ref-for-propdef-nlp-1">nlp</a>" / "<a href="#propdef-order" id="ref-for-propdef-order-1">order</a>" /
                       "<a href="#propdef-poly" id="ref-for-propdef-poly-1">poly</a>" / "<a href="#propdef-ppageno" id="ref-for-propdef-ppageno-1">ppageno</a>" / "<a href="#propdef-scan_res" id="ref-for-propdef-scan_res-1">scan_res</a>" / "<a href="#propdef-textangle" id="ref-for-propdef-textangle-1">textangle</a>")
 <dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-engine-property-name">engine-property-name</dfn> = "x_" <a data-link-type="grammar" href="#grammardef-alnum-word" id="ref-for-grammardef-alnum-word-1">alnum-word</a>
-<dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-key-value-pair">key-value-pair</dfn> = <a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-1">property-name</a> <a data-link-type="grammar" href="#grammardef-whitespace" id="ref-for-grammardef-whitespace-2">whitespace</a> <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-1">property-value</a>
 <dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-property-name">property-name</dfn> = <a data-link-type="grammar" href="#grammardef-spec-property-name" id="ref-for-grammardef-spec-property-name-1">spec-property-name</a> / <a data-link-type="grammar" href="#grammardef-engine-property-name" id="ref-for-grammardef-engine-property-name-1">engine-property-name</a>
-<dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-property-value">property-value</dfn> = <a data-link-type="grammar" href="#grammardef-ascii-word" id="ref-for-grammardef-ascii-word-1">ascii-word</a> *(<a data-link-type="grammar" href="#grammardef-whitespace" id="ref-for-grammardef-whitespace-3">whitespace</a> <a data-link-type="grammar" href="#grammardef-ascii-word" id="ref-for-grammardef-ascii-word-2">ascii-word</a>)
+<dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-property-value">property-value</dfn> = <a data-link-type="grammar" href="#grammardef-ascii-word" id="ref-for-grammardef-ascii-word-1">ascii-word</a> *(<a data-link-type="grammar" href="#grammardef-whitespace" id="ref-for-grammardef-whitespace-2">whitespace</a> <a data-link-type="grammar" href="#grammardef-ascii-word" id="ref-for-grammardef-ascii-word-2">ascii-word</a>)
+<dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-key-value-pair">key-value-pair</dfn> = <a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-1">property-name</a> <a data-link-type="grammar" href="#grammardef-whitespace" id="ref-for-grammardef-whitespace-3">whitespace</a> <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-1">property-value</a>
 </pre>
    <p>This is just the general grammar, the individual <a data-link-type="dfn" href="#properties" id="ref-for-properties-3">properties</a> will define
 the exact <dfn data-dfn-type="dfn" data-noexport="" id="property-grammar">property grammar<a class="self-link" href="#property-grammar"></a></dfn> that overrides <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-2">property-value</a>.</p>
@@ -3287,12 +3287,6 @@ properties for floating elements; properties need to be defined for this.<a href
     <li><a href="#ref-for-grammardef-engine-property-name-1">2.3. Definition of "property"</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="grammardef-key-value-pair">
-   <b><a href="#grammardef-key-value-pair">#grammardef-key-value-pair</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-grammardef-key-value-pair-1">2.3. Definition of "property"</a> <a href="#ref-for-grammardef-key-value-pair-2">(2)</a>
-   </ul>
-  </aside>
   <aside class="dfn-panel" data-for="grammardef-property-name">
    <b><a href="#grammardef-property-name">#grammardef-property-name</a></b><b>Referenced in:</b>
    <ul>
@@ -3303,6 +3297,12 @@ properties for floating elements; properties need to be defined for this.<a href
    <b><a href="#grammardef-property-value">#grammardef-property-value</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-grammardef-property-value-1">2.3. Definition of "property"</a> <a href="#ref-for-grammardef-property-value-2">(2)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="grammardef-key-value-pair">
+   <b><a href="#grammardef-key-value-pair">#grammardef-key-value-pair</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-grammardef-key-value-pair-1">2.3. Definition of "property"</a> <a href="#ref-for-grammardef-key-value-pair-2">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="propdef-bbox">

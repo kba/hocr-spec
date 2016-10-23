@@ -127,9 +127,9 @@ ABNF notation of [[RFC5234]]:
                         "<a href="#propdef-image">image</a>" / "<a href="#propdef-imagemd5">imagemd5</a>" / "<a href="#propdef-lpageno">lpageno</a>" / "<a href="#propdef-nlp">nlp</a>" / "<a href="#propdef-order">order</a>" /
                         "<a href="#propdef-poly">poly</a>" / "<a href="#propdef-ppageno">ppageno</a>" / "<a href="#propdef-scan_res">scan_res</a>" / "<a href="#propdef-textangle">textangle</a>")
   <dfn>engine-property-name</dfn> = "x_" <a>alnum-word</a>
-  <dfn>key-value-pair</dfn> = <a>property-name</a> <a>whitespace</a> <a>property-value</a>
   <dfn>property-name</dfn> = <a>spec-property-name</a> / <a>engine-property-name</a>
   <dfn>property-value</dfn> = <a>ascii-word</a> *(<a>whitespace</a> <a>ascii-word</a>)
+  <dfn>key-value-pair</dfn> = <a>property-name</a> <a>whitespace</a> <a>property-value</a>
 </pre>
 
 This is just the general grammar, the individual <a>properties</a> will define
