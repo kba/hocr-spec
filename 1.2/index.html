@@ -1657,10 +1657,10 @@ used viewers (browsers), editors, conversion tools, and indexing tools</p>
      <p>support for document metadata</p>
    </ul>
    <p>We are embedding this information inside HTML by encoding it within valid tags
-and attributes inside HTML; We are going to use the terms <a data-link-type="dfn" href="#element" id="ref-for-element-1">elements</a> and <a data-link-type="dfn" href="#properties" id="ref-for-properties-1">properties</a> for referring to embedded markup.</p>
+and attributes inside HTML. We are going to use the terms <a data-link-type="dfn" href="#element" id="ref-for-element-1">elements</a> and <a data-link-type="dfn" href="#properties" id="ref-for-properties-1">properties</a> for referring to embedded markup.</p>
    <h3 class="heading settled" data-level="2.2" id="definition-element"><span class="secno">2.2. </span><span class="content">Definition of "element"</span><a class="self-link" href="#definition-element"></a></h3>
    <p>An <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="element">element</dfn> is any HTML tag with a <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/dom.html#the-class-attribute">class</a></code> attribute that contains
-exactly one class name that starts with <code>ocr_</code> or <code>orcx</code>.</p>
+exactly one class name that starts with <code>ocr_</code> or <code>ocrx_</code>.</p>
    <p class="note" role="note">Note: When referring to an HTML tag with class <code>ocr_page</code>, this spec uses the
 notation <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-2">ocr_page</a></code></p>
    <p>For some elements, the specs <dfn data-dfn-type="dfn" data-lt="Recommended HTML Tag" data-noexport="" id="recommended-html-tag">recommends using
@@ -1669,7 +1669,7 @@ desirable to actually choose those tags (e.g., when adding hOCR information to
 an existing HTML output routine).</p>
    <h3 class="heading settled" data-level="2.3" id="definition-property"><span class="secno">2.3. </span><span class="content">Definition of "property"</span><a class="self-link" href="#definition-property"></a></h3>
    <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="properties">Properties</dfn> are a set of key-value pairs that convey OCR-specific
-information related to specific <a data-link-type="dfn" href="#element" id="ref-for-element-2">elements</a>. They are serialized using a <a data-link-type="dfn" href="#properties-format" id="ref-for-properties-format-1">Specific format</a> in the <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/dom.html#the-title-attribute">title</a></code> attribute of
+information related to specific <a data-link-type="dfn" href="#element" id="ref-for-element-2">elements</a>. They are serialized using a <a data-link-type="dfn" href="#properties-format" id="ref-for-properties-format-1">specific format</a> in the <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/dom.html#the-title-attribute">title</a></code> attribute of
 the <a data-link-type="dfn" href="#element" id="ref-for-element-3">element</a> they refer to.</p>
    <p class="note" role="note">Note: When referring to a property <code>bbox</code>, this spec uses the notation <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-1">bbox</a>.</p>
    <p>There are four levels of association between any <a data-link-type="dfn" href="#element" id="ref-for-element-4">element</a> to any <a data-link-type="dfn" href="#properties" id="ref-for-properties-2">property</a>:</p>
