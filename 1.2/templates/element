@@ -1,0 +1,36 @@
+<dl class="def">
+
+  : Element Name
+  {% if deprecated %}
+  :: <del>{{ name }}</del> (Deprecated)
+  {% else %}
+  :: <a element>{{name}}</a>
+  {% endif %}
+
+{% if recommended_tags %}
+  : Recommended HTML Tags
+  :: {% for tag in recommended_tags %}<a element>{{ tag }}</a> {% if not loop.last %}, {% endif %} {% endfor %}
+{% endif %}
+
+{% if categories %}
+  : Categories
+  :: {% for category in categories %}<a>{{ category }} Elements</a> {% if not loop.last %}, {% endif %} {% endfor %}
+{% endif %}
+
+{% if properties and properties.allowed %}
+  : <a>Allowed Properties</a>
+  :: {% for prop in properties.allowed %}'{{ prop }}'{% if not loop.last %},{% endif %} {% endfor %}
+{% endif %}
+
+{% if properties and properties.required %}
+  : <a>Required Properties</a>
+  :: {% for prop in properties.required %}'{{ prop }}'{% if not loop.last %},{% endif %} {% endfor %}
+{% endif %}
+
+{% if properties and properties.recommended %}
+  : <a>Recommended Properties</a>
+  :: {% for prop in properties.recommended %}'{{ prop }}'{% if not loop.last %},{% endif %} {% endfor %}
+{% endif %}
+
+
+</dl>

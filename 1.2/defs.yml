@@ -1,0 +1,161 @@
+element:
+  ocr_abstract:
+    categories: ['Logical Structuring']
+  ocr_author:
+    categories: ['Inline']
+  ocr_blockquote:
+    categories: ['Logical Structuring']
+  ocr_caption:
+    categories: ['Logical Structuring']
+  ocr_carea:
+    categories: ['Typesetting']
+    properties:
+      required: ['bbox']
+  ocr_chapter:
+    categories: ['Logical Structuring']
+  ocr_chem:
+    categories: ['Float']
+  ocr_cinfo:
+    categories: ['Float']
+  ocr_column:
+    categories: ['Typesetting']
+    deprecated: true
+  ocr_display:
+    categories: ['Float']
+  ocr_document:
+    categories: ['Logical Structuring']
+    recommended_tags: ['h1']
+  ocr_dropcap:
+    categories: ['Inline']
+  ocr_float:
+    categories: ['Float']
+  ocr_footer:
+    categories: ['Float']
+  ocr_glyph:
+    categories: ['Inline']
+  ocr_glyphs:
+    categories: ['Inline']
+  ocr_header:
+    categories: ['Float']
+  ocr_image:
+    categories: ['Float']
+  ocr_line:
+    categories: ['Typesetting']
+  ocr_linear:
+    categories: ['Inline']
+  ocr_linedrawing:
+    categories: ['Float']
+  ocr_math:
+    categories: ['Float']
+  ocr_noise:
+    categories: ['Inline']
+  ocr_page:
+    categories: ['Typesetting']
+    properties:
+      required: ['bbox']
+      recommended: ['image', 'imagemd5']
+      allowed: ['x_source']
+  ocr_pageno:
+    categories: ['Float']
+  ocr_par:
+    categories: ['Inline']
+  ocr_part:
+    categories: ['Inline']
+  ocr_photo:
+    categories: ['Inline']
+  ocr_section:
+    categories: ['Logical Structuring']
+  ocr_separator:
+    categories: ['Inline']
+  ocr_separator0:
+    categories: ['Inline']
+  ocr_subsection:
+    categories: ['Logical Structuring']
+  ocr_subsubsection:
+    categories: ['Logical Structuring']
+  ocr_table:
+    categories: ['Float']
+  ocr_textfloat:
+    categories: ["Logical Structuring"]
+  ocr_textimage:
+    categories: ['Float']
+  ocr_title:
+    categories: ['Inline']
+  ocr_xycut:
+    categories: ['Inline']
+  ocrx_block:
+    categories: ['Inline', 'Engine-Specific']
+  ocrx_line:
+    categories: ['Inline', 'Engine-Specific']
+  ocrx_word:
+    categories: ['Inline', 'Engine-Specific']
+
+
+property:
+  bbox:
+    categories: ['Layout']
+    syntax: '
+    <a lt="unsigned short">x0</a>
+    <a lt="unsigned short">y0</a>
+    <a lt="unsigned short">x1</a>
+    <a lt="unsigned short">x1</a>
+    '
+  baseline:
+    categories: ['Inline']
+    syntax: '<a lt="float">pn</a> <a lt="float">pn-1</a> ... <a lt="float">p0</a>'
+  cflow:
+    categories: ['Flow']
+    syntax: '<a lt="string">clfowid</a>'
+  cuts:
+    categories: ['Layout']
+    syntax: "
+      <a lt='unsigned short'>c1dx</a>[,<a lt='unsigned short'>c1dy</a>[,<a lt='short'>c1dx2</a>]]
+      [<a lt='unsigned short'>c2dx</a>[,<a lt='unsigned short'>c2dy</a>[,<a lt='short'>c2dx2</a>]]]...
+    "
+  hardbreak:
+    categories: ['Inline']
+    syntax: '0|1'
+    default: 0
+  image:
+    categories: ['Page']
+    syntax: '<a lt="string">url</a>'
+  imagemd5:
+    categories: ['Page']
+    syntax: '<a lt="string">md5</a>'
+  # lpageno:
+  #   categories: ['Page']
+  # nlp:
+  #   categories: ['Confidence']
+  # order:
+  #   categories: ['Flow']
+  # poly:
+  #   categories: ['Layout']
+  # ppageno:
+  #   categories: ['Flow']
+  # scan_res:
+  #   categories: ['Page']
+  # textangle:
+  #   categories: ['Layout']
+  # x_bboxes:
+  #   categories: ['Layout']
+  # x_confs:
+  #   categories: ['Confidence']
+  # x_font:
+  #   categories: ['Font']
+  # x_fsize:
+  #   categories: ['Font']
+  # x_scanner:
+  #   categories: ['Page']
+  # x_source:
+  #   categories: ['Page']
+  # x_wconf:
+  #   categories: ['Confidence']
+
+metadata:
+  ocr-system:
+    value: ...
+    required: true
+  ocr-capabilities:
+  ocr-number-of-pages:
+  ocr-langs:
+  ocr-scripts:

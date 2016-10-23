@@ -1,0 +1,17 @@
+<dl class=def>
+
+  : Property Name
+  :: {{ name }}
+
+  {% for category in categories %}
+  {% if loop.first %}
+  : <a>Property Categories</a>
+  {% endif %}
+  :: <a>{{ category }} Property</a>
+  {% endfor %}
+
+  : <a>Property Syntax</a>
+  :: <code style='display:block;padding: .5em' highlight=c>{{name}} {{ syntax }}</code>
+
+
+</dl>

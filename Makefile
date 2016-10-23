@@ -10,9 +10,14 @@ SPEC_HTML = $(VERSION)/index.html
 BIKESHED = $(shell for cmd in bikeshed docker curl;do type >/dev/null 2>&1 $$cmd && echo $$cmd && break;done)
 BIKESHED_ARGS = -f
 
-$(SPEC_HTML): $(SPEC_METADATA) biblio.json $(SPEC_MD)
-	@echo 'Rebuilding spec...'
-	@cat  $(SPEC_BEFORE) > $(SPEC_BS)
+SPEC_DEFS = $(VERSION)/include/defs/bbox
+SPEC_DEFS_YML = $(VERSION)/defs.yml
+SPEC_DEFS_TEMPLATES = $(shell find $(VERSION)/templates/ -type f)
+GEN_DEFS = python3 gen-defs.py
+
+$(SPEC_HTML): $(SPEC_BEFORE) $(SPEC_MD) $(SPEC_BIBLIO) $(SPEC_AFTER) $(SPEC_DEFS)
+	echo 'Rebuilding spec...'
+	@cat  $(SPEC_BEFORE)           > $(SPEC_BS)
 	@echo '<pre class="biblio">'   >> $(SPEC_BS)
 	@cat  $(SPEC_BIBLIO)           >> $(SPEC_BS)
 	@echo '</pre>'                 >> $(SPEC_BS)
@@ -23,6 +28,9 @@ $(SPEC_HTML): $(SPEC_METADATA) biblio.json $(SPEC_MD)
 		curl)     curl "https://api.csswg.org/bikeshed/" -o $(SPEC_HTML) -Fforce=true -Ffile=@$(SPEC_BS) ;; \
 		*)        echo 'Unsupported bikeshed backend "$(BIKESHED)"'; exit 1 ;; esac
 	@rm -f $(SPEC_BS)
+
+$(SPEC_DEFS): $(SPEC_DEFS_YML) $(SPEC_DEFS_TEMPLATES)
+	@$(GEN_DEFS) --basepath $(VERSION)
 
 clean:
 	$(RM) $(SPEC_HTML) $(SPEC_BS)
