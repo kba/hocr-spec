@@ -1458,19 +1458,22 @@ Parts of this work may be from another specification document.  If so, those par
     <li>
      <a href="#terminology"><span class="secno">2</span> <span class="content">Terminology and Representation</span></a>
      <ol class="toc">
+      <li><a href="#representation"><span class="secno">2.1</span> <span class="content">Representation</span></a>
+      <li><a href="#definition-element"><span class="secno">2.2</span> <span class="content">Definition of "element"</span></a>
+      <li><a href="#definition-property"><span class="secno">2.3</span> <span class="content">Definition of "property"</span></a>
       <li>
-       <a href="#general-properties"><span class="secno">2.1</span> <span class="content">General Properties</span></a>
+       <a href="#general-properties"><span class="secno">2.4</span> <span class="content">General Properties</span></a>
        <ol class="toc">
-        <li><a href="#bbox"><span class="secno">2.1.1</span> <span class="content"><span>bbox</span></span></a>
-        <li><a href="#textangle"><span class="secno">2.1.2</span> <span class="content"><span>textangle</span></span></a>
+        <li><a href="#bbox"><span class="secno">2.4.1</span> <span class="content"><span>bbox</span></span></a>
+        <li><a href="#textangle"><span class="secno">2.4.2</span> <span class="content"><span>textangle</span></span></a>
        </ol>
       <li>
-       <a href="#non-recommended-general-properties"><span class="secno">2.2</span> <span class="content">Non-recommended general properties</span></a>
+       <a href="#non-recommended-general-properties"><span class="secno">2.5</span> <span class="content">Non-recommended general properties</span></a>
        <ol class="toc">
-        <li><a href="#poly"><span class="secno">2.2.1</span> <span class="content"><span>poly</span></span></a>
-        <li><a href="#order"><span class="secno">2.2.2</span> <span class="content"><span>order</span></span></a>
-        <li><a href="#cflow"><span class="secno">2.2.3</span> <span class="content"><span>cflow</span></span></a>
-        <li><a href="#baseline"><span class="secno">2.2.4</span> <span class="content"><span>baseline</span></span></a>
+        <li><a href="#poly"><span class="secno">2.5.1</span> <span class="content"><span>poly</span></span></a>
+        <li><a href="#order"><span class="secno">2.5.2</span> <span class="content"><span>order</span></span></a>
+        <li><a href="#cflow"><span class="secno">2.5.3</span> <span class="content"><span>cflow</span></span></a>
+        <li><a href="#baseline"><span class="secno">2.5.4</span> <span class="content"><span>baseline</span></span></a>
        </ol>
      </ol>
     <li><a href="#logical-elements"><span class="secno">3</span> <span class="content">Logical Structuring Elements</span></a>
@@ -1626,6 +1629,7 @@ constructs when necessary.</p>
 in <code>&lt;div class="<a href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-1">ocr_page</a>"></code> tags will convey the page boundaries to hOCR-capable agents and turn the HTML
 document into an hOCR document.</p>
    <h2 class="heading settled" data-level="2" id="terminology"><span class="secno">2. </span><span class="content">Terminology and Representation</span><a class="self-link" href="#terminology"></a></h2>
+   <h3 class="heading settled" data-level="2.1" id="representation"><span class="secno">2.1. </span><span class="content">Representation</span><a class="self-link" href="#representation"></a></h3>
    <p>This document describes a representation of various aspects of OCR output in an
 XML-like format. That is, we define as set of tags containing text and other
 tags, together with attributes of those tags. However, since the content we are
@@ -1656,11 +1660,61 @@ used viewers (browsers), editors, conversion tools, and indexing tools</p>
 and attributes inside HTML; We are going to use the terms "elements" and
 "properties" for referring to embedded markup.</p>
    <p class="issue" id="issue-80996a43"><a class="self-link" href="#issue-80996a43"></a> <a href="https://github.com/kba/hocr-spec/issues/22">Specify that class must be a single value</a></p>
-   <p>Elements are defined by the class= attribute on an arbitrary HTML tag. All
-elements in this format have a class name of the form <code>ocr..._...</code>.</p>
-   <p>Properties are defined by putting information into the <code>title=</code> attribute of an
-HTML tag. Properties in title attributes are of the form “name values...”, and
-multiple properties are separated by semicolons.</p>
+   <h3 class="heading settled" data-level="2.2" id="definition-element"><span class="secno">2.2. </span><span class="content">Definition of "element"</span><a class="self-link" href="#definition-element"></a></h3>
+   <p>An <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="element">element</dfn> is any HTML tag with a <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/dom.html#the-class-attribute">class</a></code> attribute that contains
+exactly one class name that starts with <code>ocr_</code> or <code>orcx</code>.</p>
+   <p class="note" role="note">Note: When referring to an HTML tag with class <code>ocr_page</code>, this spec uses the
+notation <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-2">ocr_page</a></code></p>
+   <p>For some elements, the specs <dfn data-dfn-type="dfn" data-lt="Recommended HTML Tag" data-noexport="" id="recommended-html-tag">recommends using
+specific HTML tags<a class="self-link" href="#recommended-html-tag"></a></dfn>. This is entirely optional, it may not be possible or
+desirable to actually choose those tags (e.g., when adding hOCR information to
+an existing HTML output routine).</p>
+   <h3 class="heading settled" data-level="2.3" id="definition-property"><span class="secno">2.3. </span><span class="content">Definition of "property"</span><a class="self-link" href="#definition-property"></a></h3>
+   <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="properties">Properties</dfn> are a set of key-value pairs that convey OCR-specific
+information related to specific <a data-link-type="dfn" href="#element" id="ref-for-element-1">elements</a>. They are serialized using a <a data-link-type="dfn" href="#properties-format" id="ref-for-properties-format-1">Specific format</a> in the <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/dom.html#the-title-attribute">title</a></code> attribute of
+the <a data-link-type="dfn" href="#element" id="ref-for-element-2">element</a> they refer to.</p>
+   <p class="note" role="note">Note: When referring to a property <code>bbox</code>, this spec uses the notation <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-1">bbox</a>.</p>
+   <p>There are four levels of association between any <a data-link-type="dfn" href="#element" id="ref-for-element-3">element</a> to any <a data-link-type="dfn" href="#properties" id="ref-for-properties-1">property</a>:</p>
+   <dl>
+    <dt data-md="">
+     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="disallowed-property">Disallowed Property</dfn></p>
+    <dd data-md="">
+     <p>The element MUST NOT contain the property</p>
+    <dd data-md="">
+     <p>Unless defined otherwise, all properties are disallowed for any element.</p>
+    <dt data-md="">
+     <p><dfn data-dfn-type="dfn" data-noexport="" id="required-property">Required Property<a class="self-link" href="#required-property"></a></dfn></p>
+    <dd data-md="">
+     <p>The element MUST contain the property</p>
+    <dt data-md="">
+     <p><dfn data-dfn-type="dfn" data-noexport="" id="recommended-property">Recommended Property<a class="self-link" href="#recommended-property"></a></dfn></p>
+    <dd data-md="">
+     <p>The element SHOULD contain the property</p>
+    <dt data-md="">
+     <p><dfn data-dfn-type="dfn" data-noexport="" id="allowed-property">Allowed Property<a class="self-link" href="#allowed-property"></a></dfn></p>
+    <dd data-md="">
+     <p>The element MAY contain the property</p>
+   </dl>
+   <p>Properties may define a <dfn data-dfn-type="dfn" data-noexport="" id="default-value">default value<a class="self-link" href="#default-value"></a></dfn>. For those elements for which the
+property is not <a data-link-type="dfn" href="#disallowed-property" id="ref-for-disallowed-property-1">disallowed</a> but not explicitly
+specified, the property is assigned to the element with the default value.</p>
+   <p>The <dfn class="dfn-paneled" data-dfn-type="dfn" data-lt="Properties Format" data-noexport="" id="properties-format">properties format</dfn> is as follows, using the
+ABNF notation of <a data-link-type="biblio" href="#biblio-rfc5234">[RFC5234]</a>:</p>
+<pre><dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-whitespace">whitespace</dfn> = +%20  ; one or more spaces ' '
+<dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-separator">separator</dfn>  = %3B   ; semicolon ';'
+<dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-alnum-word">alnum-word</dfn> = +(%x41-5A / %x30-39) ; lowercase letters or numbers
+<dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-ascii-word">ascii-word</dfn> = +(%x21-7E - <a data-link-type="grammar" href="#grammardef-separator" id="ref-for-grammardef-separator-1">separator</a>)  ; printable ascii without semicolon
+<dfn data-dfn-type="grammar" data-export="" id="grammardef-properties-format">properties-format<a class="self-link" href="#grammardef-properties-format"></a></dfn> = <a data-link-type="grammar" href="#grammardef-key-value-pair" id="ref-for-grammardef-key-value-pair-1">key-value-pair</a> *(<a data-link-type="grammar" href="#grammardef-whitespace" id="ref-for-grammardef-whitespace-1">whitespace</a> <a data-link-type="grammar" href="#grammardef-separator" id="ref-for-grammardef-separator-2">separator</a> <a data-link-type="grammar" href="#grammardef-key-value-pair" id="ref-for-grammardef-key-value-pair-2">key-value-pair</a>)
+<dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-spec-property-name">spec-property-name</dfn> = ("<a href="#propdef-bbox" id="ref-for-propdef-bbox-2">bbox</a>" / "<a href="#propdef-baseline" id="ref-for-propdef-baseline-1">baseline</a>" / "<a href="#propdef-cflow" id="ref-for-propdef-cflow-1">cflow</a>" / "<a href="#propdef-cuts" id="ref-for-propdef-cuts-1">cuts</a>" / "<a href="#propdef-hardbreak" id="ref-for-propdef-hardbreak-1">hardbreak</a>" /
+                      "<a href="#propdef-image" id="ref-for-propdef-image-1">image</a>" / "<a href="#propdef-imagemd5" id="ref-for-propdef-imagemd5-1">imagemd5</a>" / "<a href="#propdef-lpageno" id="ref-for-propdef-lpageno-1">lpageno</a>" / "<a href="#propdef-nlp" id="ref-for-propdef-nlp-1">nlp</a>" / "<a href="#propdef-order" id="ref-for-propdef-order-1">order</a>" /
+                      "<a href="#propdef-poly" id="ref-for-propdef-poly-1">poly</a>" / "<a href="#propdef-ppageno" id="ref-for-propdef-ppageno-1">ppageno</a>" / "<a href="#propdef-scan_res" id="ref-for-propdef-scan_res-1">scan_res</a>" / "<a href="#propdef-textangle" id="ref-for-propdef-textangle-1">textangle</a>")
+<dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-engine-property-name">engine-property-name</dfn> = "x_" <a data-link-type="grammar" href="#grammardef-alnum-word" id="ref-for-grammardef-alnum-word-1">alnum-word</a>
+<dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-key-value-pair">key-value-pair</dfn> = <a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-1">property-name</a> <a data-link-type="grammar" href="#grammardef-whitespace" id="ref-for-grammardef-whitespace-2">whitespace</a> <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-1">property-value</a>
+<dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-property-name">property-name</dfn> = <a data-link-type="grammar" href="#grammardef-spec-property-name" id="ref-for-grammardef-spec-property-name-1">spec-property-name</a> / <a data-link-type="grammar" href="#grammardef-engine-property-name" id="ref-for-grammardef-engine-property-name-1">engine-property-name</a>
+<dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-property-value">property-value</dfn> = <a data-link-type="grammar" href="#grammardef-ascii-word" id="ref-for-grammardef-ascii-word-1">ascii-word</a> *(<a data-link-type="grammar" href="#grammardef-whitespace" id="ref-for-grammardef-whitespace-3">whitespace</a> <a data-link-type="grammar" href="#grammardef-ascii-word" id="ref-for-grammardef-ascii-word-2">ascii-word</a>)
+</pre>
+   <p>This is just the general grammar, the individual <a data-link-type="dfn" href="#properties" id="ref-for-properties-2">properties</a> will define
+the exact <dfn data-dfn-type="dfn" data-noexport="" id="property-grammar">property grammar<a class="self-link" href="#property-grammar"></a></dfn> that overrides <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-2">property-value</a>.</p>
    <div class="example" id="example-b38b5c14">
     <a class="self-link" href="#example-b38b5c14"></a> 
 <pre class="language-html highlight"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"ocr_page"</span> <span class="na">id</span><span class="o">=</span><span class="s">"page_1"</span><span class="p">></span>
@@ -1671,9 +1725,9 @@ multiple properties are separated by semicolons.</p>
 <span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">></span>
 </pre>
    </div>
-   <h3 class="heading settled" data-level="2.1" id="general-properties"><span class="secno">2.1. </span><span class="content">General Properties</span><a class="self-link" href="#general-properties"></a></h3>
+   <h3 class="heading settled" data-level="2.4" id="general-properties"><span class="secno">2.4. </span><span class="content">General Properties</span><a class="self-link" href="#general-properties"></a></h3>
    <p>The following properties can apply to most elements (where it makes sense):</p>
-   <h4 class="heading settled" data-level="2.1.1" id="bbox"><span class="secno">2.1.1. </span><span class="content"><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-bbox">bbox</dfn></span><a class="self-link" href="#bbox"></a></h4>
+   <h4 class="heading settled" data-level="2.4.1" id="bbox"><span class="secno">2.4.1. </span><span class="content"><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-bbox">bbox</dfn></span><a class="self-link" href="#bbox"></a></h4>
    <p><code>bbox x0 y0 x1 y1</code></p>
    <p>The <code>bbox</code> - short for "bounding box" - of an element is a rectangular box
 around this element, which is defined by the upper-left corner (x0, y0) and
@@ -1687,7 +1741,7 @@ and measured in pixels</p>
     <li data-md="">
      <p>use <a class="property" data-link-type="propdesc" href="#propdef-x_bboxes" id="ref-for-propdef-x_bboxes-1">x_bboxes</a> below for character bounding boxes</p>
     <li data-md="">
-     <p>do not use <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-1">bbox</a> unless the bounding box of the layout component is, in
+     <p>do not use <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-3">bbox</a> unless the bounding box of the layout component is, in
 fact, rectangular</p>
     <li data-md="">
      <p>some non-rectangular layout components may have rectangular bounding boxes
@@ -1705,17 +1759,17 @@ All coordinates are measured with reference to the top-left corner of
 the document image which border is drawn in black.</p>
     <figure><img alt="bbox explained" src="../images/bbox-crop.png"> </figure>
    </div>
-   <h4 class="heading settled" data-level="2.1.2" id="textangle"><span class="secno">2.1.2. </span><span class="content"><dfn class="css" data-dfn-type="property" data-export="" id="propdef-textangle">textangle<a class="self-link" href="#propdef-textangle"></a></dfn></span><a class="self-link" href="#textangle"></a></h4>
+   <h4 class="heading settled" data-level="2.4.2" id="textangle"><span class="secno">2.4.2. </span><span class="content"><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-textangle">textangle</dfn></span><a class="self-link" href="#textangle"></a></h4>
    <p><code>textangle alpha</code></p>
    <p>The angle in degrees by which textual content has been rotate relative to the
 rest of the page (if not present, the angle is assumed to be zero); rotations
 are counter-clockwise, so an angle of 90 degrees is vertical text running from
 bottom to top in Latin script; note that this is different from reading order,
 which should be indicated using standard HTML properties</p>
-   <h3 class="heading settled" data-level="2.2" id="non-recommended-general-properties"><span class="secno">2.2. </span><span class="content">Non-recommended general properties</span><a class="self-link" href="#non-recommended-general-properties"></a></h3>
+   <h3 class="heading settled" data-level="2.5" id="non-recommended-general-properties"><span class="secno">2.5. </span><span class="content">Non-recommended general properties</span><a class="self-link" href="#non-recommended-general-properties"></a></h3>
    <p>The following properties can apply to most elements but should not be used
 unless there is no alternative:</p>
-   <h4 class="heading settled" data-level="2.2.1" id="poly"><span class="secno">2.2.1. </span><span class="content"><dfn class="css" data-dfn-type="property" data-export="" id="propdef-poly">poly<a class="self-link" href="#propdef-poly"></a></dfn></span><a class="self-link" href="#poly"></a></h4>
+   <h4 class="heading settled" data-level="2.5.1" id="poly"><span class="secno">2.5.1. </span><span class="content"><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-poly">poly</dfn></span><a class="self-link" href="#poly"></a></h4>
    <p><code>poly x0 y0 x1 y1 ...</code></p>
    <p>A closed polygon for elements with non-rectangular bounds</p>
    <ul>
@@ -1730,9 +1784,9 @@ layouts is in terms of rectangular content areas and rectangular floats</p>
     <li data-md="">
      <p>documents using polygonal borders anywhere must indicate this by adding <a class="css" data-link-type="maybe" href="#valdef-ocr-capabilities-ocrp_poly" id="ref-for-valdef-ocr-capabilities-ocrp_poly-1">ocrp_poly</a> to the list of <a class="property" data-link-type="propdesc" href="#propdef-ocr-capabilities" id="ref-for-propdef-ocr-capabilities-1">ocr-capabilities</a> (see <a href="#capabilities">§11.1 Capabilities</a>)</p>
     <li data-md="">
-     <p>documents should attempt to provide a reasonable <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-2">bbox</a> equivalent as well</p>
+     <p>documents should attempt to provide a reasonable <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-4">bbox</a> equivalent as well</p>
    </ul>
-   <h4 class="heading settled" data-level="2.2.2" id="order"><span class="secno">2.2.2. </span><span class="content"><dfn class="css" data-dfn-type="property" data-export="" id="propdef-order">order<a class="self-link" href="#propdef-order"></a></dfn></span><a class="self-link" href="#order"></a></h4>
+   <h4 class="heading settled" data-level="2.5.2" id="order"><span class="secno">2.5.2. </span><span class="content"><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-order">order</dfn></span><a class="self-link" href="#order"></a></h4>
    <p><code>order n</code></p>
    <p>The reading order of the element (an integer)</p>
    <ul>
@@ -1743,7 +1797,7 @@ many tools will not be able to deal with content that is not in reading order</p
     <li data-md="">
      <p>presence must be declared in the document meta data</p>
    </ul>
-   <h4 class="heading settled" data-level="2.2.3" id="cflow"><span class="secno">2.2.3. </span><span class="content"><dfn class="css" data-dfn-type="property" data-export="" id="propdef-cflow">cflow<a class="self-link" href="#propdef-cflow"></a></dfn></span><a class="self-link" href="#cflow"></a></h4>
+   <h4 class="heading settled" data-level="2.5.3" id="cflow"><span class="secno">2.5.3. </span><span class="content"><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-cflow">cflow</dfn></span><a class="self-link" href="#cflow"></a></h4>
    <p><code>cflow s</code></p>
    <p>This property relates the flow between multiple <code><a data-link-type="element" href="#elementdef-ocr_carea" id="ref-for-elementdef-ocr_carea-1">ocr_carea</a></code> elements,
 and between <code><a data-link-type="element" href="#elementdef-ocr_carea" id="ref-for-elementdef-ocr_carea-2">ocr_carea</a></code> and <code><a data-link-type="element" href="#elementdef-ocr_linear" id="ref-for-elementdef-ocr_linear-1">ocr_linear</a></code> elements.</p>
@@ -1757,7 +1811,7 @@ order is attempted and multiple content flows are present</p>
     <li data-md="">
      <p>presence must be declared in the document meta data</p>
    </ul>
-   <h4 class="heading settled" data-level="2.2.4" id="baseline"><span class="secno">2.2.4. </span><span class="content"><dfn class="css" data-dfn-type="property" data-export="" id="propdef-baseline">baseline<a class="self-link" href="#propdef-baseline"></a></dfn></span><a class="self-link" href="#baseline"></a></h4>
+   <h4 class="heading settled" data-level="2.5.4" id="baseline"><span class="secno">2.5.4. </span><span class="content"><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-baseline">baseline</dfn></span><a class="self-link" href="#baseline"></a></h4>
    <p><code>baseline pn pn-1 ... p0</code></p>
    <p>This property applies primarily to textlines.</p>
    <p>The baseline is described by a polynomial of order <code>n</code> with the coefficients <code>pn ... p0</code> with <code>n = 1</code> for a linear (i.e. straight) line.</p>
@@ -1769,7 +1823,7 @@ the bounding box as the origin.</p>
 <pre class="language-html highlight"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">'ocr_line'</span> <span class="na">id</span><span class="o">=</span><span class="s">'line_1_1'</span>
     <span class="na">title</span><span class="o">=</span><span class="s">"bbox 105 66 823 113; baseline 0.015 -18"</span><span class="p">></span>...<span class="p">&lt;</span><span class="p">/</span><span class="nt">span</span><span class="p">></span>
 </pre>
-    <p><a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-3">bbox</a> is the bounding box of the line in image coordinates (blue). The two
+    <p><a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-5">bbox</a> is the bounding box of the line in image coordinates (blue). The two
 numbers for the baseline are the slope (1st number) and constant term (2nd
 number) of a linear equation describing the baseline relative to the bottom
 left corner of the bounding box (red). The baseline crosses the y-axis at <code>-18</code> and its slope angle is <code>arctan(0.015) = 0.86°</code>.</p>
@@ -1780,10 +1834,6 @@ left corner of the bounding box (red). The baseline crosses the y-axis at <code>
    <p>The classes defined in this section for logically structuring a hOCR document
 have their standard meaning as used in the publishing industry and tools like
 LaTeX, MS Word, and others.</p>
-   <p>Elements with these classes should use the recommended HTML tag given below.
-This is entirely optional, it may not be possible or desirable to actually
-choose those tags (e.g., when adding hOCR information to an existing HTML
-output routine).</p>
    <dl>
     <dt data-md="">
      <p><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_document">ocr_document</dfn></p>
@@ -1910,7 +1960,7 @@ properties for floating elements; properties need to be defined for this.</p>
    <p>The following classes, as well as <a href="#classes-for-floats">floats</a> are used for type-setting
 elements.</p>
    <h4 class="heading settled" data-level="4.1.1" id="ocr_page"><span class="secno">4.1.1. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_page">ocr_page</dfn></span><a class="self-link" href="#ocr_page"></a></h4>
-   <p>The <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-2">ocr_page</a></code> element must be present in all hOCR documents.</p>
+   <p>The <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-3">ocr_page</a></code> element must be present in all hOCR documents.</p>
    <h4 class="heading settled" data-level="4.1.2" id="ocr_column"><span class="secno">4.1.2. </span><span class="content"><dfn data-dfn-type="element" data-export="" id="elementdef-ocr_column">ocr_column<a class="self-link" href="#elementdef-ocr_column"></a></dfn></span><a class="self-link" href="#ocr_column"></a></h4>
    <div class="annoying-warning">
      <strong>OBSOLETE</strong> 
@@ -1955,7 +2005,7 @@ They are represented by the <code><a data-link-type="element" href="#elementdef-
    <p>The following properties should be present:</p>
    <h4 class="heading settled" data-level="4.2.1" id="bbox-typesetting"><span class="secno">4.2.1. </span><span class="content"><code>bbox (typesetting)</code></span><a class="self-link" href="#bbox-typesetting"></a></h4>
    <p>The bounding box of the page; for pages, the top left corner must be at <code>(0,0)</code>, so a typical page bounding box will look like <code>bbox 0 0 2300 3200</code></p>
-   <h4 class="heading settled" data-level="4.2.2" id="image"><span class="secno">4.2.2. </span><span class="content"><dfn class="css" data-dfn-type="property" data-export="" id="propdef-image">image<a class="self-link" href="#propdef-image"></a></dfn></span><a class="self-link" href="#image"></a></h4>
+   <h4 class="heading settled" data-level="4.2.2" id="image"><span class="secno">4.2.2. </span><span class="content"><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-image">image</dfn></span><a class="self-link" href="#image"></a></h4>
    <p><code>image imagefile</code></p>
    <ul>
     <li data-md="">
@@ -1971,7 +2021,7 @@ becomes separated from the image file)</p>
      <p>if the hOCR file is present in a directory hierarchy or file archive, should
 resolve to the corresponding image file</p>
    </ul>
-   <h4 class="heading settled" data-level="4.2.3" id="imagemd5"><span class="secno">4.2.3. </span><span class="content"><dfn class="css" data-dfn-type="property" data-export="" id="propdef-imagemd5">imagemd5<a class="self-link" href="#propdef-imagemd5"></a></dfn></span><a class="self-link" href="#imagemd5"></a></h4>
+   <h4 class="heading settled" data-level="4.2.3" id="imagemd5"><span class="secno">4.2.3. </span><span class="content"><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-imagemd5">imagemd5</dfn></span><a class="self-link" href="#imagemd5"></a></h4>
    <p><code>imagemd5 checksum</code></p>
    <ul>
     <li data-md="">
@@ -1979,7 +2029,7 @@ resolve to the corresponding image file</p>
     <li data-md="">
      <p>allows re-associating pages with source images</p>
    </ul>
-   <h4 class="heading settled" data-level="4.2.4" id="ppageno"><span class="secno">4.2.4. </span><span class="content"><dfn class="css" data-dfn-type="property" data-export="" id="propdef-ppageno">ppageno<a class="self-link" href="#propdef-ppageno"></a></dfn></span><a class="self-link" href="#ppageno"></a></h4>
+   <h4 class="heading settled" data-level="4.2.4" id="ppageno"><span class="secno">4.2.4. </span><span class="content"><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-ppageno">ppageno</dfn></span><a class="self-link" href="#ppageno"></a></h4>
    <p><code>ppageno n</code></p>
    <ul>
     <li data-md="">
@@ -1993,7 +2043,7 @@ resolve to the corresponding image file</p>
     <li data-md="">
      <p>must not be present unless it is well defined and unique</p>
    </ul>
-   <h4 class="heading settled" data-level="4.2.5" id="lpageno"><span class="secno">4.2.5. </span><span class="content"><dfn class="css" data-dfn-type="property" data-export="" id="propdef-lpageno">lpageno<a class="self-link" href="#propdef-lpageno"></a></dfn></span><a class="self-link" href="#lpageno"></a></h4>
+   <h4 class="heading settled" data-level="4.2.5" id="lpageno"><span class="secno">4.2.5. </span><span class="content"><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-lpageno">lpageno</dfn></span><a class="self-link" href="#lpageno"></a></h4>
    <p><code>lpageno string</code></p>
    <ul>
     <li data-md="">
@@ -2007,7 +2057,7 @@ resolve to the corresponding image file</p>
    </ul>
    <h3 class="heading settled" data-level="4.3" id="optional-properties-for-typesetting-elements"><span class="secno">4.3. </span><span class="content">Optional Properties for typesetting elements</span><a class="self-link" href="#optional-properties-for-typesetting-elements"></a></h3>
    <p>The following properties MAY be present:</p>
-   <h4 class="heading settled" data-level="4.3.1" id="scan_res"><span class="secno">4.3.1. </span><span class="content"><dfn class="css" data-dfn-type="property" data-export="" id="propdef-scan_res">scan_res<a class="self-link" href="#propdef-scan_res"></a></dfn></span><a class="self-link" href="#scan_res"></a></h4>
+   <h4 class="heading settled" data-level="4.3.1" id="scan_res"><span class="secno">4.3.1. </span><span class="content"><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-scan_res">scan_res</dfn></span><a class="self-link" href="#scan_res"></a></h4>
    <p><code>scan_res x_res y_res</code></p>
    <ul>
     <li data-md="">
@@ -2040,7 +2090,7 @@ additional strings or using URL parameters or fragments</p>
    </ul>
    <p>In addition to the standard
 properties, the <code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-3">ocr_line</a></code> area supports the following additional properties:</p>
-   <h4 class="heading settled" data-level="4.3.4" id="hardbreak"><span class="secno">4.3.4. </span><span class="content"><dfn class="css" data-dfn-type="property" data-export="" id="propdef-hardbreak">hardbreak<a class="self-link" href="#propdef-hardbreak"></a></dfn></span><a class="self-link" href="#hardbreak"></a></h4>
+   <h4 class="heading settled" data-level="4.3.4" id="hardbreak"><span class="secno">4.3.4. </span><span class="content"><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-hardbreak">hardbreak</dfn></span><a class="self-link" href="#hardbreak"></a></h4>
    <p><code>hardbreak n</code></p>
    <ul>
     <li data-md="">
@@ -2150,7 +2200,7 @@ single "line" of text.</p>
     <li data-md="">
      <p><code><a data-link-type="element">ocrx_cinfo</a></code> should nest inside <code><a data-link-type="element" href="#elementdef-ocrx_line" id="ref-for-elementdef-ocrx_line-1">ocrx_line</a></code></p>
     <li data-md="">
-     <p><code><a data-link-type="element">ocrx_cinfo</a></code> should contain only <a class="property" data-link-type="propdesc" href="#propdef-x_confs" id="ref-for-propdef-x_confs-1">x_confs</a>, <a class="property" data-link-type="propdesc" href="#propdef-x_bboxes" id="ref-for-propdef-x_bboxes-2">x_bboxes</a>, and <a class="property" data-link-type="propdesc" href="#propdef-cuts" id="ref-for-propdef-cuts-1">cuts</a> attributes</p>
+     <p><code><a data-link-type="element">ocrx_cinfo</a></code> should contain only <a class="property" data-link-type="propdesc" href="#propdef-x_confs" id="ref-for-propdef-x_confs-1">x_confs</a>, <a class="property" data-link-type="propdesc" href="#propdef-x_bboxes" id="ref-for-propdef-x_bboxes-2">x_bboxes</a>, and <a class="property" data-link-type="propdesc" href="#propdef-cuts" id="ref-for-propdef-cuts-2">cuts</a> attributes</p>
    </ul>
    <h3 class="heading settled" data-level="6.2" id="properties-for-character-information"><span class="secno">6.2. </span><span class="content">Properties for Character Information</span><a class="self-link" href="#properties-for-character-information"></a></h3>
    <h4 class="heading settled" data-level="6.2.1" id="cuts"><span class="secno">6.2.1. </span><span class="content"><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-cuts">cuts</dfn></span><a class="self-link" href="#cuts"></a></h4>
@@ -2159,7 +2209,7 @@ single "line" of text.</p>
     <li data-md="">
      <p>character segmentation cuts (see below)</p>
     <li data-md="">
-     <p>there must be a <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-4">bbox</a> property relative to which the <a class="property" data-link-type="propdesc" href="#propdef-cuts" id="ref-for-propdef-cuts-2">cuts</a> can be interpreted</p>
+     <p>there must be a <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-6">bbox</a> property relative to which the <a class="property" data-link-type="propdesc" href="#propdef-cuts" id="ref-for-propdef-cuts-3">cuts</a> can be interpreted</p>
    </ul>
    <h4 class="heading settled" data-level="6.2.2" id="nlp"><span class="secno">6.2.2. </span><span class="content"><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-nlp">nlp</dfn></span><a class="self-link" href="#nlp"></a></h4>
    <p><code>nlp c1 c2 c3 ...</code></p>
@@ -2254,7 +2304,7 @@ existing OCR output, say for workflow abstractions.</p>
      <p>OCR-engine specific boxes associated with each codepoint contained in the
 element</p>
     <li data-md="">
-     <p>note that the <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-5">bbox</a> property is a property for the bounding box of a layout
+     <p>note that the <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-7">bbox</a> property is a property for the bounding box of a layout
 element, not of individual characters</p>
     <li data-md="">
      <p>in particular, use <code>&lt;span class="ocr_cinfo" title="x_bboxes ...."></code>, not <code>&lt;span class="ocr_cinfo" title="bbox ..."></code></p>
@@ -2306,7 +2356,7 @@ script (<a href="http://www.unicode.org/iso15924/codelists.html">list of codes</
    <p>Alternative segmentations and readings are indicated by a <code>&lt;span></code> with <code>class="alternatives"</code>. It must contains <code>&lt;ins></code> and <code>&lt;del></code> elements. The first
 contained element should be <code>&lt;ins></code> and represent the most probable interpretation,
 the subsequent ones <code>&lt;del></code>. Each <code>&lt;ins></code> and <code>&lt;del></code> element should have <code>class="alt"</code> and a
-property of either <a class="property" data-link-type="propdesc" href="#propdef-nlp" id="ref-for-propdef-nlp-1">nlp</a> or <a class="property" data-link-type="propdesc">x_cost</a>. These <code>&lt;span></code>, <code>&lt;ins></code>, and <code>&lt;del></code> tags can nest
+property of either <a class="property" data-link-type="propdesc" href="#propdef-nlp" id="ref-for-propdef-nlp-2">nlp</a> or <a class="property" data-link-type="propdesc">x_cost</a>. These <code>&lt;span></code>, <code>&lt;ins></code>, and <code>&lt;del></code> tags can nest
 arbitrarily.</p>
    <div class="example" id="example-861f64bd">
     <a class="self-link" href="#example-861f64bd"></a> 
@@ -2321,7 +2371,7 @@ when viewed in a browser.</p>
    <h2 class="heading settled" data-level="10" id="groups"><span class="secno">10. </span><span class="content">Grouped Elements and Multiple Hierarchies</span><a class="self-link" href="#groups"></a></h2>
    <p>The different levels of layout information (logical, physical, engine-specific)
 each form hierarchies, but those hierarchies may not be mutually compatible;
-for example, a single <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-3">ocr_page</a></code> may contain information from multiple sections
+for example, a single <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-4">ocr_page</a></code> may contain information from multiple sections
 or chapters. To represent both hierarchies within a single document, elements
 may be grouped together.  That is, two elements with the same class may be
 treated as one element by adding a "groupid identifier" property to them and
@@ -2365,7 +2415,7 @@ information using <code><a data-link-type="element" href="https://html.spec.what
     <dt data-md="">
      <p><dfn class="css" data-dfn-type="property" data-export="" id="propdef-ocr-number-of-pages">ocr-number-of-pages<a class="self-link" href="#propdef-ocr-number-of-pages"></a></dfn></p>
     <dd data-md="">
-     <p>The number of <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-4">ocr_page</a></code> in the document</p>
+     <p>The number of <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-5">ocr_page</a></code> in the document</p>
     <dt data-md="">
      <p><dfn class="css" data-dfn-type="property" data-export="" id="propdef-ocr-langs">ocr-langs<a class="self-link" href="#propdef-ocr-langs"></a></dfn></p>
     <dd data-md="">
@@ -2447,7 +2497,7 @@ for Dublin Core</a>.</p>
      <li data-md="">
       <p>was produced by Tesseract v3.03</p>
      <li data-md="">
-      <p>will provide <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-5">ocr_page</a></code> and <code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-7">ocr_line</a></code> elements with <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/dom.html#attr-lang">lang</a></code> attribute</p>
+      <p>will provide <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-6">ocr_page</a></code> and <code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-7">ocr_line</a></code> elements with <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/dom.html#attr-lang">lang</a></code> attribute</p>
      <li data-md="">
       <p>contains text written in the Afar, Latin or Zulu languages</p>
      <li data-md="">
@@ -2488,7 +2538,7 @@ document classes:</p>
      <p>common commercial OCR output (e.g., Abbyy)</p>
      <ul>
       <li data-md="">
-       <p><code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-6">ocr_page</a></code></p>
+       <p><code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-7">ocr_page</a></code></p>
       <li data-md="">
        <p><code><a data-link-type="element" href="#elementdef-ocrx_block" id="ref-for-elementdef-ocrx_block-6">ocrx_block</a></code>, <code><a data-link-type="element" href="#elementdef-ocrx_line" id="ref-for-elementdef-ocrx_line-3">ocrx_line</a></code>, <code><a data-link-type="element" href="#elementdef-ocrx_word" id="ref-for-elementdef-ocrx_word-1">ocrx_word</a></code></p>
       <li data-md="">
@@ -2502,7 +2552,7 @@ document classes:</p>
       <li data-md="">
        <p>all logical structuring elements (as applicable), except <code><a data-link-type="element" href="#elementdef-ocr_linear" id="ref-for-elementdef-ocr_linear-9">ocr_linear</a></code></p>
       <li data-md="">
-       <p><code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-7">ocr_page</a></code></p>
+       <p><code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-8">ocr_page</a></code></p>
      </ul>
     <li data-md="">
      <p>newspaper target</p>
@@ -2512,7 +2562,7 @@ document classes:</p>
       <li data-md="">
        <p>articles map on <code><a data-link-type="element" href="#elementdef-ocr_linear" id="ref-for-elementdef-ocr_linear-10">ocr_linear</a></code></p>
       <li data-md="">
-       <p><code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-8">ocr_page</a></code></p>
+       <p><code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-9">ocr_page</a></code></p>
      </ul>
    </ul>
    <h2 class="heading settled" data-level="13" id="html-markup"><span class="secno">13. </span><span class="content">HTML Markup</span><a class="self-link" href="#html-markup"></a></h2>
@@ -2979,10 +3029,17 @@ for (var span of document.querySelectorAll(".toc span:not([class])")) {
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
-   <li><a href="#propdef-baseline">baseline</a><span>, in §2.2.4</span>
-   <li><a href="#propdef-bbox">bbox</a><span>, in §2.1.1</span>
-   <li><a href="#propdef-cflow">cflow</a><span>, in §2.2.3</span>
+   <li><a href="#allowed-property">Allowed Property</a><span>, in §2.3</span>
+   <li><a href="#grammardef-alnum-word">alnum-word</a><span>, in §2.3</span>
+   <li><a href="#grammardef-ascii-word">ascii-word</a><span>, in §2.3</span>
+   <li><a href="#propdef-baseline">baseline</a><span>, in §2.5.4</span>
+   <li><a href="#propdef-bbox">bbox</a><span>, in §2.4.1</span>
+   <li><a href="#propdef-cflow">cflow</a><span>, in §2.5.3</span>
    <li><a href="#propdef-cuts">cuts</a><span>, in §6.2.1</span>
+   <li><a href="#default-value">default value</a><span>, in §2.3</span>
+   <li><a href="#disallowed-property">Disallowed Property</a><span>, in §2.3</span>
+   <li><a href="#element">element</a><span>, in §2.2</span>
+   <li><a href="#grammardef-engine-property-name">engine-property-name</a><span>, in §2.3</span>
    <li><a href="#propdef-hardbreak">hardbreak</a><span>, in §4.3.4</span>
    <li><a href="#html_absolute">html_absolute</a><span>, in §13.6</span>
    <li><a href="#html_absolute_chars">html_absolute_chars</a><span>, in §13.6</span>
@@ -3004,6 +3061,7 @@ for (var span of document.querySelectorAll(".toc span:not([class])")) {
    <li><a href="#html_xytable_relative">html_xytable_relative</a><span>, in §13.7</span>
    <li><a href="#propdef-image">image</a><span>, in §4.2.2</span>
    <li><a href="#propdef-imagemd5">imagemd5</a><span>, in §4.2.3</span>
+   <li><a href="#grammardef-key-value-pair">key-value-pair</a><span>, in §2.3</span>
    <li><a href="#propdef-lpageno">lpageno</a><span>, in §4.2.5</span>
    <li><a href="#propdef-nlp">nlp</a><span>, in §6.2.2</span>
    <li><a href="#elementdef-ocr_abstract">ocr_abstract</a><span>, in §3</span>
@@ -3061,11 +3119,23 @@ for (var span of document.querySelectorAll(".toc span:not([class])")) {
    <li><a href="#elementdef-ocrx_line">ocrx_line</a><span>, in §7.1.2</span>
    <li><a href="#elementdef-ocrx_word">ocrx_word</a><span>, in §7.1.3</span>
    <li><a href="#elementdef-ocr_xycut">ocr_xycut</a><span>, in §13.7</span>
-   <li><a href="#propdef-order">order</a><span>, in §2.2.2</span>
-   <li><a href="#propdef-poly">poly</a><span>, in §2.2.1</span>
+   <li><a href="#propdef-order">order</a><span>, in §2.5.2</span>
+   <li><a href="#propdef-poly">poly</a><span>, in §2.5.1</span>
    <li><a href="#propdef-ppageno">ppageno</a><span>, in §4.2.4</span>
+   <li><a href="#properties">Properties</a><span>, in §2.3</span>
+   <li><a href="#grammardef-properties-format">properties-format</a><span>, in §2.3</span>
+   <li><a href="#properties-format">Properties Format</a><span>, in §2.3</span>
+   <li><a href="#property-grammar">property grammar</a><span>, in §2.3</span>
+   <li><a href="#grammardef-property-name">property-name</a><span>, in §2.3</span>
+   <li><a href="#grammardef-property-value">property-value</a><span>, in §2.3</span>
+   <li><a href="#recommended-html-tag">Recommended HTML Tag</a><span>, in §2.2</span>
+   <li><a href="#recommended-property">Recommended Property</a><span>, in §2.3</span>
+   <li><a href="#required-property">Required Property</a><span>, in §2.3</span>
    <li><a href="#propdef-scan_res">scan_res</a><span>, in §4.3.1</span>
-   <li><a href="#propdef-textangle">textangle</a><span>, in §2.1.2</span>
+   <li><a href="#grammardef-separator">separator</a><span>, in §2.3</span>
+   <li><a href="#grammardef-spec-property-name">spec-property-name</a><span>, in §2.3</span>
+   <li><a href="#propdef-textangle">textangle</a><span>, in §2.4.2</span>
+   <li><a href="#grammardef-whitespace">whitespace</a><span>, in §2.3</span>
    <li><a href="#propdef-x_bboxes">x_bboxes</a><span>, in §7.2.3</span>
    <li><a href="#propdef-x_confs">x_confs</a><span>, in §7.2.4</span>
    <li><a href="#propdef-x_font">x_font</a><span>, in §7.2.1</span>
@@ -3083,6 +3153,7 @@ for (var span of document.querySelectorAll(".toc span:not([class])")) {
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-b-element">b</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-blockquote-element">blockquote</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-br-element">br</a>
+     <li><a href="https://html.spec.whatwg.org/multipage/dom.html#the-class-attribute">class</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-del-element">del</a>
      <li><a href="https://html.spec.whatwg.org/multipage/dom.html#the-dir-attribute">dir</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-div-element">div</a>
@@ -3108,6 +3179,7 @@ for (var span of document.querySelectorAll(".toc span:not([class])")) {
      <li><a href="https://www.w3.org/TR/html5/text-level-semantics.html#the-sub-and-sup-elements">sup</a>
      <li><a href="https://html.spec.whatwg.org/multipage/tables.html#the-table-element">table</a>
      <li><a href="https://html.spec.whatwg.org/multipage/tables.html#the-th-element">th</a>
+     <li><a href="https://html.spec.whatwg.org/multipage/dom.html#the-title-attribute">title</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-u-element">u</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-ul-element">ul</a>
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-wbr-element">wbr</a>
@@ -3138,6 +3210,8 @@ for (var span of document.querySelectorAll(".toc span:not([class])")) {
    <dd>Patrick D F Ion; Robert R Miner. <a href="https://www.w3.org/TR/MathML/">Mathematical Markup Language (MathML) 1.01 Specification</a>. 7 July 1999. REC. URL: <a href="https://www.w3.org/TR/MathML/">https://www.w3.org/TR/MathML/</a>
    <dt id="biblio-rfc2048">[RFC2048]
    <dd>N. Freed; J. Klensin; J. Postel. <a href="https://tools.ietf.org/html/rfc2048">Multipurpose Internet Mail Extensions (MIME) Part Four: Registration Procedures</a>. November 1996. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2048">https://tools.ietf.org/html/rfc2048</a>
+   <dt id="biblio-rfc5234">[RFC5234]
+   <dd>D. Crocker, Ed.; P. Overell. <a href="https://tools.ietf.org/html/rfc5234">Augmented BNF for Syntax Specifications: ABNF</a>. January 2008. Internet Standard. URL: <a href="https://tools.ietf.org/html/rfc5234">https://tools.ietf.org/html/rfc5234</a>
    <dt id="biblio-xdoc">[XDOC]
    <dd>Daniel S. Connelly; Beth Paddock; Rebecca Harvey. <a href="https://web.archive.org/web/20160731161638/http://vividata.com/manuals/core12xdc.pdf">XDOC DATA FORMAT. Technical Specification</a>. May 1999. URL: <a href="https://web.archive.org/web/20160731161638/http://vividata.com/manuals/core12xdc.pdf">https://web.archive.org/web/20160731161638/http://vividata.com/manuals/core12xdc.pdf</a>
    <dt id="biblio-xhtml1">[XHTML1]
@@ -3160,14 +3234,123 @@ properties for floating elements; properties need to be defined for this.<a href
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/1">What DOCTYPE for hOCR HTML?</a><a href="#issue-a3899b99"> ↵ </a></div>
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/27">correct MIME type for hOCR?</a><a href="#issue-19855aac"> ↵ </a></div>
   </div>
+  <aside class="dfn-panel" data-for="element">
+   <b><a href="#element">#element</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-element-1">2.3. Definition of "property"</a> <a href="#ref-for-element-2">(2)</a> <a href="#ref-for-element-3">(3)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="properties">
+   <b><a href="#properties">#properties</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-properties-1">2.3. Definition of "property"</a> <a href="#ref-for-properties-2">(2)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="disallowed-property">
+   <b><a href="#disallowed-property">#disallowed-property</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-disallowed-property-1">2.3. Definition of "property"</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="properties-format">
+   <b><a href="#properties-format">#properties-format</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-properties-format-1">2.3. Definition of "property"</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="grammardef-whitespace">
+   <b><a href="#grammardef-whitespace">#grammardef-whitespace</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-grammardef-whitespace-1">2.3. Definition of "property"</a> <a href="#ref-for-grammardef-whitespace-2">(2)</a> <a href="#ref-for-grammardef-whitespace-3">(3)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="grammardef-separator">
+   <b><a href="#grammardef-separator">#grammardef-separator</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-grammardef-separator-1">2.3. Definition of "property"</a> <a href="#ref-for-grammardef-separator-2">(2)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="grammardef-alnum-word">
+   <b><a href="#grammardef-alnum-word">#grammardef-alnum-word</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-grammardef-alnum-word-1">2.3. Definition of "property"</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="grammardef-ascii-word">
+   <b><a href="#grammardef-ascii-word">#grammardef-ascii-word</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-grammardef-ascii-word-1">2.3. Definition of "property"</a> <a href="#ref-for-grammardef-ascii-word-2">(2)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="grammardef-spec-property-name">
+   <b><a href="#grammardef-spec-property-name">#grammardef-spec-property-name</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-grammardef-spec-property-name-1">2.3. Definition of "property"</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="grammardef-engine-property-name">
+   <b><a href="#grammardef-engine-property-name">#grammardef-engine-property-name</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-grammardef-engine-property-name-1">2.3. Definition of "property"</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="grammardef-key-value-pair">
+   <b><a href="#grammardef-key-value-pair">#grammardef-key-value-pair</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-grammardef-key-value-pair-1">2.3. Definition of "property"</a> <a href="#ref-for-grammardef-key-value-pair-2">(2)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="grammardef-property-name">
+   <b><a href="#grammardef-property-name">#grammardef-property-name</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-grammardef-property-name-1">2.3. Definition of "property"</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="grammardef-property-value">
+   <b><a href="#grammardef-property-value">#grammardef-property-value</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-grammardef-property-value-1">2.3. Definition of "property"</a> <a href="#ref-for-grammardef-property-value-2">(2)</a>
+   </ul>
+  </aside>
   <aside class="dfn-panel" data-for="propdef-bbox">
    <b><a href="#propdef-bbox">#propdef-bbox</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-propdef-bbox-1">2.1.1. bbox</a>
-    <li><a href="#ref-for-propdef-bbox-2">2.2.1. poly</a>
-    <li><a href="#ref-for-propdef-bbox-3">2.2.4. baseline</a>
-    <li><a href="#ref-for-propdef-bbox-4">6.2.1. cuts</a>
-    <li><a href="#ref-for-propdef-bbox-5">7.2.3. x_bboxes</a>
+    <li><a href="#ref-for-propdef-bbox-1">2.3. Definition of "property"</a> <a href="#ref-for-propdef-bbox-2">(2)</a>
+    <li><a href="#ref-for-propdef-bbox-3">2.4.1. bbox</a>
+    <li><a href="#ref-for-propdef-bbox-4">2.5.1. poly</a>
+    <li><a href="#ref-for-propdef-bbox-5">2.5.4. baseline</a>
+    <li><a href="#ref-for-propdef-bbox-6">6.2.1. cuts</a>
+    <li><a href="#ref-for-propdef-bbox-7">7.2.3. x_bboxes</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="propdef-textangle">
+   <b><a href="#propdef-textangle">#propdef-textangle</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-propdef-textangle-1">2.3. Definition of "property"</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="propdef-poly">
+   <b><a href="#propdef-poly">#propdef-poly</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-propdef-poly-1">2.3. Definition of "property"</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="propdef-order">
+   <b><a href="#propdef-order">#propdef-order</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-propdef-order-1">2.3. Definition of "property"</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="propdef-cflow">
+   <b><a href="#propdef-cflow">#propdef-cflow</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-propdef-cflow-1">2.3. Definition of "property"</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="propdef-baseline">
+   <b><a href="#propdef-baseline">#propdef-baseline</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-propdef-baseline-1">2.3. Definition of "property"</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_document">
@@ -3247,7 +3430,7 @@ properties for floating elements; properties need to be defined for this.<a href
   <aside class="dfn-panel" data-for="elementdef-ocr_linear">
    <b><a href="#elementdef-ocr_linear">#elementdef-ocr_linear</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-elementdef-ocr_linear-1">2.2.3. cflow</a>
+    <li><a href="#ref-for-elementdef-ocr_linear-1">2.5.3. cflow</a>
     <li><a href="#ref-for-elementdef-ocr_linear-2">3. Logical Structuring Elements</a> <a href="#ref-for-elementdef-ocr_linear-3">(2)</a> <a href="#ref-for-elementdef-ocr_linear-4">(3)</a> <a href="#ref-for-elementdef-ocr_linear-5">(4)</a> <a href="#ref-for-elementdef-ocr_linear-6">(5)</a> <a href="#ref-for-elementdef-ocr_linear-7">(6)</a>
     <li><a href="#ref-for-elementdef-ocr_linear-8">4.1.3. ocr_carea</a>
     <li><a href="#ref-for-elementdef-ocr_linear-9">12. Profiles</a> <a href="#ref-for-elementdef-ocr_linear-10">(2)</a>
@@ -3263,17 +3446,18 @@ properties for floating elements; properties need to be defined for this.<a href
    <b><a href="#elementdef-ocr_page">#elementdef-ocr_page</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-elementdef-ocr_page-1">1. Introduction</a>
-    <li><a href="#ref-for-elementdef-ocr_page-2">4.1.1. ocr_page</a>
-    <li><a href="#ref-for-elementdef-ocr_page-3">10. Grouped Elements and Multiple Hierarchies</a>
-    <li><a href="#ref-for-elementdef-ocr_page-4">11. Metadata</a>
-    <li><a href="#ref-for-elementdef-ocr_page-5">11.3. Example</a>
-    <li><a href="#ref-for-elementdef-ocr_page-6">12. Profiles</a> <a href="#ref-for-elementdef-ocr_page-7">(2)</a> <a href="#ref-for-elementdef-ocr_page-8">(3)</a>
+    <li><a href="#ref-for-elementdef-ocr_page-2">2.2. Definition of "element"</a>
+    <li><a href="#ref-for-elementdef-ocr_page-3">4.1.1. ocr_page</a>
+    <li><a href="#ref-for-elementdef-ocr_page-4">10. Grouped Elements and Multiple Hierarchies</a>
+    <li><a href="#ref-for-elementdef-ocr_page-5">11. Metadata</a>
+    <li><a href="#ref-for-elementdef-ocr_page-6">11.3. Example</a>
+    <li><a href="#ref-for-elementdef-ocr_page-7">12. Profiles</a> <a href="#ref-for-elementdef-ocr_page-8">(2)</a> <a href="#ref-for-elementdef-ocr_page-9">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_carea">
    <b><a href="#elementdef-ocr_carea">#elementdef-ocr_carea</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-elementdef-ocr_carea-1">2.2.3. cflow</a> <a href="#ref-for-elementdef-ocr_carea-2">(2)</a> <a href="#ref-for-elementdef-ocr_carea-3">(3)</a>
+    <li><a href="#ref-for-elementdef-ocr_carea-1">2.5.3. cflow</a> <a href="#ref-for-elementdef-ocr_carea-2">(2)</a> <a href="#ref-for-elementdef-ocr_carea-3">(3)</a>
     <li><a href="#ref-for-elementdef-ocr_carea-4">4.1.2. ocr_column</a>
     <li><a href="#ref-for-elementdef-ocr_carea-5">4.1.3. ocr_carea</a> <a href="#ref-for-elementdef-ocr_carea-6">(2)</a> <a href="#ref-for-elementdef-ocr_carea-7">(3)</a> <a href="#ref-for-elementdef-ocr_carea-8">(4)</a> <a href="#ref-for-elementdef-ocr_carea-9">(5)</a> <a href="#ref-for-elementdef-ocr_carea-10">(6)</a>
     <li><a href="#ref-for-elementdef-ocr_carea-11">7.1.1. ocrx_block</a> <a href="#ref-for-elementdef-ocr_carea-12">(2)</a>
@@ -3287,6 +3471,42 @@ properties for floating elements; properties need to be defined for this.<a href
     <li><a href="#ref-for-elementdef-ocr_line-4">4.3.4. hardbreak</a>
     <li><a href="#ref-for-elementdef-ocr_line-5">7.1.2. ocrx_line</a> <a href="#ref-for-elementdef-ocr_line-6">(2)</a>
     <li><a href="#ref-for-elementdef-ocr_line-7">11.3. Example</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="propdef-image">
+   <b><a href="#propdef-image">#propdef-image</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-propdef-image-1">2.3. Definition of "property"</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="propdef-imagemd5">
+   <b><a href="#propdef-imagemd5">#propdef-imagemd5</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-propdef-imagemd5-1">2.3. Definition of "property"</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="propdef-ppageno">
+   <b><a href="#propdef-ppageno">#propdef-ppageno</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-propdef-ppageno-1">2.3. Definition of "property"</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="propdef-lpageno">
+   <b><a href="#propdef-lpageno">#propdef-lpageno</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-propdef-lpageno-1">2.3. Definition of "property"</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="propdef-scan_res">
+   <b><a href="#propdef-scan_res">#propdef-scan_res</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-propdef-scan_res-1">2.3. Definition of "property"</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="propdef-hardbreak">
+   <b><a href="#propdef-hardbreak">#propdef-hardbreak</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-propdef-hardbreak-1">2.3. Definition of "property"</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_float">
@@ -3316,20 +3536,22 @@ properties for floating elements; properties need to be defined for this.<a href
   <aside class="dfn-panel" data-for="propdef-cuts">
    <b><a href="#propdef-cuts">#propdef-cuts</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-propdef-cuts-1">6.1.1. ocr_cinfo</a>
-    <li><a href="#ref-for-propdef-cuts-2">6.2.1. cuts</a>
+    <li><a href="#ref-for-propdef-cuts-1">2.3. Definition of "property"</a>
+    <li><a href="#ref-for-propdef-cuts-2">6.1.1. ocr_cinfo</a>
+    <li><a href="#ref-for-propdef-cuts-3">6.2.1. cuts</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="propdef-nlp">
    <b><a href="#propdef-nlp">#propdef-nlp</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-propdef-nlp-1">9. Alternative Segmentations / Readings</a>
+    <li><a href="#ref-for-propdef-nlp-1">2.3. Definition of "property"</a>
+    <li><a href="#ref-for-propdef-nlp-2">9. Alternative Segmentations / Readings</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocrx_block">
    <b><a href="#elementdef-ocrx_block">#elementdef-ocrx_block</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-elementdef-ocrx_block-1">2.2.3. cflow</a>
+    <li><a href="#ref-for-elementdef-ocrx_block-1">2.5.3. cflow</a>
     <li><a href="#ref-for-elementdef-ocrx_block-2">7.1.1. ocrx_block</a> <a href="#ref-for-elementdef-ocrx_block-3">(2)</a> <a href="#ref-for-elementdef-ocrx_block-4">(3)</a> <a href="#ref-for-elementdef-ocrx_block-5">(4)</a>
     <li><a href="#ref-for-elementdef-ocrx_block-6">12. Profiles</a>
    </ul>
@@ -3351,7 +3573,7 @@ properties for floating elements; properties need to be defined for this.<a href
   <aside class="dfn-panel" data-for="propdef-x_bboxes">
    <b><a href="#propdef-x_bboxes">#propdef-x_bboxes</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-propdef-x_bboxes-1">2.1.1. bbox</a>
+    <li><a href="#ref-for-propdef-x_bboxes-1">2.4.1. bbox</a>
     <li><a href="#ref-for-propdef-x_bboxes-2">6.1.1. ocr_cinfo</a>
    </ul>
   </aside>
@@ -3370,7 +3592,7 @@ properties for floating elements; properties need to be defined for this.<a href
   <aside class="dfn-panel" data-for="propdef-ocr-capabilities">
    <b><a href="#propdef-ocr-capabilities">#propdef-ocr-capabilities</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-propdef-ocr-capabilities-1">2.2.1. poly</a>
+    <li><a href="#ref-for-propdef-ocr-capabilities-1">2.5.1. poly</a>
     <li><a href="#ref-for-propdef-ocr-capabilities-2">11. Metadata</a>
    </ul>
   </aside>
@@ -3383,7 +3605,7 @@ properties for floating elements; properties need to be defined for this.<a href
   <aside class="dfn-panel" data-for="valdef-ocr-capabilities-ocrp_poly">
    <b><a href="#valdef-ocr-capabilities-ocrp_poly">#valdef-ocr-capabilities-ocrp_poly</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-valdef-ocr-capabilities-ocrp_poly-1">2.2.1. poly</a>
+    <li><a href="#ref-for-valdef-ocr-capabilities-ocrp_poly-1">2.5.1. poly</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="valdef-ocr-capabilities-ocrp_font">

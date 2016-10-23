@@ -19,6 +19,9 @@ document into an hOCR document.
 Terminology and Representation {#terminology}
 ==============================
 
+Reusing HTML {#representation}
+------------
+
 This document describes a representation of various aspects of OCR output in an
 XML-like format. That is, we define as set of tags containing text and other
 tags, together with attributes of those tags. However, since the content we are
@@ -41,17 +44,70 @@ need additional, separate and ad-hoc definitions. These aspects include:
   * support for document metadata
 
 We are embedding this information inside HTML by encoding it within valid tags
-and attributes inside HTML; We are going to use the terms "elements" and
-"properties" for referring to embedded markup.
+and attributes inside HTML; We are going to use the terms <a>elements</a> and
+<a>properties</a> for referring to embedded markup.
 
-Issue: [Specify that class must be a single value](https://github.com/kba/hocr-spec/issues/22)
+Definition of "element" {#definition-element}
+-----------------------
 
-Elements are defined by the class= attribute on an arbitrary HTML tag. All
-elements in this format have a class name of the form `ocr..._...`.
+An <dfn>element</dfn> is any HTML tag with a <{*/class}> attribute that contains
+exactly one class name that starts with `ocr_` or `orcx`.
 
-Properties are defined by putting information into the `title=` attribute of an
-HTML tag. Properties in title attributes are of the form “name values...”, and
-multiple properties are separated by semicolons.
+Note: When referring to an HTML tag with class `ocr_page`, this spec uses the
+notation <{ocr_page}>
+
+For some elements, the specs <dfn lt="Recommended HTML Tag">recommends using
+specific HTML tags</dfn>. This is entirely optional, it may not be possible or
+desirable to actually choose those tags (e.g., when adding hOCR information to
+an existing HTML output routine).
+
+Definition of "property" {#definition-property}
+------------------------
+
+<dfn>Properties</dfn> are a set of key-value pairs that convey OCR-specific
+information related to specific <a>elements</a>. They are serialized using a
+<a lt="properties format">Specific format</a> in the <{*/title}> attribute of
+the <a>element</a> they refer to.
+
+Note: When referring to a property `bbox`, this spec uses the notation 'bbox'.
+
+There are four levels of association between any <a>element</a> to any
+<a>property</a>:
+
+  : <dfn>Disallowed Property</dfn>
+  :: The element MUST NOT contain the property
+  :: Unless defined otherwise, all properties are disallowed for any element.
+  : <dfn>Required Property</dfn>
+  :: The element MUST contain the property
+  : <dfn>Recommended Property</dfn>
+  :: The element SHOULD contain the property
+  : <dfn>Allowed Property</dfn>
+  :: The element MAY contain the property
+
+Properties may define a <dfn>default value</dfn>. For those elements for which the
+property is not <a lt="Disallowed Properties">disallowed</a> but not explicitly
+specified, the property is assigned to the element with the default value.
+
+The <dfn lt="Properties Format">properties format</dfn> is as follows, using the
+ABNF notation of [[RFC5234]]:
+
+<pre data-dfn-type="grammar" data-link-type="grammar">
+  <dfn>whitespace</dfn> = +%20  ; one or more spaces ' '
+  <dfn>separator</dfn>  = %3B   ; semicolon ';'
+  <dfn>alnum-word</dfn> = +(%x41-5A / %x30-39) ; lowercase letters or numbers
+  <dfn>ascii-word</dfn> = +(%x21-7E - <a>separator</a>)  ; printable ascii without semicolon
+  <dfn>properties-format</dfn> = <a>key-value-pair</a> *(<a>whitespace</a> <a>separator</a> <a>key-value-pair</a>)
+  <dfn>spec-property-name</dfn> = ("<a href="#propdef-bbox">bbox</a>" / "<a href="#propdef-baseline">baseline</a>" / "<a href="#propdef-cflow">cflow</a>" / "<a href="#propdef-cuts">cuts</a>" / "<a href="#propdef-hardbreak">hardbreak</a>" /
+                        "<a href="#propdef-image">image</a>" / "<a href="#propdef-imagemd5">imagemd5</a>" / "<a href="#propdef-lpageno">lpageno</a>" / "<a href="#propdef-nlp">nlp</a>" / "<a href="#propdef-order">order</a>" /
+                        "<a href="#propdef-poly">poly</a>" / "<a href="#propdef-ppageno">ppageno</a>" / "<a href="#propdef-scan_res">scan_res</a>" / "<a href="#propdef-textangle">textangle</a>")
+  <dfn>engine-property-name</dfn> = "x_" <a>alnum-word</a>
+  <dfn>key-value-pair</dfn> = <a>property-name</a> <a>whitespace</a> <a>property-value</a>
+  <dfn>property-name</dfn> = <a>spec-property-name</a> / <a>engine-property-name</a>
+  <dfn>property-value</dfn> = <a>ascii-word</a> *(<a>whitespace</a> <a>ascii-word</a>)
+</pre>
+
+This is just the general grammar, the individual <a>properties</a> will define
+the exact <dfn>property grammar</dfn> that overrides <a grammar>property-value</a>.
 
 <div class="example">
 ```html
@@ -208,11 +264,6 @@ Issue: [Logical Tags/classes](https://github.com/kba/hocr-spec/issues/66)
 The classes defined in this section for logically structuring a hOCR document
 have their standard meaning as used in the publishing industry and tools like
 LaTeX, MS Word, and others.
-
-Elements with these classes should use the recommended HTML tag given below.
-This is entirely optional, it may not be possible or desirable to actually
-choose those tags (e.g., when adding hOCR information to an existing HTML
-output routine).
 
   : <dfn element>ocr_document</dfn>
   :: Recommended HTML Tag: <{div}>
