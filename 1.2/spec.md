@@ -165,6 +165,44 @@ Categories">categorized</dfn> as follows:
   : <dfn>Content Flow Properties</dfn>
   :: These properties are related to the reading order and flow of content on the page
 
+The <dfn property>baseline</dfn> property {#baseline}
+-----------------------------------------
+
+<pre class="include">path: 1.2/include/defs/baseline</pre>
+
+This property applies primarily to textlines.
+
+The baseline is described by a polynomial of order `n` with the coefficients
+`pn ...  p0` with `n = 1` for a linear (i.e. straight) line.
+
+The polynomial is in the coordinate system of the line, with the bottom left of
+the bounding box as the origin.
+
+<div class="example">
+
+The hOCR output for the first line of
+[eurotext.tif](https://github.com/tesseract-ocr/tesseract/blob/master/testing/eurotext.tif)
+contains the following information:
+
+```html
+<span class='ocr_line' id='line_1_1'
+    title="bbox 105 66 823 113; baseline 0.015 -18">...</span>
+```
+
+'bbox' is the bounding box of the line in image coordinates (blue). The two
+numbers for the baseline are the slope (1st number) and constant term (2nd
+number) of a linear equation describing the baseline relative to the bottom
+left corner of the bounding box (red). The baseline crosses the y-axis at `-18`
+and its slope angle is `arctan(0.015) = 0.86°`.
+
+<figure><img
+  alt="baseline explained"
+  src="../images/baseline.png"/>
+</figure>
+
+</div>
+
+
 The <dfn property>bbox</dfn> property {#bbox}
 -------------------------------------
 
@@ -258,42 +296,6 @@ The content flow on the page that this element is a part of
   * must be present on <{ocr_carea}> and <{ocrx_block}> tags when reading
     order is attempted and multiple content flows are present
   * presence must be declared in the document meta data
-
-### <dfn property>baseline</dfn>
-
-`baseline pn pn-1 ... p0`
-
-This property applies primarily to textlines.
-
-The baseline is described by a polynomial of order `n` with the coefficients
-`pn ...  p0` with `n = 1` for a linear (i.e. straight) line.
-
-The polynomial is in the coordinate system of the line, with the bottom left of
-the bounding box as the origin.
-
-<div class="example">
-
-The hOCR output for the first line of
-[eurotext.tif](https://github.com/tesseract-ocr/tesseract/blob/master/testing/eurotext.tif)
-contains the following information:
-
-```html
-<span class='ocr_line' id='line_1_1'
-    title="bbox 105 66 823 113; baseline 0.015 -18">...</span>
-```
-
-'bbox' is the bounding box of the line in image coordinates (blue). The two
-numbers for the baseline are the slope (1st number) and constant term (2nd
-number) of a linear equation describing the baseline relative to the bottom
-left corner of the bounding box (red). The baseline crosses the y-axis at `-18`
-and its slope angle is `arctan(0.015) = 0.86°`.
-
-<figure><img
-  alt="baseline explained"
-  src="../images/baseline.png"/>
-</figure>
-
-</div>
 
 
 Logical Structuring Elements {#logical-elements}
