@@ -182,6 +182,9 @@ Categories">categorized</dfn> as follows:
   : <dfn>Character Properties</dfn>
   :: These properties convey character level information
 
+  : <dfn>Page Properties</dfn>
+  :: These properties convey information on the whole page
+
   : <dfn>Content Flow Properties</dfn>
   :: These properties are related to the reading order and flow of content on the page
 
