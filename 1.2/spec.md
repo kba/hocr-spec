@@ -401,25 +401,10 @@ The reading order of the element (an integer)
     many tools will not be able to deal with content that is not in reading order
   * presence must be declared in the document meta data
 
+The <dfn property>poly</dfn> property {#poly}
+-------------------------------------
 
-### <dfn property>textangle</dfn>
-
-`textangle alpha`
-
-The angle in degrees by which textual content has been rotate relative to the
-rest of the page (if not present, the angle is assumed to be zero); rotations
-are counter-clockwise, so an angle of 90 degrees is vertical text running from
-bottom to top in Latin script; note that this is different from reading order,
-which should be indicated using standard HTML properties
-
-## Non-recommended general properties
-
-The following properties can apply to most elements but should not be used
-unless there is no alternative:
-
-### <dfn property>poly</dfn>
-
-`poly x0 y0 x1 y1 ...`
+<pre class="include">path: 1.2/include/defs/poly</pre>
 
 A closed polygon for elements with non-rectangular bounds
 
