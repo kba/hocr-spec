@@ -24,7 +24,7 @@ element:
     categories: ['Float']
   ocr_document:
     categories: ['Logical Structuring']
-    recommended_tags: ['h1']
+    recommended_tags: ['div']
   ocr_dropcap:
     categories: ['Inline']
   ocr_float:
@@ -81,6 +81,7 @@ element:
     categories: ['Float']
   ocr_title:
     categories: ['Inline']
+    recommended_tags: ['h1']
   ocr_xycut:
     categories: ['Inline']
   ocrx_block:
