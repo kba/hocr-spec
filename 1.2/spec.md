@@ -389,6 +389,18 @@ The <dfn property>lpageno</dfn> and <dfn property>ppageno</dfn> property {#pagen
   * must not be present unless the pages in the document have a physical ordering
   * must not be present unless it is well defined and unique
 
+The <dfn property>order</dfn> property {#order}
+--------------------------------------
+
+<pre class="include">path: 1.2/include/defs/order</pre>
+
+The reading order of the element (an integer)
+
+  * this property must not be used unless there is no other way of representing
+    the reading order of the page by element ordering within the page, since
+    many tools will not be able to deal with content that is not in reading order
+  * presence must be declared in the document meta data
+
 
 ### <dfn property>textangle</dfn>
 
@@ -421,17 +433,6 @@ A closed polygon for elements with non-rectangular bounds
     ''ocr-capabilities/ocrp_poly'' to the list of 'ocr-capabilities' (see
     [[#capabilities]])
   * documents should attempt to provide a reasonable 'bbox' equivalent as well
-
-### <dfn property>order</dfn>
-
-`order n`
-
-The reading order of the element (an integer)
-
-  * this property must not be used unless there is no other way of representing
-    the reading order of the page by element ordering within the page, since
-    many tools will not be able to deal with content that is not in reading order
-  * presence must be declared in the document meta data
 
 
 Logical Structuring Elements {#logical-elements}
