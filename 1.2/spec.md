@@ -454,12 +454,15 @@ bottom to top in Latin script; note that this is different from reading order,
 which should be indicated using standard HTML properties
 
 
-<pre class="include">path: 1.2/include/defs/x_source</pre>
+The <dfn property>x_font</dfn> and <dfn property>x_fsize</dfn> properties {#x-font}
+-------------------------------------------------------------------------
 
-  * an implementation-dependent representation of the document source
-  * could be a URL or a /gfs/ path
-  * offsets within a multipage format (e.g., TIFF) may be represented using
-    additional strings or using URL parameters or fragments
+<pre class="include">path: 1.2/include/defs/x_font</pre>
+
+<pre class="include">path: 1.2/include/defs/x_fsize</pre>
+
+'x_font' is an OCR-engine specific font name (a string), 'x_fsize' the
+associated OCR-engine specific font size (an unsigned integer).
 
 
 Logical Structuring Elements {#logical-elements}
