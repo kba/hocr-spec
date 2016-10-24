@@ -674,18 +674,6 @@ Any separator or similar element
 
 Any noise element that isn't part of typesetting
 
-## Recommended Properties for typesetting elements
-
-The following properties should be present:
-
-
-## Optional Properties for typesetting elements
-
-The following properties MAY be present:
-
-In addition to the standard
-properties, the <{ocr_line}> area supports the following additional properties:
-
 ## Classes for floats
 
 Floats should not be nested.
@@ -827,8 +815,6 @@ Issue: ocrx_cinfo?
   * If no other layout element applies, the <{ocr_cinfo}> element may be used.
   * <{ocrx_cinfo}> should nest inside <{ocrx_line}>
   * <{ocrx_cinfo}> should contain only 'x_confs', 'x_bboxes', and 'cuts' attributes
-
-## Properties for Character Information
 
 
 OCR Engine-Specific Markup {#engine-markup}
