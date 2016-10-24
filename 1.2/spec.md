@@ -666,8 +666,8 @@ Any separator or similar element
 
 Any noise element that isn't part of typesetting
 
-Float elements {#float-elements}
---------------
+<dfn>Float elements</dfn> {#float-elements}
+-------------------------
 
 Overlayed onto the page is a set of floating elements; floating elements exist
 outside the normal reading order. Floating elements may be introduced by the
@@ -689,44 +689,38 @@ The following floats are defined:
 
 ### <dfn element>ocr_float</dfn>
 
-`ocr_float`
+<pre class="include">path: 1.2/include/defs/ocr_float</pre>
 
-### <dfn element>ocr_textfloat</dfn>
+### <dfn element>ocr_textfloat</dfn> and <dfn element>ocr_textimage</dfn> ### {#floats-text}
 
-`ocr_textfloat`
+<pre class="include">path: 1.2/include/defs/ocr_textfloat</pre>
+<pre class="include">path: 1.2/include/defs/ocr_textimage</pre>
 
-### <dfn element>ocr_textimage</dfn>
+### <dfn element>ocr_image</dfn>, <dfn element>ocr_linedrawing</dfn> and <dfn element>ocr_photo</dfn> ### {#floats-image}
 
-`ocr_textimage`
+<pre class="include">path: 1.2/include/defs/ocr_image</pre>
 
-### <dfn element>ocr_image</dfn>
-
-`ocr_image`
-
-### <dfn element>ocr_linedrawing</dfn>
+<pre class="include">path: 1.2/include/defs/ocr_linedrawing</pre>
 
 Something that could be represented well and naturally in a vector graphics
 format like SVG (even if it is actually represented as PNG)
 
-### <dfn element>ocr_photo</dfn>
+<pre class="include">path: 1.2/include/defs/ocr_photo</pre>
 
 Something that requires JPEG or PNG to be represented well
 
-### <dfn element>ocr_header</dfn>
+### <dfn element>ocr_header</dfn> and <dfn element>ocr_footer</dfn> ### {#float-foot-head}
 
-`ocr_header`
-
-### <dfn element>ocr_footer</dfn>
-
-`ocr_footer`
+<pre class="include">path: 1.2/include/defs/ocr_header</pre>
+<pre class="include">path: 1.2/include/defs/ocr_footer</pre>
 
 ### <dfn element>ocr_pageno</dfn>
 
-`ocr_pageno`
+<pre class="include">path: 1.2/include/defs/ocr_pageno</pre>
 
 ### <dfn element>ocr_table</dfn>
 
-`ocr_table`
+<pre class="include">path: 1.2/include/defs/ocr_table</pre>
 
 <dfn>Inline Elements</dfn> {#inline-elements}
 --------------------------
