@@ -178,6 +178,9 @@ Categories">categorized</dfn> as follows:
   : <dfn>Layout Properties</dfn>
   :: These properties relate to placement of <a>elements</a> on the page
 
+  : <dfn>Character Properties</dfn>
+  :: These properties convey character level information
+
   : <dfn>Content Flow Properties</dfn>
   :: These properties are related to the reading order and flow of content on the page
 
