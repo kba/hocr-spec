@@ -103,18 +103,20 @@ The <dfn lt="Properties Format">properties format</dfn> is as follows, using the
 ABNF notation of [[RFC5234]]:
 
 <pre data-dfn-type="grammar" data-link-type="grammar">
-  <dfn>digit</dfn> = %x30-39
-  <dfn>uint</dfn> = +<a>digit</a>
-  <dfn>int</dfn> = *1"-" <a>uint</a>
-  <dfn>fraction</dfn> = "." <a>uint</a>
-  <dfn>float</dfn>   =  *<a>uint</a> <a>fraction</a>
+  <dfn>digit</dfn>            = %x30-39
+  <dfn>uint</dfn>             = +<a>digit</a>
+  <dfn>int</dfn>              = *1"-" <a>uint</a>
+  <dfn>nint</dfn>             = "-" <a>uint</a>
+  <dfn>fraction</dfn>         = "." <a>uint</a>
+  <dfn>float</dfn>            = *<a>uint</a> <a>fraction</a>
 
-  <dfn>whitespace</dfn> = +%20  ; one or more spaces ' '
-  <dfn>semicolon</dfn>  = %3B   ; semicolon ';'
-  <dfn>doublequote</dfn> = %22  ; double quote '"'
-  <dfn>alnum-word</dfn> = +(%x41-5A / <a>digit</a>) ; lowercase letters or numbers
-  <dfn>ascii-word</dfn> = +(%x21-7E - <a>semicolon</a>)  ; printable w/o space/semicolon
-  <dfn>ascii-string</dfn> = +(%x01-FF - <a>semicolon</a>)  ; printable ascii without semicolon
+  <dfn>whitespace</dfn>       = +%20  ; one or more spaces ' '
+  <dfn>comma</dfn>            = %2C   ; comma ','
+  <dfn>semicolon</dfn>        = %3B   ; semicolon ';'
+  <dfn>doublequote</dfn>      = %22  ; double quote '"'
+  <dfn>alnum-word</dfn>       = +(%x41-5A / <a>digit</a>) ; lowercase letters or numbers
+  <dfn>ascii-word</dfn>       = +(%x21-7E - <a>semicolon</a>)  ; printable w/o space/semicolon
+  <dfn>ascii-string</dfn>     = +(%x01-FF - <a>semicolon</a>)  ; printable ascii without semicolon
   <dfn>delimited-string</dfn> = <a>doublequote</a> <a>ascii-string</a> <a>doublequote</a>
 
   <dfn>properties-format</dfn> = <a>key-value-pair</a> *(<a>whitespace</a> <a>semicolon</a> <a>key-value-pair</a>)
@@ -164,6 +166,10 @@ Categories">categorized</dfn> as follows:
 
   : <dfn>Content Flow Properties</dfn>
   :: These properties are related to the reading order and flow of content on the page
+
+  : <dfn>Confidence Properties</dfn>
+  :: These properties are related to the confidence of the hOCR producer that
+    the text in the 'element' has been correctly recognized
 
 The <dfn property>baseline</dfn> property {#baseline}
 -----------------------------------------
