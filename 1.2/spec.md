@@ -342,6 +342,28 @@ present inside the <{ocr_line}> element. Examples of such special characters are
 soft hyphen ("­", `U+00AD`), a hard line break (`<br>`), or whitespace (` `) for soft
 line breaks.
 
+The <dfn property>image</dfn> and <dfn property>imagemd5</dfn> properties {#image}
+-------------------------------------------------------------------------
+
+<pre class="include">path: 1.2/include/defs/image</pre>
+
+<ul>
+
+  * image file name used as input
+  * syntactically, must be a UNIX-like pathname or http URL (no Windows pathnames)
+  * may be relative
+  * cannot be resolved to the actual file in general (e.g., if the hOCR file
+    becomes separated from the image file)
+  * if the hOCR file is present in a directory hierarchy or file archive, should
+    resolve to the corresponding image file
+
+</ul>
+
+<pre class="include">path: 1.2/include/defs/imagemd5</pre>
+
+  * MD5 fingerprint of the image file that this page was derived from
+  * allows re-associating pages with source images
+
 
 ### <dfn property>textangle</dfn>
 
@@ -561,25 +583,6 @@ Any noise element that isn't part of typesetting
 ## Recommended Properties for typesetting elements
 
 The following properties should be present:
-
-### <dfn property>image</dfn>
-
-`image imagefile`
-
-  * image file name used as input
-  * syntactically, must be a UNIX-like pathname or http URL (no Windows pathnames)
-  * may be relative
-  * cannot be resolved to the actual file in general (e.g., if the hOCR file
-    becomes separated from the image file)
-  * if the hOCR file is present in a directory hierarchy or file archive, should
-    resolve to the corresponding image file
-
-### <dfn property>imagemd5</dfn>
-
-`imagemd5 checksum`
-
-  * MD5 fingerprint of the image file that this page was derived from
-  * allows re-associating pages with source images
 
 ### <dfn property>ppageno</dfn>
 
