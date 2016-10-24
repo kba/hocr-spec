@@ -442,6 +442,15 @@ are counter-clockwise, so an angle of 90 degrees is vertical text running from
 bottom to top in Latin script; note that this is different from reading order,
 which should be indicated using standard HTML properties
 
+The <dfn property>x_source</dfn> property {#x_source}
+-----------------------------------------
+
+<pre class="include">path: 1.2/include/defs/x_source</pre>
+
+  * an implementation-dependent representation of the document source
+  * could be a URL or a /gfs/ path
+  * offsets within a multipage format (e.g., TIFF) may be represented using
+    additional strings or using URL parameters or fragments
 
 
 Logical Structuring Elements {#logical-elements}
@@ -623,18 +632,6 @@ The following properties should be present:
 ## Optional Properties for typesetting elements
 
 The following properties MAY be present:
-
-### <dfn property>x_source</dfn>
-
-`x_source string`
-
-  * an implementation-dependent representation of the document source
-  * could be a URL or a /gfs/ path
-  * offsets within a multipage format (e.g., TIFF) may be represented using
-    additional strings or using URL parameters or fragments
-  * examples
-    * `x_source /gfs/cc/clean/012345678911 17`
-    * `x_source http://pageserver/012345678911&page=17`
 
 In addition to the standard
 properties, the <{ocr_line}> area supports the following additional properties:
