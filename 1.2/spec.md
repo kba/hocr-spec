@@ -420,6 +420,18 @@ A closed polygon for elements with non-rectangular bounds
   * documents should attempt to provide a reasonable 'bbox' equivalent as well
 
 
+The <dfn property>scan_res</dfn> and <dfn property>x_scanner</dfn> properties {#scan_res}
+-----------------------------------------------------------------------------
+
+<pre class="include">path: 1.2/include/defs/scan_res</pre>
+
+The scanning resolution in DPI
+
+<pre class="include">path: 1.2/include/defs/x_scanner</pre>
+
+A representation of the scanner
+
+
 Logical Structuring Elements {#logical-elements}
 ============================
 
@@ -599,18 +611,6 @@ The following properties should be present:
 ## Optional Properties for typesetting elements
 
 The following properties MAY be present:
-
-### <dfn property>scan_res</dfn>
-
-`scan_res x_res y_res`
-
-  * scanning resolution in DPI
-
-### <dfn property>x_scanner</dfn>
-
-`x_scanner string`
-
-  * a representation of the scanner
 
 ### <dfn property>x_source</dfn>
 
