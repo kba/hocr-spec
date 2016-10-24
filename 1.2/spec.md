@@ -128,7 +128,8 @@ follows, expressed in ABNF notation of [[RFC5234]]:
   <dfn>comma</dfn>            = %2C   ; comma ','
   <dfn>semicolon</dfn>        = %3B   ; semicolon ';'
   <dfn>doublequote</dfn>      = %22  ; double quote '"'
-  <dfn>alnum-word</dfn>       = +(%x41-5A / <a>digit</a>) ; lowercase letters or numbers
+  <dfn>lowercase-letter</dfn> = %x41-5A
+  <dfn>alnum-word</dfn>       = +(<a>lowercase-letter</a> / <a>digit</a>)
   <dfn>ascii-word</dfn>       = +(%x21-7E - <a>semicolon</a>)  ; printable w/o space/semicolon
   <dfn>ascii-string</dfn>     = +(%x01-FF - <a>semicolon</a>)  ; printable ascii without semicolon
   <dfn>delimited-string</dfn> = <a>doublequote</a> <a>ascii-string</a> <a>doublequote</a>
