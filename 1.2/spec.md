@@ -691,10 +691,6 @@ The following floats are defined:
 
 `ocr_float`
 
-### <dfn element>ocr_separator</dfn>
-
-`ocr_separator` in the context of float classes.
-
 ### <dfn element>ocr_textfloat</dfn>
 
 `ocr_textfloat`
