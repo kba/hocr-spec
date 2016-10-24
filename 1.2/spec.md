@@ -328,6 +328,19 @@ writing direction is left to right, then rotated back.
 It is undefined what happens when cut paths intersect, with the exception that
 a delta of 0 always corresponds to an invisible codepoint.
 
+The <dfn property>hardbreak</dfn> property {#hardbreak}
+------------------------------------------
+
+<pre class="include">path: 1.2/include/defs/hardbreak</pre>
+
+  * a zero (default) indicates that the end of the line is not a hard
+    (explicit) line break, but a break due to text flow
+  * a one indicates that the line is a hard (explicit) line break
+
+Any special characters representing the desired end-of-line processing must be
+present inside the <{ocr_line}> element. Examples of such special characters are a
+soft hyphen ("­", `U+00AD`), a hard line break (`<br>`), or whitespace (` `) for soft
+line breaks.
 
 
 ### <dfn property>textangle</dfn>
@@ -617,19 +630,6 @@ The following properties MAY be present:
 
 In addition to the standard
 properties, the <{ocr_line}> area supports the following additional properties:
-
-### <dfn property>hardbreak</dfn>
-
-`hardbreak n`
-
-  * a zero (default) indicates that the end of the line is not a hard
-    (explicit) line break, but a break due to text flow
-  * a one indicates that the line is a hard (explicit) line break
-
-Any special characters representing the desired end-of-line processing must be
-present inside the <{ocr_line}> element. Examples of such special characters are a
-soft hyphen ("­", `U+00AD`), a hard line break (`<br>`), or whitespace (` `) for soft
-line breaks.
 
 ## Classes for floats
 
