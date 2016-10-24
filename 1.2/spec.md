@@ -98,12 +98,12 @@ There are four levels of association between any <a>element</a> to any
 A property present on an element can have on of the following relations to any
 other property:
 
-  : <dfn>Independent Property<dfn>
+  : <dfn>Independent Property</dfn>
   :: The presence of property A has no influence on the presence of property B
   :: Unless otherwise defiined, properties are always independent
   : <dfn>Implied Property</dfn>
   :: If property A is present, property B must also be present
-  : <dfn>Conflicting Property</a>
+  : <dfn>Conflicting Property</dfn>
   :: If property A is present, property B must not be present
 
 Properties may define a <dfn>default value</dfn>. For those elements for which the
