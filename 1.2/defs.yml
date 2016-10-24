@@ -92,51 +92,64 @@ element:
 
 
 property:
-  bbox:
-    categories: ['General', 'Layout']
-    syntax: '
-    <a lt="unsigned short">x0</a>
-    <a lt="unsigned short">y0</a>
-    <a lt="unsigned short">x1</a>
-    <a lt="unsigned short">x1</a>
-    '
   baseline:
     categories: ['Inline']
-    syntax: '<a lt="float">pn</a> <a lt="float">pn-1</a> ... <a lt="float">p0</a>'
+    example: 'baseline 0.015 -18'
+    grammar: |
+      <a>property-value</a> = <a>float</a> <a>int</a>
+  bbox:
+    categories: ['General', 'Layout']
+    example: 'bbox 0 0 100 200'
+    grammar: |
+      <a>property-value</a> = 4(<a>uint</a>)
   cflow:
-    categories: ['Flow']
-    syntax: '<a lt="string">clfowid</a>'
+    categories: ['Content Flow']
+    example: 'cflow "article1"'
+    grammar: |
+      <a>property-value</a> = <a>delimited-string</a>
   cuts:
-    categories: ['Layout']
-    syntax: "
-      <a lt='unsigned short'>c1dx</a>[,<a lt='unsigned short'>c1dy</a>[,<a lt='short'>c1dx2</a>]]
-      [<a lt='unsigned short'>c2dx</a>[,<a lt='unsigned short'>c2dy</a>[,<a lt='short'>c2dx2</a>]]]...
-    "
+    categories: ['Layout', 'Character']
+    example: 'cuts 9 11 7,8,-2 15 3'
+    implied: ['bbox']
+    grammar: |
+      <a>property-value</a> = +(<a>uint</a> *1(<a>comma</a> <a>uint</a> *1(<a>comma</a> <a>nint</a>)))
   hardbreak:
     categories: ['Inline']
-    syntax: '0|1'
-    default: 0
+    default: '0'
+    grammar: |
+      <a>property-value</a> = "0" / "1"
   image:
     categories: ['Page']
-    syntax: '<a lt="string">url</a>'
+    example: 'image "/foo/bar.png"'
+    grammar: |
+      <a>property-value</a> = <a>delimited-string</a>
   imagemd5:
     categories: ['Page']
-    syntax: '<a lt="string">md5</a>'
+    implied: ['image']
+    grammar: |
+      <a>property-value</a> = <a>doublequote</a> 32(%x41-46 / <a>digit</a>) <a>doublequote</a>
   lpageno:
     categories: ['Page']
-    syntax: '<a lt="string">pagenumber</a>'
+    example: 'lpageno "IV."'
+    grammar: |
+      <a>property-value</a> = <a>delimited-string</a> / <a>uint</a>
+  ppageno:
+    categories: ['Page']
+    example: 'lpageno 7'
+    grammar: |
+      <a>property-value</a> = <a>uint</a>
   nlp:
-    categories: ['Confidence']
-    syntax: '
-    <a lt="octet">c1</a>
-    [<a lt="octet">c2</a>]...
-    '
-  # order:
-  #   categories: ['Flow']
+    categories: ['Confidence', 'Character']
+    implied: ['cuts']
+    grammar: |
+      <a>property-value</a> = +<a>float</a>
+  order:
+    categories: ['Content Flow']
+    example: 'order 8'
+    grammar: |
+      <a>property-value</a> = +<a>uint</a>
   # poly:
   #   categories: ['Layout']
-  # ppageno:
-  #   categories: ['Flow']
   # scan_res:
   #   categories: ['Page']
   # textangle:
