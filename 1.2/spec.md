@@ -346,7 +346,7 @@ present inside the <{ocr_line}> element. Examples of such special characters are
 soft hyphen ("­", `U+00AD`), a hard line break (`<br>`), or whitespace (` `) for soft
 line breaks.
 
-The <dfn property>image</dfn> and <dfn property>imagemd5</dfn> properties {#image}
+The <dfn property>image</dfn>, <dfn property>imagemd5</dfn> and <dfn property>x_source</dfn> properties {#image}
 -------------------------------------------------------------------------
 
 <pre class="include">path: 1.2/include/defs/image</pre>
@@ -365,8 +365,19 @@ The <dfn property>image</dfn> and <dfn property>imagemd5</dfn> properties {#imag
 
 <pre class="include">path: 1.2/include/defs/imagemd5</pre>
 
+<ul>
+
   * MD5 fingerprint of the image file that this page was derived from
   * allows re-associating pages with source images
+
+</ul>
+
+<pre class="include">path: 1.2/include/defs/x_source</pre>
+
+  * an implementation-dependent representation of the document source
+  * could be a URL or a /gfs/ path
+  * offsets within a multipage format (e.g., TIFF) may be represented using
+    additional strings or using URL parameters or fragments
 
 The <dfn property>lpageno</dfn> and <dfn property>ppageno</dfn> property {#pageno}
 ------------------------------------------------------------------------
@@ -442,8 +453,6 @@ are counter-clockwise, so an angle of 90 degrees is vertical text running from
 bottom to top in Latin script; note that this is different from reading order,
 which should be indicated using standard HTML properties
 
-The <dfn property>x_source</dfn> property {#x_source}
------------------------------------------
 
 <pre class="include">path: 1.2/include/defs/x_source</pre>
 
