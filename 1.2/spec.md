@@ -548,46 +548,53 @@ Documents whose logical structure does not map naturally onto these logical
 structuring elements must not use them for other purposes.
 
 
-  : <dfn element>ocr_document</dfn>
-  :: Recommended HTML Tag: <{div}>
+### <dfn element>ocr_document</dfn> ### {#sec-ocr_document}
 
-  : <dfn element>ocr_title</dfn>
-  :: Recommended HTML Tag: <a element>h1</a>
+<pre class="include">path: 1.2/include/defs/ocr_document</pre>
 
-  : <dfn element>ocr_author</dfn>
+### <dfn element>ocr_title</dfn>, <dfn element>ocr_author</dfn> and <dfn element>ocr_abstract</dfn> ### {#titlepage-elements}
 
-  : <dfn element>ocr_abstract</dfn>
+<pre class="include">path: 1.2/include/defs/ocr_title</pre>
 
-  : <dfn element>ocr_part</dfn>
-  :: Recommended HTML Tag: <{h1}>
 
-  : <dfn element>ocr_chapter</dfn>
-  :: Recommended HTML Tag: <{h1}>
+<pre class="include">path: 1.2/include/defs/ocr_author</pre>
 
-  : <dfn element>ocr_section</dfn>
-  :: Recommended HTML Tag: <{h2}>
+<pre class="include">path: 1.2/include/defs/ocr_abstract</pre>
 
-  : <dfn element>ocr_subsection</dfn>
-  :: Recommended HTML Tag: <{h3}>
+### <dfn element>ocr_part</dfn> and <dfn element>ocr_chapter</dfn>
 
-  : <dfn element>ocr_subsubsection</dfn>
-  :: Recommended HTML Tag: <{h4}>
+<pre class="include">path: 1.2/include/defs/ocr_part</pre>
 
-  : <dfn element>ocr_display</dfn>
+<pre class="include">path: 1.2/include/defs/ocr_chapter</pre>
 
-  : <dfn element>ocr_blockquote</dfn>
-  :: Recommended HTML Tag: <{blockquote}>
+### <dfn element>ocr_section</dfn>, <dfn element>ocr_subsection</dfn> and <dfn element>ocr_subsubsection</dfn> ### {#sectioning}
 
-  : <dfn element>ocr_par</dfn>
-  :: Recommended HTML Tag: <{p}>
+<pre class="include">path: 1.2/include/defs/ocr_section</pre>
 
-  : <dfn element>ocr_linear</dfn>
+<pre class="include">path: 1.2/include/defs/ocr_subsection</pre>
 
-  : <dfn element>ocr_caption</dfn>
-  :: Image captions may be indicated using the <{ocr_caption}> element; such an
-    element refers to the image(s) contained within the same float, or the
-    immediately adjacent image if both the image and the <{ocr_caption}> element
-    are in running text.
+<pre class="include">path: 1.2/include/defs/ocr_subsubsection</pre>
+
+### <dfn element>ocr_display</dfn>, <dfn element>ocr_blockquote</dfn> and <dfn element>ocr_par</dfn> ### {#special-paragraphs}
+
+<pre class="include">path: 1.2/include/defs/ocr_display</pre>
+
+<pre class="include">path: 1.2/include/defs/ocr_blockquote</pre>
+
+<pre class="include">path: 1.2/include/defs/ocr_par</pre>
+
+### <dfn element>ocr_linear</dfn>
+
+<pre class="include">path: 1.2/include/defs/ocr_linear</pre>
+
+### <dfn element>ocr_caption</dfn>
+
+<pre class="include">path: 1.2/include/defs/ocr_caption</pre>
+
+Image captions may be indicated using the <{ocr_caption}> element; such an
+element refers to the image(s) contained within the same float, or the
+immediately adjacent image if both the image and the <{ocr_caption}> element are
+in running text.
 
 Typesetting Elements {#typesetting-elements}
 --------------------
