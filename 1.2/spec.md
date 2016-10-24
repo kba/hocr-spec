@@ -137,7 +137,9 @@ follows, expressed in ABNF notation of [[RFC5234]]:
   <dfn>properties-format</dfn> = <a>key-value-pair</a> *(<a>whitespace</a> <a>semicolon</a> <a>key-value-pair</a>)
   <dfn>spec-property-name</dfn> = ("<a href="#propdef-bbox">bbox</a>" / "<a href="#propdef-baseline">baseline</a>" / "<a href="#propdef-cflow">cflow</a>" / "<a href="#propdef-cuts">cuts</a>" / "<a href="#propdef-hardbreak">hardbreak</a>" /
                         "<a href="#propdef-image">image</a>" / "<a href="#propdef-imagemd5">imagemd5</a>" / "<a href="#propdef-lpageno">lpageno</a>" / "<a href="#propdef-nlp">nlp</a>" / "<a href="#propdef-order">order</a>" /
-                        "<a href="#propdef-poly">poly</a>" / "<a href="#propdef-ppageno">ppageno</a>" / "<a href="#propdef-scan_res">scan_res</a>" / "<a href="#propdef-textangle">textangle</a>")
+                        "<a href="#propdef-poly">poly</a>" / "<a href="#propdef-ppageno">ppageno</a>" / "<a href="#propdef-scan_res">scan_res</a>" / "<a href="#propdef-textangle">textangle</a>" /
+                        "<a href="#propdef-x_bboxes">x_bboxes</a>" / "<a href="#propdef-x_confs">x_confs</a>" / "<a href="#propdef-x_font">x_font</a>" / "<a href="#propdef-x_fsize">x_fsize</a>" /
+                        "<a href="#propdef-x_scanner">x_scanner</a>" / "<a href="#propdef-x_source">x_source</a>" / "<a href="#propdef-x_wconf">x_wconf</a>" )
   <dfn>engine-property-name</dfn> = "x_" <a>alnum-word</a>
   <dfn>key-value-pair</dfn> = <a>property-name</a> <a>whitespace</a> <a>property-value</a>
   <dfn>property-name</dfn> = <a>spec-property-name</a> / <a>engine-property-name</a>
