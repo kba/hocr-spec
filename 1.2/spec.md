@@ -505,14 +505,48 @@ The <dfn property>x_confs</dfn> and <dfn property>x_wconf</dfn> properties {#x-c
 
 </ul>
 
+The elements of hOCR {#hocr-elements}
+====================
+
+
 Logical Structuring Elements {#logical-elements}
-============================
+----------------------------
 
 Issue: [Logical Tags/classes](https://github.com/kba/hocr-spec/issues/66)
 
 The classes defined in this section for logically structuring a hOCR document
 have their standard meaning as used in the publishing industry and tools like
 LaTeX, MS Word, and others.
+
+Tags must be nested as indicated by the following list, but not all tags within the
+hierarchy need to be present.
+
+	* <{ocr_document}>
+		* <{ocr_linear}>
+			* <{ocr_title}>
+			* <{ocr_author}>
+			* <{ocr_abstract}>
+			* <{ocr_part}>
+				* <{ocr_chapter}>
+					* <{ocr_section}> ▻ <{ocr_subsection}> ▻ <{ocr_subsubsection}>
+						* <{ocr_display}>
+						* <{ocr_blockquote}>
+						* <{ocr_par}>
+
+For all of these elements except <{ocr_linear}>, there exists a natural linear
+ordering defined by reading order (<{ocr_linear}> indicates that the elements
+contained in it have a linear ordering). At the level of <{ocr_linear}>, there
+may not be a single distinguished order. A common example of <{ocr_linear}> is a
+newspaper, in which a single newspaper may contain many linear, but there is no
+unique reading order for the different linear. OCR evaluation tools should
+therefore be sensitive to the order of all elements other than <{ocr_linear}>.
+
+Textual information like section numbers and bullets must be represented as
+text inside the containing element.
+
+Documents whose logical structure does not map naturally onto these logical
+structuring elements must not use them for other purposes.
+
 
   : <dfn element>ocr_document</dfn>
   :: Recommended HTML Tag: <{div}>
@@ -555,38 +589,8 @@ LaTeX, MS Word, and others.
     immediately adjacent image if both the image and the <{ocr_caption}> element
     are in running text.
 
-Tags must be nested as indicated by the following list, but not all tags within the
-hierarchy need to be present.
-
-	* <{ocr_document}>
-		* <{ocr_linear}>
-			* <{ocr_title}>
-			* <{ocr_author}>
-			* <{ocr_abstract}>
-			* <{ocr_part}>
-				* <{ocr_chapter}>
-					* <{ocr_section}> ▻ <{ocr_subsection}> ▻ <{ocr_subsubsection}>
-						* <{ocr_display}>
-						* <{ocr_blockquote}>
-						* <{ocr_par}>
-
-For all of these elements except <{ocr_linear}>, there exists a natural linear
-ordering defined by reading order (<{ocr_linear}> indicates that the elements
-contained in it have a linear ordering). At the level of <{ocr_linear}>, there
-may not be a single distinguished order. A common example of <{ocr_linear}> is a
-newspaper, in which a single newspaper may contain many linear, but there is no
-unique reading order for the different linear. OCR evaluation tools should
-therefore be sensitive to the order of all elements other than <{ocr_linear}>.
-
-Textual information like section numbers and bullets must be represented as
-text inside the containing element.
-
-Documents whose logical structure does not map naturally onto these logical
-structuring elements must not use them for other purposes.
-
-
-Typesetting Related Elements {#typesetting-elements}
-============================
+Typesetting Elements {#typesetting-elements}
+--------------------
 
 The following typesetting related elements are based on a typesetting model as
 found in most typesetting systems, including
@@ -600,27 +604,6 @@ either be a part of the body text (or multiple body texts, in the case of
 newspaper layouts). The content of the areas derives from a linear stream of
 textual content, which flows into the areas, filling them linewise in their
 preferred directions.
-
-Overlayed onto the page is a set of floating elements; floating elements exist
-outside the normal reading order. Floating elements may be introduced by the
-textual content, or they may be related to the page itself (anchoring is a
-logical property). In typesetting systems, floating elements may be anchored to
-the page, to paragraphs, or to the content stream. Floating elements can
-overlap content areas and render on top of or under content, or they can force
-content to flow around them. The default for floating elements in this spec is
-that their anchor is undefined (it is a logical property, not a typesetting
-property), and that text flows around them. Note that with rectangular content
-areas and rectangular floats, already a wide variety of non-rectangular text
-shapes can be realized.
-
-Issue: There is currently no way of indicating anchoring or flow-around
-properties for floating elements; properties need to be defined for this.
-
-Classes for typesetting elements {#typesetting-classes}
---------------------------------
-
-The following classes, as well as [floats](#classes-for-floats) are used for type-setting
-elements.
 
 ### <dfn element>ocr_page</dfn>
 
@@ -676,10 +659,25 @@ Any separator or similar element
 
 Any noise element that isn't part of typesetting
 
-## Classes for floats
+Float elements {#float-elements}
+--------------
+
+Overlayed onto the page is a set of floating elements; floating elements exist
+outside the normal reading order. Floating elements may be introduced by the
+textual content, or they may be related to the page itself (anchoring is a
+logical property). In typesetting systems, floating elements may be anchored to
+the page, to paragraphs, or to the content stream. Floating elements can
+overlap content areas and render on top of or under content, or they can force
+content to flow around them. The default for floating elements in this spec is
+that their anchor is undefined (it is a logical property, not a typesetting
+property), and that text flows around them. Note that with rectangular content
+areas and rectangular floats, already a wide variety of non-rectangular text
+shapes can be realized.
+
+Issue: There is currently no way of indicating anchoring or flow-around
+properties for floating elements; properties need to be defined for this.
 
 Floats should not be nested.
-
 The following floats are defined:
 
 ### <dfn element>ocr_float</dfn>
@@ -727,34 +725,41 @@ Something that requires JPEG or PNG to be represented well
 
 `ocr_table`
 
-Inline Representations {#inline-representation}
-======================
+<dfn>Inline Elements</dfn> {#inline-elements}
+--------------------------
 
 Issue(51):
 
 There is some content that should behave and flow like text
 
-Unrecognized characters and words {#unrecognized}
----------------------------------
+### Unrecognized characters and words: <dfn element>ocr_glyph</dfn> and <dfn element>ocr_glyphs</dfn> ### {#unrecognized}
 
-  : <dfn element>ocr_glyph</dfn>
-  :: An individual glyph represented as an image (e.g., an unrecognized character)
-  :: Must contain a single <{img}> tag, or be present on one
+<pre class="include">path: 1.2/include/defs/ocr_glyph</pre>
 
-  : <dfn element>ocr_glyphs</dfn>
-  :: Multiple glyphs represented as an image (e.g., an unrecognized word)
-  :: Must contain a single <{img}> tag, or be present on one
+<ul>
 
-Dropcap {#dropcap}
--------
+  * An individual glyph represented as an image (e.g., an unrecognized character)
+  * Must contain a single <{img}> tag, or be present on one
+
+</ul>
+
+<pre class="include">path: 1.2/include/defs/ocr_glyphs</pre>
+
+<ul>
+
+  * Multiple glyphs represented as an image (e.g., an unrecognized word)
+  * Must contain a single <{img}> tag, or be present on one
+
+</ul>
+
+### Dropcap ### {#dropcap}
 
   : <dfn element>ocr_dropcap</dfn>
   :: An individual glyph representing a dropcap
   :: May contain text or an <{img}> tag; the `alt=` of the image tag should contain
     the corresponding text
 
-Mathematical and chemical formulas {#formulas}
-----------------------------------
+### Mathematical and chemical formulas ### {#formulas}
 
 Mathematical and chemical formulas that float must be put into an <{ocr_float}>
 section.
@@ -770,23 +775,20 @@ an <{ocr_display}> section.
 :: A mathematical formula
 :: Must contain either a single <{img}> tag or [[MathML]] markup, or be present on one
 
-Superscript and Subscript {#sub-sup}
--------------------------
+### Superscript and Subscript ### {#sub-sup}
 
 Superscripts and subscripts, when not in <{ocr_math}> or <{ocr_chem}> formulas,
 must be represented using the HTML <{sup}> and <{sub}> tags, even if special
 Unicode characters are available.
 
-Whitespace {#whitespace}
-----------
+### Whitespace ### {#whitespace}
 
 Non-breaking spaces must be represented using the HTML `&nbsp;` entity.
 
 Different space widths should be indicated using HTML and `&ensp;`, `&emsp;`,
 `&thinsp;`, `&zwnj;`, `&zwj;`.
 
-Hyphenation {#hyphenation}
------------
+### Hyphenation ### {#hyphenation}
 
 Issue(7): How to handle hyphens?
 
@@ -794,18 +796,13 @@ Issue(altoxml/schema#41): Non Linear Hyphens
 
 Soft hyphens must be represented using the HTML `&shy;` entity.
 
-Ruby characters {#ruby}
----------------
+### Ruby characters ### {#ruby}
 
 [Furigana and similar constructs](https://en.wikipedia.org/wiki/Ruby_character)
 must be represented using their correct Unicode encoding.
 
-
-Character Information {#character-information}
-=====================
-
-Classes for Character Information {#character-classes}
----------------------------------
+Character Elements {#character-elements}
+------------------
 
 Character-level information may be put on any element that contains only a
 single "line" of text.
@@ -819,8 +816,8 @@ Issue: ocrx_cinfo?
   * <{ocrx_cinfo}> should contain only 'x_confs', 'x_bboxes', and 'cuts' attributes
 
 
-OCR Engine-Specific Markup {#engine-markup}
-==========================
+OCR Engine-Specific elements {#engine-elements}
+----------------------------
 
 A few abstractions are used as intermediate abstractions in OCR engines,
 although they do not have a meaning that can be defined either in terms of
@@ -828,9 +825,6 @@ typesetting or logical function. Representing them may be useful to represent
 existing OCR output, say for workflow abstractions.
 
 Common suggested engine-specific markup are:
-
-Classes for engine specific markup {#engine-classes}
-----------------------------------
 
 ### <dfn element>ocrx_block</dfn>
 
@@ -858,10 +852,6 @@ Issue: [ocr_line vs ocrx_line](https://github.com/kba/hocr-spec/issues/19)
 
   * any kind of "word" returned by an OCR system
   * engine specific because the definition of a "word" depends on the engine
-
-## Properties for engine-specific markup
-
-The following properties are defined:
 
 
 Font, Text Color, Language, Direction {#font-lang}
