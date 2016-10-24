@@ -240,6 +240,22 @@ the document image which border is drawn in black.
 
 </div>
 
+The <dfn property>cflow</dfn> property {#cflow}
+--------------------------------------
+
+<pre class="include">path: 1.2/include/defs/cflow</pre>
+
+This property relates the flow between multiple <{ocr_carea}> elements,
+and between <{ocr_carea}> and <{ocr_linear}> elements.
+
+The content flow on the page that this element is a part of
+
+  * s must be a unique string for each content flow
+  * must be present on <{ocr_carea}> and <{ocrx_block}> tags when reading
+    order is attempted and multiple content flows are present
+  * presence must be declared in the document meta data
+
+
 ### <dfn property>textangle</dfn>
 
 `textangle alpha`
@@ -281,20 +297,6 @@ The reading order of the element (an integer)
   * this property must not be used unless there is no other way of representing
     the reading order of the page by element ordering within the page, since
     many tools will not be able to deal with content that is not in reading order
-  * presence must be declared in the document meta data
-
-### <dfn property>cflow</dfn>
-
-`cflow s`
-
-This property relates the flow between multiple <{ocr_carea}> elements,
-and between <{ocr_carea}> and <{ocr_linear}> elements.
-
-The content flow on the page that this element is a part of
-
-  * s must be a unique string for each content flow
-  * must be present on <{ocr_carea}> and <{ocrx_block}> tags when reading
-    order is attempted and multiple content flows are present
   * presence must be declared in the document meta data
 
 
