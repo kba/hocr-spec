@@ -165,14 +165,29 @@ property:
     example: 'textangle 7.32'
     grammar: |
       <a>property-value</a> = <a>float</a>
-  # x_bboxes:
-  #   categories: ['Layout']
-  # x_confs:
-  #   categories: ['Confidence']
-  # x_font:
-  #   categories: ['Font']
-  # x_fsize:
-  #   categories: ['Font']
+  x_bboxes:
+    categories: ['Inline', 'Character']
+    example: |
+      x_bboxes b1x0 b1y0 b1x1 b1y1 b2x0 b2y0 b2x1 b2y1 ...
+      x_bboxes 0 0 10 10 0 10 20 20
+    grammar: |
+      <a>property-value</a> = 1*(4<a>uint</a>)
+  x_confs:
+    categories: ['Confidence', 'Character']
+    example: |
+      x_confs 37.3 51.23 1 100
+    grammar: |
+      <a>property-value</a> = +<a>float</a>
+  x_font:
+    categories: ['Font']
+    example: 'x_font "Comic Sans MS"'
+    grammar: |
+      <a>property-value</a> = <a>delimited-string</a>
+  x_fsize:
+    categories: ['Font']
+    example: 'x_fsize 12'
+    grammar: |
+      <a>property-value</a> = <a>uint</a>
   x_scanner:
     categories: ['Page']
     example: 'scanner "Canon Lide 220"'
@@ -185,8 +200,12 @@ property:
       x_source "http://pageserver/012345678911&page=17"
     grammar: |
       <a>property-value</a> = 1*<a>delimited-string</a>
-  # x_wconf:
-  #   categories: ['Confidence']
+  x_wconf:
+    categories: ['Confidence', 'Inline']
+    example: |
+      x_wconf 97.23
+    grammar: |
+      <a>property-value</a> = <a>float</a>
 
 metadata:
   ocr-system:
