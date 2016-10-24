@@ -749,28 +749,26 @@ There is some content that should behave and flow like text
 
 </ul>
 
-### Dropcap ### {#dropcap}
+### <dfn element>ocr_dropcap</dfn> ### {#dropcap}
 
-  : <dfn element>ocr_dropcap</dfn>
-  :: An individual glyph representing a dropcap
-  :: May contain text or an <{img}> tag; the `alt=` of the image tag should contain
+<pre class="include">path: 1.2/include/defs/ocr_dropcap</pre>
+
+  * An individual glyph representing a dropcap
+  * May contain text or an <{img}> tag; the <{img/alt}> of the image tag should contain
     the corresponding text
 
-### Mathematical and chemical formulas ### {#formulas}
+### Mathematical and chemical formulas: <dfn element>ocr_math</dfn> and <dfn property>ocr_chem</dfn> ### {#formulas}
+
+<pre class="include">path: 1.2/include/defs/ocr_math</pre>
+<pre class="include">path: 1.2/include/defs/ocr_chem</pre>
 
 Mathematical and chemical formulas that float must be put into an <{ocr_float}>
-section.
+section. Formulas that are “display” mode should be put into
+an <{ocr_display}> section. <{ocr_math}> and <{ocr_chem}>
 
-Mathematical and chemical formulas that are “display” mode should be put into
-an <{ocr_display}> section.
+<{ocr_math}> must either be or contain either a single <{img}> tag or [[CML]] markup
 
-: <dfn element>ocr_chem</dfn>
-:: A chemical formula
-:: Must contain either a single <{img}> tag or [[CML]] markup, or be present on one
-
-: <dfn element>ocr_math</dfn>
-:: A mathematical formula
-:: Must contain either a single <{img}> tag or [[MathML]] markup, or be present on one
+<{ocr_chem}> must either be or contain either a single <{img}> tag or [[MathML]] markup
 
 ### Superscript and Subscript ### {#sub-sup}
 
