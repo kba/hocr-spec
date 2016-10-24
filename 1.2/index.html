@@ -1484,7 +1484,17 @@ Parts of this work may be from another specification document.  If so, those par
     <li>
      <a href="#hocr-elements"><span class="secno">4</span> <span class="content">The elements of hOCR</span></a>
      <ol class="toc">
-      <li><a href="#logical-elements"><span class="secno">4.1</span> <span class="content">Logical Structuring Elements</span></a>
+      <li>
+       <a href="#logical-elements"><span class="secno">4.1</span> <span class="content">Logical Structuring Elements</span></a>
+       <ol class="toc">
+        <li><a href="#sec-ocr_document"><span class="secno">4.1.1</span> <span class="content"><span>ocr_document</span></span></a>
+        <li><a href="#titlepage-elements"><span class="secno">4.1.2</span> <span class="content"><span>ocr_title</span>, <span>ocr_author</span> and <span>ocr_abstract</span></span></a>
+        <li><a href="#ocr_part-and-ocr_chapter"><span class="secno">4.1.3</span> <span class="content"><span>ocr_part</span> and <span>ocr_chapter</span></span></a>
+        <li><a href="#sectioning"><span class="secno">4.1.4</span> <span class="content"><span>ocr_section</span>, <span>ocr_subsection</span> and <span>ocr_subsubsection</span></span></a>
+        <li><a href="#special-paragraphs"><span class="secno">4.1.5</span> <span class="content"><span>ocr_display</span>, <span>ocr_blockquote</span> and <span>ocr_par</span></span></a>
+        <li><a href="#ocr_linear"><span class="secno">4.1.6</span> <span class="content"><span>ocr_linear</span></span></a>
+        <li><a href="#ocr_caption"><span class="secno">4.1.7</span> <span class="content"><span>ocr_caption</span></span></a>
+       </ol>
       <li>
        <a href="#typesetting-elements"><span class="secno">4.2</span> <span class="content">Typesetting Elements</span></a>
        <ol class="toc">
@@ -1496,19 +1506,14 @@ Parts of this work may be from another specification document.  If so, those par
         <li><a href="#ocr_noise"><span class="secno">4.2.6</span> <span class="content"><span>ocr_noise</span></span></a>
        </ol>
       <li>
-       <a href="#float-elements"><span class="secno">4.3</span> <span class="content">Float elements</span></a>
+       <a href="#float-elements"><span class="secno">4.3</span> <span class="content"><span>Float elements</span></span></a>
        <ol class="toc">
         <li><a href="#ocr_float"><span class="secno">4.3.1</span> <span class="content"><span>ocr_float</span></span></a>
-        <li><a href="#ocr_separator0"><span class="secno">4.3.2</span> <span class="content"><span>ocr_separator</span></span></a>
-        <li><a href="#ocr_textfloat"><span class="secno">4.3.3</span> <span class="content"><span>ocr_textfloat</span></span></a>
-        <li><a href="#ocr_textimage"><span class="secno">4.3.4</span> <span class="content"><span>ocr_textimage</span></span></a>
-        <li><a href="#ocr_image"><span class="secno">4.3.5</span> <span class="content"><span>ocr_image</span></span></a>
-        <li><a href="#ocr_linedrawing"><span class="secno">4.3.6</span> <span class="content"><span>ocr_linedrawing</span></span></a>
-        <li><a href="#ocr_photo"><span class="secno">4.3.7</span> <span class="content"><span>ocr_photo</span></span></a>
-        <li><a href="#ocr_header"><span class="secno">4.3.8</span> <span class="content"><span>ocr_header</span></span></a>
-        <li><a href="#ocr_footer"><span class="secno">4.3.9</span> <span class="content"><span>ocr_footer</span></span></a>
-        <li><a href="#ocr_pageno"><span class="secno">4.3.10</span> <span class="content"><span>ocr_pageno</span></span></a>
-        <li><a href="#ocr_table"><span class="secno">4.3.11</span> <span class="content"><span>ocr_table</span></span></a>
+        <li><a href="#floats-text"><span class="secno">4.3.2</span> <span class="content"><span>ocr_textfloat</span> and <span>ocr_textimage</span></span></a>
+        <li><a href="#floats-image"><span class="secno">4.3.3</span> <span class="content"><span>ocr_image</span>, <span>ocr_linedrawing</span> and <span>ocr_photo</span></span></a>
+        <li><a href="#float-foot-head"><span class="secno">4.3.4</span> <span class="content"><span>ocr_header</span> and <span>ocr_footer</span></span></a>
+        <li><a href="#ocr_pageno"><span class="secno">4.3.5</span> <span class="content"><span>ocr_pageno</span></span></a>
+        <li><a href="#ocr_table"><span class="secno">4.3.6</span> <span class="content"><span>ocr_table</span></span></a>
        </ol>
       <li>
        <a href="#inline-elements"><span class="secno">4.4</span> <span class="content"><span>Inline Elements</span></span></a>
@@ -2501,59 +2506,193 @@ therefore be sensitive to the order of all elements other than <code><a data-lin
 text inside the containing element.</p>
    <p>Documents whose logical structure does not map naturally onto these logical
 structuring elements must not use them for other purposes.</p>
-   <dl>
+   <h4 class="heading settled" data-level="4.1.1" id="sec-ocr_document"><span class="secno">4.1.1. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_document">ocr_document</dfn></span><a class="self-link" href="#sec-ocr_document"></a></h4>
+   <dl class="def">
     <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_document">ocr_document</dfn></p>
+     <p>Element Name</p>
     <dd data-md="">
-     <p>Recommended HTML Tag: <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-div-element">div</a></code></p>
+     <p><a data-link-type="element" href="#elementdef-ocr_document" id="ref-for-elementdef-ocr_document-2">ocr_document</a></p>
     <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_title">ocr_title</dfn></p>
+     <p>Recommended HTML Tags</p>
     <dd data-md="">
-     <p>Recommended HTML Tag: <a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements">h1</a></p>
+     <p><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-div-element">div</a></p>
     <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_author">ocr_author</dfn></p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_abstract">ocr_abstract</dfn></p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_part">ocr_part</dfn></p>
+     <p>Categories</p>
     <dd data-md="">
-     <p>Recommended HTML Tag: <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements">h1</a></code></p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_chapter">ocr_chapter</dfn></p>
-    <dd data-md="">
-     <p>Recommended HTML Tag: <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements">h1</a></code></p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_section">ocr_section</dfn></p>
-    <dd data-md="">
-     <p>Recommended HTML Tag: <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements">h2</a></code></p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_subsection">ocr_subsection</dfn></p>
-    <dd data-md="">
-     <p>Recommended HTML Tag: <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements">h3</a></code></p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_subsubsection">ocr_subsubsection</dfn></p>
-    <dd data-md="">
-     <p>Recommended HTML Tag: <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements">h4</a></code></p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_display">ocr_display</dfn></p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_blockquote">ocr_blockquote</dfn></p>
-    <dd data-md="">
-     <p>Recommended HTML Tag: <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-blockquote-element">blockquote</a></code></p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_par">ocr_par</dfn></p>
-    <dd data-md="">
-     <p>Recommended HTML Tag: <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-p-element">p</a></code></p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_linear">ocr_linear</dfn></p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_caption">ocr_caption</dfn></p>
-    <dd data-md="">
-     <p>Image captions may be indicated using the <code><a data-link-type="element" href="#elementdef-ocr_caption" id="ref-for-elementdef-ocr_caption-1">ocr_caption</a></code> element; such an
-element refers to the image(s) contained within the same float, or the
-immediately adjacent image if both the image and the <code><a data-link-type="element" href="#elementdef-ocr_caption" id="ref-for-elementdef-ocr_caption-2">ocr_caption</a></code> element
-are in running text.</p>
+     <p><a data-link-type="dfn">Logical Structuring Elements</a></p>
    </dl>
+   <h4 class="heading settled" data-level="4.1.2" id="titlepage-elements"><span class="secno">4.1.2. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_title">ocr_title</dfn>, <dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_author">ocr_author</dfn> and <dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_abstract">ocr_abstract</dfn></span><a class="self-link" href="#titlepage-elements"></a></h4>
+   <dl class="def">
+    <dt data-md="">
+     <p>Element Name</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="#elementdef-ocr_title" id="ref-for-elementdef-ocr_title-2">ocr_title</a></p>
+    <dt data-md="">
+     <p>Recommended HTML Tags</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements">h1</a></p>
+    <dt data-md="">
+     <p>Categories</p>
+    <dd data-md="">
+     <p><a data-link-type="dfn" href="#inline-elements0" id="ref-for-inline-elements0-1">Inline Elements</a></p>
+   </dl>
+   <dl class="def">
+    <dt data-md="">
+     <p>Element Name</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="#elementdef-ocr_author" id="ref-for-elementdef-ocr_author-2">ocr_author</a></p>
+    <dt data-md="">
+     <p>Categories</p>
+    <dd data-md="">
+     <p><a data-link-type="dfn" href="#inline-elements0" id="ref-for-inline-elements0-2">Inline Elements</a></p>
+   </dl>
+   <dl class="def">
+    <dt data-md="">
+     <p>Element Name</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="#elementdef-ocr_abstract" id="ref-for-elementdef-ocr_abstract-2">ocr_abstract</a></p>
+    <dt data-md="">
+     <p>Categories</p>
+    <dd data-md="">
+     <p><a data-link-type="dfn">Logical Structuring Elements</a></p>
+   </dl>
+   <h4 class="heading settled" data-level="4.1.3" id="ocr_part-and-ocr_chapter"><span class="secno">4.1.3. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_part">ocr_part</dfn> and <dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_chapter">ocr_chapter</dfn></span><a class="self-link" href="#ocr_part-and-ocr_chapter"></a></h4>
+   <dl class="def">
+    <dt data-md="">
+     <p>Element Name</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="#elementdef-ocr_part" id="ref-for-elementdef-ocr_part-2">ocr_part</a></p>
+    <dt data-md="">
+     <p>Recommended HTML Tags</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements">h1</a></p>
+    <dt data-md="">
+     <p>Categories</p>
+    <dd data-md="">
+     <p><a data-link-type="dfn" href="#inline-elements0" id="ref-for-inline-elements0-3">Inline Elements</a></p>
+   </dl>
+   <dl class="def">
+    <dt data-md="">
+     <p>Element Name</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="#elementdef-ocr_chapter" id="ref-for-elementdef-ocr_chapter-2">ocr_chapter</a></p>
+    <dt data-md="">
+     <p>Recommended HTML Tags</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements">h1</a></p>
+    <dt data-md="">
+     <p>Categories</p>
+    <dd data-md="">
+     <p><a data-link-type="dfn">Logical Structuring Elements</a></p>
+   </dl>
+   <h4 class="heading settled" data-level="4.1.4" id="sectioning"><span class="secno">4.1.4. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_section">ocr_section</dfn>, <dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_subsection">ocr_subsection</dfn> and <dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_subsubsection">ocr_subsubsection</dfn></span><a class="self-link" href="#sectioning"></a></h4>
+   <dl class="def">
+    <dt data-md="">
+     <p>Element Name</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="#elementdef-ocr_section" id="ref-for-elementdef-ocr_section-2">ocr_section</a></p>
+    <dt data-md="">
+     <p>Recommended HTML Tags</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements">h2</a></p>
+    <dt data-md="">
+     <p>Categories</p>
+    <dd data-md="">
+     <p><a data-link-type="dfn">Logical Structuring Elements</a></p>
+   </dl>
+   <dl class="def">
+    <dt data-md="">
+     <p>Element Name</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="#elementdef-ocr_subsection" id="ref-for-elementdef-ocr_subsection-2">ocr_subsection</a></p>
+    <dt data-md="">
+     <p>Recommended HTML Tags</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements">h3</a></p>
+    <dt data-md="">
+     <p>Categories</p>
+    <dd data-md="">
+     <p><a data-link-type="dfn">Logical Structuring Elements</a></p>
+   </dl>
+   <dl class="def">
+    <dt data-md="">
+     <p>Element Name</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="#elementdef-ocr_subsubsection" id="ref-for-elementdef-ocr_subsubsection-2">ocr_subsubsection</a></p>
+    <dt data-md="">
+     <p>Recommended HTML Tags</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements">h4</a></p>
+    <dt data-md="">
+     <p>Categories</p>
+    <dd data-md="">
+     <p><a data-link-type="dfn">Logical Structuring Elements</a></p>
+   </dl>
+   <h4 class="heading settled" data-level="4.1.5" id="special-paragraphs"><span class="secno">4.1.5. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_display">ocr_display</dfn>, <dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_blockquote">ocr_blockquote</dfn> and <dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_par">ocr_par</dfn></span><a class="self-link" href="#special-paragraphs"></a></h4>
+   <dl class="def">
+    <dt data-md="">
+     <p>Element Name</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="#elementdef-ocr_display" id="ref-for-elementdef-ocr_display-2">ocr_display</a></p>
+    <dt data-md="">
+     <p>Categories</p>
+    <dd data-md="">
+     <p><a data-link-type="dfn" href="#float-elements0" id="ref-for-float-elements0-1">Float Elements</a></p>
+   </dl>
+   <dl class="def">
+    <dt data-md="">
+     <p>Element Name</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="#elementdef-ocr_blockquote" id="ref-for-elementdef-ocr_blockquote-2">ocr_blockquote</a></p>
+    <dt data-md="">
+     <p>Recommended HTML Tags</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-blockquote-element">blockquote</a></p>
+    <dt data-md="">
+     <p>Categories</p>
+    <dd data-md="">
+     <p><a data-link-type="dfn">Logical Structuring Elements</a></p>
+   </dl>
+   <dl class="def">
+    <dt data-md="">
+     <p>Element Name</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="#elementdef-ocr_par" id="ref-for-elementdef-ocr_par-2">ocr_par</a></p>
+    <dt data-md="">
+     <p>Recommended HTML Tags</p>
+    <dd data-md="">
+     <p><a data-link-type="element">par</a></p>
+    <dt data-md="">
+     <p>Categories</p>
+    <dd data-md="">
+     <p><a data-link-type="dfn" href="#inline-elements0" id="ref-for-inline-elements0-4">Inline Elements</a></p>
+   </dl>
+   <h4 class="heading settled" data-level="4.1.6" id="ocr_linear"><span class="secno">4.1.6. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_linear">ocr_linear</dfn></span><a class="self-link" href="#ocr_linear"></a></h4>
+   <dl class="def">
+    <dt data-md="">
+     <p>Element Name</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="#elementdef-ocr_linear" id="ref-for-elementdef-ocr_linear-8">ocr_linear</a></p>
+    <dt data-md="">
+     <p>Categories</p>
+    <dd data-md="">
+     <p><a data-link-type="dfn" href="#inline-elements0" id="ref-for-inline-elements0-5">Inline Elements</a></p>
+   </dl>
+   <h4 class="heading settled" data-level="4.1.7" id="ocr_caption"><span class="secno">4.1.7. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_caption">ocr_caption</dfn></span><a class="self-link" href="#ocr_caption"></a></h4>
+   <dl class="def">
+    <dt data-md="">
+     <p>Element Name</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="#elementdef-ocr_caption" id="ref-for-elementdef-ocr_caption-1">ocr_caption</a></p>
+    <dt data-md="">
+     <p>Categories</p>
+    <dd data-md="">
+     <p><a data-link-type="dfn">Logical Structuring Elements</a></p>
+   </dl>
+   <p>Image captions may be indicated using the <code><a data-link-type="element" href="#elementdef-ocr_caption" id="ref-for-elementdef-ocr_caption-2">ocr_caption</a></code> element; such an
+element refers to the image(s) contained within the same float, or the
+immediately adjacent image if both the image and the <code><a data-link-type="element" href="#elementdef-ocr_caption" id="ref-for-elementdef-ocr_caption-3">ocr_caption</a></code> element are
+in running text.</p>
    <h3 class="heading settled" data-level="4.2" id="typesetting-elements"><span class="secno">4.2. </span><span class="content">Typesetting Elements</span><a class="self-link" href="#typesetting-elements"></a></h3>
    <p>The following typesetting related elements are based on a typesetting model as
 found in most typesetting systems, including <a href="https://www.w3.org/TR/xsl11/#fo-section">XSL:FO</a>, <a href="https://latex-project.org/guides/usrguide.pdf">(La)TeX</a>, <a href="https://wiki.documentfoundation.org/images/e/e6/WG42-WriterGuideLO.pdf">LibreOffice</a>,
@@ -2577,7 +2716,7 @@ preferred directions.</p>
     <del>ocr_column</del>
    </p>
    <p>The <code><a data-link-type="element" href="#elementdef-ocr_carea" id="ref-for-elementdef-ocr_carea-5">ocr_carea</a></code> elements should appear in reading order unless this is impossible
-because of some other structuring requirement. If the document contains multiple <code><a data-link-type="element" href="#elementdef-ocr_linear" id="ref-for-elementdef-ocr_linear-8">ocr_linear</a></code> streams, then each <code><a data-link-type="element" href="#elementdef-ocr_carea" id="ref-for-elementdef-ocr_carea-6">ocr_carea</a></code> must indicate which stream it belongs
+because of some other structuring requirement. If the document contains multiple <code><a data-link-type="element" href="#elementdef-ocr_linear" id="ref-for-elementdef-ocr_linear-9">ocr_linear</a></code> streams, then each <code><a data-link-type="element" href="#elementdef-ocr_carea" id="ref-for-elementdef-ocr_carea-6">ocr_carea</a></code> must indicate which stream it belongs
 to.</p>
    <p>Note that for many documents, the actual ground truth careas are well-defined
 by the document style of the original document before printing and scanning.
@@ -2605,7 +2744,7 @@ They are represented by the <code><a data-link-type="element" href="#elementdef-
    <p>Any separator or similar element</p>
    <h4 class="heading settled" data-level="4.2.6" id="ocr_noise"><span class="secno">4.2.6. </span><span class="content"><dfn data-dfn-type="element" data-export="" id="elementdef-ocr_noise">ocr_noise<a class="self-link" href="#elementdef-ocr_noise"></a></dfn></span><a class="self-link" href="#ocr_noise"></a></h4>
    <p>Any noise element that isn’t part of typesetting</p>
-   <h3 class="heading settled" data-level="4.3" id="float-elements"><span class="secno">4.3. </span><span class="content">Float elements</span><a class="self-link" href="#float-elements"></a></h3>
+   <h3 class="heading settled" data-level="4.3" id="float-elements"><span class="secno">4.3. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="float-elements0">Float elements</dfn></span><a class="self-link" href="#float-elements"></a></h3>
    <p>Overlayed onto the page is a set of floating elements; floating elements exist
 outside the normal reading order. Floating elements may be introduced by the
 textual content, or they may be related to the page itself (anchoring is a
@@ -2622,28 +2761,114 @@ properties for floating elements; properties need to be defined for this.</p>
    <p>Floats should not be nested.
 The following floats are defined:</p>
    <h4 class="heading settled" data-level="4.3.1" id="ocr_float"><span class="secno">4.3.1. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_float">ocr_float</dfn></span><a class="self-link" href="#ocr_float"></a></h4>
-   <p><code>ocr_float</code></p>
-   <h4 class="heading settled" data-level="4.3.2" id="ocr_separator0"><span class="secno">4.3.2. </span><span class="content"><dfn data-dfn-type="element" data-export="" id="elementdef-ocr_separator0">ocr_separator<a class="self-link" href="#elementdef-ocr_separator0"></a></dfn></span><a class="self-link" href="#ocr_separator0"></a></h4>
-   <p><code>ocr_separator</code> in the context of float classes.</p>
-   <h4 class="heading settled" data-level="4.3.3" id="ocr_textfloat"><span class="secno">4.3.3. </span><span class="content"><dfn data-dfn-type="element" data-export="" id="elementdef-ocr_textfloat">ocr_textfloat<a class="self-link" href="#elementdef-ocr_textfloat"></a></dfn></span><a class="self-link" href="#ocr_textfloat"></a></h4>
-   <p><code>ocr_textfloat</code></p>
-   <h4 class="heading settled" data-level="4.3.4" id="ocr_textimage"><span class="secno">4.3.4. </span><span class="content"><dfn data-dfn-type="element" data-export="" id="elementdef-ocr_textimage">ocr_textimage<a class="self-link" href="#elementdef-ocr_textimage"></a></dfn></span><a class="self-link" href="#ocr_textimage"></a></h4>
-   <p><code>ocr_textimage</code></p>
-   <h4 class="heading settled" data-level="4.3.5" id="ocr_image"><span class="secno">4.3.5. </span><span class="content"><dfn data-dfn-type="element" data-export="" id="elementdef-ocr_image">ocr_image<a class="self-link" href="#elementdef-ocr_image"></a></dfn></span><a class="self-link" href="#ocr_image"></a></h4>
-   <p><code>ocr_image</code></p>
-   <h4 class="heading settled" data-level="4.3.6" id="ocr_linedrawing"><span class="secno">4.3.6. </span><span class="content"><dfn data-dfn-type="element" data-export="" id="elementdef-ocr_linedrawing">ocr_linedrawing<a class="self-link" href="#elementdef-ocr_linedrawing"></a></dfn></span><a class="self-link" href="#ocr_linedrawing"></a></h4>
+   <dl class="def">
+    <dt data-md="">
+     <p>Element Name</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="#elementdef-ocr_float" id="ref-for-elementdef-ocr_float-1">ocr_float</a></p>
+    <dt data-md="">
+     <p>Categories</p>
+    <dd data-md="">
+     <p><a data-link-type="dfn" href="#float-elements0" id="ref-for-float-elements0-2">Float Elements</a></p>
+   </dl>
+   <h4 class="heading settled" data-level="4.3.2" id="floats-text"><span class="secno">4.3.2. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_textfloat">ocr_textfloat</dfn> and <dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_textimage">ocr_textimage</dfn></span><a class="self-link" href="#floats-text"></a></h4>
+   <dl class="def">
+    <dt data-md="">
+     <p>Element Name</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="#elementdef-ocr_textfloat" id="ref-for-elementdef-ocr_textfloat-1">ocr_textfloat</a></p>
+    <dt data-md="">
+     <p>Categories</p>
+    <dd data-md="">
+     <p><a data-link-type="dfn" href="#float-elements0" id="ref-for-float-elements0-3">Float Elements</a></p>
+   </dl>
+   <dl class="def">
+    <dt data-md="">
+     <p>Element Name</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="#elementdef-ocr_textimage" id="ref-for-elementdef-ocr_textimage-1">ocr_textimage</a></p>
+    <dt data-md="">
+     <p>Categories</p>
+    <dd data-md="">
+     <p><a data-link-type="dfn" href="#float-elements0" id="ref-for-float-elements0-4">Float Elements</a></p>
+   </dl>
+   <h4 class="heading settled" data-level="4.3.3" id="floats-image"><span class="secno">4.3.3. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_image">ocr_image</dfn>, <dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_linedrawing">ocr_linedrawing</dfn> and <dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_photo">ocr_photo</dfn></span><a class="self-link" href="#floats-image"></a></h4>
+   <dl class="def">
+    <dt data-md="">
+     <p>Element Name</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="#elementdef-ocr_image" id="ref-for-elementdef-ocr_image-1">ocr_image</a></p>
+    <dt data-md="">
+     <p>Categories</p>
+    <dd data-md="">
+     <p><a data-link-type="dfn" href="#float-elements0" id="ref-for-float-elements0-5">Float Elements</a></p>
+   </dl>
+   <dl class="def">
+    <dt data-md="">
+     <p>Element Name</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="#elementdef-ocr_linedrawing" id="ref-for-elementdef-ocr_linedrawing-1">ocr_linedrawing</a></p>
+    <dt data-md="">
+     <p>Categories</p>
+    <dd data-md="">
+     <p><a data-link-type="dfn" href="#float-elements0" id="ref-for-float-elements0-6">Float Elements</a></p>
+   </dl>
    <p>Something that could be represented well and naturally in a vector graphics
 format like SVG (even if it is actually represented as PNG)</p>
-   <h4 class="heading settled" data-level="4.3.7" id="ocr_photo"><span class="secno">4.3.7. </span><span class="content"><dfn data-dfn-type="element" data-export="" id="elementdef-ocr_photo">ocr_photo<a class="self-link" href="#elementdef-ocr_photo"></a></dfn></span><a class="self-link" href="#ocr_photo"></a></h4>
+   <dl class="def">
+    <dt data-md="">
+     <p>Element Name</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="#elementdef-ocr_photo" id="ref-for-elementdef-ocr_photo-1">ocr_photo</a></p>
+    <dt data-md="">
+     <p>Categories</p>
+    <dd data-md="">
+     <p><a data-link-type="dfn" href="#inline-elements0" id="ref-for-inline-elements0-6">Inline Elements</a></p>
+   </dl>
    <p>Something that requires JPEG or PNG to be represented well</p>
-   <h4 class="heading settled" data-level="4.3.8" id="ocr_header"><span class="secno">4.3.8. </span><span class="content"><dfn data-dfn-type="element" data-export="" id="elementdef-ocr_header">ocr_header<a class="self-link" href="#elementdef-ocr_header"></a></dfn></span><a class="self-link" href="#ocr_header"></a></h4>
-   <p><code>ocr_header</code></p>
-   <h4 class="heading settled" data-level="4.3.9" id="ocr_footer"><span class="secno">4.3.9. </span><span class="content"><dfn data-dfn-type="element" data-export="" id="elementdef-ocr_footer">ocr_footer<a class="self-link" href="#elementdef-ocr_footer"></a></dfn></span><a class="self-link" href="#ocr_footer"></a></h4>
-   <p><code>ocr_footer</code></p>
-   <h4 class="heading settled" data-level="4.3.10" id="ocr_pageno"><span class="secno">4.3.10. </span><span class="content"><dfn data-dfn-type="element" data-export="" id="elementdef-ocr_pageno">ocr_pageno<a class="self-link" href="#elementdef-ocr_pageno"></a></dfn></span><a class="self-link" href="#ocr_pageno"></a></h4>
-   <p><code>ocr_pageno</code></p>
-   <h4 class="heading settled" data-level="4.3.11" id="ocr_table"><span class="secno">4.3.11. </span><span class="content"><dfn data-dfn-type="element" data-export="" id="elementdef-ocr_table">ocr_table<a class="self-link" href="#elementdef-ocr_table"></a></dfn></span><a class="self-link" href="#ocr_table"></a></h4>
-   <p><code>ocr_table</code></p>
+   <h4 class="heading settled" data-level="4.3.4" id="float-foot-head"><span class="secno">4.3.4. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_header">ocr_header</dfn> and <dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_footer">ocr_footer</dfn></span><a class="self-link" href="#float-foot-head"></a></h4>
+   <dl class="def">
+    <dt data-md="">
+     <p>Element Name</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="#elementdef-ocr_header" id="ref-for-elementdef-ocr_header-1">ocr_header</a></p>
+    <dt data-md="">
+     <p>Categories</p>
+    <dd data-md="">
+     <p><a data-link-type="dfn" href="#float-elements0" id="ref-for-float-elements0-7">Float Elements</a></p>
+   </dl>
+   <dl class="def">
+    <dt data-md="">
+     <p>Element Name</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="#elementdef-ocr_footer" id="ref-for-elementdef-ocr_footer-1">ocr_footer</a></p>
+    <dt data-md="">
+     <p>Categories</p>
+    <dd data-md="">
+     <p><a data-link-type="dfn" href="#float-elements0" id="ref-for-float-elements0-8">Float Elements</a></p>
+   </dl>
+   <h4 class="heading settled" data-level="4.3.5" id="ocr_pageno"><span class="secno">4.3.5. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_pageno">ocr_pageno</dfn></span><a class="self-link" href="#ocr_pageno"></a></h4>
+   <dl class="def">
+    <dt data-md="">
+     <p>Element Name</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="#elementdef-ocr_pageno" id="ref-for-elementdef-ocr_pageno-1">ocr_pageno</a></p>
+    <dt data-md="">
+     <p>Categories</p>
+    <dd data-md="">
+     <p><a data-link-type="dfn" href="#float-elements0" id="ref-for-float-elements0-9">Float Elements</a></p>
+   </dl>
+   <h4 class="heading settled" data-level="4.3.6" id="ocr_table"><span class="secno">4.3.6. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_table">ocr_table</dfn></span><a class="self-link" href="#ocr_table"></a></h4>
+   <dl class="def">
+    <dt data-md="">
+     <p>Element Name</p>
+    <dd data-md="">
+     <p><a data-link-type="element" href="#elementdef-ocr_table" id="ref-for-elementdef-ocr_table-1">ocr_table</a></p>
+    <dt data-md="">
+     <p>Categories</p>
+    <dd data-md="">
+     <p><a data-link-type="dfn" href="#float-elements0" id="ref-for-float-elements0-10">Float Elements</a></p>
+   </dl>
    <h3 class="heading settled" data-level="4.4" id="inline-elements"><span class="secno">4.4. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="inline-elements0">Inline Elements</dfn></span><a class="self-link" href="#inline-elements"></a></h3>
    <p class="issue" id="issue-d41d8cd9"><a class="self-link" href="#issue-d41d8cd9"></a> <a href="https://github.com/kba/hocr-spec/issues/51">&lt;https://github.com/kba/hocr-spec/issues/51></a></p>
    <p>There is some content that should behave and flow like text</p>
@@ -2656,7 +2881,7 @@ format like SVG (even if it is actually represented as PNG)</p>
     <dt data-md="">
      <p>Categories</p>
     <dd data-md="">
-     <p><a data-link-type="dfn" href="#inline-elements0" id="ref-for-inline-elements0-1">Inline Elements</a></p>
+     <p><a data-link-type="dfn" href="#inline-elements0" id="ref-for-inline-elements0-7">Inline Elements</a></p>
    </dl>
    <ul>
     <li data-md="">
@@ -2672,7 +2897,7 @@ format like SVG (even if it is actually represented as PNG)</p>
     <dt data-md="">
      <p>Categories</p>
     <dd data-md="">
-     <p><a data-link-type="dfn" href="#inline-elements0" id="ref-for-inline-elements0-2">Inline Elements</a></p>
+     <p><a data-link-type="dfn" href="#inline-elements0" id="ref-for-inline-elements0-8">Inline Elements</a></p>
    </dl>
    <ul>
     <li data-md="">
@@ -2691,9 +2916,9 @@ format like SVG (even if it is actually represented as PNG)</p>
 the corresponding text</p>
    </dl>
    <h4 class="heading settled" data-level="4.4.3" id="formulas"><span class="secno">4.4.3. </span><span class="content">Mathematical and chemical formulas</span><a class="self-link" href="#formulas"></a></h4>
-   <p>Mathematical and chemical formulas that float must be put into an <code><a data-link-type="element" href="#elementdef-ocr_float" id="ref-for-elementdef-ocr_float-1">ocr_float</a></code> section.</p>
+   <p>Mathematical and chemical formulas that float must be put into an <code><a data-link-type="element" href="#elementdef-ocr_float" id="ref-for-elementdef-ocr_float-2">ocr_float</a></code> section.</p>
    <p>Mathematical and chemical formulas that are “display” mode should be put into
-an <code><a data-link-type="element" href="#elementdef-ocr_display" id="ref-for-elementdef-ocr_display-2">ocr_display</a></code> section.</p>
+an <code><a data-link-type="element" href="#elementdef-ocr_display" id="ref-for-elementdef-ocr_display-3">ocr_display</a></code> section.</p>
    <dl>
     <dt data-md="">
      <p><dfn class="dfn-paneled" data-dfn-type="element" data-export="" id="elementdef-ocr_chem">ocr_chem</dfn></p>
@@ -2828,7 +3053,7 @@ removing tags that are not of interest for the subsequent processing step, and
 then collapsing grouped elements into single elements.  For example, output
 that contains both logical and physical layout information, where the logical
 layout information uses grouped elements, can be transformed by removing all
-the physical layout information, and then collapsing all split <code><a data-link-type="element" href="#elementdef-ocr_chapter" id="ref-for-elementdef-ocr_chapter-2">ocr_chapter</a></code> elements into single <code><a data-link-type="element" href="#elementdef-ocr_chapter" id="ref-for-elementdef-ocr_chapter-3">ocr_chapter</a></code> elements based on the groupid.  The result is
+the physical layout information, and then collapsing all split <code><a data-link-type="element" href="#elementdef-ocr_chapter" id="ref-for-elementdef-ocr_chapter-3">ocr_chapter</a></code> elements into single <code><a data-link-type="element" href="#elementdef-ocr_chapter" id="ref-for-elementdef-ocr_chapter-4">ocr_chapter</a></code> elements based on the groupid.  The result is
 a simple DOM tree.  This transformation can be provided generically as a
 pre-processor or Javascript.</p>
    <p>The presence of grouped elements does not need to be indicated in the header;
@@ -2991,7 +3216,7 @@ document classes:</p>
      <p>book target</p>
      <ul>
       <li data-md="">
-       <p>all logical structuring elements (as applicable), except <code><a data-link-type="element" href="#elementdef-ocr_linear" id="ref-for-elementdef-ocr_linear-9">ocr_linear</a></code></p>
+       <p>all logical structuring elements (as applicable), except <code><a data-link-type="element" href="#elementdef-ocr_linear" id="ref-for-elementdef-ocr_linear-10">ocr_linear</a></code></p>
       <li data-md="">
        <p><code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-8">ocr_page</a></code></p>
      </ul>
@@ -3001,7 +3226,7 @@ document classes:</p>
       <li data-md="">
        <p>all logical structuring elements (as applicable)</p>
       <li data-md="">
-       <p>articles map on <code><a data-link-type="element" href="#elementdef-ocr_linear" id="ref-for-elementdef-ocr_linear-10">ocr_linear</a></code></p>
+       <p>articles map on <code><a data-link-type="element" href="#elementdef-ocr_linear" id="ref-for-elementdef-ocr_linear-11">ocr_linear</a></code></p>
       <li data-md="">
        <p><code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-9">ocr_page</a></code></p>
      </ul>
@@ -3304,6 +3529,7 @@ within the same HTML file without interfering with one another.</p>
      <p><code>*.html</code>, <code>*.hocr</code></p>
 <script>
 for (var span of document.querySelectorAll(".toc span:not([class])")) {
+    if (!span.textContent.match(/^[a-z]/)) continue;
     span.style.color = 'darkred';
     span.style.fontWeight = 'bold';
 }
@@ -3480,6 +3706,7 @@ for (var span of document.querySelectorAll(".toc span:not([class])")) {
    <li><a href="#element">element</a><span>, in §2.2</span>
    <li><a href="#grammardef-engine-property-name">engine-property-name</a><span>, in §2.4</span>
    <li><a href="#grammardef-float">float</a><span>, in §2.4</span>
+   <li><a href="#float-elements0">Float elements</a><span>, in §4.3</span>
    <li><a href="#grammardef-fraction">fraction</a><span>, in §2.4</span>
    <li><a href="#general-properties">General Properties</a><span>, in §3</span>
    <li><a href="#propdef-hardbreak">hardbreak</a><span>, in §3.5</span>
@@ -3515,57 +3742,52 @@ for (var span of document.querySelectorAll(".toc span:not([class])")) {
    <li><a href="#grammardef-nint">nint</a><span>, in §2.4</span>
    <li><a href="#propdef-nlp">nlp</a><span>, in §3.4</span>
    <li><a href="#non-recommended-properties">Non-Recommended Properties</a><span>, in §3</span>
-   <li><a href="#elementdef-ocr_abstract">ocr_abstract</a><span>, in §4.1</span>
-   <li><a href="#elementdef-ocr_author">ocr_author</a><span>, in §4.1</span>
-   <li><a href="#elementdef-ocr_blockquote">ocr_blockquote</a><span>, in §4.1</span>
+   <li><a href="#elementdef-ocr_abstract">ocr_abstract</a><span>, in §4.1.2</span>
+   <li><a href="#elementdef-ocr_author">ocr_author</a><span>, in §4.1.2</span>
+   <li><a href="#elementdef-ocr_blockquote">ocr_blockquote</a><span>, in §4.1.5</span>
    <li><a href="#propdef-ocr-capabilities">ocr-capabilities</a><span>, in §8</span>
-   <li><a href="#elementdef-ocr_caption">ocr_caption</a><span>, in §4.1</span>
+   <li><a href="#elementdef-ocr_caption">ocr_caption</a><span>, in §4.1.7</span>
    <li><a href="#elementdef-ocr_carea">ocr_carea</a><span>, in §4.2.3</span>
-   <li><a href="#elementdef-ocr_chapter">ocr_chapter</a><span>, in §4.1</span>
+   <li><a href="#elementdef-ocr_chapter">ocr_chapter</a><span>, in §4.1.3</span>
    <li><a href="#elementdef-ocr_chem">ocr_chem</a><span>, in §4.4.3</span>
    <li><a href="#elementdef-ocr_cinfo">ocr_cinfo</a><span>, in §4.5.1</span>
    <li><a href="#elementdef-ocr_column">ocr_column</a><span>, in §4.2.2</span>
-   <li><a href="#elementdef-ocr_display">ocr_display</a><span>, in §4.1</span>
-   <li><a href="#elementdef-ocr_document">ocr_document</a><span>, in §4.1</span>
+   <li><a href="#elementdef-ocr_display">ocr_display</a><span>, in §4.1.5</span>
+   <li><a href="#elementdef-ocr_document">ocr_document</a><span>, in §4.1.1</span>
    <li><a href="#elementdef-ocr_dropcap">ocr_dropcap</a><span>, in §4.4.2</span>
    <li><a href="#elementdef-ocr_float">ocr_float</a><span>, in §4.3.1</span>
-   <li><a href="#elementdef-ocr_footer">ocr_footer</a><span>, in §4.3.9</span>
+   <li><a href="#elementdef-ocr_footer">ocr_footer</a><span>, in §4.3.4</span>
    <li><a href="#elementdef-ocr_glyph">ocr_glyph</a><span>, in §4.4.1</span>
    <li><a href="#elementdef-ocr_glyphs">ocr_glyphs</a><span>, in §4.4.1</span>
-   <li><a href="#elementdef-ocr_header">ocr_header</a><span>, in §4.3.8</span>
-   <li><a href="#elementdef-ocr_image">ocr_image</a><span>, in §4.3.5</span>
+   <li><a href="#elementdef-ocr_header">ocr_header</a><span>, in §4.3.4</span>
+   <li><a href="#elementdef-ocr_image">ocr_image</a><span>, in §4.3.3</span>
    <li><a href="#propdef-ocr-langs">ocr-langs</a><span>, in §8</span>
    <li><a href="#elementdef-ocr_line">ocr_line</a><span>, in §4.2.4</span>
-   <li><a href="#elementdef-ocr_linear">ocr_linear</a><span>, in §4.1</span>
-   <li><a href="#elementdef-ocr_linedrawing">ocr_linedrawing</a><span>, in §4.3.6</span>
+   <li><a href="#elementdef-ocr_linear">ocr_linear</a><span>, in §4.1.6</span>
+   <li><a href="#elementdef-ocr_linedrawing">ocr_linedrawing</a><span>, in §4.3.3</span>
    <li><a href="#elementdef-ocr_math">ocr_math</a><span>, in §4.4.3</span>
    <li><a href="#elementdef-ocr_noise">ocr_noise</a><span>, in §4.2.6</span>
    <li><a href="#propdef-ocr-number-of-pages">ocr-number-of-pages</a><span>, in §8</span>
    <li><a href="#elementdef-ocr_page">ocr_page</a><span>, in §4.2.1</span>
-   <li><a href="#elementdef-ocr_pageno">ocr_pageno</a><span>, in §4.3.10</span>
-   <li><a href="#elementdef-ocr_par">ocr_par</a><span>, in §4.1</span>
-   <li><a href="#elementdef-ocr_part">ocr_part</a><span>, in §4.1</span>
+   <li><a href="#elementdef-ocr_pageno">ocr_pageno</a><span>, in §4.3.5</span>
+   <li><a href="#elementdef-ocr_par">ocr_par</a><span>, in §4.1.5</span>
+   <li><a href="#elementdef-ocr_part">ocr_part</a><span>, in §4.1.3</span>
    <li><a href="#valdef-ocr-capabilities-ocrp_dir">ocrp_dir</a><span>, in §8.1</span>
    <li><a href="#valdef-ocr-capabilities-ocrp_font">ocrp_font</a><span>, in §8.1</span>
-   <li><a href="#elementdef-ocr_photo">ocr_photo</a><span>, in §4.3.7</span>
+   <li><a href="#elementdef-ocr_photo">ocr_photo</a><span>, in §4.3.3</span>
    <li><a href="#valdef-ocr-capabilities-ocrp_lang">ocrp_lang</a><span>, in §8.1</span>
    <li><a href="#valdef-ocr-capabilities-ocrp_nlp">ocrp_nlp</a><span>, in §8.1</span>
    <li><a href="#valdef-ocr-capabilities-ocrp_poly">ocrp_poly</a><span>, in §8.1</span>
    <li><a href="#propdef-ocr-scripts">ocr-scripts</a><span>, in §8</span>
-   <li><a href="#elementdef-ocr_section">ocr_section</a><span>, in §4.1</span>
-   <li>
-    ocr_separator
-    <ul>
-     <li><a href="#elementdef-ocr_separator">(element)</a><span>, in §4.2.5</span>
-     <li><a href="#elementdef-ocr_separator0">(element)</a><span>, in §4.3.2</span>
-    </ul>
-   <li><a href="#elementdef-ocr_subsection">ocr_subsection</a><span>, in §4.1</span>
-   <li><a href="#elementdef-ocr_subsubsection">ocr_subsubsection</a><span>, in §4.1</span>
+   <li><a href="#elementdef-ocr_section">ocr_section</a><span>, in §4.1.4</span>
+   <li><a href="#elementdef-ocr_separator">ocr_separator</a><span>, in §4.2.5</span>
+   <li><a href="#elementdef-ocr_subsection">ocr_subsection</a><span>, in §4.1.4</span>
+   <li><a href="#elementdef-ocr_subsubsection">ocr_subsubsection</a><span>, in §4.1.4</span>
    <li><a href="#propdef-ocr-system">ocr-system</a><span>, in §8</span>
-   <li><a href="#elementdef-ocr_table">ocr_table</a><span>, in §4.3.11</span>
-   <li><a href="#elementdef-ocr_textfloat">ocr_textfloat</a><span>, in §4.3.3</span>
-   <li><a href="#elementdef-ocr_textimage">ocr_textimage</a><span>, in §4.3.4</span>
-   <li><a href="#elementdef-ocr_title">ocr_title</a><span>, in §4.1</span>
+   <li><a href="#elementdef-ocr_table">ocr_table</a><span>, in §4.3.6</span>
+   <li><a href="#elementdef-ocr_textfloat">ocr_textfloat</a><span>, in §4.3.2</span>
+   <li><a href="#elementdef-ocr_textimage">ocr_textimage</a><span>, in §4.3.2</span>
+   <li><a href="#elementdef-ocr_title">ocr_title</a><span>, in §4.1.2</span>
    <li><a href="#elementdef-ocrx_block">ocrx_block</a><span>, in §4.6.1</span>
    <li><a href="#elementdef-ocrx_line">ocrx_line</a><span>, in §4.6.2</span>
    <li><a href="#elementdef-ocrx_word">ocrx_word</a><span>, in §4.6.3</span>
@@ -4169,74 +4391,86 @@ properties for floating elements; properties need to be defined for this.<a href
    <b><a href="#elementdef-ocr_document">#elementdef-ocr_document</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-elementdef-ocr_document-1">4.1. Logical Structuring Elements</a>
+    <li><a href="#ref-for-elementdef-ocr_document-2">4.1.1. ocr_document</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_title">
    <b><a href="#elementdef-ocr_title">#elementdef-ocr_title</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-elementdef-ocr_title-1">4.1. Logical Structuring Elements</a>
+    <li><a href="#ref-for-elementdef-ocr_title-2">4.1.2. ocr_title, ocr_author and ocr_abstract</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_author">
    <b><a href="#elementdef-ocr_author">#elementdef-ocr_author</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-elementdef-ocr_author-1">4.1. Logical Structuring Elements</a>
+    <li><a href="#ref-for-elementdef-ocr_author-2">4.1.2. ocr_title, ocr_author and ocr_abstract</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_abstract">
    <b><a href="#elementdef-ocr_abstract">#elementdef-ocr_abstract</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-elementdef-ocr_abstract-1">4.1. Logical Structuring Elements</a>
+    <li><a href="#ref-for-elementdef-ocr_abstract-2">4.1.2. ocr_title, ocr_author and ocr_abstract</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_part">
    <b><a href="#elementdef-ocr_part">#elementdef-ocr_part</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-elementdef-ocr_part-1">4.1. Logical Structuring Elements</a>
+    <li><a href="#ref-for-elementdef-ocr_part-2">4.1.3. ocr_part and ocr_chapter</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_chapter">
    <b><a href="#elementdef-ocr_chapter">#elementdef-ocr_chapter</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-elementdef-ocr_chapter-1">4.1. Logical Structuring Elements</a>
-    <li><a href="#ref-for-elementdef-ocr_chapter-2">7. Grouped Elements and Multiple Hierarchies</a> <a href="#ref-for-elementdef-ocr_chapter-3">(2)</a>
+    <li><a href="#ref-for-elementdef-ocr_chapter-2">4.1.3. ocr_part and ocr_chapter</a>
+    <li><a href="#ref-for-elementdef-ocr_chapter-3">7. Grouped Elements and Multiple Hierarchies</a> <a href="#ref-for-elementdef-ocr_chapter-4">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_section">
    <b><a href="#elementdef-ocr_section">#elementdef-ocr_section</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-elementdef-ocr_section-1">4.1. Logical Structuring Elements</a>
+    <li><a href="#ref-for-elementdef-ocr_section-2">4.1.4. ocr_section, ocr_subsection and ocr_subsubsection</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_subsection">
    <b><a href="#elementdef-ocr_subsection">#elementdef-ocr_subsection</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-elementdef-ocr_subsection-1">4.1. Logical Structuring Elements</a>
+    <li><a href="#ref-for-elementdef-ocr_subsection-2">4.1.4. ocr_section, ocr_subsection and ocr_subsubsection</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_subsubsection">
    <b><a href="#elementdef-ocr_subsubsection">#elementdef-ocr_subsubsection</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-elementdef-ocr_subsubsection-1">4.1. Logical Structuring Elements</a>
+    <li><a href="#ref-for-elementdef-ocr_subsubsection-2">4.1.4. ocr_section, ocr_subsection and ocr_subsubsection</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_display">
    <b><a href="#elementdef-ocr_display">#elementdef-ocr_display</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-elementdef-ocr_display-1">4.1. Logical Structuring Elements</a>
-    <li><a href="#ref-for-elementdef-ocr_display-2">4.4.3. Mathematical and chemical formulas</a>
+    <li><a href="#ref-for-elementdef-ocr_display-2">4.1.5. ocr_display, ocr_blockquote and ocr_par</a>
+    <li><a href="#ref-for-elementdef-ocr_display-3">4.4.3. Mathematical and chemical formulas</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_blockquote">
    <b><a href="#elementdef-ocr_blockquote">#elementdef-ocr_blockquote</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-elementdef-ocr_blockquote-1">4.1. Logical Structuring Elements</a>
+    <li><a href="#ref-for-elementdef-ocr_blockquote-2">4.1.5. ocr_display, ocr_blockquote and ocr_par</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_par">
    <b><a href="#elementdef-ocr_par">#elementdef-ocr_par</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-elementdef-ocr_par-1">4.1. Logical Structuring Elements</a>
+    <li><a href="#ref-for-elementdef-ocr_par-2">4.1.5. ocr_display, ocr_blockquote and ocr_par</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_linear">
@@ -4244,14 +4478,15 @@ properties for floating elements; properties need to be defined for this.<a href
    <ul>
     <li><a href="#ref-for-elementdef-ocr_linear-1">3.3. The cflow property</a>
     <li><a href="#ref-for-elementdef-ocr_linear-2">4.1. Logical Structuring Elements</a> <a href="#ref-for-elementdef-ocr_linear-3">(2)</a> <a href="#ref-for-elementdef-ocr_linear-4">(3)</a> <a href="#ref-for-elementdef-ocr_linear-5">(4)</a> <a href="#ref-for-elementdef-ocr_linear-6">(5)</a> <a href="#ref-for-elementdef-ocr_linear-7">(6)</a>
-    <li><a href="#ref-for-elementdef-ocr_linear-8">4.2.3. ocr_carea</a>
-    <li><a href="#ref-for-elementdef-ocr_linear-9">9. Profiles</a> <a href="#ref-for-elementdef-ocr_linear-10">(2)</a>
+    <li><a href="#ref-for-elementdef-ocr_linear-8">4.1.6. ocr_linear</a>
+    <li><a href="#ref-for-elementdef-ocr_linear-9">4.2.3. ocr_carea</a>
+    <li><a href="#ref-for-elementdef-ocr_linear-10">9. Profiles</a> <a href="#ref-for-elementdef-ocr_linear-11">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_caption">
    <b><a href="#elementdef-ocr_caption">#elementdef-ocr_caption</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-elementdef-ocr_caption-1">4.1. Logical Structuring Elements</a> <a href="#ref-for-elementdef-ocr_caption-2">(2)</a>
+    <li><a href="#ref-for-elementdef-ocr_caption-1">4.1.7. ocr_caption</a> <a href="#ref-for-elementdef-ocr_caption-2">(2)</a> <a href="#ref-for-elementdef-ocr_caption-3">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_page">
@@ -4285,16 +4520,88 @@ properties for floating elements; properties need to be defined for this.<a href
     <li><a href="#ref-for-elementdef-ocr_line-7">8.3. Example</a>
    </ul>
   </aside>
+  <aside class="dfn-panel" data-for="float-elements0">
+   <b><a href="#float-elements0">#float-elements0</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-float-elements0-1">4.1.5. ocr_display, ocr_blockquote and ocr_par</a>
+    <li><a href="#ref-for-float-elements0-2">4.3.1. ocr_float</a>
+    <li><a href="#ref-for-float-elements0-3">4.3.2. ocr_textfloat and ocr_textimage</a> <a href="#ref-for-float-elements0-4">(2)</a>
+    <li><a href="#ref-for-float-elements0-5">4.3.3. ocr_image, ocr_linedrawing and ocr_photo</a> <a href="#ref-for-float-elements0-6">(2)</a>
+    <li><a href="#ref-for-float-elements0-7">4.3.4. ocr_header and ocr_footer</a> <a href="#ref-for-float-elements0-8">(2)</a>
+    <li><a href="#ref-for-float-elements0-9">4.3.5. ocr_pageno</a>
+    <li><a href="#ref-for-float-elements0-10">4.3.6. ocr_table</a>
+   </ul>
+  </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_float">
    <b><a href="#elementdef-ocr_float">#elementdef-ocr_float</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-elementdef-ocr_float-1">4.4.3. Mathematical and chemical formulas</a>
+    <li><a href="#ref-for-elementdef-ocr_float-1">4.3.1. ocr_float</a>
+    <li><a href="#ref-for-elementdef-ocr_float-2">4.4.3. Mathematical and chemical formulas</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="elementdef-ocr_textfloat">
+   <b><a href="#elementdef-ocr_textfloat">#elementdef-ocr_textfloat</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-elementdef-ocr_textfloat-1">4.3.2. ocr_textfloat and ocr_textimage</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="elementdef-ocr_textimage">
+   <b><a href="#elementdef-ocr_textimage">#elementdef-ocr_textimage</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-elementdef-ocr_textimage-1">4.3.2. ocr_textfloat and ocr_textimage</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="elementdef-ocr_image">
+   <b><a href="#elementdef-ocr_image">#elementdef-ocr_image</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-elementdef-ocr_image-1">4.3.3. ocr_image, ocr_linedrawing and ocr_photo</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="elementdef-ocr_linedrawing">
+   <b><a href="#elementdef-ocr_linedrawing">#elementdef-ocr_linedrawing</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-elementdef-ocr_linedrawing-1">4.3.3. ocr_image, ocr_linedrawing and ocr_photo</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="elementdef-ocr_photo">
+   <b><a href="#elementdef-ocr_photo">#elementdef-ocr_photo</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-elementdef-ocr_photo-1">4.3.3. ocr_image, ocr_linedrawing and ocr_photo</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="elementdef-ocr_header">
+   <b><a href="#elementdef-ocr_header">#elementdef-ocr_header</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-elementdef-ocr_header-1">4.3.4. ocr_header and ocr_footer</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="elementdef-ocr_footer">
+   <b><a href="#elementdef-ocr_footer">#elementdef-ocr_footer</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-elementdef-ocr_footer-1">4.3.4. ocr_header and ocr_footer</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="elementdef-ocr_pageno">
+   <b><a href="#elementdef-ocr_pageno">#elementdef-ocr_pageno</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-elementdef-ocr_pageno-1">4.3.5. ocr_pageno</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="elementdef-ocr_table">
+   <b><a href="#elementdef-ocr_table">#elementdef-ocr_table</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-elementdef-ocr_table-1">4.3.6. ocr_table</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="inline-elements0">
    <b><a href="#inline-elements0">#inline-elements0</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-inline-elements0-1">4.4.1. Unrecognized characters and words: ocr_glyph and ocr_glyphs</a> <a href="#ref-for-inline-elements0-2">(2)</a>
+    <li><a href="#ref-for-inline-elements0-1">4.1.2. ocr_title, ocr_author and ocr_abstract</a> <a href="#ref-for-inline-elements0-2">(2)</a>
+    <li><a href="#ref-for-inline-elements0-3">4.1.3. ocr_part and ocr_chapter</a>
+    <li><a href="#ref-for-inline-elements0-4">4.1.5. ocr_display, ocr_blockquote and ocr_par</a>
+    <li><a href="#ref-for-inline-elements0-5">4.1.6. ocr_linear</a>
+    <li><a href="#ref-for-inline-elements0-6">4.3.3. ocr_image, ocr_linedrawing and ocr_photo</a>
+    <li><a href="#ref-for-inline-elements0-7">4.4.1. Unrecognized characters and words: ocr_glyph and ocr_glyphs</a> <a href="#ref-for-inline-elements0-8">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="elementdef-ocr_glyph">
