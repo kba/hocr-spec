@@ -99,9 +99,10 @@ property:
       <a>property-value</a> = <a>float</a> <a>int</a>
   bbox:
     categories: ['General', 'Layout']
+    conflicting: ['bbox']
     example: 'bbox 0 0 100 200'
     grammar: |
-      <a>property-value</a> = 4(<a>uint</a>)
+      <a>property-value</a> = <a>uint</a> <a>uint</a> <a>uint</a> <a>uint</a>
   cflow:
     categories: ['Content Flow']
     example: 'cflow "article1"'
@@ -148,12 +149,22 @@ property:
     example: 'order 8'
     grammar: |
       <a>property-value</a> = +<a>uint</a>
-  # poly:
-  #   categories: ['Layout']
-  # scan_res:
-  #   categories: ['Page']
-  # textangle:
-  #   categories: ['Layout']
+  poly:
+    categories: ['Layout', 'Non-recommended']
+    conflicting: ['bbox']
+    example: 'poly 0 0 0 10 10 10 10 20 0 20'
+    grammar: |
+      <a>property-value</a> = 2<a>uint</a> 2<a>int</a> *(2<a>int</a>)
+  scan_res:
+    categories: ['Page']
+    example: 'scan_res 300 300'
+    grammar: |
+      <a>property-value</a> = 2(<a>uint</a>)
+  textangle:
+    categories: ['Layout']
+    example: 'textangle 7.32'
+    grammar: |
+      <a>property-value</a> = <a>float</a>
   # x_bboxes:
   #   categories: ['Layout']
   # x_confs:
@@ -162,10 +173,18 @@ property:
   #   categories: ['Font']
   # x_fsize:
   #   categories: ['Font']
-  # x_scanner:
-  #   categories: ['Page']
-  # x_source:
-  #   categories: ['Page']
+  x_scanner:
+    categories: ['Page']
+    example: 'scanner "Canon Lide 220"'
+    grammar: |
+      <a>property-value</a> = <a>delimited-string</a>
+  x_source:
+    categories: ['Page']
+    example: |
+      x_source "/gfs/cc/clean/012345678911" "17"
+      x_source "http://pageserver/012345678911&page=17"
+    grammar: |
+      <a>property-value</a> = 1*<a>delimited-string</a>
   # x_wconf:
   #   categories: ['Confidence']
 
