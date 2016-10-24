@@ -1421,7 +1421,7 @@ Possible extra rowspan handling
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">hOCR - OCR Workflow and Output embedded in HTML</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-10-23">23 October 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-10-24">24 October 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1440,7 +1440,7 @@ Possible extra rowspan handling
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 23 October 2016,
+In addition, as of 24 October 2016,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1529,7 +1529,6 @@ Parts of this work may be from another specification document.  If so, those par
       <li><a href="#sub-sup"><span class="secno">5.4</span> <span class="content">Superscript and Subscript</span></a>
       <li><a href="#whitespace"><span class="secno">5.5</span> <span class="content">Whitespace</span></a>
       <li><a href="#hyphenation"><span class="secno">5.6</span> <span class="content">Hyphenation</span></a>
-      <li><a href="#ruby"><span class="secno">5.7</span> <span class="content">Ruby characters</span></a>
      </ol>
     <li>
      <a href="#character-information"><span class="secno">6</span> <span class="content">Character Information</span></a>
@@ -2136,8 +2135,6 @@ Unicode characters are available.</p>
    <p class="issue" id="issue-b90972d0"><a class="self-link" href="#issue-b90972d0"></a> How to handle hyphens? <a href="https://github.com/kba/hocr-spec/issues/7">&lt;https://github.com/kba/hocr-spec/issues/7></a></p>
    <p class="issue" id="issue-3040ab4b"><a class="self-link" href="#issue-3040ab4b"></a> Non Linear Hyphens <a href="https://github.com/altoxml/schema/issues/41">&lt;https://github.com/altoxml/schema/issues/41></a></p>
    <p>Soft hyphens must be represented using the HTML <code>&amp;shy;</code> entity.</p>
-   <h3 class="heading settled" data-level="5.7" id="ruby"><span class="secno">5.7. </span><span class="content">Ruby characters</span><a class="self-link" href="#ruby"></a></h3>
-   <p><a href="https://en.wikipedia.org/wiki/Ruby_character">Furigana and similar constructs</a> must be represented using their correct Unicode encoding.</p>
    <h2 class="heading settled" data-level="6" id="character-information"><span class="secno">6. </span><span class="content">Character Information</span><a class="self-link" href="#character-information"></a></h2>
    <h3 class="heading settled" data-level="6.1" id="character-classes"><span class="secno">6.1. </span><span class="content">Classes for Character Information</span><a class="self-link" href="#character-classes"></a></h3>
    <p>Character-level information may be put on any element that contains only a
@@ -2301,6 +2298,7 @@ actual presentation information inside that:</p>
    <p>The CSS3 text layout attributes can be used when necessary. For example, CSS
 supports writing-mode, direction, glyph-orientation <a data-link-type="biblio" href="#biblio-iso15924">[ISO15924]</a>-based
 script (<a href="http://www.unicode.org/iso15924/codelists.html">list of codes</a>), text-indent, etc.</p>
+   <p><a href="https://en.wikipedia.org/wiki/Ruby_character">Furigana and similar constructs</a> must be represented using their correct Unicode encoding.</p>
    <h2 class="heading settled" data-level="9" id="segmentation"><span class="secno">9. </span><span class="content">Alternative Segmentations / Readings</span><a class="self-link" href="#segmentation"></a></h2>
    <p class="issue" id="issue-b35297dd"><a class="self-link" href="#issue-b35297dd"></a> <a href="https://github.com/kba/hocr-spec/issues/9">Delete x_cost</a></p>
    <p>Alternative segmentations and readings are indicated by a <code>&lt;span></code> with <code>class="alternatives"</code>. It must contains <code>&lt;ins></code> and <code>&lt;del></code> elements. The first

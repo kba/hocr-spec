@@ -585,12 +585,6 @@ Issue(altoxml/schema#41): Non Linear Hyphens
 
 Soft hyphens must be represented using the HTML `&shy;` entity.
 
-Ruby characters {#ruby}
----------------
-
-[Furigana and similar constructs](https://en.wikipedia.org/wiki/Ruby_character)
-must be represented using their correct Unicode encoding.
-
 
 Character Information {#character-information}
 =====================
@@ -771,6 +765,9 @@ actual presentation information inside that:
 The CSS3 text layout attributes can be used when necessary. For example, CSS
 supports writing-mode, direction, glyph-orientation [[ISO15924]]-based
 script ([list of codes](http://www.unicode.org/iso15924/codelists.html)), text-indent, etc.
+
+[Furigana and similar constructs](https://en.wikipedia.org/wiki/Ruby_character)
+must be represented using their correct Unicode encoding.
 
 
 Alternative Segmentations / Readings {#segmentation}
