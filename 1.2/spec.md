@@ -276,6 +276,57 @@ The content flow on the page that this element is a part of
   * presence must be declared in the document meta data
 
 
+The <dfn property>cuts</dfn> and <dfn property>nlp</dfn> properties {#cuts-nlp}
+-------------------------------------------------------------------
+
+<pre class="include">path: 1.2/include/defs/cuts</pre>
+
+<ul>
+
+  * character segmentation cuts (see below)
+  * there must be a 'bbox' property relative to which the 'cuts' can be interpreted
+
+</ul>
+
+<pre class="include">path: 1.2/include/defs/nlp</pre>
+
+  * estimate of the negative log probabilities of each character by the recognizer
+
+For left-to-write writing directions, cuts are sequences of deltas in the x and
+y direction; the first delta in each path is an offset in the x direction
+relative to the last x position of the previous path. The subsequent deltas
+alternate between up and right moves.
+
+<div class="example">
+
+Assume a bounding box of `(0,0,300,100)`; then
+
+```python
+cuts("10 11 7 19") =
+    [ [(10,0),(10,100)], [(21,0),(21,100)], [(28,0),(28,100)], [(47,0),(47,100)] ]
+cuts("10,50,3 11,30,-3") =
+    [ [(10,0),(10,50),(13,50),(13,100)], [(21,0),(21,30),(18,30),(18,100)] ]
+```
+
+```html
+<span class="ocr_cinfo" title="bbox 0 0 300 100; nlp 1.7 2.3 3.9 2.7; cuts 9 11 7,8,-2 15 3">hello</span>
+```
+</div>
+
+
+Cuts are between all codepoints contained within the element, including any
+whitespace and control characters.  Simply use a delta of 0 (zero) for
+invisible codepoints.
+
+Writing directions other than left-to-right specify cuts as if the bounding box
+for the element had been rotated by a multiple of 90 degrees such that the
+writing direction is left to right, then rotated back.
+
+It is undefined what happens when cut paths intersect, with the exception that
+a delta of 0 always corresponds to an invisible codepoint.
+
+
+
 ### <dfn property>textangle</dfn>
 
 `textangle alpha`
@@ -721,52 +772,6 @@ Issue: ocrx_cinfo?
 
 ## Properties for Character Information
 
-### <dfn property>cuts</dfn>
-
-`cuts c1 c2 c3 ...`
-
-  * character segmentation cuts (see below)
-  * there must be a 'bbox' property relative to which the 'cuts' can be interpreted
-
-### <dfn property>nlp</dfn>
-
-`nlp c1 c2 c3 ...`
-
-  * estimate of the negative log probabilities of each character by the recognizer
-
-For left-to-write writing directions, cuts are sequences of deltas in the x and
-y direction; the first delta in each path is an offset in the x direction
-relative to the last x position of the previous path. The subsequent deltas
-alternate between up and right moves.
-
-<div class="example">
-
-Assume a bounding box of `(0,0,300,100)`; then
-
-```python
-cuts("10 11 7 19") =
-    [ [(10,0),(10,100)], [(21,0),(21,100)], [(28,0),(28,100)], [(47,0),(47,100)] ]
-cuts("10,50,3 11,30,-3") =
-    [ [(10,0),(10,50),(13,50),(13,100)], [(21,0),(21,30),(18,30),(18,100)] ]
-```
-
-```html
-<span class="ocr_cinfo" title="bbox 0 0 300 100; nlp 1.7 2.3 3.9 2.7; cuts 9 11 7,8,-2 15 3">hello</span>
-```
-</div>
-
-
-Cuts are between all codepoints contained within the element, including any
-whitespace and control characters.  Simply use a delta of 0 (zero) for
-invisible codepoints.
-
-Writing directions other than left-to-right specify cuts as if the bounding box
-for the element had been rotated by a multiple of 90 degrees such that the
-writing direction is left to right, then rotated back.
-
-It is undefined what happens when cut paths intersect, with the exception that
-a delta of 0 always corresponds to an invisible codepoint.
-
 
 OCR Engine-Specific Markup {#engine-markup}
 ==========================
@@ -1001,7 +1006,7 @@ the important properties are:
   :: Capable of generating font information (standard font information)
 
   : <dfn value>ocrp_nlp</dfn>
-  :: Capable of generating [nlp confidences](#nlp)
+  :: Capable of generating 'nlp|nlp confidences'
 
   : `ocr_embeddedformat_<formatname>`
   :: The capability to generate other specific embedded formats is given by the
