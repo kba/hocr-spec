@@ -368,6 +368,27 @@ The <dfn property>image</dfn> and <dfn property>imagemd5</dfn> properties {#imag
   * MD5 fingerprint of the image file that this page was derived from
   * allows re-associating pages with source images
 
+The <dfn property>lpageno</dfn> and <dfn property>ppageno</dfn> property {#pageno}
+------------------------------------------------------------------------
+
+<pre class="include">path: 1.2/include/defs/lpageno</pre>
+
+<ul>
+  * the logical page number expressed on the page
+  * may not be numerical (e.g., Roman numerals)
+  * usually is unique
+  * must not be present unless it has been recognized from the page and is unambiguous
+
+</ul>
+
+<pre class="include">path: 1.2/include/defs/ppageno</pre>
+
+  * the physical page number
+  * the front cover is page number 0
+  * should be unique
+  * must not be present unless the pages in the document have a physical ordering
+  * must not be present unless it is well defined and unique
+
 
 ### <dfn property>textangle</dfn>
 
@@ -588,24 +609,6 @@ Any noise element that isn't part of typesetting
 
 The following properties should be present:
 
-### <dfn property>ppageno</dfn>
-
-`ppageno n`
-
-  * the physical page number
-  * the front cover is page number 0
-  * should be unique
-  * must not be present unless the pages in the document have a physical ordering
-  * must not be present unless it is well defined and unique
-
-### <dfn property>lpageno</dfn>
-
-`lpageno string`
-
-  * the logical page number expressed on the page
-  * may not be numerical (e.g., Roman numerals)
-  * usually is unique
-  * must not be present unless it has been recognized from the page and is unambiguous
 
 ## Optional Properties for typesetting elements
 
