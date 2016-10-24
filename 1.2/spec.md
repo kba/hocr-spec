@@ -464,6 +464,44 @@ The <dfn property>x_font</dfn> and <dfn property>x_fsize</dfn> properties {#x-fo
 'x_font' is an OCR-engine specific font name (a string), 'x_fsize' the
 associated OCR-engine specific font size (an unsigned integer).
 
+The <dfn property>x_bboxes</dfn> property {#x_bboxes}
+-----------------------------------------
+
+<pre class="include">path: 1.2/include/defs/x_bboxes</pre>
+
+  * OCR-engine specific boxes associated with each codepoint contained in the
+    element
+  * note that the 'bbox' property is a property for the bounding box of a layout
+    element, not of individual characters
+  * in particular, use `<span class="ocr_cinfo" title="x_bboxes ....">`, not
+    `<span class="ocr_cinfo" title="bbox ...">`
+
+The <dfn property>x_confs</dfn> and <dfn property>x_wconf</dfn> properties {#x-conf}
+--------------------------------------------------------------------------
+
+<pre class="include">path: 1.2/include/defs/x_confs</pre>
+
+<ul>
+
+  * OCR-engine specific character confidences
+  * values must be numbers
+  * higher values should express higher confidences
+  * if possible, convert character confidences to values between 0 and 100 and
+    have them approximate posterior probabilities (expressed in %)
+
+</ul>
+
+<pre class="include">path: 1.2/include/defs/x_wconf</pre>
+
+<ul>
+
+  * OCR-engine specific confidence for the entire contained substring
+  * value must be a number
+  * higher values should express higher confidences
+  * if possible, convert word confidences to values between 0 and 100 and have
+    them approximate posterior probabilities (expressed in %)
+
+</ul>
 
 Logical Structuring Elements {#logical-elements}
 ============================
@@ -837,48 +875,6 @@ Issue: [ocr_line vs ocrx_line](https://github.com/kba/hocr-spec/issues/19)
 
 The following properties are defined:
 
-### <dfn property>x_font</dfn>
-
-`x_font s`
-
-  * OCR-engine specific font names
-
-### <dfn property>x_fsize</dfn>
-
-`x_fsize n`
-
-  * OCR-engine specific font size
-
-### <dfn property>x_bboxes</dfn>
-
-`x_bboxes b1x0 b1y0 b1x1 b1y1 b2x0 b2y0 b2x1 b2y1 ...`
-
-  * OCR-engine specific boxes associated with each codepoint contained in the
-    element
-  * note that the 'bbox' property is a property for the bounding box of a layout
-    element, not of individual characters
-  * in particular, use `<span class="ocr_cinfo" title="x_bboxes ....">`, not
-    `<span class="ocr_cinfo" title="bbox ...">`
-
-### <dfn property>x_confs</dfn>
-
-`x_confs c1 c2 c3 ...`
-
-  * OCR-engine specific character confidences
-  * `c1` etc. must be numbers
-  * higher values should express higher confidences
-  * if possible, convert character confidences to values between 0 and 100 and
-    have them approximate posterior probabilities (expressed in %)
-
-### <dfn property>x_wconf</dfn>
-
-`x_wconf n`
-
-  * OCR-engine specific confidence for the entire contained substring
-  * n must be a number
-  * higher values should express higher confidences
-  * if possible, convert word confidences to values between 0 and 100 and have
-    them approximate posterior probabilities (expressed in %)
 
 Font, Text Color, Language, Direction {#font-lang}
 =====================================
