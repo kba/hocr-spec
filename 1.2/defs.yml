@@ -5,6 +5,7 @@ element:
     categories: ['Inline']
   ocr_blockquote:
     categories: ['Logical Structuring']
+    recommended_tags: ['blockquote']
   ocr_caption:
     categories: ['Logical Structuring']
   ocr_carea:
@@ -13,6 +14,7 @@ element:
       required: ['bbox']
   ocr_chapter:
     categories: ['Logical Structuring']
+    recommended_tags: ['h1']
   ocr_chem:
     categories: ['Float']
   ocr_cinfo:
@@ -59,24 +61,27 @@ element:
     categories: ['Float']
   ocr_par:
     categories: ['Inline']
+    recommended_tags: ['par']
   ocr_part:
     categories: ['Inline']
+    recommended_tags: ['h1']
   ocr_photo:
     categories: ['Inline']
   ocr_section:
     categories: ['Logical Structuring']
+    recommended_tags: ['h2']
   ocr_separator:
-    categories: ['Inline']
-  ocr_separator0:
-    categories: ['Inline']
+    categories: ['Typesetting', 'Float']
   ocr_subsection:
     categories: ['Logical Structuring']
+    recommended_tags: ['h3']
   ocr_subsubsection:
     categories: ['Logical Structuring']
+    recommended_tags: ['h4']
   ocr_table:
     categories: ['Float']
   ocr_textfloat:
-    categories: ["Logical Structuring"]
+    categories: ["Float"]
   ocr_textimage:
     categories: ['Float']
   ocr_title:
