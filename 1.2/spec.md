@@ -514,9 +514,34 @@ The <dfn property>x_confs</dfn> and <dfn property>x_wconf</dfn> properties {#x-c
 The elements of hOCR {#hocr-elements}
 ====================
 
+The <a>elements</a> in hOCR can be broadly <dfn lt="Element Categories">categorized</dfn> as follows:
 
-Logical Structuring Elements {#logical-elements}
-----------------------------
+  : <dfn>Logical Elements</dfn>
+  :: These elements describe a page and its components in traditional
+    typesetting.
+  :: See [[#sec-logical-elements]]
+
+  : <dfn>Typesetting Elements</dfn>
+  :: Elements that describe those areas of a page that nest but don't generally
+    overlap
+  :: See [[#sec-typesetting-elements]]
+
+  : <dfn>Float Elements</dfn>
+  :: Elements that describe those areas of a page that are not part of the flow
+    but are positioned 
+  :: See [[#sec-float-elements]]
+
+  : <dfn>Inline elements</dfn>
+  :: Thse elements describe content beyond the level of text lines
+  :: See [[#sec-inline-elements]]
+
+  : <dfn>Engine-Specific elements</dfn>
+  :: Elements whose semantics are engine-specific
+  :: See [[#sec-engine-elements]]
+
+
+Logical Elements {#sec-logical-elements}
+----------------
 
 Issue: [Logical Tags/classes](https://github.com/kba/hocr-spec/issues/66)
 
@@ -562,12 +587,11 @@ structuring elements must not use them for other purposes.
 
 <pre class="include">path: 1.2/include/defs/ocr_title</pre>
 
-
 <pre class="include">path: 1.2/include/defs/ocr_author</pre>
 
 <pre class="include">path: 1.2/include/defs/ocr_abstract</pre>
 
-### <dfn element>ocr_part</dfn> and <dfn element>ocr_chapter</dfn>
+### <dfn element>ocr_part</dfn> and <dfn element>ocr_chapter</dfn> ### {#sec-part-chapter}
 
 <pre class="include">path: 1.2/include/defs/ocr_part</pre>
 
@@ -589,11 +613,11 @@ structuring elements must not use them for other purposes.
 
 <pre class="include">path: 1.2/include/defs/ocr_par</pre>
 
-### <dfn element>ocr_linear</dfn>
+### <dfn element>ocr_linear</dfn> ### {#sec-ocr_linear}
 
 <pre class="include">path: 1.2/include/defs/ocr_linear</pre>
 
-### <dfn element>ocr_caption</dfn>
+### <dfn element>ocr_caption</dfn> ### {#sec-ocr_caption}
 
 <pre class="include">path: 1.2/include/defs/ocr_caption</pre>
 
@@ -602,7 +626,7 @@ element refers to the image(s) contained within the same float, or the
 immediately adjacent image if both the image and the <{ocr_caption}> element are
 in running text.
 
-Typesetting Elements {#typesetting-elements}
+Typesetting Elements {#sec-typesetting-elements}
 --------------------
 
 The following typesetting related elements are based on a typesetting model as
@@ -618,11 +642,15 @@ newspaper layouts). The content of the areas derives from a linear stream of
 textual content, which flows into the areas, filling them linewise in their
 preferred directions.
 
-### <dfn element>ocr_page</dfn>
+### <dfn element>ocr_page</dfn> ### {#sec-ocr_page}
+
+<pre class="include">path: 1.2/include/defs/ocr_page</pre>
 
 The <{ocr_page}> element must be present in all hOCR documents.
 
-### <dfn element>ocr_column</dfn>
+### <dfn element>ocr_column</dfn> ### {#sec-ocr_column}
+
+<pre class="include">path: 1.2/include/defs/ocr_column</pre>
 
 <div class="annoying-warning">
 **OBSOLETE**
@@ -630,7 +658,9 @@ The <{ocr_page}> element must be present in all hOCR documents.
 Please use <{ocr_carea}> instead
 </div>
 
-### <dfn element>ocr_carea</dfn>
+### <dfn element>ocr_carea</dfn> ### {#sec-ocr_carea}
+
+<pre class="include">path: 1.2/include/defs/ocr_carea</pre>
 
 "ocr content area" or "body area"
 
@@ -654,7 +684,9 @@ individual page shall be considered correct relative to ground truth if
   3. the <{ocr_carea}> appear in the same order as the text flow
     relationships between the ground truth careas.
 
-### <dfn element>ocr_line</dfn>
+### <dfn element>ocr_line</dfn> ### {#sec-ocr_line}
+
+<pre class="include">path: 1.2/include/defs/ocr_line</pre>
 
 In typesetting systems, content areas are filled with “blocks”, but most of
 those blocks are not recoverable or semantically meaningful. However, one type
@@ -662,18 +694,22 @@ of block is visible and very important for OCR engines: the line. Lines are
 typesetting blocks that only contain glyphs (“inlines” in XSL terminology).
 They are represented by the <{ocr_line}> area.
 
-<{ocr_line}> should be in a `<span>`
+<{ocr_line}> should be in a <{span}>
 
-### <dfn element>ocr_separator</dfn>
+### <dfn element>ocr_separator</dfn> ### {#sec-ocr_separator}
+
+<pre class="include">path: 1.2/include/defs/ocr_separator</pre>
 
 Any separator or similar element
 
-### <dfn element>ocr_noise</dfn>
+### <dfn element>ocr_noise</dfn> ### {#sec-ocr_noise}
+
+<pre class="include">path: 1.2/include/defs/ocr_noise</pre>
 
 Any noise element that isn't part of typesetting
 
-<dfn>Float elements</dfn> {#float-elements}
--------------------------
+Float elements {#sec-float-elements}
+--------------
 
 Overlayed onto the page is a set of floating elements; floating elements exist
 outside the normal reading order. Floating elements may be introduced by the
@@ -693,7 +729,7 @@ properties for floating elements; properties need to be defined for this.
 Floats should not be nested.
 The following floats are defined:
 
-### <dfn element>ocr_float</dfn>
+### <dfn element>ocr_float</dfn> ### {#sec-ocr_float}
 
 <pre class="include">path: 1.2/include/defs/ocr_float</pre>
 
@@ -720,16 +756,16 @@ Something that requires JPEG or PNG to be represented well
 <pre class="include">path: 1.2/include/defs/ocr_header</pre>
 <pre class="include">path: 1.2/include/defs/ocr_footer</pre>
 
-### <dfn element>ocr_pageno</dfn>
+### <dfn element>ocr_pageno</dfn> ### {#sec-ocr_pageno}
 
 <pre class="include">path: 1.2/include/defs/ocr_pageno</pre>
 
-### <dfn element>ocr_table</dfn>
+### <dfn element>ocr_table</dfn> ### {#sec-ocr_table}
 
 <pre class="include">path: 1.2/include/defs/ocr_table</pre>
 
-<dfn>Inline Elements</dfn> {#inline-elements}
---------------------------
+Inline Elements {#sec-inline-elements}
+---------------
 
 Issue(51):
 
@@ -763,7 +799,7 @@ There is some content that should behave and flow like text
   * May contain text or an <{img}> tag; the <{img/alt}> of the image tag should contain
     the corresponding text
 
-### Mathematical and chemical formulas: <dfn element>ocr_math</dfn> and <dfn property>ocr_chem</dfn> ### {#formulas}
+### Mathematical and chemical formulas: <dfn element>ocr_math</dfn> and <dfn element>ocr_chem</dfn> ### {#formulas}
 
 <pre class="include">path: 1.2/include/defs/ocr_math</pre>
 <pre class="include">path: 1.2/include/defs/ocr_chem</pre>
@@ -808,16 +844,13 @@ Character Elements {#character-elements}
 Character-level information may be put on any element that contains only a
 single "line" of text.
 
-### <dfn element>ocr_cinfo</dfn>
-
-Issue: ocrx_cinfo?
+Issue: Define <dfn element>ocrx_cinfo</dfn>
 
   * If no other layout element applies, the <{ocr_cinfo}> element may be used.
   * <{ocrx_cinfo}> should nest inside <{ocrx_line}>
   * <{ocrx_cinfo}> should contain only 'x_confs', 'x_bboxes', and 'cuts' attributes
 
-
-OCR Engine-Specific elements {#engine-elements}
+OCR Engine-Specific elements {#sec-engine-elements}
 ----------------------------
 
 A few abstractions are used as intermediate abstractions in OCR engines,
@@ -827,7 +860,9 @@ existing OCR output, say for workflow abstractions.
 
 Common suggested engine-specific markup are:
 
-### <dfn element>ocrx_block</dfn>
+### <dfn element>ocrx_block</dfn> ### {#ocrx_block}
+
+<pre class="include">path: 1.2/include/defs/ocrx_block</pre>
 
 Issue: [ocr_carea vs ocrx_block](https://github.com/kba/hocr-spec/issues/28)
 
@@ -841,7 +876,9 @@ Generators should attempt to ensure the following properties:
   * an <{ocrx_block}> should contain either a float or body text, but not both
   * an <{ocrx_block}> should contain either an image or text, but not both
 
-### <dfn element>ocrx_line</dfn>
+### <dfn element>ocrx_line</dfn> ### {#sec-ocrx_line}
+
+<pre class="include">path: 1.2/include/defs/ocrx_line</pre>
 
 Issue: [ocr_line vs ocrx_line](https://github.com/kba/hocr-spec/issues/19)
 
@@ -871,7 +908,7 @@ writing direction changes must be indicated with new tags with an appropriate
 
 OCR information and presentation information can be separated by putting the
 CSS info related to the CSS in an outer element with an `ocr_` or `ocrx_` class,
-and then overriding it for the presentation by nesting another `<span>` with the
+and then overriding it for the presentation by nesting another <{span}> with the
 actual presentation information inside that:
 
 ```
