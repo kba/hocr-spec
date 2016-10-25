@@ -866,34 +866,55 @@ Issue: [ocr_line vs ocrx_line](https://github.com/kba/hocr-spec/issues/19)
 Encoding Guidelines {#guidelines}
 ===================
 
-## Superscript and Subscript ## {#sub-sup}
+Recommendations for Mappings {#html-mappings}
+----------------------------
 
-Superscripts and subscripts, when not in <{ocr_math}> or <{ocr_chem}> formulas,
-must be represented using the HTML <{sup}> and <{sub}> tags, even if special
-Unicode characters are available.
+When possible, any mapping of logical structure onto HTML should try to follow the following rules:
 
-## Whitespace ## {#whitespace}
+  * the mapping should be "natural" -- similar to what an author of the document
+    might have entered into a WYSIWYG content creation tool
+  * text should be in reading order
+  * all tags should be used for the intended purpose (and only for the intended
+    purpose) as defined in the [[HTML40]] spec.
+  * floats are contained in <{div}> elements with a `style` that includes a float attribute
+  * repeating floating page elements (header/footer) should be repeated and occur
+    in their natural location in reading order (e.g., between pages)
+  * embedded images and SVG should be contained in files in the same directory
+    (no `/` in the URL) and embedded with <{img}> and <{embed}> tags, respectively
 
-Non-breaking spaces must be represented using the HTML `&nbsp;` entity.
+Specifically
 
-Different space widths should be indicated using HTML and `&ensp;`, `&emsp;`,
-`&thinsp;`, `&zwnj;`, `&zwj;`.
+  * <{em}> and <{strong}> should represent emphasis, and are preferred to <{b}>, <{i}>, and <{u}>
+  * <{b}>, <{i}>, and <{u}> should represent a change in the corresponding
+    attribute for the current font (but an OCR font specification must still be
+    given)
+  * <{p}> should represent paragraph breaks
+  * <{br}> should represent explicit linebreaks (not linebreak that happen because of text flow)
+  * <{h1}>, ..., <{h6}> should represent the logical nesting structure (if any) of the document
+  * <{a}> should represent hyperlinks and references within the document
+  * <{blockquote}> should represent indented quotations, but not other uses of indented text.
+  * <{ul}>, <{ol}>, <{dl}> should represent lists
+  * <{table}> should represent tables, including correct use of the <{th}> tag
 
-## Hyphenation ## {#hyphenation}
+If necessary, the markup may use the following non-standard tags:
 
-Issue(7): How to handle hyphens?
+  * <{nobr}> to indicate that line breaking is not permitted for the enclosed content
+  * <{wbr}> to indicate that line breaking is permitted at that location
 
-Issue(altoxml/schema#41): Non Linear Hyphens
+Styling hOCR with CSS {#sec-css}
+---------------------
 
-Soft hyphens must be represented using the HTML `&shy;` entity.
+OCR information and presentation information can be separated by putting the
+CSS info related to the CSS in an outer element with an `ocr_` or `ocrx_` class,
+and then overriding it for the presentation by nesting another <{span}> with the
+actual presentation information inside that:
 
-## Ruby characters ## {#ruby}
+```html
+<span class="ocr_cinfo" style="ocr style"><span style="presentation style"> ... </span></span>
+```
 
-[Furigana and similar constructs](https://en.wikipedia.org/wiki/Ruby_character)
-must be represented using their correct Unicode encoding.
-
-Font, Text Color, Language, Direction {#font-lang}
--------------------------------------
+Language, Writing Direction {#sec-lang}
+---------------------------
 
 OCR-generated font and text color information is encoded using standard HTML
 and CSS attributes on elements with a class of `ocr_...` or `ocrx_...`.
@@ -901,24 +922,41 @@ and CSS attributes on elements with a class of `ocr_...` or `ocrx_...`.
 Language and writing direction should be indicated using the HTML standard
 attributes <{*/lang}> and <{*/dir}>.
 
+[Furigana and similar constructs](https://en.wikipedia.org/wiki/Ruby_character)
+must be represented using their correct Unicode encoding.
+
 The HTML <a href="https://www.w3.org/TR/REC-html40/struct/dirlang.html#h-8.2.5">`&lrm;` and
 `&rlm;` entities</a> (indicating writing direction) must not be used; all
 writing direction changes must be indicated with new tags with an appropriate
 <{*/dir}> attribute.
 
-OCR information and presentation information can be separated by putting the
-CSS info related to the CSS in an outer element with an `ocr_` or `ocrx_` class,
-and then overriding it for the presentation by nesting another <{span}> with the
-actual presentation information inside that:
-
-```
-<span class="ocr_cinfo" style="ocr style"><span style="presentation style"> ... </span></span>
-```
-
 The CSS3 text layout attributes can be used when necessary. For example, CSS
 supports writing-mode, direction, glyph-orientation [[ISO15924]]-based
 script ([list of codes](http://www.unicode.org/iso15924/codelists.html)), text-indent, etc.
 
+Superscript and Subscript {#sub-sup}
+-------------------------
+
+Superscripts and subscripts, when not in <{ocr_math}> or <{ocr_chem}> formulas,
+must be represented using the HTML <{sup}> and <{sub}> tags, even if special
+Unicode characters are available.
+
+Whitespace {#whitespace}
+----------
+
+Non-breaking spaces must be represented using the HTML `&nbsp;` entity.
+
+Different space widths should be indicated using HTML and `&ensp;`, `&emsp;`,
+`&thinsp;`, `&zwnj;`, `&zwj;`.
+
+Hyphenation {#hyphenation}
+-----------
+
+Issue(7): How to handle hyphens?
+
+Issue(altoxml/schema#41): Non Linear Hyphens
+
+Soft hyphens must be represented using the HTML `&shy;` entity.
 
 Alternative Segmentations / Readings {#segmentation}
 ------------------------------------
@@ -944,7 +982,6 @@ arbitrarily.
 Whitespace within the <{span}> but outside the contained <{ins}>/<{del}>
 elements is ignored and should be inserted to improve readability of the HTML
 when viewed in a browser.
-
 
 Grouped Elements and Multiple Hierarchies {#groups}
 -----------------------------------------
@@ -1173,41 +1210,6 @@ into <a>html_absolute</a>, <a>html_xytable_absolute</a>, and
 use <a>html_xytable_absolute</a> as an intermediate format for converting hOCR
 into <a>html_simple</a>.
 
-
-Recommendations for Mappings {#html-mappings}
-----------------------------
-
-When possible, any mapping of logical structure onto HTML should try to follow the following rules:
-
-  * the mapping should be "natural" -- similar to what an author of the document
-    might have entered into a WYSIWYG content creation tool
-  * text should be in reading order
-  * all tags should be used for the intended purpose (and only for the intended
-    purpose) as defined in the [[HTML40]] spec.
-  * floats are contained in <{div}> elements with a `style` that includes a float attribute
-  * repeating floating page elements (header/footer) should be repeated and occur
-    in their natural location in reading order (e.g., between pages)
-  * embedded images and SVG should be contained in files in the same directory
-    (no `/` in the URL) and embedded with <{img}> and <{embed}> tags, respectively
-
-Specifically
-
-  * <{em}> and <{strong}> should represent emphasis, and are preferred to <{b}>, <{i}>, and <{u}>
-  * <{b}>, <{i}>, and <{u}> should represent a change in the corresponding
-    attribute for the current font (but an OCR font specification must still be
-    given)
-  * <{p}> should represent paragraph breaks
-  * <{br}> should represent explicit linebreaks (not linebreak that happen because of text flow)
-  * <{h1}>, ..., <{h6}> should represent the logical nesting structure (if any) of the document
-  * <{a}> should represent hyperlinks and references within the document
-  * <{blockquote}> should represent indented quotations, but not other uses of indented text.
-  * <{ul}>, <{ol}>, <{dl}> should represent lists
-  * <{table}> should represent tables, including correct use of the <{th}> tag
-
-If necessary, the markup may use the following non-standard tags:
-
-  * <{nobr}> to indicate that line breaking is not permitted for the enclosed content
-  * <{wbr}> to indicate that line breaking is permitted at that location
 
 HTML without logical markup {#format-none}
 ---------------------------
