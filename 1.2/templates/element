@@ -13,7 +13,7 @@
 {% endif %}
 
 {% if categories %}
-  : Categories
+  : <a lt="Element Categories">Categories</a>
   :: {% for category in categories %}<a>{{ category }} Elements</a> {% if not loop.last %}, {% endif %} {% endfor %}
 {% endif %}
 
