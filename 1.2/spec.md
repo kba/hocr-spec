@@ -86,6 +86,22 @@ Properties may define a <dfn>default value</dfn>. For those elements for which t
 property is not <a lt="Disallowed Properties">disallowed</a> but not explicitly
 specified, the property is assigned to the element with the default value.
 
+Definition of "capability" {#definition-capability}
+--------------------------
+
+The presence of <a>elements</a> and <a>properties</a> must be explicitly stated
+as a <dfn>capability</dfn>. The rationale is that if a hOCR producer is
+*capabable* of producing certain elements and properties, it should inform
+hOCR consumers that they may encounter those elements/properties. If a producer
+is **not capable** of producing certain elements/properties, consumers need not
+look for them.
+
+Note: When referring to a capability `ocrp_poly`, this spec uses the notation
+''ocr-capabilities/ocrp_poly''.
+
+The mechanism for declaring capabilities are described in [[#capabilities]]
+
+
 Relationship between elements, properties, capabilities {#relations}
 -------------------------------------------------------
 
