@@ -812,37 +812,7 @@ an <{ocr_display}> section. <{ocr_math}> and <{ocr_chem}>
 
 <{ocr_chem}> must either be or contain either a single <{img}> tag or [[MathML]] markup
 
-### Superscript and Subscript ### {#sub-sup}
-
-Superscripts and subscripts, when not in <{ocr_math}> or <{ocr_chem}> formulas,
-must be represented using the HTML <{sup}> and <{sub}> tags, even if special
-Unicode characters are available.
-
-### Whitespace ### {#whitespace}
-
-Non-breaking spaces must be represented using the HTML `&nbsp;` entity.
-
-Different space widths should be indicated using HTML and `&ensp;`, `&emsp;`,
-`&thinsp;`, `&zwnj;`, `&zwj;`.
-
-### Hyphenation ### {#hyphenation}
-
-Issue(7): How to handle hyphens?
-
-Issue(altoxml/schema#41): Non Linear Hyphens
-
-Soft hyphens must be represented using the HTML `&shy;` entity.
-
-### Ruby characters ### {#ruby}
-
-[Furigana and similar constructs](https://en.wikipedia.org/wiki/Ruby_character)
-must be represented using their correct Unicode encoding.
-
-Character Elements {#character-elements}
-------------------
-
-Character-level information may be put on any element that contains only a
-single "line" of text.
+### Unspecified inline content: <dfn element>ocr_cinfo</dfn> ### {#sec-ocr_cinfo}
 
 Issue: Define <dfn element>ocrx_cinfo</dfn>
 
@@ -886,14 +856,44 @@ Issue: [ocr_line vs ocrx_line](https://github.com/kba/hocr-spec/issues/19)
   * might be some kind of "logical" line
   * an <{ocrx_line}> should correspond as closely as possible to an <{ocr_line}>
 
-### <dfn element>ocrx_word</dfn>
+### <dfn element>ocrx_word</dfn> ### {#sec-ocrx_word}
+
+<pre class="include">path: 1.2/include/defs/ocrx_word</pre>
 
   * any kind of "word" returned by an OCR system
   * engine specific because the definition of a "word" depends on the engine
 
+Encoding Guidelines {#guidelines}
+===================
+
+## Superscript and Subscript ## {#sub-sup}
+
+Superscripts and subscripts, when not in <{ocr_math}> or <{ocr_chem}> formulas,
+must be represented using the HTML <{sup}> and <{sub}> tags, even if special
+Unicode characters are available.
+
+## Whitespace ## {#whitespace}
+
+Non-breaking spaces must be represented using the HTML `&nbsp;` entity.
+
+Different space widths should be indicated using HTML and `&ensp;`, `&emsp;`,
+`&thinsp;`, `&zwnj;`, `&zwj;`.
+
+## Hyphenation ## {#hyphenation}
+
+Issue(7): How to handle hyphens?
+
+Issue(altoxml/schema#41): Non Linear Hyphens
+
+Soft hyphens must be represented using the HTML `&shy;` entity.
+
+## Ruby characters ## {#ruby}
+
+[Furigana and similar constructs](https://en.wikipedia.org/wiki/Ruby_character)
+must be represented using their correct Unicode encoding.
 
 Font, Text Color, Language, Direction {#font-lang}
-=====================================
+-------------------------------------
 
 OCR-generated font and text color information is encoded using standard HTML
 and CSS attributes on elements with a class of `ocr_...` or `ocrx_...`.
@@ -921,15 +921,15 @@ script ([list of codes](http://www.unicode.org/iso15924/codelists.html)), text-i
 
 
 Alternative Segmentations / Readings {#segmentation}
-====================================
+------------------------------------
 
 Issue: [Delete x_cost](https://github.com/kba/hocr-spec/issues/9)
 
-Alternative segmentations and readings are indicated by a `<span>` with
-`class="alternatives"`. It must contains `<ins>` and `<del>` elements. The first
-contained element should be `<ins>` and represent the most probable interpretation,
-the subsequent ones `<del>`. Each `<ins>` and `<del>` element should have `class="alt"` and a
-property of either 'nlp' or 'x_cost'. These `<span>`, `<ins>`, and `<del>` tags can nest
+Alternative segmentations and readings are indicated by a <{span}> with
+`class="alternatives"`. It must contains <{ins}> and <{del}> elements. The first
+contained element should be <{ins}> and represent the most probable interpretation,
+the subsequent ones <{del}>. Each <{ins}> and <{del}> element should have `class="alt"` and a
+property of either 'nlp' or 'x_cost'. These <{span}>, <{ins}>, and <{del}> tags can nest
 arbitrarily.
 
 <div class="example">
@@ -941,13 +941,13 @@ arbitrarily.
 ```
 </div>
 
-Whitespace within the `<span>` but outside the contained `<ins>`/`<del>`
+Whitespace within the <{span}> but outside the contained <{ins}>/<{del}>
 elements is ignored and should be inserted to improve readability of the HTML
 when viewed in a browser.
 
 
 Grouped Elements and Multiple Hierarchies {#groups}
-=========================================
+-----------------------------------------
 
 The different levels of layout information (logical, physical, engine-specific)
 each form hierarchies, but those hierarchies may not be mutually compatible;
