@@ -1,54 +1,76 @@
 element:
   ocr_abstract:
-    categories: ['Logical Structuring']
+    categories: ['Logical']
   ocr_author:
-    categories: ['Inline']
+    categories: ['Logical']
   ocr_blockquote:
-    categories: ['Logical Structuring']
+    categories: ['Logical']
     recommended_tags: ['blockquote']
   ocr_caption:
-    categories: ['Logical Structuring']
+    categories: ['Logical']
   ocr_carea:
     categories: ['Typesetting']
     properties:
       required: ['bbox']
   ocr_chapter:
-    categories: ['Logical Structuring']
+    categories: ['Logical']
     recommended_tags: ['h1']
   ocr_chem:
     categories: ['Float']
+    properties:
+      required: ['bbox']
   ocr_cinfo:
-    categories: ['Float']
+    categories: ['Inline']
+    properties:
+      recommended: ['x_confs', 'x_bboxes', 'cuts']
+      allowed: ['nlp']
   ocr_column:
     categories: ['Typesetting']
     deprecated: true
   ocr_display:
     categories: ['Float']
+    properties:
+      required: ['bbox']
   ocr_document:
-    categories: ['Logical Structuring']
+    categories: ['Logical']
     recommended_tags: ['div']
   ocr_dropcap:
     categories: ['Inline']
   ocr_float:
     categories: ['Float']
+    properties:
+      required: ['bbox']
   ocr_footer:
     categories: ['Float']
+    properties:
+      required: ['bbox']
   ocr_glyph:
     categories: ['Inline']
   ocr_glyphs:
     categories: ['Inline']
   ocr_header:
     categories: ['Float']
+    properties:
+      required: ['bbox']
   ocr_image:
     categories: ['Float']
+    properties:
+      required: ['bbox']
   ocr_line:
     categories: ['Typesetting']
+    properties:
+      required: ['bbox']
+      allowed: ['baseline', 'hardbreak', 'x_font', 'x_fsize', 'x_bboxes']
   ocr_linear:
-    categories: ['Inline']
+    categories: ['Typesetting']
   ocr_linedrawing:
     categories: ['Float']
+    properties:
+      required: ['bbox']
   ocr_math:
     categories: ['Float']
+    properties:
+      required: ['bbox']
   ocr_noise:
     categories: ['Inline']
   ocr_page:
@@ -59,33 +81,45 @@ element:
       allowed: ['x_source']
   ocr_pageno:
     categories: ['Float']
+    properties:
+      required: ['bbox']
   ocr_par:
-    categories: ['Inline']
-    recommended_tags: ['par']
+    categories: ['Logical']
+    recommended_tags: ['p']
   ocr_part:
-    categories: ['Inline']
+    categories: ['Logical']
     recommended_tags: ['h1']
   ocr_photo:
-    categories: ['Inline']
+    categories: ['Float']
+    properties:
+      required: ['bbox']
   ocr_section:
-    categories: ['Logical Structuring']
+    categories: ['Logical']
     recommended_tags: ['h2']
   ocr_separator:
     categories: ['Typesetting', 'Float']
+    properties:
+      required: ['bbox']
   ocr_subsection:
-    categories: ['Logical Structuring']
+    categories: ['Logical']
     recommended_tags: ['h3']
   ocr_subsubsection:
-    categories: ['Logical Structuring']
+    categories: ['Logical']
     recommended_tags: ['h4']
   ocr_table:
     categories: ['Float']
+    properties:
+      required: ['bbox']
   ocr_textfloat:
     categories: ["Float"]
+    properties:
+      required: ['bbox']
   ocr_textimage:
     categories: ['Float']
+    properties:
+      required: ['bbox']
   ocr_title:
-    categories: ['Inline']
+    categories: ['Logical']
     recommended_tags: ['h1']
   ocr_xycut:
     categories: ['Inline']
