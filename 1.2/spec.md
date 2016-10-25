@@ -51,9 +51,9 @@ Definition of "element" {#definition-element}
 -----------------------
 
 An hOCR element (in the following: <dfn>element</dfn>) is any HTML tag with a
-<{*/class}> attribute that contains exactly one class name that starts with
-`ocr_` or `ocrx_`. Non-OCR related HTML content must not use class names that
-begin with `ocr_` or `ocrx_`.
+<{*/class}> attribute that contains exactly one <dfn lt="Element Name">class
+name</dfn> that starts with `ocr_` or `ocrx_`. Non-OCR related HTML content must
+not use class names that begin with `ocr_` or `ocrx_`.
 
 Note: When referring to an HTML tag with class `ocr_page`, this spec uses the
 notation <{ocr_page}>

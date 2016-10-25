@@ -1,6 +1,6 @@
 <dl class="def">
 
-  : Element Name
+  : <a lt="Element Name">Name</a>
   {% if deprecated %}
   :: <del>{{ name }}</del> (Deprecated)
   {% else %}
@@ -8,7 +8,7 @@
   {% endif %}
 
 {% if recommended_tags %}
-  : Recommended HTML Tags
+  : <a>Recommended HTML Tags</a>
   :: {% for tag in recommended_tags %}<a element>{{ tag }}</a> {% if not loop.last %}, {% endif %} {% endfor %}
 {% endif %}
 
