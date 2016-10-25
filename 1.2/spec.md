@@ -82,6 +82,13 @@ lowercase letters and numbers. Property names must be either from those defined
 in [[#hocr-props]] or begin with `x_` to denote implementation-specific
 extensions.
 
+Properties may define a <dfn>default value</dfn>. For those elements for which the
+property is not <a lt="Disallowed Properties">disallowed</a> but not explicitly
+specified, the property is assigned to the element with the default value.
+
+Relationship between elements, properties, capabilities {#relations}
+-------------------------------------------------------
+
 There are four levels of association between any <a>element</a> to any
 <a>property</a>:
 
@@ -105,10 +112,6 @@ other property:
   :: If property A is present, property B must also be present
   : <dfn>Conflicting Property</dfn>
   :: If property A is present, property B must not be present
-
-Properties may define a <dfn>default value</dfn>. For those elements for which the
-property is not <a lt="Disallowed Properties">disallowed</a> but not explicitly
-specified, the property is assigned to the element with the default value.
 
 Properties Grammar {#grammar}
 ------------------
