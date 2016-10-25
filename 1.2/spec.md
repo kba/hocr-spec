@@ -184,6 +184,9 @@ Categories">categorized</dfn> as follows:
   : <dfn>Layout Properties</dfn>
   :: These properties relate to placement of <a>elements</a> on the page
 
+  : <dfn>Font Properties</dfn>
+  :: These properties convey font information
+
   : <dfn>Character Properties</dfn>
   :: These properties convey character level information
 
@@ -195,7 +198,7 @@ Categories">categorized</dfn> as follows:
 
   : <dfn>Confidence Properties</dfn>
   :: These properties are related to the confidence of the hOCR producer that
-    the text in the 'element' has been correctly recognized
+    the text in the <a>element</a> has been correctly recognized
 
 The <dfn property>baseline</dfn> property {#baseline}
 -----------------------------------------
