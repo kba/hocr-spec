@@ -47,8 +47,10 @@ We are embedding this information inside HTML by encoding it within valid tags
 and attributes inside HTML. We are going to use the terms <a>elements</a> and
 <a>properties</a> for referring to embedded markup.
 
-Definition of "element" {#definition-element}
------------------------
+Definitions {#definitions}
+-----------
+
+### "element" ### {#definition-element}
 
 An hOCR element (in the following: <dfn>element</dfn>) is any HTML tag with a
 <{*/class}> attribute that contains exactly one <dfn lt="Element Name">class
@@ -67,8 +69,7 @@ specific HTML tags</dfn>. This is entirely optional, it may not be possible or
 desirable to actually choose those tags (e.g., when adding hOCR information to
 an existing HTML output routine).
 
-Definition of "property" {#definition-property}
-------------------------
+### "property" ### {#definition-property}
 
 <dfn lt="properties">hOCR Properties</dfn> are a set of key-value pairs that convey OCR-specific
 information related to specific <a>elements</a>. They are serialized using a
@@ -86,8 +87,7 @@ Properties may define a <dfn>default value</dfn>. For those elements for which t
 property is not <a lt="Disallowed Properties">disallowed</a> but not explicitly
 specified, the property is assigned to the element with the default value.
 
-Definition of "capability" {#definition-capability}
---------------------------
+### "capability" ### {#definition-capability}
 
 The presence of <a>elements</a> and <a>properties</a> must be explicitly stated
 as a <dfn>capability</dfn>. The rationale is that if a hOCR producer is
@@ -102,8 +102,10 @@ Note: When referring to a capability `ocrp_poly`, this spec uses the notation
 The mechanism for declaring capabilities are described in [[#capabilities]]
 
 
-Relationship between elements, properties, capabilities {#relations}
--------------------------------------------------------
+Relationship between elements, properties {#relations}
+-----------------------------------------
+
+### element - property ### {#rel-elem-prop}
 
 There are four levels of association between any <a>element</a> to any
 <a>property</a>:
@@ -117,6 +119,8 @@ There are four levels of association between any <a>element</a> to any
   :: The element SHOULD contain the property
   : <dfn>Allowed Property</dfn>
   :: The element MAY contain the property
+
+### property - property ### {#rel-prop-prop}
 
 A property present on an element can have on of the following relations to any
 other property:
