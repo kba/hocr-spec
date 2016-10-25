@@ -184,353 +184,6 @@ grammar>property-name</a> and <a grammar>property-value</a>.
 ```
 </div>
 
-The properties of hOCR {#hocr-props}
-======================
-
-The <a>properties</a> in hOCR can be broadly <dfn lt="Property
-Categories">categorized</dfn> as follows:
-
-  : <dfn>General Properties</dfn>
-  :: These properties can apply to most elements
-
-  : <dfn>Non-Recommended Properties</dfn>
-  :: These properties can apply to most elements but should not be used unless
-    there is no alternative:
-
-  : <dfn>Inline Properties</dfn>
-  :: These properties apply to content on or below the level of <{ocr_line}> /
-    <{ocrx_line}>
-
-  : <dfn>Layout Properties</dfn>
-  :: These properties relate to placement of <a>elements</a> on the page
-
-  : <dfn>Font Properties</dfn>
-  :: These properties convey font information
-
-  : <dfn>Character Properties</dfn>
-  :: These properties convey character level information
-
-  : <dfn>Page Properties</dfn>
-  :: These properties convey information on the whole page
-
-  : <dfn>Content Flow Properties</dfn>
-  :: These properties are related to the reading order and flow of content on the page
-
-  : <dfn>Confidence Properties</dfn>
-  :: These properties are related to the confidence of the hOCR producer that
-    the text in the <a>element</a> has been correctly recognized
-
-The <dfn property>baseline</dfn> property {#baseline}
------------------------------------------
-
-<pre class="include">path: 1.2/include/defs/baseline</pre>
-
-This property applies primarily to textlines.
-
-The baseline is described by a polynomial of order `n` with the coefficients
-`pn ...  p0` with `n = 1` for a linear (i.e. straight) line.
-
-The polynomial is in the coordinate system of the line, with the bottom left of
-the bounding box as the origin.
-
-<div class="example">
-
-The hOCR output for the first line of
-[eurotext.tif](https://github.com/tesseract-ocr/tesseract/blob/master/testing/eurotext.tif)
-contains the following information:
-
-```html
-<span class='ocr_line' id='line_1_1'
-    title="bbox 105 66 823 113; baseline 0.015 -18">...</span>
-```
-
-'bbox' is the bounding box of the line in image coordinates (blue). The two
-numbers for the baseline are the slope (1st number) and constant term (2nd
-number) of a linear equation describing the baseline relative to the bottom
-left corner of the bounding box (red). The baseline crosses the y-axis at `-18`
-and its slope angle is `arctan(0.015) = 0.86°`.
-
-<figure><img
-  alt="baseline explained"
-  src="../images/baseline.png"/>
-</figure>
-
-</div>
-
-
-The <dfn property>bbox</dfn> property {#bbox}
--------------------------------------
-
-<pre class="include">path: 1.2/include/defs/bbox</pre>
-
-The 'bbox' - short for "bounding box" - of an element is a rectangular box
-around this element, which is defined by the upper-left corner (x0, y0) and
-the lower-right corner (x1, y1).
-
-  * the values are with reference to the the top-left corner of the document image
-    and measured in pixels
-  * the order of the values are `x0 y0 x1 y1` = "left top right bottom"
-  * use 'x_bboxes' below for character bounding boxes
-  * do not use 'bbox' unless the bounding box of the layout component is, in
-    fact, rectangular
-  * some non-rectangular layout components may have rectangular bounding boxes
-    if the non-rectangularity is caused by floating elements around which text flows
-
-<div class="example">
-
-```html
-<span class='ocr_line' id='line_1'
-    title="bbox 10 20 160 30">...</span>
-```
-
-The bounding box 'bbox' of this line is shown in blue and it is span
-by the upper-left corner (10, 20) and the lower-right corner (160, 30).
-All coordinates are measured with reference to the top-left corner of
-the document image which border is drawn in black.
-
-<figure><img
-  alt="bbox explained"
-  src="../images/bbox-crop.png"/>
-</figure>
-
-</div>
-
-The <dfn property>cflow</dfn> property {#cflow}
---------------------------------------
-
-<pre class="include">path: 1.2/include/defs/cflow</pre>
-
-This property relates the flow between multiple <{ocr_carea}> elements,
-and between <{ocr_carea}> and <{ocr_linear}> elements.
-
-The content flow on the page that this element is a part of
-
-  * s must be a unique string for each content flow
-  * must be present on <{ocr_carea}> and <{ocrx_block}> tags when reading
-    order is attempted and multiple content flows are present
-  * presence must be declared in the document meta data
-
-
-The <dfn property>cuts</dfn> and <dfn property>nlp</dfn> properties {#cuts-nlp}
--------------------------------------------------------------------
-
-<pre class="include">path: 1.2/include/defs/cuts</pre>
-
-<ul>
-
-  * character segmentation cuts (see below)
-  * there must be a 'bbox' property relative to which the 'cuts' can be interpreted
-
-</ul>
-
-<pre class="include">path: 1.2/include/defs/nlp</pre>
-
-  * estimate of the negative log probabilities of each character by the recognizer
-
-For left-to-write writing directions, cuts are sequences of deltas in the x and
-y direction; the first delta in each path is an offset in the x direction
-relative to the last x position of the previous path. The subsequent deltas
-alternate between up and right moves.
-
-<div class="example">
-
-Assume a bounding box of `(0,0,300,100)`; then
-
-```python
-cuts("10 11 7 19") =
-    [ [(10,0),(10,100)], [(21,0),(21,100)], [(28,0),(28,100)], [(47,0),(47,100)] ]
-cuts("10,50,3 11,30,-3") =
-    [ [(10,0),(10,50),(13,50),(13,100)], [(21,0),(21,30),(18,30),(18,100)] ]
-```
-
-```html
-<span class="ocr_cinfo" title="bbox 0 0 300 100; nlp 1.7 2.3 3.9 2.7; cuts 9 11 7,8,-2 15 3">hello</span>
-```
-</div>
-
-
-Cuts are between all codepoints contained within the element, including any
-whitespace and control characters.  Simply use a delta of 0 (zero) for
-invisible codepoints.
-
-Writing directions other than left-to-right specify cuts as if the bounding box
-for the element had been rotated by a multiple of 90 degrees such that the
-writing direction is left to right, then rotated back.
-
-It is undefined what happens when cut paths intersect, with the exception that
-a delta of 0 always corresponds to an invisible codepoint.
-
-The <dfn property>hardbreak</dfn> property {#hardbreak}
-------------------------------------------
-
-<pre class="include">path: 1.2/include/defs/hardbreak</pre>
-
-  * a zero (default) indicates that the end of the line is not a hard
-    (explicit) line break, but a break due to text flow
-  * a one indicates that the line is a hard (explicit) line break
-
-Any special characters representing the desired end-of-line processing must be
-present inside the <{ocr_line}> element. Examples of such special characters are a
-soft hyphen ("­", `U+00AD`), a hard line break (`<br>`), or whitespace (` `) for soft
-line breaks.
-
-The <dfn property>image</dfn>, <dfn property>imagemd5</dfn> and <dfn property>x_source</dfn> properties {#image}
--------------------------------------------------------------------------
-
-<pre class="include">path: 1.2/include/defs/image</pre>
-
-<ul>
-
-  * image file name used as input
-  * syntactically, must be a UNIX-like pathname or http URL (no Windows pathnames)
-  * may be relative
-  * cannot be resolved to the actual file in general (e.g., if the hOCR file
-    becomes separated from the image file)
-  * if the hOCR file is present in a directory hierarchy or file archive, should
-    resolve to the corresponding image file
-
-</ul>
-
-<pre class="include">path: 1.2/include/defs/imagemd5</pre>
-
-<ul>
-
-  * MD5 fingerprint of the image file that this page was derived from
-  * allows re-associating pages with source images
-
-</ul>
-
-<pre class="include">path: 1.2/include/defs/x_source</pre>
-
-  * an implementation-dependent representation of the document source
-  * could be a URL or a /gfs/ path
-  * offsets within a multipage format (e.g., TIFF) may be represented using
-    additional strings or using URL parameters or fragments
-
-The <dfn property>lpageno</dfn> and <dfn property>ppageno</dfn> property {#pageno}
-------------------------------------------------------------------------
-
-<pre class="include">path: 1.2/include/defs/lpageno</pre>
-
-<ul>
-  * the logical page number expressed on the page
-  * may not be numerical (e.g., Roman numerals)
-  * usually is unique
-  * must not be present unless it has been recognized from the page and is unambiguous
-
-</ul>
-
-<pre class="include">path: 1.2/include/defs/ppageno</pre>
-
-  * the physical page number
-  * the front cover is page number 0
-  * should be unique
-  * must not be present unless the pages in the document have a physical ordering
-  * must not be present unless it is well defined and unique
-
-The <dfn property>order</dfn> property {#order}
---------------------------------------
-
-<pre class="include">path: 1.2/include/defs/order</pre>
-
-The reading order of the element (an integer)
-
-  * this property must not be used unless there is no other way of representing
-    the reading order of the page by element ordering within the page, since
-    many tools will not be able to deal with content that is not in reading order
-  * presence must be declared in the document meta data
-
-The <dfn property>poly</dfn> property {#poly}
--------------------------------------
-
-<pre class="include">path: 1.2/include/defs/poly</pre>
-
-A closed polygon for elements with non-rectangular bounds
-
-  * this property must not be used unless there is no other way of
-    representing the layout of the page using rectangular bounding boxes,
-    since most tools will simply not have the capability of dealing with
-    non-rectangular layouts
-  * note that the natural and correct representation of many non-rectangular
-    layouts is in terms of rectangular content areas and rectangular floats
-  * documents using polygonal borders anywhere must indicate this by adding
-    ''ocr-capabilities/ocrp_poly'' to the list of 'ocr-capabilities' (see
-    [[#capabilities]])
-  * documents should attempt to provide a reasonable 'bbox' equivalent as well
-
-
-The <dfn property>scan_res</dfn> and <dfn property>x_scanner</dfn> properties {#scan_res}
------------------------------------------------------------------------------
-
-<pre class="include">path: 1.2/include/defs/scan_res</pre>
-
-The scanning resolution in DPI
-
-<pre class="include">path: 1.2/include/defs/x_scanner</pre>
-
-A representation of the scanner
-
-The <dfn property>textangle</dfn> property {#textangle}
-------------------------------------------
-
-<pre class="include">path: 1.2/include/defs/textangle</pre>
-
-The angle in degrees by which textual content has been rotate relative to the
-rest of the page (if not present, the angle is assumed to be zero); rotations
-are counter-clockwise, so an angle of 90 degrees is vertical text running from
-bottom to top in Latin script; note that this is different from reading order,
-which should be indicated using standard HTML properties
-
-
-The <dfn property>x_font</dfn> and <dfn property>x_fsize</dfn> properties {#x-font}
--------------------------------------------------------------------------
-
-<pre class="include">path: 1.2/include/defs/x_font</pre>
-
-<pre class="include">path: 1.2/include/defs/x_fsize</pre>
-
-'x_font' is an OCR-engine specific font name (a string), 'x_fsize' the
-associated OCR-engine specific font size (an unsigned integer).
-
-The <dfn property>x_bboxes</dfn> property {#x_bboxes}
------------------------------------------
-
-<pre class="include">path: 1.2/include/defs/x_bboxes</pre>
-
-  * OCR-engine specific boxes associated with each codepoint contained in the
-    element
-  * note that the 'bbox' property is a property for the bounding box of a layout
-    element, not of individual characters
-  * in particular, use `<span class="ocr_cinfo" title="x_bboxes ....">`, not
-    `<span class="ocr_cinfo" title="bbox ...">`
-
-The <dfn property>x_confs</dfn> and <dfn property>x_wconf</dfn> properties {#x-conf}
---------------------------------------------------------------------------
-
-<pre class="include">path: 1.2/include/defs/x_confs</pre>
-
-<ul>
-
-  * OCR-engine specific character confidences
-  * values must be numbers
-  * higher values should express higher confidences
-  * if possible, convert character confidences to values between 0 and 100 and
-    have them approximate posterior probabilities (expressed in %)
-
-</ul>
-
-<pre class="include">path: 1.2/include/defs/x_wconf</pre>
-
-<ul>
-
-  * OCR-engine specific confidence for the entire contained substring
-  * value must be a number
-  * higher values should express higher confidences
-  * if possible, convert word confidences to values between 0 and 100 and have
-    them approximate posterior probabilities (expressed in %)
-
-</ul>
-
 The elements of hOCR {#hocr-elements}
 ====================
 
@@ -882,6 +535,354 @@ Issue: [ocr_line vs ocrx_line](https://github.com/kba/hocr-spec/issues/19)
 
   * any kind of "word" returned by an OCR system
   * engine specific because the definition of a "word" depends on the engine
+
+The properties of hOCR {#hocr-props}
+======================
+
+The <a>properties</a> in hOCR can be broadly <dfn lt="Property
+Categories">categorized</dfn> as follows:
+
+  : <dfn>General Properties</dfn>
+  :: These properties can apply to most elements
+
+  : <dfn>Non-Recommended Properties</dfn>
+  :: These properties can apply to most elements but should not be used unless
+    there is no alternative:
+
+  : <dfn>Inline Properties</dfn>
+  :: These properties apply to content on or below the level of <{ocr_line}> /
+    <{ocrx_line}>
+
+  : <dfn>Layout Properties</dfn>
+  :: These properties relate to placement of <a>elements</a> on the page
+
+  : <dfn>Font Properties</dfn>
+  :: These properties convey font information
+
+  : <dfn>Character Properties</dfn>
+  :: These properties convey character level information
+
+  : <dfn>Page Properties</dfn>
+  :: These properties convey information on the whole page
+
+  : <dfn>Content Flow Properties</dfn>
+  :: These properties are related to the reading order and flow of content on the page
+
+  : <dfn>Confidence Properties</dfn>
+  :: These properties are related to the confidence of the hOCR producer that
+    the text in the <a>element</a> has been correctly recognized
+
+The <dfn property>baseline</dfn> property {#baseline}
+-----------------------------------------
+
+<pre class="include">path: 1.2/include/defs/baseline</pre>
+
+This property applies primarily to textlines.
+
+The baseline is described by a polynomial of order `n` with the coefficients
+`pn ...  p0` with `n = 1` for a linear (i.e. straight) line.
+
+The polynomial is in the coordinate system of the line, with the bottom left of
+the bounding box as the origin.
+
+<div class="example">
+
+The hOCR output for the first line of
+[eurotext.tif](https://github.com/tesseract-ocr/tesseract/blob/master/testing/eurotext.tif)
+contains the following information:
+
+```html
+<span class='ocr_line' id='line_1_1'
+    title="bbox 105 66 823 113; baseline 0.015 -18">...</span>
+```
+
+'bbox' is the bounding box of the line in image coordinates (blue). The two
+numbers for the baseline are the slope (1st number) and constant term (2nd
+number) of a linear equation describing the baseline relative to the bottom
+left corner of the bounding box (red). The baseline crosses the y-axis at `-18`
+and its slope angle is `arctan(0.015) = 0.86°`.
+
+<figure><img
+  alt="baseline explained"
+  src="../images/baseline.png"/>
+</figure>
+
+</div>
+
+
+The <dfn property>bbox</dfn> property {#bbox}
+-------------------------------------
+
+<pre class="include">path: 1.2/include/defs/bbox</pre>
+
+The 'bbox' - short for "bounding box" - of an element is a rectangular box
+around this element, which is defined by the upper-left corner (x0, y0) and
+the lower-right corner (x1, y1).
+
+  * the values are with reference to the the top-left corner of the document image
+    and measured in pixels
+  * the order of the values are `x0 y0 x1 y1` = "left top right bottom"
+  * use 'x_bboxes' below for character bounding boxes
+  * do not use 'bbox' unless the bounding box of the layout component is, in
+    fact, rectangular
+  * some non-rectangular layout components may have rectangular bounding boxes
+    if the non-rectangularity is caused by floating elements around which text flows
+
+<div class="example">
+
+```html
+<span class='ocr_line' id='line_1'
+    title="bbox 10 20 160 30">...</span>
+```
+
+The bounding box 'bbox' of this line is shown in blue and it is span
+by the upper-left corner (10, 20) and the lower-right corner (160, 30).
+All coordinates are measured with reference to the top-left corner of
+the document image which border is drawn in black.
+
+<figure><img
+  alt="bbox explained"
+  src="../images/bbox-crop.png"/>
+</figure>
+
+</div>
+
+The <dfn property>cflow</dfn> property {#cflow}
+--------------------------------------
+
+<pre class="include">path: 1.2/include/defs/cflow</pre>
+
+This property relates the flow between multiple <{ocr_carea}> elements,
+and between <{ocr_carea}> and <{ocr_linear}> elements.
+
+The content flow on the page that this element is a part of
+
+  * s must be a unique string for each content flow
+  * must be present on <{ocr_carea}> and <{ocrx_block}> tags when reading
+    order is attempted and multiple content flows are present
+  * presence must be declared in the document meta data
+
+
+The <dfn property>cuts</dfn> and <dfn property>nlp</dfn> properties {#cuts-nlp}
+-------------------------------------------------------------------
+
+<pre class="include">path: 1.2/include/defs/cuts</pre>
+
+<ul>
+
+  * character segmentation cuts (see below)
+  * there must be a 'bbox' property relative to which the 'cuts' can be interpreted
+
+</ul>
+
+<pre class="include">path: 1.2/include/defs/nlp</pre>
+
+  * estimate of the negative log probabilities of each character by the recognizer
+
+For left-to-write writing directions, cuts are sequences of deltas in the x and
+y direction; the first delta in each path is an offset in the x direction
+relative to the last x position of the previous path. The subsequent deltas
+alternate between up and right moves.
+
+<div class="example">
+
+Assume a bounding box of `(0,0,300,100)`; then
+
+```python
+cuts("10 11 7 19") =
+    [ [(10,0),(10,100)], [(21,0),(21,100)], [(28,0),(28,100)], [(47,0),(47,100)] ]
+cuts("10,50,3 11,30,-3") =
+    [ [(10,0),(10,50),(13,50),(13,100)], [(21,0),(21,30),(18,30),(18,100)] ]
+```
+
+```html
+<span class="ocr_cinfo" title="bbox 0 0 300 100; nlp 1.7 2.3 3.9 2.7; cuts 9 11 7,8,-2 15 3">hello</span>
+```
+</div>
+
+
+Cuts are between all codepoints contained within the element, including any
+whitespace and control characters.  Simply use a delta of 0 (zero) for
+invisible codepoints.
+
+Writing directions other than left-to-right specify cuts as if the bounding box
+for the element had been rotated by a multiple of 90 degrees such that the
+writing direction is left to right, then rotated back.
+
+It is undefined what happens when cut paths intersect, with the exception that
+a delta of 0 always corresponds to an invisible codepoint.
+
+The <dfn property>hardbreak</dfn> property {#hardbreak}
+------------------------------------------
+
+<pre class="include">path: 1.2/include/defs/hardbreak</pre>
+
+  * a zero (default) indicates that the end of the line is not a hard
+    (explicit) line break, but a break due to text flow
+  * a one indicates that the line is a hard (explicit) line break
+
+Any special characters representing the desired end-of-line processing must be
+present inside the <{ocr_line}> element. Examples of such special characters are a
+soft hyphen ("­", `U+00AD`), a hard line break (`<br>`), or whitespace (` `) for soft
+line breaks.
+
+The <dfn property>image</dfn>, <dfn property>imagemd5</dfn> and <dfn property>x_source</dfn> properties {#image}
+-------------------------------------------------------------------------
+
+<pre class="include">path: 1.2/include/defs/image</pre>
+
+<ul>
+
+  * image file name used as input
+  * syntactically, must be a UNIX-like pathname or http URL (no Windows pathnames)
+  * may be relative
+  * cannot be resolved to the actual file in general (e.g., if the hOCR file
+    becomes separated from the image file)
+  * if the hOCR file is present in a directory hierarchy or file archive, should
+    resolve to the corresponding image file
+
+</ul>
+
+<pre class="include">path: 1.2/include/defs/imagemd5</pre>
+
+<ul>
+
+  * MD5 fingerprint of the image file that this page was derived from
+  * allows re-associating pages with source images
+
+</ul>
+
+<pre class="include">path: 1.2/include/defs/x_source</pre>
+
+  * an implementation-dependent representation of the document source
+  * could be a URL or a /gfs/ path
+  * offsets within a multipage format (e.g., TIFF) may be represented using
+    additional strings or using URL parameters or fragments
+
+The <dfn property>lpageno</dfn> and <dfn property>ppageno</dfn> property {#pageno}
+------------------------------------------------------------------------
+
+<pre class="include">path: 1.2/include/defs/lpageno</pre>
+
+<ul>
+  * the logical page number expressed on the page
+  * may not be numerical (e.g., Roman numerals)
+  * usually is unique
+  * must not be present unless it has been recognized from the page and is unambiguous
+
+</ul>
+
+<pre class="include">path: 1.2/include/defs/ppageno</pre>
+
+  * the physical page number
+  * the front cover is page number 0
+  * should be unique
+  * must not be present unless the pages in the document have a physical ordering
+  * must not be present unless it is well defined and unique
+
+The <dfn property>order</dfn> property {#order}
+--------------------------------------
+
+<pre class="include">path: 1.2/include/defs/order</pre>
+
+The reading order of the element (an integer)
+
+  * this property must not be used unless there is no other way of representing
+    the reading order of the page by element ordering within the page, since
+    many tools will not be able to deal with content that is not in reading order
+  * presence must be declared in the document meta data
+
+The <dfn property>poly</dfn> property {#poly}
+-------------------------------------
+
+<pre class="include">path: 1.2/include/defs/poly</pre>
+
+A closed polygon for elements with non-rectangular bounds
+
+  * this property must not be used unless there is no other way of
+    representing the layout of the page using rectangular bounding boxes,
+    since most tools will simply not have the capability of dealing with
+    non-rectangular layouts
+  * note that the natural and correct representation of many non-rectangular
+    layouts is in terms of rectangular content areas and rectangular floats
+  * documents using polygonal borders anywhere must indicate this by adding
+    ''ocr-capabilities/ocrp_poly'' to the list of 'ocr-capabilities' (see
+    [[#capabilities]])
+  * documents should attempt to provide a reasonable 'bbox' equivalent as well
+
+
+The <dfn property>scan_res</dfn> and <dfn property>x_scanner</dfn> properties {#scan_res}
+-----------------------------------------------------------------------------
+
+<pre class="include">path: 1.2/include/defs/scan_res</pre>
+
+The scanning resolution in DPI
+
+<pre class="include">path: 1.2/include/defs/x_scanner</pre>
+
+A representation of the scanner
+
+The <dfn property>textangle</dfn> property {#textangle}
+------------------------------------------
+
+<pre class="include">path: 1.2/include/defs/textangle</pre>
+
+The angle in degrees by which textual content has been rotate relative to the
+rest of the page (if not present, the angle is assumed to be zero); rotations
+are counter-clockwise, so an angle of 90 degrees is vertical text running from
+bottom to top in Latin script; note that this is different from reading order,
+which should be indicated using standard HTML properties
+
+
+The <dfn property>x_font</dfn> and <dfn property>x_fsize</dfn> properties {#x-font}
+-------------------------------------------------------------------------
+
+<pre class="include">path: 1.2/include/defs/x_font</pre>
+
+<pre class="include">path: 1.2/include/defs/x_fsize</pre>
+
+'x_font' is an OCR-engine specific font name (a string), 'x_fsize' the
+associated OCR-engine specific font size (an unsigned integer).
+
+The <dfn property>x_bboxes</dfn> property {#x_bboxes}
+-----------------------------------------
+
+<pre class="include">path: 1.2/include/defs/x_bboxes</pre>
+
+  * OCR-engine specific boxes associated with each codepoint contained in the
+    element
+  * note that the 'bbox' property is a property for the bounding box of a layout
+    element, not of individual characters
+  * in particular, use `<span class="ocr_cinfo" title="x_bboxes ....">`, not
+    `<span class="ocr_cinfo" title="bbox ...">`
+
+The <dfn property>x_confs</dfn> and <dfn property>x_wconf</dfn> properties {#x-conf}
+--------------------------------------------------------------------------
+
+<pre class="include">path: 1.2/include/defs/x_confs</pre>
+
+<ul>
+
+  * OCR-engine specific character confidences
+  * values must be numbers
+  * higher values should express higher confidences
+  * if possible, convert character confidences to values between 0 and 100 and
+    have them approximate posterior probabilities (expressed in %)
+
+</ul>
+
+<pre class="include">path: 1.2/include/defs/x_wconf</pre>
+
+<ul>
+
+  * OCR-engine specific confidence for the entire contained substring
+  * value must be a number
+  * higher values should express higher confidences
+  * if possible, convert word confidences to values between 0 and 100 and have
+    them approximate posterior probabilities (expressed in %)
+
+</ul>
+
 
 Encoding Guidelines {#guidelines}
 ===================
