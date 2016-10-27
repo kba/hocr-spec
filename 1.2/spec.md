@@ -132,6 +132,8 @@ other property:
   :: If property A is present, property B must also be present
   : <dfn>Conflicting Property</dfn>
   :: If property A is present, property B must not be present
+  : <dfn>Related Property</dfn>
+  :: Property B is related to property A
 
 Properties Grammar {#grammar}
 ------------------
