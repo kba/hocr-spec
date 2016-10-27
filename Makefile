@@ -9,6 +9,7 @@ SPEC_HTML = $(VERSION)/index.html
 
 BIKESHED = $(shell for cmd in bikeshed docker;do type >/dev/null 2>&1 $$cmd && echo $$cmd && break;done)
 BIKESHED_ARGS = -f
+BIKESHED_SPEC_ARGS =
 
 SPEC_DEFS = $(VERSION)/include/defs/bbox
 SPEC_DEFS_YML = $(VERSION)/defs.yml
@@ -17,8 +18,8 @@ GEN_DEFS = python3 gen-defs.py
 
 $(SPEC_HTML): $(SPEC_BS)
 	@case "$(BIKESHED)" in \
-		bikeshed) bikeshed $(BIKESHED_ARGS) spec $(SPEC_BS) ;; \
-		docker)   docker run --rm -it -v $(PWD):/data kbai/bikeshed $(BIKESHED_ARGS) spec $(SPEC_BS) ;; \
+		bikeshed) bikeshed $(BIKESHED_ARGS) spec $(BIKESHED_SPEC_ARGS) $(SPEC_BS) ;; \
+		docker)   docker run --rm -it -v $(PWD):/data kbai/bikeshed $(BIKESHED_ARGS) spec $(BIKESHED_SPEC_ARGS) $(SPEC_BS) ;; \
 		*)        echo 'Unsupported bikeshed backend "$(BIKESHED)"'; exit 1 ;; esac
 	@rm -f $(SPEC_BS)
 
