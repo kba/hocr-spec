@@ -189,11 +189,6 @@ The elements of hOCR {#hocr-elements}
 
 The <a>elements</a> in hOCR can be broadly <dfn lt="Element Categories">categorized</dfn> as follows:
 
-  : <dfn>Logical Elements</dfn>
-  :: These elements describe a page and its components in traditional
-    typesetting.
-  :: See [[#sec-logical-elements]]
-
   : <dfn>Typesetting Elements</dfn>
   :: Elements that describe those areas of a page that nest but don't generally
     overlap
@@ -204,6 +199,11 @@ The <a>elements</a> in hOCR can be broadly <dfn lt="Element Categories">categori
     but are positioned 
   :: See [[#sec-float-elements]]
 
+  : <dfn>Logical Elements</dfn>
+  :: These elements describe a page and its components in traditional
+    typesetting.
+  :: See [[#sec-logical-elements]]
+
   : <dfn>Inline elements</dfn>
   :: Thse elements describe content beyond the level of text lines
   :: See [[#sec-inline-elements]]
@@ -212,92 +212,6 @@ The <a>elements</a> in hOCR can be broadly <dfn lt="Element Categories">categori
   :: Elements whose semantics are engine-specific
   :: See [[#sec-engine-elements]]
 
-
-Logical Elements {#sec-logical-elements}
-----------------
-
-Issue: [Logical Tags/classes](https://github.com/kba/hocr-spec/issues/66)
-
-The classes defined in this section for logically structuring a hOCR document
-have their standard meaning as used in the publishing industry and tools like
-LaTeX, MS Word, and others.
-
-Tags must be nested as indicated by the following list, but not all tags within the
-hierarchy need to be present.
-
-	* <{ocr_document}>
-		* <{ocr_linear}>
-			* <{ocr_title}>
-			* <{ocr_author}>
-			* <{ocr_abstract}>
-			* <{ocr_part}>
-				* <{ocr_chapter}>
-					* <{ocr_section}> ▻ <{ocr_subsection}> ▻ <{ocr_subsubsection}>
-						* <{ocr_display}>
-						* <{ocr_blockquote}>
-						* <{ocr_par}>
-
-For all of these elements except <{ocr_linear}>, there exists a natural linear
-ordering defined by reading order (<{ocr_linear}> indicates that the elements
-contained in it have a linear ordering). At the level of <{ocr_linear}>, there
-may not be a single distinguished order. A common example of <{ocr_linear}> is a
-newspaper, in which a single newspaper may contain many linear, but there is no
-unique reading order for the different linear. OCR evaluation tools should
-therefore be sensitive to the order of all elements other than <{ocr_linear}>.
-
-Textual information like section numbers and bullets must be represented as
-text inside the containing element.
-
-Documents whose logical structure does not map naturally onto these logical
-structuring elements must not use them for other purposes.
-
-
-### <dfn element>ocr_document</dfn> ### {#sec-ocr_document}
-
-<pre class="include">path: 1.2/include/defs/ocr_document</pre>
-
-### <dfn element>ocr_title</dfn>, <dfn element>ocr_author</dfn> and <dfn element>ocr_abstract</dfn> ### {#titlepage-elements}
-
-<pre class="include">path: 1.2/include/defs/ocr_title</pre>
-
-<pre class="include">path: 1.2/include/defs/ocr_author</pre>
-
-<pre class="include">path: 1.2/include/defs/ocr_abstract</pre>
-
-### <dfn element>ocr_part</dfn> and <dfn element>ocr_chapter</dfn> ### {#sec-part-chapter}
-
-<pre class="include">path: 1.2/include/defs/ocr_part</pre>
-
-<pre class="include">path: 1.2/include/defs/ocr_chapter</pre>
-
-### <dfn element>ocr_section</dfn>, <dfn element>ocr_subsection</dfn> and <dfn element>ocr_subsubsection</dfn> ### {#sectioning}
-
-<pre class="include">path: 1.2/include/defs/ocr_section</pre>
-
-<pre class="include">path: 1.2/include/defs/ocr_subsection</pre>
-
-<pre class="include">path: 1.2/include/defs/ocr_subsubsection</pre>
-
-### <dfn element>ocr_display</dfn>, <dfn element>ocr_blockquote</dfn> and <dfn element>ocr_par</dfn> ### {#special-paragraphs}
-
-<pre class="include">path: 1.2/include/defs/ocr_display</pre>
-
-<pre class="include">path: 1.2/include/defs/ocr_blockquote</pre>
-
-<pre class="include">path: 1.2/include/defs/ocr_par</pre>
-
-### <dfn element>ocr_linear</dfn> ### {#sec-ocr_linear}
-
-<pre class="include">path: 1.2/include/defs/ocr_linear</pre>
-
-### <dfn element>ocr_caption</dfn> ### {#sec-ocr_caption}
-
-<pre class="include">path: 1.2/include/defs/ocr_caption</pre>
-
-Image captions may be indicated using the <{ocr_caption}> element; such an
-element refers to the image(s) contained within the same float, or the
-immediately adjacent image if both the image and the <{ocr_caption}> element are
-in running text.
 
 Typesetting Elements {#sec-typesetting-elements}
 --------------------
@@ -436,6 +350,93 @@ Something that requires JPEG or PNG to be represented well
 ### <dfn element>ocr_table</dfn> ### {#sec-ocr_table}
 
 <pre class="include">path: 1.2/include/defs/ocr_table</pre>
+
+Logical Elements {#sec-logical-elements}
+----------------
+
+Issue: [Logical Tags/classes](https://github.com/kba/hocr-spec/issues/66)
+
+The classes defined in this section for logically structuring a hOCR document
+have their standard meaning as used in the publishing industry and tools like
+LaTeX, MS Word, and others.
+
+Tags must be nested as indicated by the following list, but not all tags within the
+hierarchy need to be present.
+
+	* <{ocr_document}>
+		* <{ocr_linear}>
+			* <{ocr_title}>
+			* <{ocr_author}>
+			* <{ocr_abstract}>
+			* <{ocr_part}>
+				* <{ocr_chapter}>
+					* <{ocr_section}> ▻ <{ocr_subsection}> ▻ <{ocr_subsubsection}>
+						* <{ocr_display}>
+						* <{ocr_blockquote}>
+						* <{ocr_par}>
+
+For all of these elements except <{ocr_linear}>, there exists a natural linear
+ordering defined by reading order (<{ocr_linear}> indicates that the elements
+contained in it have a linear ordering). At the level of <{ocr_linear}>, there
+may not be a single distinguished order. A common example of <{ocr_linear}> is a
+newspaper, in which a single newspaper may contain many linear, but there is no
+unique reading order for the different linear. OCR evaluation tools should
+therefore be sensitive to the order of all elements other than <{ocr_linear}>.
+
+Textual information like section numbers and bullets must be represented as
+text inside the containing element.
+
+Documents whose logical structure does not map naturally onto these logical
+structuring elements must not use them for other purposes.
+
+
+### <dfn element>ocr_document</dfn> ### {#sec-ocr_document}
+
+<pre class="include">path: 1.2/include/defs/ocr_document</pre>
+
+### <dfn element>ocr_title</dfn>, <dfn element>ocr_author</dfn> and <dfn element>ocr_abstract</dfn> ### {#titlepage-elements}
+
+<pre class="include">path: 1.2/include/defs/ocr_title</pre>
+
+<pre class="include">path: 1.2/include/defs/ocr_author</pre>
+
+<pre class="include">path: 1.2/include/defs/ocr_abstract</pre>
+
+### <dfn element>ocr_part</dfn> and <dfn element>ocr_chapter</dfn> ### {#sec-part-chapter}
+
+<pre class="include">path: 1.2/include/defs/ocr_part</pre>
+
+<pre class="include">path: 1.2/include/defs/ocr_chapter</pre>
+
+### <dfn element>ocr_section</dfn>, <dfn element>ocr_subsection</dfn> and <dfn element>ocr_subsubsection</dfn> ### {#sectioning}
+
+<pre class="include">path: 1.2/include/defs/ocr_section</pre>
+
+<pre class="include">path: 1.2/include/defs/ocr_subsection</pre>
+
+<pre class="include">path: 1.2/include/defs/ocr_subsubsection</pre>
+
+### <dfn element>ocr_display</dfn>, <dfn element>ocr_blockquote</dfn> and <dfn element>ocr_par</dfn> ### {#special-paragraphs}
+
+<pre class="include">path: 1.2/include/defs/ocr_display</pre>
+
+<pre class="include">path: 1.2/include/defs/ocr_blockquote</pre>
+
+<pre class="include">path: 1.2/include/defs/ocr_par</pre>
+
+### <dfn element>ocr_linear</dfn> ### {#sec-ocr_linear}
+
+<pre class="include">path: 1.2/include/defs/ocr_linear</pre>
+
+### <dfn element>ocr_caption</dfn> ### {#sec-ocr_caption}
+
+<pre class="include">path: 1.2/include/defs/ocr_caption</pre>
+
+Image captions may be indicated using the <{ocr_caption}> element; such an
+element refers to the image(s) contained within the same float, or the
+immediately adjacent image if both the image and the <{ocr_caption}> element are
+in running text.
+
 
 Inline Elements {#sec-inline-elements}
 ---------------
