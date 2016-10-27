@@ -666,9 +666,8 @@ The content flow on the page that this element is a part of
   * presence must be declared in the document meta data
 
 
-The <dfn property>cuts</dfn> and <dfn property>nlp</dfn> properties {#cuts-nlp}
--------------------------------------------------------------------
-
+The <dfn property>cuts</dfn> property {#cuts}
+-------------------------------------
 <pre class="include">path: 1.2/include/defs/cuts</pre>
 
 <ul>
@@ -678,6 +677,8 @@ The <dfn property>cuts</dfn> and <dfn property>nlp</dfn> properties {#cuts-nlp}
 
 </ul>
 
+The <dfn property>nlp</dfn> property {#nlp}
+------------------------------------
 <pre class="include">path: 1.2/include/defs/nlp</pre>
 
   * estimate of the negative log probabilities of each character by the recognizer
@@ -729,9 +730,8 @@ present inside the <{ocr_line}> element. Examples of such special characters are
 soft hyphen ("­", `U+00AD`), a hard line break (`<br>`), or whitespace (` `) for soft
 line breaks.
 
-The <dfn property>image</dfn>, <dfn property>imagemd5</dfn> and <dfn property>x_source</dfn> properties {#image}
--------------------------------------------------------------------------
-
+The <dfn property>image</dfn> property {#image}
+--------------------------------------
 <pre class="include">path: 1.2/include/defs/image</pre>
 
 <ul>
@@ -746,6 +746,8 @@ The <dfn property>image</dfn>, <dfn property>imagemd5</dfn> and <dfn property>x_
 
 </ul>
 
+The <dfn property>imagemd5</dfn> property {#imagemd5}
+-----------------------------------------
 <pre class="include">path: 1.2/include/defs/imagemd5</pre>
 
 <ul>
@@ -755,6 +757,8 @@ The <dfn property>image</dfn>, <dfn property>imagemd5</dfn> and <dfn property>x_
 
 </ul>
 
+The <dfn property>x_source</dfn> property {#x_source}
+-----------------------------------------
 <pre class="include">path: 1.2/include/defs/x_source</pre>
 
   * an implementation-dependent representation of the document source
@@ -762,8 +766,8 @@ The <dfn property>image</dfn>, <dfn property>imagemd5</dfn> and <dfn property>x_
   * offsets within a multipage format (e.g., TIFF) may be represented using
     additional strings or using URL parameters or fragments
 
-The <dfn property>lpageno</dfn> and <dfn property>ppageno</dfn> property {#pageno}
-------------------------------------------------------------------------
+The <dfn property>lpageno</dfn> property {#lpageno}
+----------------------------------------
 
 <pre class="include">path: 1.2/include/defs/lpageno</pre>
 
@@ -774,6 +778,9 @@ The <dfn property>lpageno</dfn> and <dfn property>ppageno</dfn> property {#pagen
   * must not be present unless it has been recognized from the page and is unambiguous
 
 </ul>
+
+The <dfn property>ppageno</dfn> property {#ppageno}
+----------------------------------------
 
 <pre class="include">path: 1.2/include/defs/ppageno</pre>
 
@@ -814,16 +821,12 @@ A closed polygon for elements with non-rectangular bounds
   * documents should attempt to provide a reasonable 'bbox' equivalent as well
 
 
-The <dfn property>scan_res</dfn> and <dfn property>x_scanner</dfn> properties {#scan_res}
------------------------------------------------------------------------------
+The <dfn property>scan_res</dfn> property {#scan_res}
+-----------------------------------------
 
 <pre class="include">path: 1.2/include/defs/scan_res</pre>
 
 The scanning resolution in DPI
-
-<pre class="include">path: 1.2/include/defs/x_scanner</pre>
-
-A representation of the scanner
 
 The <dfn property>textangle</dfn> property {#textangle}
 ------------------------------------------
@@ -837,15 +840,19 @@ bottom to top in Latin script; note that this is different from reading order,
 which should be indicated using standard HTML properties
 
 
-The <dfn property>x_font</dfn> and <dfn property>x_fsize</dfn> properties {#x-font}
--------------------------------------------------------------------------
+The <dfn property>x_font</dfn> property {#x_font}
+------------------------------
 
 <pre class="include">path: 1.2/include/defs/x_font</pre>
 
+'x_font' is an OCR-engine specific font name (a string).
+
+The <dfn property>x_fsize</dfn> property {#x_fsize}
+----------------------------------------
+
 <pre class="include">path: 1.2/include/defs/x_fsize</pre>
 
-'x_font' is an OCR-engine specific font name (a string), 'x_fsize' the
-associated OCR-engine specific font size (an unsigned integer).
+'x_fsize' is the OCR-engine specific font size (an unsigned integer).
 
 The <dfn property>x_bboxes</dfn> property {#x_bboxes}
 -----------------------------------------
@@ -859,8 +866,8 @@ The <dfn property>x_bboxes</dfn> property {#x_bboxes}
   * in particular, use `<span class="ocr_cinfo" title="x_bboxes ....">`, not
     `<span class="ocr_cinfo" title="bbox ...">`
 
-The <dfn property>x_confs</dfn> and <dfn property>x_wconf</dfn> properties {#x-conf}
---------------------------------------------------------------------------
+The <dfn property>x_confs</dfn> property {#x_confs}
+----------------------------------------
 
 <pre class="include">path: 1.2/include/defs/x_confs</pre>
 
@@ -874,6 +881,9 @@ The <dfn property>x_confs</dfn> and <dfn property>x_wconf</dfn> properties {#x-c
 
 </ul>
 
+The <dfn property>x_wconf</dfn> property {#x_wconf}
+----------------------------------------
+
 <pre class="include">path: 1.2/include/defs/x_wconf</pre>
 
 <ul>
@@ -885,6 +895,14 @@ The <dfn property>x_confs</dfn> and <dfn property>x_wconf</dfn> properties {#x-c
     them approximate posterior probabilities (expressed in %)
 
 </ul>
+
+
+The <dfn property>x_scanner</dfn> property {#x_scanner}
+-----------------------------------------------------------------------------
+
+<pre class="include">path: 1.2/include/defs/x_scanner</pre>
+
+A representation of the scanner
 
 
 Encoding Guidelines {#guidelines}
