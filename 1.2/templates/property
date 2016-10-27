@@ -8,6 +8,11 @@
   :: {% for cat in categories %}<a lt="{{ cat }} Properties">{{ cat }}</a>{% if not loop.last %}, {% endif %} {% endfor %}
 {% endif %}
 
+{% if related %}
+  : <a lt="Related Properties">Related</a>
+  :: {% for prop in related %}<a property>{{ prop }}</a>{% if not loop.last %}, {% endif %} {% endfor %}
+{% endif %}
+
 {% if conflicting %}
   : <a lt="Conflicting Properties">Conflicting</a>
   :: {% for prop in conflicting %}<a property>{{ prop }}</a>{% if not loop.last %}, {% endif %} {% endfor %}
@@ -28,7 +33,7 @@
   : Example
   :: <pre style='display:block;padding: .5em' highlight=c>
     {{ example|indent(4) }}
-    </pre>
+    </code>
 {% endif %}
 
 {% if default %}

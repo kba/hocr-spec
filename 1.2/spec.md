@@ -677,12 +677,6 @@ The <dfn property>cuts</dfn> property {#cuts}
 
 </ul>
 
-The <dfn property>nlp</dfn> property {#nlp}
-------------------------------------
-<pre class="include">path: 1.2/include/defs/nlp</pre>
-
-  * estimate of the negative log probabilities of each character by the recognizer
-
 For left-to-write writing directions, cuts are sequences of deltas in the x and
 y direction; the first delta in each path is an offset in the x direction
 relative to the last x position of the previous path. The subsequent deltas
@@ -757,15 +751,6 @@ The <dfn property>imagemd5</dfn> property {#imagemd5}
 
 </ul>
 
-The <dfn property>x_source</dfn> property {#x_source}
------------------------------------------
-<pre class="include">path: 1.2/include/defs/x_source</pre>
-
-  * an implementation-dependent representation of the document source
-  * could be a URL or a /gfs/ path
-  * offsets within a multipage format (e.g., TIFF) may be represented using
-    additional strings or using URL parameters or fragments
-
 The <dfn property>lpageno</dfn> property {#lpageno}
 ----------------------------------------
 
@@ -789,6 +774,13 @@ The <dfn property>ppageno</dfn> property {#ppageno}
   * should be unique
   * must not be present unless the pages in the document have a physical ordering
   * must not be present unless it is well defined and unique
+
+The <dfn property>nlp</dfn> property {#nlp}
+------------------------------------
+<pre class="include">path: 1.2/include/defs/nlp</pre>
+
+  * estimate of the negative log probabilities of each character by the recognizer
+
 
 The <dfn property>order</dfn> property {#order}
 --------------------------------------
@@ -839,6 +831,18 @@ are counter-clockwise, so an angle of 90 degrees is vertical text running from
 bottom to top in Latin script; note that this is different from reading order,
 which should be indicated using standard HTML properties
 
+The <dfn property>x_bboxes</dfn> property {#x_bboxes}
+-----------------------------------------
+
+<pre class="include">path: 1.2/include/defs/x_bboxes</pre>
+
+  * OCR-engine specific boxes associated with each codepoint contained in the
+    element
+  * note that the 'bbox' property is a property for the bounding box of a layout
+    element, not of individual characters
+  * in particular, use `<span class="ocr_cinfo" title="x_bboxes ....">`, not
+    `<span class="ocr_cinfo" title="bbox ...">`
+
 
 The <dfn property>x_font</dfn> property {#x_font}
 ------------------------------
@@ -853,18 +857,6 @@ The <dfn property>x_fsize</dfn> property {#x_fsize}
 <pre class="include">path: 1.2/include/defs/x_fsize</pre>
 
 'x_fsize' is the OCR-engine specific font size (an unsigned integer).
-
-The <dfn property>x_bboxes</dfn> property {#x_bboxes}
------------------------------------------
-
-<pre class="include">path: 1.2/include/defs/x_bboxes</pre>
-
-  * OCR-engine specific boxes associated with each codepoint contained in the
-    element
-  * note that the 'bbox' property is a property for the bounding box of a layout
-    element, not of individual characters
-  * in particular, use `<span class="ocr_cinfo" title="x_bboxes ....">`, not
-    `<span class="ocr_cinfo" title="bbox ...">`
 
 The <dfn property>x_confs</dfn> property {#x_confs}
 ----------------------------------------
@@ -881,6 +873,22 @@ The <dfn property>x_confs</dfn> property {#x_confs}
 
 </ul>
 
+The <dfn property>x_scanner</dfn> property {#x_scanner}
+-----------------------------------------------------------------------------
+
+<pre class="include">path: 1.2/include/defs/x_scanner</pre>
+
+A representation of the scanner
+
+The <dfn property>x_source</dfn> property {#x_source}
+-----------------------------------------
+<pre class="include">path: 1.2/include/defs/x_source</pre>
+
+  * an implementation-dependent representation of the document source
+  * could be a URL or a /gfs/ path
+  * offsets within a multipage format (e.g., TIFF) may be represented using
+    additional strings or using URL parameters or fragments
+
 The <dfn property>x_wconf</dfn> property {#x_wconf}
 ----------------------------------------
 
@@ -896,13 +904,6 @@ The <dfn property>x_wconf</dfn> property {#x_wconf}
 
 </ul>
 
-
-The <dfn property>x_scanner</dfn> property {#x_scanner}
------------------------------------------------------------------------------
-
-<pre class="include">path: 1.2/include/defs/x_scanner</pre>
-
-A representation of the scanner
 
 
 Encoding Guidelines {#guidelines}

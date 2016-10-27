@@ -150,6 +150,7 @@ property:
       <a>property-value</a> = <a>delimited-string</a>
   cuts:
     categories: ['Layout', 'Character']
+    related: ['nlp', 'x_bboxes']
     example: 'cuts 9 11 7,8,-2 15 3'
     implied: ['bbox']
     grammar: |
@@ -161,6 +162,7 @@ property:
       <a>property-value</a> = "0" / "1"
   image:
     categories: ['Page']
+    related: ['imagemd5', 'x_source']
     example: 'image "/foo/bar.png"'
     grammar: |
       <a>property-value</a> = <a>delimited-string</a>
@@ -171,16 +173,19 @@ property:
       <a>property-value</a> = <a>doublequote</a> 32(%x41-46 / <a>digit</a>) <a>doublequote</a>
   lpageno:
     categories: ['Page']
+    related: ['ppageno']
     example: 'lpageno "IV."'
     grammar: |
       <a>property-value</a> = <a>delimited-string</a> / <a>uint</a>
   ppageno:
     categories: ['Page']
+    related: ['lpageno']
     example: 'lpageno 7'
     grammar: |
       <a>property-value</a> = <a>uint</a>
   nlp:
     categories: ['Confidence', 'Character']
+    related: ['cuts', 'x_confs']
     implied: ['cuts']
     grammar: |
       <a>property-value</a> = +<a>float</a>
@@ -197,6 +202,7 @@ property:
       <a>property-value</a> = 2<a>uint</a> 2<a>int</a> *(2<a>int</a>)
   scan_res:
     categories: ['Page']
+    related: ['x_scanner']
     example: 'scan_res 300 300'
     grammar: |
       <a>property-value</a> = 2(<a>uint</a>)
@@ -207,6 +213,7 @@ property:
       <a>property-value</a> = <a>float</a>
   x_bboxes:
     categories: ['Inline', 'Character']
+    related: ['cuts']
     example: |
       x_bboxes b1x0 b1y0 b1x1 b1y1 b2x0 b2y0 b2x1 b2y1 ...
       x_bboxes 0 0 10 10 0 10 20 20
@@ -220,21 +227,25 @@ property:
       <a>property-value</a> = +<a>float</a>
   x_font:
     categories: ['Font']
+    related: ['x_fsize']
     example: 'x_font "Comic Sans MS"'
     grammar: |
       <a>property-value</a> = <a>delimited-string</a>
   x_fsize:
     categories: ['Font']
+    related: ['x_font']
     example: 'x_fsize 12'
     grammar: |
       <a>property-value</a> = <a>uint</a>
   x_scanner:
     categories: ['Page']
+    related: ['scan_res']
     example: 'scanner "Canon Lide 220"'
     grammar: |
       <a>property-value</a> = <a>delimited-string</a>
   x_source:
     categories: ['Page']
+    related: ['image']
     example: |
       x_source "/gfs/cc/clean/012345678911" "17"
       x_source "http://pageserver/012345678911&page=17"
