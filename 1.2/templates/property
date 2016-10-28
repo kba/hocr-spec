@@ -1,0 +1,44 @@
+<dl class=def>
+
+  : <a lt="Property Name">Name</a>
+  :: {{ name }}
+
+{% if categories %}
+  : <a lt="Property Categories">Categories</a>
+  :: {% for cat in categories %}<a lt="{{ cat }} Properties">{{ cat }}</a>{% if not loop.last %}, {% endif %} {% endfor %}
+{% endif %}
+
+{% if related %}
+  : <a lt="Related Properties">Related</a>
+  :: {% for prop in related %}<a property>{{ prop }}</a>{% if not loop.last %}, {% endif %} {% endfor %}
+{% endif %}
+
+{% if conflicting %}
+  : <a lt="Conflicting Properties">Conflicting</a>
+  :: {% for prop in conflicting %}<a property>{{ prop }}</a>{% if not loop.last %}, {% endif %} {% endfor %}
+{% endif %}
+
+{% if implied %}
+  : <a lt="Implied Properties">Implied</a>
+  :: {% for prop in implied %}<a property>{{ prop }}</a>{% if not loop.last %}, {% endif %} {% endfor %}
+{% endif %}
+
+  : <a lt="Property Grammar">Grammar</a>
+  :: <pre data-dfn-type="grammar" data-link-type="grammar" class=highlight>
+    <a>property-name</a> = "{{ name }}"</a>
+    {{ grammar|indent(4) }}
+    </pre>
+
+{% if example %}
+  : Example
+  :: <pre style='display:block;padding: .5em' highlight=c>
+    {{ example|indent(4) }}
+    </code>
+{% endif %}
+
+{% if default %}
+  : <a>Default Value</a>
+  :: <code style='display:block;padding: .5em' highlight=c>{{ name }} {{ default }}</code>
+{% endif %}
+
+</dl>

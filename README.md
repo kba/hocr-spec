@@ -38,20 +38,31 @@ channel](https://gitter.im/kba/hocr-spec).
 
 ## Building the spec
 
-To build the spec, you will need to have `GNU make` and one of the following
-programs installed:
-  * [bikeshed](https://github.com/tabatkins/bikeshed)
-  * [docker](https://docker.com)
-  * `curl`
+To build the spec, you will need to have installed:
+  * `GNU make` 
+  * One of the following programs installed:
+    * [bikeshed](https://github.com/tabatkins/bikeshed)
+    * [docker](https://docker.com)
+  * Python 3
 
-The Makefile will first look for a local bikeshed installation, then for docker
-to use the [bikeshed docker container](https://hub.docker.com/kbai/bikeshed)
-and finally for curl to remotely use the [CSS Spec
-Processor](https://api.csswg.org/bikeshed/) to build the spec.
+To install the python requirements:
 
-Adapt
+```sh
+pip3 install --user -r requirements.txt
+```
+
+The Makefile will first look for a local bikeshed installation and fallback to docker
+to use the [bikeshed docker container](https://hub.docker.com/kbai/bikeshed) 
+to build the spec.
+
+To change the spec, adapt
   * `<VERSION>/spec.md` to change the body of the spec
-  * `<VERSION>/metadata` to change the [bikeshed metadata](https://github.com/tabatkins/bikeshed/blob/master/docs/metadata.md).
+  * `<VERSION>/spec.before.html` to change
+    * the [bikeshed metadata](https://tabatkins.github.io/bikeshed/#metadata)
+    * the [references to terms from other specs](https://tabatkins.github.io/bikeshed/#custom-dfns)
+  * `<VERSION>/spec.after.html` to change
+    * Javascript to run in the generated spec document
+  * `<VERSION>/defs.yml` to change the definition lists for elements and properties
 
 Then run `make VERSION=<VERSION>` to build that spec.
 

@@ -1,5 +1,6 @@
 <script>
 for (var span of document.querySelectorAll(".toc span:not([class])")) {
+    if (!span.textContent.match(/^[a-z]/)) continue;
     span.style.color = 'darkred';
     span.style.fontWeight = 'bold';
 }

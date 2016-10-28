@@ -1,0 +1,37 @@
+<dl class="def">
+
+  <dt><a lt="Element Name">Name</a></dt>
+  {% if deprecated %}
+  <dd><del>{{ name }}</del> (Deprecated)</dd>
+  {% else %}
+  <dd><a element>{{name}}</a></dd>
+  {% endif %}
+
+{% if recommended_tags %}
+  <dt><a>Recommended HTML Tags</a></dt>
+  <dd>{% for tag in recommended_tags %}<a element>{{ tag }}</a> {% if not loop.last %}, {% endif %} {% endfor %}</dd>
+{% endif %}
+
+{% if categories %}
+  <dt><a lt="Element Categories">Categories</a></dt>
+  <dd>{% for category in categories %}<a>{{ category }} Elements</a> {% if not loop.last %}, {% endif %} {% endfor %}</dd>
+{% endif %}
+
+{% if properties %}
+    <dt><a href="#rel-elem-prop">Properties</a></dt>
+    <dd>
+        <dl style="margin-top: 2px">
+        {% for cat in ['required', 'recommended', 'allowed'] %}
+            {% if properties[cat] and properties[cat]|length %}
+            <dt style="display: inline; margin: 0"><a lt="{{ cat|capitalize }} Properties">{{ cat|capitalize }}</a>:</dt>
+            <dd style="display: inline; margin: 0">{% for prop in properties[cat] %}
+                '{{ prop }}'{% if not loop.last %},{% endif %} {% endfor %}</dd>
+            {% endif %}
+        <div></div>
+        {% endfor %}
+        </dl>
+    </dd>
+{% endif %}
+
+
+</dl>
