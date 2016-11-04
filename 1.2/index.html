@@ -1421,7 +1421,7 @@ Possible extra rowspan handling
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">hOCR - OCR Workflow and Output embedded in HTML</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-10-28">28 October 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-11-04">4 November 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1440,7 +1440,7 @@ Possible extra rowspan handling
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 28 October 2016,
+In addition, as of 4 November 2016,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1617,11 +1617,12 @@ in <code>&lt;div class="<a href="#elementdef-ocr_page" id="ref-for-elementdef-oc
 document into an hOCR document.</p>
    <h2 class="heading settled" data-level="2" id="terminology"><span class="secno">2. </span><span class="content">Terminology and Representation</span><a class="self-link" href="#terminology"></a></h2>
    <h3 class="heading settled" data-level="2.1" id="representation"><span class="secno">2.1. </span><span class="content">Reusing HTML</span><a class="self-link" href="#representation"></a></h3>
+   <p class="issue" id="issue-020cd989"><a class="self-link" href="#issue-020cd989"></a> Reusing HTML: Some text is missing in the first paragraph <a href="https://github.com/kba/hocr-spec/issues/96">&lt;https://github.com/kba/hocr-spec/issues/96></a></p>
    <p>This document describes a representation of various aspects of OCR output in an
-XML-like format. That is, we define as set of tags containing text and other
+XML-like format. That is, we define a set of tags containing text and other
 tags, together with attributes of those tags. However, since the content we are
 representing is formatted text,</p>
-   <p>However, we are not actually using a new XML for the representation; instead
+   <p>However, we are not actually using a new XML for the representation; instead we
 embed the representation in XHTML (or HTML) because <a data-link-type="biblio" href="#biblio-xhtml1">[XHTML1]</a> and XHTML processing
 already define many aspects of OCR output representation that would otherwise
 need additional, separate and ad-hoc definitions. These aspects include:</p>
@@ -4128,6 +4129,7 @@ for (var span of document.querySelectorAll(".toc span:not([class])")) {
   </dl>
   <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
   <div style="counter-reset:issue">
+   <div class="issue"> Reusing HTML: Some text is missing in the first paragraph <a href="https://github.com/kba/hocr-spec/issues/96">&lt;https://github.com/kba/hocr-spec/issues/96></a><a href="#issue-020cd989"> ↵ </a></div>
    <div class="issue"> There is currently no way of indicating anchoring or flow-around
 properties for floating elements; properties need to be defined for this.<a href="#issue-3f2f70ed"> ↵ </a></div>
    <div class="issue"> <a href="https://github.com/kba/hocr-spec/issues/66">Logical Tags/classes</a><a href="#issue-2af02b43"> ↵ </a></div>
