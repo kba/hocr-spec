@@ -968,6 +968,8 @@ Possible extra rowspan handling
 		/* Reverse color scheme */
 		color: black;
 		border-color: #3980B5;
+		border-bottom-width: 3px !important;
+		margin-bottom: 0px !important;
 	}
 	.toc a:visited {
 		border-color: #054572;
@@ -1421,7 +1423,7 @@ Possible extra rowspan handling
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">hOCR - OCR Workflow and Output embedded in HTML</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2016-11-04">4 November 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2017-01-23">23 January 2017</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1441,7 +1443,7 @@ Possible extra rowspan handling
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 4 November 2016,
+In addition, as of 23 January 2017,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1741,20 +1743,20 @@ follows, expressed in ABNF notation of <a data-link-type="biblio" href="#biblio-
 <dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-doublequote">doublequote</dfn>      = %22  ; double quote '"'
 <dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-lowercase-letter">lowercase-letter</dfn> = %x41-5A
 <dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-alnum-word">alnum-word</dfn>       = +(<a data-link-type="grammar" href="#grammardef-lowercase-letter" id="ref-for-grammardef-lowercase-letter-1">lowercase-letter</a> / <a data-link-type="grammar" href="#grammardef-digit" id="ref-for-grammardef-digit-2">digit</a>)
-<dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-ascii-word">ascii-word</dfn>       = +(%x21-7E - <a data-link-type="grammar" href="#grammardef-semicolon" id="ref-for-grammardef-semicolon-1">semicolon</a>)  ; printable w/o space/semicolon
-<dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-ascii-string">ascii-string</dfn>     = +(%x01-FF - <a data-link-type="grammar" href="#grammardef-semicolon" id="ref-for-grammardef-semicolon-2">semicolon</a>)  ; printable ascii without semicolon
-<dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-delimited-string">delimited-string</dfn> = <a data-link-type="grammar" href="#grammardef-doublequote" id="ref-for-grammardef-doublequote-1">doublequote</a> <a data-link-type="grammar" href="#grammardef-ascii-string" id="ref-for-grammardef-ascii-string-1">ascii-string</a> <a data-link-type="grammar" href="#grammardef-doublequote" id="ref-for-grammardef-doublequote-2">doublequote</a>
+<dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-ascii-word">ascii-word</dfn>       = +(%x21-7E - <a data-link-type="grammar" href="#grammardef-semicolon" id="ref-for-grammardef-semicolon-1">semicolon</a>)    ; printable w/o space/semicolon
+<dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-ascii-string">ascii-string</dfn>     = +(%x20-7E - <a data-link-type="grammar" href="#grammardef-doublequote" id="ref-for-grammardef-doublequote-1">doublequote</a>)  ; printable ascii without doublequote
+<dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-delimited-string">delimited-string</dfn> = <a data-link-type="grammar" href="#grammardef-doublequote" id="ref-for-grammardef-doublequote-2">doublequote</a> <a data-link-type="grammar" href="#grammardef-ascii-string" id="ref-for-grammardef-ascii-string-1">ascii-string</a> <a data-link-type="grammar" href="#grammardef-doublequote" id="ref-for-grammardef-doublequote-3">doublequote</a>
 
-<dfn data-dfn-type="grammar" data-export="" id="grammardef-properties-format">properties-format<a class="self-link" href="#grammardef-properties-format"></a></dfn> = <a data-link-type="grammar" href="#grammardef-key-value-pair" id="ref-for-grammardef-key-value-pair-1">key-value-pair</a> *(<a data-link-type="grammar" href="#grammardef-whitespace" id="ref-for-grammardef-whitespace-1">whitespace</a> <a data-link-type="grammar" href="#grammardef-semicolon" id="ref-for-grammardef-semicolon-3">semicolon</a> <a data-link-type="grammar" href="#grammardef-key-value-pair" id="ref-for-grammardef-key-value-pair-2">key-value-pair</a>)
+<dfn data-dfn-type="grammar" data-export="" id="grammardef-properties-format">properties-format<a class="self-link" href="#grammardef-properties-format"></a></dfn> = <a data-link-type="grammar" href="#grammardef-key-value-pair" id="ref-for-grammardef-key-value-pair-1">key-value-pair</a> *(*<a data-link-type="grammar" href="#grammardef-whitespace" id="ref-for-grammardef-whitespace-1">whitespace</a> <a data-link-type="grammar" href="#grammardef-semicolon" id="ref-for-grammardef-semicolon-2">semicolon</a> *<a data-link-type="grammar" href="#grammardef-whitespace" id="ref-for-grammardef-whitespace-2">whitespace</a> <a data-link-type="grammar" href="#grammardef-key-value-pair" id="ref-for-grammardef-key-value-pair-2">key-value-pair</a>)
 <dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-spec-property-name">spec-property-name</dfn> = ("<a href="#propdef-bbox" id="ref-for-propdef-bbox-2">bbox</a>" / "<a href="#propdef-baseline" id="ref-for-propdef-baseline-1">baseline</a>" / "<a href="#propdef-cflow" id="ref-for-propdef-cflow-1">cflow</a>" / "<a href="#propdef-cuts" id="ref-for-propdef-cuts-1">cuts</a>" / "<a href="#propdef-hardbreak" id="ref-for-propdef-hardbreak-1">hardbreak</a>" /
                       "<a href="#propdef-image" id="ref-for-propdef-image-1">image</a>" / "<a href="#propdef-imagemd5" id="ref-for-propdef-imagemd5-1">imagemd5</a>" / "<a href="#propdef-lpageno" id="ref-for-propdef-lpageno-1">lpageno</a>" / "<a href="#propdef-nlp" id="ref-for-propdef-nlp-1">nlp</a>" / "<a href="#propdef-order" id="ref-for-propdef-order-1">order</a>" /
                       "<a href="#propdef-poly" id="ref-for-propdef-poly-1">poly</a>" / "<a href="#propdef-ppageno" id="ref-for-propdef-ppageno-1">ppageno</a>" / "<a href="#propdef-scan_res" id="ref-for-propdef-scan_res-1">scan_res</a>" / "<a href="#propdef-textangle" id="ref-for-propdef-textangle-1">textangle</a>" /
                       "<a href="#propdef-x_bboxes" id="ref-for-propdef-x_bboxes-1">x_bboxes</a>" / "<a href="#propdef-x_confs" id="ref-for-propdef-x_confs-1">x_confs</a>" / "<a href="#propdef-x_font" id="ref-for-propdef-x_font-1">x_font</a>" / "<a href="#propdef-x_fsize" id="ref-for-propdef-x_fsize-1">x_fsize</a>" /
                       "<a href="#propdef-x_scanner" id="ref-for-propdef-x_scanner-1">x_scanner</a>" / "<a href="#propdef-x_source" id="ref-for-propdef-x_source-1">x_source</a>" / "<a href="#propdef-x_wconf" id="ref-for-propdef-x_wconf-1">x_wconf</a>" )
 <dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-engine-property-name">engine-property-name</dfn> = "x_" <a data-link-type="grammar" href="#grammardef-alnum-word" id="ref-for-grammardef-alnum-word-1">alnum-word</a>
-<dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-key-value-pair">key-value-pair</dfn> = <a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-1">property-name</a> <a data-link-type="grammar" href="#grammardef-whitespace" id="ref-for-grammardef-whitespace-2">whitespace</a> <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-1">property-value</a>
+<dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-key-value-pair">key-value-pair</dfn> = <a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-1">property-name</a> <a data-link-type="grammar" href="#grammardef-whitespace" id="ref-for-grammardef-whitespace-3">whitespace</a> <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-1">property-value</a>
 <dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-property-name">property-name</dfn> = <a data-link-type="grammar" href="#grammardef-spec-property-name" id="ref-for-grammardef-spec-property-name-1">spec-property-name</a> / <a data-link-type="grammar" href="#grammardef-engine-property-name" id="ref-for-grammardef-engine-property-name-1">engine-property-name</a>
-<dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-property-value">property-value</dfn> = <a data-link-type="grammar" href="#grammardef-ascii-word" id="ref-for-grammardef-ascii-word-1">ascii-word</a> *(<a data-link-type="grammar" href="#grammardef-whitespace" id="ref-for-grammardef-whitespace-3">whitespace</a> <a data-link-type="grammar" href="#grammardef-ascii-word" id="ref-for-grammardef-ascii-word-2">ascii-word</a>)
+<dfn class="dfn-paneled" data-dfn-type="grammar" data-export="" id="grammardef-property-value">property-value</dfn> = (<a data-link-type="grammar" href="#grammardef-ascii-word" id="ref-for-grammardef-ascii-word-1">ascii-word</a> / <a data-link-type="grammar" href="#grammardef-delimited-string" id="ref-for-grammardef-delimited-string-1">delimited-string</a>) *(<a data-link-type="grammar" href="#grammardef-whitespace" id="ref-for-grammardef-whitespace-4">whitespace</a> (<a data-link-type="grammar" href="#grammardef-ascii-word" id="ref-for-grammardef-ascii-word-2">ascii-word</a> / <a data-link-type="grammar" href="#grammardef-delimited-string" id="ref-for-grammardef-delimited-string-2">delimited-string</a>) )
 </pre>
    <p>This is just the general grammar, the individual <a data-link-type="dfn" href="#properties" id="ref-for-properties-5">properties</a> will define
 the exact <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="property-grammar">property grammar</dfn> that overrides <a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-2">property-name</a> and <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-2">property-value</a>.</p>
@@ -2582,7 +2584,7 @@ the document image which border is drawn in black.</p>
      <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-3">Grammar</a></p>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-5">property-name</a> = "cflow"
-<a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-5">property-value</a> = <a data-link-type="grammar" href="#grammardef-delimited-string" id="ref-for-grammardef-delimited-string-1">delimited-string</a>
+<a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-5">property-value</a> = <a data-link-type="grammar" href="#grammardef-delimited-string" id="ref-for-grammardef-delimited-string-3">delimited-string</a>
 </pre>
     <dt data-md="">
      <p>Example</p>
@@ -2711,7 +2713,7 @@ line breaks.</p>
      <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-6">Grammar</a></p>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-8">property-name</a> = "image"
-<a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-8">property-value</a> = <a data-link-type="grammar" href="#grammardef-delimited-string" id="ref-for-grammardef-delimited-string-2">delimited-string</a>
+<a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-8">property-value</a> = <a data-link-type="grammar" href="#grammardef-delimited-string" id="ref-for-grammardef-delimited-string-4">delimited-string</a>
 </pre>
     <dt data-md="">
      <p>Example</p>
@@ -2751,7 +2753,7 @@ resolve to the corresponding image file</p>
      <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-7">Grammar</a></p>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-9">property-name</a> = "imagemd5"
-<a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-9">property-value</a> = <a data-link-type="grammar" href="#grammardef-doublequote" id="ref-for-grammardef-doublequote-3">doublequote</a> 32(%x41-46 / <a data-link-type="grammar" href="#grammardef-digit" id="ref-for-grammardef-digit-3">digit</a>) <a data-link-type="grammar" href="#grammardef-doublequote" id="ref-for-grammardef-doublequote-4">doublequote</a>
+<a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-9">property-value</a> = <a data-link-type="grammar" href="#grammardef-doublequote" id="ref-for-grammardef-doublequote-4">doublequote</a> 32(%x41-46 / <a data-link-type="grammar" href="#grammardef-digit" id="ref-for-grammardef-digit-3">digit</a>) <a data-link-type="grammar" href="#grammardef-doublequote" id="ref-for-grammardef-doublequote-5">doublequote</a>
 </pre>
    </dl>
    <ul>
@@ -2778,7 +2780,7 @@ resolve to the corresponding image file</p>
      <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-8">Grammar</a></p>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-10">property-name</a> = "lpageno"
-<a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-10">property-value</a> = <a data-link-type="grammar" href="#grammardef-delimited-string" id="ref-for-grammardef-delimited-string-3">delimited-string</a> / <a data-link-type="grammar" href="#grammardef-uint" id="ref-for-grammardef-uint-11">uint</a>
+<a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-10">property-value</a> = <a data-link-type="grammar" href="#grammardef-delimited-string" id="ref-for-grammardef-delimited-string-5">delimited-string</a> / <a data-link-type="grammar" href="#grammardef-uint" id="ref-for-grammardef-uint-11">uint</a>
 </pre>
     <dt data-md="">
      <p>Example</p>
@@ -3044,7 +3046,7 @@ element, not of individual characters</p>
      <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-16">Grammar</a></p>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-18">property-name</a> = "x_font"
-<a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-18">property-value</a> = <a data-link-type="grammar" href="#grammardef-delimited-string" id="ref-for-grammardef-delimited-string-4">delimited-string</a>
+<a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-18">property-value</a> = <a data-link-type="grammar" href="#grammardef-delimited-string" id="ref-for-grammardef-delimited-string-6">delimited-string</a>
 </pre>
     <dt data-md="">
      <p>Example</p>
@@ -3131,7 +3133,7 @@ have them approximate posterior probabilities (expressed in %)</p>
      <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-19">Grammar</a></p>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-21">property-name</a> = "x_scanner"
-<a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-21">property-value</a> = <a data-link-type="grammar" href="#grammardef-delimited-string" id="ref-for-grammardef-delimited-string-5">delimited-string</a>
+<a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-21">property-value</a> = <a data-link-type="grammar" href="#grammardef-delimited-string" id="ref-for-grammardef-delimited-string-7">delimited-string</a>
 </pre>
     <dt data-md="">
      <p>Example</p>
@@ -3158,7 +3160,7 @@ have them approximate posterior probabilities (expressed in %)</p>
      <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-20">Grammar</a></p>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-22">property-name</a> = "x_source"
-<a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-22">property-value</a> = 1*<a data-link-type="grammar" href="#grammardef-delimited-string" id="ref-for-grammardef-delimited-string-6">delimited-string</a>
+<a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-22">property-value</a> = 1*<a data-link-type="grammar" href="#grammardef-delimited-string" id="ref-for-grammardef-delimited-string-8">delimited-string</a>
 </pre>
     <dt data-md="">
      <p>Example</p>
@@ -4368,7 +4370,7 @@ properties for floating elements; properties need to be defined for this.<a href
   <aside class="dfn-panel" data-for="grammardef-whitespace">
    <b><a href="#grammardef-whitespace">#grammardef-whitespace</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-grammardef-whitespace-1">2.4. Properties Grammar</a> <a href="#ref-for-grammardef-whitespace-2">(2)</a> <a href="#ref-for-grammardef-whitespace-3">(3)</a>
+    <li><a href="#ref-for-grammardef-whitespace-1">2.4. Properties Grammar</a> <a href="#ref-for-grammardef-whitespace-2">(2)</a> <a href="#ref-for-grammardef-whitespace-3">(3)</a> <a href="#ref-for-grammardef-whitespace-4">(4)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="grammardef-comma">
@@ -4380,14 +4382,14 @@ properties for floating elements; properties need to be defined for this.<a href
   <aside class="dfn-panel" data-for="grammardef-semicolon">
    <b><a href="#grammardef-semicolon">#grammardef-semicolon</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-grammardef-semicolon-1">2.4. Properties Grammar</a> <a href="#ref-for-grammardef-semicolon-2">(2)</a> <a href="#ref-for-grammardef-semicolon-3">(3)</a>
+    <li><a href="#ref-for-grammardef-semicolon-1">2.4. Properties Grammar</a> <a href="#ref-for-grammardef-semicolon-2">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="grammardef-doublequote">
    <b><a href="#grammardef-doublequote">#grammardef-doublequote</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-grammardef-doublequote-1">2.4. Properties Grammar</a> <a href="#ref-for-grammardef-doublequote-2">(2)</a>
-    <li><a href="#ref-for-grammardef-doublequote-3">4.7. The imagemd5 property</a> <a href="#ref-for-grammardef-doublequote-4">(2)</a>
+    <li><a href="#ref-for-grammardef-doublequote-1">2.4. Properties Grammar</a> <a href="#ref-for-grammardef-doublequote-2">(2)</a> <a href="#ref-for-grammardef-doublequote-3">(3)</a>
+    <li><a href="#ref-for-grammardef-doublequote-4">4.7. The imagemd5 property</a> <a href="#ref-for-grammardef-doublequote-5">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="grammardef-lowercase-letter">
@@ -4417,12 +4419,13 @@ properties for floating elements; properties need to be defined for this.<a href
   <aside class="dfn-panel" data-for="grammardef-delimited-string">
    <b><a href="#grammardef-delimited-string">#grammardef-delimited-string</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-grammardef-delimited-string-1">4.3. The cflow property</a>
-    <li><a href="#ref-for-grammardef-delimited-string-2">4.6. The image property</a>
-    <li><a href="#ref-for-grammardef-delimited-string-3">4.8. The lpageno property</a>
-    <li><a href="#ref-for-grammardef-delimited-string-4">4.16. The x_font property</a>
-    <li><a href="#ref-for-grammardef-delimited-string-5">4.19. The x_scanner property</a>
-    <li><a href="#ref-for-grammardef-delimited-string-6">4.20. The x_source property</a>
+    <li><a href="#ref-for-grammardef-delimited-string-1">2.4. Properties Grammar</a> <a href="#ref-for-grammardef-delimited-string-2">(2)</a>
+    <li><a href="#ref-for-grammardef-delimited-string-3">4.3. The cflow property</a>
+    <li><a href="#ref-for-grammardef-delimited-string-4">4.6. The image property</a>
+    <li><a href="#ref-for-grammardef-delimited-string-5">4.8. The lpageno property</a>
+    <li><a href="#ref-for-grammardef-delimited-string-6">4.16. The x_font property</a>
+    <li><a href="#ref-for-grammardef-delimited-string-7">4.19. The x_scanner property</a>
+    <li><a href="#ref-for-grammardef-delimited-string-8">4.20. The x_source property</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="grammardef-spec-property-name">
