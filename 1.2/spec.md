@@ -157,11 +157,11 @@ follows, expressed in ABNF notation of [[RFC5234]]:
   <dfn>doublequote</dfn>      = %22  ; double quote '"'
   <dfn>lowercase-letter</dfn> = %x41-5A
   <dfn>alnum-word</dfn>       = +(<a>lowercase-letter</a> / <a>digit</a>)
-  <dfn>ascii-word</dfn>       = +(%x21-7E - <a>semicolon</a>)  ; printable w/o space/semicolon
-  <dfn>ascii-string</dfn>     = +(%x01-FF - <a>semicolon</a>)  ; printable ascii without semicolon
+  <dfn>ascii-word</dfn>       = +(%x21-7E - <a>semicolon</a>)    ; printable w/o space/semicolon
+  <dfn>ascii-string</dfn>     = +(%x20-7E - <a>doublequote</a>)  ; printable ascii without doublequote
   <dfn>delimited-string</dfn> = <a>doublequote</a> <a>ascii-string</a> <a>doublequote</a>
 
-  <dfn>properties-format</dfn> = <a>key-value-pair</a> *(<a>whitespace</a> <a>semicolon</a> <a>key-value-pair</a>)
+  <dfn>properties-format</dfn> = <a>key-value-pair</a> *(*<a>whitespace</a> <a>semicolon</a> *<a>whitespace</a> <a>key-value-pair</a>)
   <dfn>spec-property-name</dfn> = ("<a href="#propdef-bbox">bbox</a>" / "<a href="#propdef-baseline">baseline</a>" / "<a href="#propdef-cflow">cflow</a>" / "<a href="#propdef-cuts">cuts</a>" / "<a href="#propdef-hardbreak">hardbreak</a>" /
                         "<a href="#propdef-image">image</a>" / "<a href="#propdef-imagemd5">imagemd5</a>" / "<a href="#propdef-lpageno">lpageno</a>" / "<a href="#propdef-nlp">nlp</a>" / "<a href="#propdef-order">order</a>" /
                         "<a href="#propdef-poly">poly</a>" / "<a href="#propdef-ppageno">ppageno</a>" / "<a href="#propdef-scan_res">scan_res</a>" / "<a href="#propdef-textangle">textangle</a>" /
@@ -170,7 +170,7 @@ follows, expressed in ABNF notation of [[RFC5234]]:
   <dfn>engine-property-name</dfn> = "x_" <a>alnum-word</a>
   <dfn>key-value-pair</dfn> = <a>property-name</a> <a>whitespace</a> <a>property-value</a>
   <dfn>property-name</dfn> = <a>spec-property-name</a> / <a>engine-property-name</a>
-  <dfn>property-value</dfn> = <a>ascii-word</a> *(<a>whitespace</a> <a>ascii-word</a>)
+  <dfn>property-value</dfn> = (<a>ascii-word</a> / <a>delimited-string</a>) *(<a>whitespace</a> (<a>ascii-word</a> / <a>delimited-string</a>) )
 </pre>
 
 This is just the general grammar, the individual <a>properties</a> will define
