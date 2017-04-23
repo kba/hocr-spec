@@ -77,8 +77,8 @@ element:
     categories: ['Typesetting']
     properties:
       required: ['bbox']
-      recommended: ['image', 'imagemd5']
-      allowed: ['x_source']
+      recommended: ['image', 'imagemd5', 'ppageno', 'lpageno']
+      allowed: ['x_source', 'x_scanner', 'scan_res']
   ocr_pageno:
     categories: ['Float']
     properties:
