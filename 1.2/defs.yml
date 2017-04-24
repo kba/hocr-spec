@@ -77,8 +77,8 @@ element:
     categories: ['Typesetting']
     properties:
       required: ['bbox']
-      recommended: ['image', 'imagemd5']
-      allowed: ['x_source']
+      recommended: ['image', 'imagemd5', 'ppageno', 'lpageno']
+      allowed: ['x_source', 'x_scanner', 'scan_res']
   ocr_pageno:
     categories: ['Float']
     properties:
@@ -139,7 +139,7 @@ property:
       <a>property-value</a> = <a>float</a> <a>int</a>
   bbox:
     categories: ['General', 'Layout']
-    conflicting: ['bbox']
+    conflicting: ['poly']
     example: 'bbox 0 0 100 200'
     grammar: |
       <a>property-value</a> = <a>uint</a> <a>uint</a> <a>uint</a> <a>uint</a>
