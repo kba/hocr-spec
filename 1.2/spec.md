@@ -920,7 +920,7 @@ When possible, any mapping of logical structure onto HTML should try to follow t
     might have entered into a WYSIWYG content creation tool
   * text should be in reading order
   * all tags should be used for the intended purpose (and only for the intended
-    purpose) as defined in the [[HTML40]] spec.
+    purpose) as defined in the [[HTML401]] spec.
   * floats are contained in <{div}> elements with a `style` that includes a float attribute
   * repeating floating page elements (header/footer) should be repeated and occur
     in their natural location in reading order (e.g., between pages)
@@ -1424,7 +1424,7 @@ Issue: [What DOCTYPE for hOCR HTML?](https://github.com/kba/hocr-spec/issues/1)
 Media Type {#media-type}
 ----------
 
-In accordance to [[RFC2048]]
+In accordance to [[RFC4289]]
 
 Issue: [correct MIME type for hOCR?](https://github.com/kba/hocr-spec/issues/27)
 
