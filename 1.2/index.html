@@ -418,7 +418,7 @@
 	[data-algorithm]:not(.heading) {
 	  padding: .5em;
 	  border: thin solid #ddd; border-radius: .5em;
-	  margin: .5em 0;
+	  margin: .5em calc(-0.5em - 1px);
 	}
 	[data-algorithm]:not(.heading) > :first-child {
 	  margin-top: 0;
@@ -1176,7 +1176,8 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed 1.0.0" name="generator">
+  <meta content="Bikeshed version a60ced33ed990d75e39d2ba357c10dd3c8679190" name="generator">
+  <link href="http://kba.github.io/hocr-spec/1.2/" rel="canonical">
 <style>/* style-md-lists */
 
             /* This is a weird hack for me not yet following the commonmark spec
@@ -1423,7 +1424,7 @@ Possible extra rowspan handling
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">hOCR - OCR Workflow and Output embedded in HTML</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2017-01-23">23 January 2017</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard, <time class="dt-updated" datetime="2017-04-24">24 April 2017</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1443,14 +1444,14 @@ Possible extra rowspan handling
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 23 January 2017,
+In addition, as of 24 April 2017,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
    <hr title="Separator for header">
   </div>
-  <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
   <div class="p-summary" data-fill-with="abstract">
+   <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
    <p>The purpose of this document is to define an open standard for representing document layout analysis and OCR results as a subset of HTML.</p>
   </div>
   <div data-fill-with="at-risk"></div>
@@ -1654,7 +1655,7 @@ and attributes inside HTML. We are going to use the terms <a data-link-type="dfn
    <p>An hOCR element (in this spec simply refered to as an <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="element">element</dfn>) is any HTML tag with a <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/dom.html#classes">class</a></code> attribute that contains exactly one <dfn class="dfn-paneled" data-dfn-type="dfn" data-lt="Element Name" data-noexport="" id="element-name">class
 name</dfn> that starts with <code>ocr_</code> or <code>ocrx_</code>. Non-OCR related HTML content must
 not use class names that begin with <code>ocr_</code> or <code>ocrx_</code>.</p>
-   <p class="note" role="note">Note: When referring to an HTML tag with class <code>ocr_page</code>, this spec uses the
+   <p class="note" role="note"><span>Note:</span> When referring to an HTML tag with class <code>ocr_page</code>, this spec uses the
 notation <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-2">ocr_page</a></code></p>
    <p>If an HTML tag is an <a data-link-type="dfn" href="#element" id="ref-for-element-2">hOCR element</a>, then its <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/dom.html#the-title-attribute">title</a></code> attribute must not be used for any other purpose than to define <a data-link-type="dfn" href="#properties" id="ref-for-properties-2">hOCR properties</a> and adhere to the <a data-link-type="dfn" href="#properties-format" id="ref-for-properties-format-1">properties format</a>.</p>
    <p>For some elements, the specs <dfn class="dfn-paneled" data-dfn-type="dfn" data-lt="Recommended HTML Tag" data-noexport="" id="recommended-html-tag">recommends using
@@ -1665,7 +1666,7 @@ an existing HTML output routine).</p>
    <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-lt="properties" data-noexport="" id="properties">hOCR Properties</dfn> are a set of key-value pairs that convey OCR-specific
 information related to specific <a data-link-type="dfn" href="#element" id="ref-for-element-3">elements</a>. They are serialized using a <a data-link-type="dfn" href="#properties-format" id="ref-for-properties-format-2">specific format</a> in the <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/dom.html#the-title-attribute">title</a></code> attribute of
 the <a data-link-type="dfn" href="#element" id="ref-for-element-4">element</a> they refer to.</p>
-   <p class="note" role="note">Note: When referring to a property <code>bbox</code>, this spec uses the notation <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-1">bbox</a>.</p>
+   <p class="note" role="note"><span>Note:</span> When referring to a property <code>bbox</code>, this spec uses the notation <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-1">bbox</a>.</p>
    <p>The <dfn class="dfn-paneled" data-dfn-type="dfn" data-lt="Property Name" data-noexport="" id="property-name">name of a property</dfn> must only consist of
 lowercase letters and numbers. Property names must be either from those defined
 in <a href="#hocr-props">§4 The properties of hOCR</a> or begin with <code>x_</code> to denote implementation-specific
@@ -1679,28 +1680,24 @@ as a <dfn data-dfn-type="dfn" data-noexport="" id="capability">capability<a clas
 hOCR consumers that they may encounter those elements/properties. If a producer
 is <strong>not capable</strong> of producing certain elements/properties, consumers need not
 look for them.</p>
-   <p class="note" role="note">Note: When referring to a capability <code>ocrp_poly</code>, this spec uses the notation <a class="css" data-link-type="maybe" href="#valdef-ocr-capabilities-ocrp_poly" id="ref-for-valdef-ocr-capabilities-ocrp_poly-1">ocrp_poly</a>.</p>
+   <p class="note" role="note"><span>Note:</span> When referring to a capability <code>ocrp_poly</code>, this spec uses the notation <a class="css" data-link-type="maybe" href="#valdef-ocr-capabilities-ocrp_poly" id="ref-for-valdef-ocr-capabilities-ocrp_poly-1">ocrp_poly</a>.</p>
    <p>The mechanism for declaring capabilities are described in <a href="#capabilities">§6.2 Capabilities</a></p>
    <h3 class="heading settled" data-level="2.3" id="relations"><span class="secno">2.3. </span><span class="content">Relationship between elements, properties</span><a class="self-link" href="#relations"></a></h3>
    <h4 class="heading settled" data-level="2.3.1" id="rel-elem-prop"><span class="secno">2.3.1. </span><span class="content">element - property</span><a class="self-link" href="#rel-elem-prop"></a></h4>
    <p>There are four levels of association between any <a data-link-type="dfn" href="#element" id="ref-for-element-6">element</a> to any <a data-link-type="dfn" href="#properties" id="ref-for-properties-4">property</a>:</p>
    <dl>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="disallowed-property">Disallowed Property</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="disallowed-property">Disallowed Property</dfn>
     <dd data-md="">
      <p>The element MUST NOT contain the property</p>
     <dd data-md="">
      <p>Unless defined otherwise, all properties are disallowed for any element.</p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="required-property">Required Property</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="required-property">Required Property</dfn>
     <dd data-md="">
      <p>The element MUST contain the property</p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="recommended-property">Recommended Property</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="recommended-property">Recommended Property</dfn>
     <dd data-md="">
      <p>The element SHOULD contain the property</p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="allowed-property">Allowed Property</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="allowed-property">Allowed Property</dfn>
     <dd data-md="">
      <p>The element MAY contain the property</p>
    </dl>
@@ -1708,22 +1705,18 @@ look for them.</p>
    <p>A property present on an element can have on of the following relations to any
 other property:</p>
    <dl>
-    <dt data-md="">
-     <p><dfn data-dfn-type="dfn" data-noexport="" id="independent-property">Independent Property<a class="self-link" href="#independent-property"></a></dfn></p>
+    <dt data-md=""><dfn data-dfn-type="dfn" data-noexport="" id="independent-property">Independent Property<a class="self-link" href="#independent-property"></a></dfn>
     <dd data-md="">
      <p>The presence of property A has no influence on the presence of property B</p>
     <dd data-md="">
      <p>Unless otherwise defiined, properties are always independent</p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="implied-property">Implied Property</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="implied-property">Implied Property</dfn>
     <dd data-md="">
      <p>If property A is present, property B must also be present</p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="conflicting-property">Conflicting Property</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="conflicting-property">Conflicting Property</dfn>
     <dd data-md="">
      <p>If property A is present, property B must not be present</p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="related-property">Related Property</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="related-property">Related Property</dfn>
     <dd data-md="">
      <p>Property B is related to property A</p>
    </dl>
@@ -1773,35 +1766,30 @@ the exact <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="prop
    <h2 class="heading settled" data-level="3" id="hocr-elements"><span class="secno">3. </span><span class="content">The elements of hOCR</span><a class="self-link" href="#hocr-elements"></a></h2>
    <p>The <a data-link-type="dfn" href="#element" id="ref-for-element-7">elements</a> in hOCR can be broadly <dfn class="dfn-paneled" data-dfn-type="dfn" data-lt="Element Categories" data-noexport="" id="element-categories">categorized</dfn> as follows:</p>
    <dl>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="typesetting-elements">Typesetting Elements</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="typesetting-elements">Typesetting Elements</dfn>
     <dd data-md="">
      <p>Elements that describe those areas of a page that nest but don’t generally
 overlap</p>
     <dd data-md="">
      <p>See <a href="#sec-typesetting-elements">§3.1 Typesetting Elements</a></p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="float-elements">Float Elements</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="float-elements">Float Elements</dfn>
     <dd data-md="">
      <p>Elements that describe those areas of a page that are not part of the flow
 but are positioned</p>
     <dd data-md="">
      <p>See <a href="#sec-float-elements">§3.2 Float elements</a></p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="logical-elements">Logical Elements</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="logical-elements">Logical Elements</dfn>
     <dd data-md="">
      <p>These elements describe a page and its components in traditional
 typesetting.</p>
     <dd data-md="">
      <p>See <a href="#sec-logical-elements">§3.3 Logical Elements</a></p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="inline-elements">Inline elements</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="inline-elements">Inline elements</dfn>
     <dd data-md="">
      <p>Thse elements describe content beyond the level of text lines</p>
     <dd data-md="">
      <p>See <a href="#sec-inline-elements">§3.4 Inline Elements</a></p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="engine-specific-elements">Engine-Specific elements</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="engine-specific-elements">Engine-Specific elements</dfn>
     <dd data-md="">
      <p>Elements whose semantics are engine-specific</p>
     <dd data-md="">
@@ -1829,10 +1817,10 @@ preferred directions.</p>
       <dd style="display: inline; margin: 0"> <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-3">bbox</a> 
       <div></div>
       <dt style="display: inline; margin: 0"><a data-link-type="dfn" href="#recommended-property" id="ref-for-recommended-property-1">Recommended</a>:
-      <dd style="display: inline; margin: 0"> <a class="property" data-link-type="propdesc" href="#propdef-image" id="ref-for-propdef-image-2">image</a>, <a class="property" data-link-type="propdesc" href="#propdef-imagemd5" id="ref-for-propdef-imagemd5-2">imagemd5</a> 
+      <dd style="display: inline; margin: 0"> <a class="property" data-link-type="propdesc" href="#propdef-image" id="ref-for-propdef-image-2">image</a>, <a class="property" data-link-type="propdesc" href="#propdef-imagemd5" id="ref-for-propdef-imagemd5-2">imagemd5</a>, <a class="property" data-link-type="propdesc" href="#propdef-ppageno" id="ref-for-propdef-ppageno-2">ppageno</a>, <a class="property" data-link-type="propdesc" href="#propdef-lpageno" id="ref-for-propdef-lpageno-2">lpageno</a> 
       <div></div>
       <dt style="display: inline; margin: 0"><a data-link-type="dfn" href="#allowed-property" id="ref-for-allowed-property-1">Allowed</a>:
-      <dd style="display: inline; margin: 0"> <a class="property" data-link-type="propdesc" href="#propdef-x_source" id="ref-for-propdef-x_source-2">x_source</a> 
+      <dd style="display: inline; margin: 0"> <a class="property" data-link-type="propdesc" href="#propdef-x_source" id="ref-for-propdef-x_source-2">x_source</a>, <a class="property" data-link-type="propdesc" href="#propdef-x_scanner" id="ref-for-propdef-x_scanner-2">x_scanner</a>, <a class="property" data-link-type="propdesc" href="#propdef-scan_res" id="ref-for-propdef-scan_res-2">scan_res</a> 
       <div></div>
      </dl>
    </dl>
@@ -2438,63 +2426,50 @@ existing OCR output, say for workflow abstractions.</p>
    <p>The <a data-link-type="dfn" href="#properties" id="ref-for-properties-6">properties</a> in hOCR can be broadly <dfn class="dfn-paneled" data-dfn-type="dfn" data-lt="Property
 Categories" data-noexport="" id="property-categories">categorized</dfn> as follows:</p>
    <dl>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="general-properties">General Properties</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="general-properties">General Properties</dfn>
     <dd data-md="">
      <p>These properties can apply to most elements</p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="non-recommended-properties">Non-Recommended Properties</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="non-recommended-properties">Non-Recommended Properties</dfn>
     <dd data-md="">
      <p>These properties can apply to most elements but should not be used unless
 there is no alternative:</p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="inline-properties">Inline Properties</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="inline-properties">Inline Properties</dfn>
     <dd data-md="">
      <p>These properties apply to content on or below the level of <code><a data-link-type="element" href="#elementdef-ocr_line" id="ref-for-elementdef-ocr_line-6">ocr_line</a></code> / <code><a data-link-type="element" href="#elementdef-ocrx_line" id="ref-for-elementdef-ocrx_line-4">ocrx_line</a></code></p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="layout-properties">Layout Properties</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="layout-properties">Layout Properties</dfn>
     <dd data-md="">
      <p>These properties relate to placement of <a data-link-type="dfn" href="#element" id="ref-for-element-8">elements</a> on the page</p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="font-properties">Font Properties</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="font-properties">Font Properties</dfn>
     <dd data-md="">
      <p>These properties convey font information</p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="character-properties">Character Properties</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="character-properties">Character Properties</dfn>
     <dd data-md="">
      <p>These properties convey character level information</p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="page-properties">Page Properties</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="page-properties">Page Properties</dfn>
     <dd data-md="">
      <p>These properties convey information on the whole page</p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="content-flow-properties">Content Flow Properties</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="content-flow-properties">Content Flow Properties</dfn>
     <dd data-md="">
      <p>These properties are related to the reading order and flow of content on the page</p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="confidence-properties">Confidence Properties</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="confidence-properties">Confidence Properties</dfn>
     <dd data-md="">
      <p>These properties are related to the confidence of the hOCR producer that
 the text in the <a data-link-type="dfn" href="#element" id="ref-for-element-9">element</a> has been correctly recognized</p>
    </dl>
    <h3 class="heading settled" data-level="4.1" id="baseline"><span class="secno">4.1. </span><span class="content">The <dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-baseline">baseline</dfn> property</span><a class="self-link" href="#baseline"></a></h3>
    <dl class="def">
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-1">Name</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-1">Name</a>
     <dd data-md="">
      <p>baseline</p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-1">Categories</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-1">Categories</a>
     <dd data-md="">
      <p><a data-link-type="dfn" href="#inline-properties" id="ref-for-inline-properties-1">Inline</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-1">Grammar</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-1">Grammar</a>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-3">property-name</a> = "baseline"
 <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-3">property-value</a> = <a data-link-type="grammar" href="#grammardef-float" id="ref-for-grammardef-float-1">float</a> <a data-link-type="grammar" href="#grammardef-int" id="ref-for-grammardef-int-1">int</a>
 </pre>
-    <dt data-md="">
-     <p>Example</p>
+    <dt data-md="">Example
     <dd data-md="">
 <pre class="highlight" style="display:block;padding: .5em"><span class="n">baseline</span> <span class="mf">0.015</span> <span class="o">-</span><span class="mi">18</span>
 </pre>
@@ -2517,31 +2492,26 @@ left corner of the bounding box (red). The baseline crosses the y-axis at <code>
    </div>
    <h3 class="heading settled" data-level="4.2" id="bbox"><span class="secno">4.2. </span><span class="content">The <dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-bbox">bbox</dfn> property</span><a class="self-link" href="#bbox"></a></h3>
    <dl class="def">
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-2">Name</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-2">Name</a>
     <dd data-md="">
      <p>bbox</p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-2">Categories</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-2">Categories</a>
     <dd data-md="">
      <p><a data-link-type="dfn" href="#general-properties" id="ref-for-general-properties-1">General</a>, <a data-link-type="dfn" href="#layout-properties" id="ref-for-layout-properties-1">Layout</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#conflicting-property" id="ref-for-conflicting-property-1">Conflicting</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#conflicting-property" id="ref-for-conflicting-property-1">Conflicting</a>
     <dd data-md="">
-     <p><a class="css" data-link-type="property" href="#propdef-bbox" id="ref-for-propdef-bbox-21">bbox</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-2">Grammar</a></p>
+     <p><a class="css" data-link-type="property" href="#propdef-poly" id="ref-for-propdef-poly-2">poly</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-2">Grammar</a>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-4">property-name</a> = "bbox"
 <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-4">property-value</a> = <a data-link-type="grammar" href="#grammardef-uint" id="ref-for-grammardef-uint-5">uint</a> <a data-link-type="grammar" href="#grammardef-uint" id="ref-for-grammardef-uint-6">uint</a> <a data-link-type="grammar" href="#grammardef-uint" id="ref-for-grammardef-uint-7">uint</a> <a data-link-type="grammar" href="#grammardef-uint" id="ref-for-grammardef-uint-8">uint</a>
 </pre>
-    <dt data-md="">
-     <p>Example</p>
+    <dt data-md="">Example
     <dd data-md="">
 <pre class="highlight" style="display:block;padding: .5em"><span class="n">bbox</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">100</span> <span class="mi">200</span>
 </pre>
    </dl>
-   <p>The <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-22">bbox</a> - short for "bounding box" - of an element is a rectangular box
+   <p>The <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-21">bbox</a> - short for "bounding box" - of an element is a rectangular box
 around this element, which is defined by the upper-left corner (x0, y0) and
 the lower-right corner (x1, y1).</p>
    <ul>
@@ -2553,7 +2523,7 @@ and measured in pixels</p>
     <li data-md="">
      <p>use <a class="property" data-link-type="propdesc" href="#propdef-x_bboxes" id="ref-for-propdef-x_bboxes-4">x_bboxes</a> below for character bounding boxes</p>
     <li data-md="">
-     <p>do not use <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-23">bbox</a> unless the bounding box of the layout component is, in
+     <p>do not use <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-22">bbox</a> unless the bounding box of the layout component is, in
 fact, rectangular</p>
     <li data-md="">
      <p>some non-rectangular layout components may have rectangular bounding boxes
@@ -2564,7 +2534,7 @@ if the non-rectangularity is caused by floating elements around which text flows
 <pre class="language-html highlight"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">'ocr_line'</span> <span class="na">id</span><span class="o">=</span><span class="s">'line_1'</span>
     <span class="na">title</span><span class="o">=</span><span class="s">"bbox 10 20 160 30"</span><span class="p">></span>...<span class="p">&lt;</span><span class="p">/</span><span class="nt">span</span><span class="p">></span>
 </pre>
-    <p>The bounding box <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-24">bbox</a> of this line is shown in blue and it is span
+    <p>The bounding box <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-23">bbox</a> of this line is shown in blue and it is span
 by the upper-left corner (10, 20) and the lower-right corner (160, 30).
 All coordinates are measured with reference to the top-left corner of
 the document image which border is drawn in black.</p>
@@ -2572,22 +2542,18 @@ the document image which border is drawn in black.</p>
    </div>
    <h3 class="heading settled" data-level="4.3" id="cflow"><span class="secno">4.3. </span><span class="content">The <dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-cflow">cflow</dfn> property</span><a class="self-link" href="#cflow"></a></h3>
    <dl class="def">
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-3">Name</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-3">Name</a>
     <dd data-md="">
      <p>cflow</p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-3">Categories</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-3">Categories</a>
     <dd data-md="">
      <p><a data-link-type="dfn" href="#content-flow-properties" id="ref-for-content-flow-properties-1">Content Flow</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-3">Grammar</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-3">Grammar</a>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-5">property-name</a> = "cflow"
 <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-5">property-value</a> = <a data-link-type="grammar" href="#grammardef-delimited-string" id="ref-for-grammardef-delimited-string-3">delimited-string</a>
 </pre>
-    <dt data-md="">
-     <p>Example</p>
+    <dt data-md="">Example
     <dd data-md="">
 <pre class="highlight" style="display:block;padding: .5em"><span class="n">cflow</span> <span class="s">"</span><span class="s">article1</span><span class="s">"</span>
 </pre>
@@ -2606,30 +2572,24 @@ order is attempted and multiple content flows are present</p>
    </ul>
    <h3 class="heading settled" data-level="4.4" id="cuts"><span class="secno">4.4. </span><span class="content">The <dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-cuts">cuts</dfn> property</span><a class="self-link" href="#cuts"></a></h3>
    <dl class="def">
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-4">Name</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-4">Name</a>
     <dd data-md="">
      <p>cuts</p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-4">Categories</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-4">Categories</a>
     <dd data-md="">
      <p><a data-link-type="dfn" href="#layout-properties" id="ref-for-layout-properties-2">Layout</a>, <a data-link-type="dfn" href="#character-properties" id="ref-for-character-properties-1">Character</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#related-property" id="ref-for-related-property-1">Related</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#related-property" id="ref-for-related-property-1">Related</a>
     <dd data-md="">
      <p><a class="css" data-link-type="property" href="#propdef-nlp" id="ref-for-propdef-nlp-2">nlp</a>, <a class="css" data-link-type="property" href="#propdef-x_bboxes" id="ref-for-propdef-x_bboxes-5">x_bboxes</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#implied-property" id="ref-for-implied-property-1">Implied</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#implied-property" id="ref-for-implied-property-1">Implied</a>
     <dd data-md="">
-     <p><a class="css" data-link-type="property" href="#propdef-bbox" id="ref-for-propdef-bbox-25">bbox</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-4">Grammar</a></p>
+     <p><a class="css" data-link-type="property" href="#propdef-bbox" id="ref-for-propdef-bbox-24">bbox</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-4">Grammar</a>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-6">property-name</a> = "cuts"
 <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-6">property-value</a> = +(<a data-link-type="grammar" href="#grammardef-uint" id="ref-for-grammardef-uint-9">uint</a> *1(<a data-link-type="grammar" href="#grammardef-comma" id="ref-for-grammardef-comma-1">comma</a> <a data-link-type="grammar" href="#grammardef-uint" id="ref-for-grammardef-uint-10">uint</a> *1(<a data-link-type="grammar" href="#grammardef-comma" id="ref-for-grammardef-comma-2">comma</a> <a data-link-type="grammar" href="#grammardef-nint" id="ref-for-grammardef-nint-1">nint</a>)))
 </pre>
-    <dt data-md="">
-     <p>Example</p>
+    <dt data-md="">Example
     <dd data-md="">
 <pre class="highlight" style="display:block;padding: .5em"><span class="n">cuts</span> <span class="mi">9</span> <span class="mi">11</span> <span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span> <span class="mi">15</span> <span class="mi">3</span>
 </pre>
@@ -2638,7 +2598,7 @@ order is attempted and multiple content flows are present</p>
     <li data-md="">
      <p>character segmentation cuts (see below)</p>
     <li data-md="">
-     <p>there must be a <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-26">bbox</a> property relative to which the <a class="property" data-link-type="propdesc" href="#propdef-cuts" id="ref-for-propdef-cuts-3">cuts</a> can be interpreted</p>
+     <p>there must be a <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-25">bbox</a> property relative to which the <a class="property" data-link-type="propdesc" href="#propdef-cuts" id="ref-for-propdef-cuts-3">cuts</a> can be interpreted</p>
    </ul>
    <p>For left-to-write writing directions, cuts are sequences of deltas in the x and
 y direction; the first delta in each path is an offset in the x direction
@@ -2665,22 +2625,18 @@ writing direction is left to right, then rotated back.</p>
 a delta of 0 always corresponds to an invisible codepoint.</p>
    <h3 class="heading settled" data-level="4.5" id="hardbreak"><span class="secno">4.5. </span><span class="content">The <dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-hardbreak">hardbreak</dfn> property</span><a class="self-link" href="#hardbreak"></a></h3>
    <dl class="def">
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-5">Name</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-5">Name</a>
     <dd data-md="">
      <p>hardbreak</p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-5">Categories</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-5">Categories</a>
     <dd data-md="">
      <p><a data-link-type="dfn" href="#inline-properties" id="ref-for-inline-properties-2">Inline</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-5">Grammar</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-5">Grammar</a>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-7">property-name</a> = "hardbreak"
 <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-7">property-value</a> = "0" / "1"
 </pre>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#default-value" id="ref-for-default-value-1">Default Value</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#default-value" id="ref-for-default-value-1">Default Value</a>
     <dd data-md="">
      <p><code class="highlight" style="display:block;padding: .5em"><span class="n">hardbreak</span> <span class="mi">0</span></code></p>
    </dl>
@@ -2697,26 +2653,21 @@ soft hyphen ("­", <code>U+00AD</code>), a hard line break (<code>&lt;br></code>
 line breaks.</p>
    <h3 class="heading settled" data-level="4.6" id="image"><span class="secno">4.6. </span><span class="content">The <dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-image">image</dfn> property</span><a class="self-link" href="#image"></a></h3>
    <dl class="def">
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-6">Name</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-6">Name</a>
     <dd data-md="">
      <p>image</p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-6">Categories</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-6">Categories</a>
     <dd data-md="">
      <p><a data-link-type="dfn" href="#page-properties" id="ref-for-page-properties-1">Page</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#related-property" id="ref-for-related-property-2">Related</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#related-property" id="ref-for-related-property-2">Related</a>
     <dd data-md="">
      <p><a class="css" data-link-type="property" href="#propdef-imagemd5" id="ref-for-propdef-imagemd5-3">imagemd5</a>, <a class="css" data-link-type="property" href="#propdef-x_source" id="ref-for-propdef-x_source-3">x_source</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-6">Grammar</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-6">Grammar</a>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-8">property-name</a> = "image"
 <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-8">property-value</a> = <a data-link-type="grammar" href="#grammardef-delimited-string" id="ref-for-grammardef-delimited-string-4">delimited-string</a>
 </pre>
-    <dt data-md="">
-     <p>Example</p>
+    <dt data-md="">Example
     <dd data-md="">
 <pre class="highlight" style="display:block;padding: .5em"><span class="n">image</span> <span class="s">"</span><span class="s">/foo/bar.png</span><span class="s">"</span>
 </pre>
@@ -2737,20 +2688,16 @@ resolve to the corresponding image file</p>
    </ul>
    <h3 class="heading settled" data-level="4.7" id="imagemd5"><span class="secno">4.7. </span><span class="content">The <dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-imagemd5">imagemd5</dfn> property</span><a class="self-link" href="#imagemd5"></a></h3>
    <dl class="def">
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-7">Name</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-7">Name</a>
     <dd data-md="">
      <p>imagemd5</p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-7">Categories</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-7">Categories</a>
     <dd data-md="">
      <p><a data-link-type="dfn" href="#page-properties" id="ref-for-page-properties-2">Page</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#implied-property" id="ref-for-implied-property-2">Implied</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#implied-property" id="ref-for-implied-property-2">Implied</a>
     <dd data-md="">
      <p><a class="css" data-link-type="property" href="#propdef-image" id="ref-for-propdef-image-3">image</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-7">Grammar</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-7">Grammar</a>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-9">property-name</a> = "imagemd5"
 <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-9">property-value</a> = <a data-link-type="grammar" href="#grammardef-doublequote" id="ref-for-grammardef-doublequote-4">doublequote</a> 32(%x41-46 / <a data-link-type="grammar" href="#grammardef-digit" id="ref-for-grammardef-digit-3">digit</a>) <a data-link-type="grammar" href="#grammardef-doublequote" id="ref-for-grammardef-doublequote-5">doublequote</a>
@@ -2764,26 +2711,21 @@ resolve to the corresponding image file</p>
    </ul>
    <h3 class="heading settled" data-level="4.8" id="lpageno"><span class="secno">4.8. </span><span class="content">The <dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-lpageno">lpageno</dfn> property</span><a class="self-link" href="#lpageno"></a></h3>
    <dl class="def">
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-8">Name</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-8">Name</a>
     <dd data-md="">
      <p>lpageno</p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-8">Categories</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-8">Categories</a>
     <dd data-md="">
      <p><a data-link-type="dfn" href="#page-properties" id="ref-for-page-properties-3">Page</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#related-property" id="ref-for-related-property-3">Related</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#related-property" id="ref-for-related-property-3">Related</a>
     <dd data-md="">
-     <p><a class="css" data-link-type="property" href="#propdef-ppageno" id="ref-for-propdef-ppageno-2">ppageno</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-8">Grammar</a></p>
+     <p><a class="css" data-link-type="property" href="#propdef-ppageno" id="ref-for-propdef-ppageno-3">ppageno</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-8">Grammar</a>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-10">property-name</a> = "lpageno"
 <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-10">property-value</a> = <a data-link-type="grammar" href="#grammardef-delimited-string" id="ref-for-grammardef-delimited-string-5">delimited-string</a> / <a data-link-type="grammar" href="#grammardef-uint" id="ref-for-grammardef-uint-11">uint</a>
 </pre>
-    <dt data-md="">
-     <p>Example</p>
+    <dt data-md="">Example
     <dd data-md="">
 <pre class="highlight" style="display:block;padding: .5em"><span class="n">lpageno</span> <span class="s">"</span><span class="s">IV.</span><span class="s">"</span>
 </pre>
@@ -2800,26 +2742,21 @@ resolve to the corresponding image file</p>
    </ul>
    <h3 class="heading settled" data-level="4.9" id="ppageno"><span class="secno">4.9. </span><span class="content">The <dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-ppageno">ppageno</dfn> property</span><a class="self-link" href="#ppageno"></a></h3>
    <dl class="def">
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-9">Name</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-9">Name</a>
     <dd data-md="">
      <p>ppageno</p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-9">Categories</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-9">Categories</a>
     <dd data-md="">
      <p><a data-link-type="dfn" href="#page-properties" id="ref-for-page-properties-4">Page</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#related-property" id="ref-for-related-property-4">Related</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#related-property" id="ref-for-related-property-4">Related</a>
     <dd data-md="">
-     <p><a class="css" data-link-type="property" href="#propdef-lpageno" id="ref-for-propdef-lpageno-2">lpageno</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-9">Grammar</a></p>
+     <p><a class="css" data-link-type="property" href="#propdef-lpageno" id="ref-for-propdef-lpageno-3">lpageno</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-9">Grammar</a>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-11">property-name</a> = "ppageno"
 <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-11">property-value</a> = <a data-link-type="grammar" href="#grammardef-uint" id="ref-for-grammardef-uint-12">uint</a>
 </pre>
-    <dt data-md="">
-     <p>Example</p>
+    <dt data-md="">Example
     <dd data-md="">
 <pre class="highlight" style="display:block;padding: .5em"><span class="n">lpageno</span> <span class="mi">7</span>
 </pre>
@@ -2838,24 +2775,19 @@ resolve to the corresponding image file</p>
    </ul>
    <h3 class="heading settled" data-level="4.10" id="nlp"><span class="secno">4.10. </span><span class="content">The <dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-nlp">nlp</dfn> property</span><a class="self-link" href="#nlp"></a></h3>
    <dl class="def">
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-10">Name</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-10">Name</a>
     <dd data-md="">
      <p>nlp</p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-10">Categories</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-10">Categories</a>
     <dd data-md="">
      <p><a data-link-type="dfn" href="#confidence-properties" id="ref-for-confidence-properties-1">Confidence</a>, <a data-link-type="dfn" href="#character-properties" id="ref-for-character-properties-2">Character</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#related-property" id="ref-for-related-property-5">Related</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#related-property" id="ref-for-related-property-5">Related</a>
     <dd data-md="">
      <p><a class="css" data-link-type="property" href="#propdef-cuts" id="ref-for-propdef-cuts-4">cuts</a>, <a class="css" data-link-type="property" href="#propdef-x_confs" id="ref-for-propdef-x_confs-3">x_confs</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#implied-property" id="ref-for-implied-property-3">Implied</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#implied-property" id="ref-for-implied-property-3">Implied</a>
     <dd data-md="">
      <p><a class="css" data-link-type="property" href="#propdef-cuts" id="ref-for-propdef-cuts-5">cuts</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-10">Grammar</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-10">Grammar</a>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-12">property-name</a> = "nlp"
 <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-12">property-value</a> = +<a data-link-type="grammar" href="#grammardef-float" id="ref-for-grammardef-float-2">float</a>
@@ -2867,22 +2799,18 @@ resolve to the corresponding image file</p>
    </ul>
    <h3 class="heading settled" data-level="4.11" id="order"><span class="secno">4.11. </span><span class="content">The <dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-order">order</dfn> property</span><a class="self-link" href="#order"></a></h3>
    <dl class="def">
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-11">Name</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-11">Name</a>
     <dd data-md="">
      <p>order</p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-11">Categories</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-11">Categories</a>
     <dd data-md="">
      <p><a data-link-type="dfn" href="#content-flow-properties" id="ref-for-content-flow-properties-2">Content Flow</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-11">Grammar</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-11">Grammar</a>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-13">property-name</a> = "order"
 <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-13">property-value</a> = +<a data-link-type="grammar" href="#grammardef-uint" id="ref-for-grammardef-uint-13">uint</a>
 </pre>
-    <dt data-md="">
-     <p>Example</p>
+    <dt data-md="">Example
     <dd data-md="">
 <pre class="highlight" style="display:block;padding: .5em"><span class="n">order</span> <span class="mi">8</span>
 </pre>
@@ -2898,26 +2826,21 @@ many tools will not be able to deal with content that is not in reading order</p
    </ul>
    <h3 class="heading settled" data-level="4.12" id="poly"><span class="secno">4.12. </span><span class="content">The <dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-poly">poly</dfn> property</span><a class="self-link" href="#poly"></a></h3>
    <dl class="def">
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-12">Name</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-12">Name</a>
     <dd data-md="">
      <p>poly</p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-12">Categories</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-12">Categories</a>
     <dd data-md="">
      <p><a data-link-type="dfn" href="#layout-properties" id="ref-for-layout-properties-3">Layout</a>, <a data-link-type="dfn" href="#non-recommended-properties" id="ref-for-non-recommended-properties-1">Non-recommended</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#conflicting-property" id="ref-for-conflicting-property-2">Conflicting</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#conflicting-property" id="ref-for-conflicting-property-2">Conflicting</a>
     <dd data-md="">
-     <p><a class="css" data-link-type="property" href="#propdef-bbox" id="ref-for-propdef-bbox-27">bbox</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-12">Grammar</a></p>
+     <p><a class="css" data-link-type="property" href="#propdef-bbox" id="ref-for-propdef-bbox-26">bbox</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-12">Grammar</a>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-14">property-name</a> = "poly"
 <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-14">property-value</a> = 2<a data-link-type="grammar" href="#grammardef-uint" id="ref-for-grammardef-uint-14">uint</a> 2<a data-link-type="grammar" href="#grammardef-int" id="ref-for-grammardef-int-2">int</a> *(2<a data-link-type="grammar" href="#grammardef-int" id="ref-for-grammardef-int-3">int</a>)
 </pre>
-    <dt data-md="">
-     <p>Example</p>
+    <dt data-md="">Example
     <dd data-md="">
 <pre class="highlight" style="display:block;padding: .5em"><span class="n">poly</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">10</span> <span class="mi">10</span> <span class="mi">10</span> <span class="mi">10</span> <span class="mi">20</span> <span class="mi">0</span> <span class="mi">20</span>
 </pre>
@@ -2935,30 +2858,25 @@ layouts is in terms of rectangular content areas and rectangular floats</p>
     <li data-md="">
      <p>documents using polygonal borders anywhere must indicate this by adding <a class="css" data-link-type="maybe" href="#valdef-ocr-capabilities-ocrp_poly" id="ref-for-valdef-ocr-capabilities-ocrp_poly-2">ocrp_poly</a> to the list of <a class="property" data-link-type="propdesc" href="#propdef-ocr-capabilities" id="ref-for-propdef-ocr-capabilities-1">ocr-capabilities</a> (see <a href="#capabilities">§6.2 Capabilities</a>)</p>
     <li data-md="">
-     <p>documents should attempt to provide a reasonable <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-28">bbox</a> equivalent as well</p>
+     <p>documents should attempt to provide a reasonable <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-27">bbox</a> equivalent as well</p>
    </ul>
    <h3 class="heading settled" data-level="4.13" id="scan_res"><span class="secno">4.13. </span><span class="content">The <dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-scan_res">scan_res</dfn> property</span><a class="self-link" href="#scan_res"></a></h3>
    <dl class="def">
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-13">Name</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-13">Name</a>
     <dd data-md="">
      <p>scan_res</p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-13">Categories</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-13">Categories</a>
     <dd data-md="">
      <p><a data-link-type="dfn" href="#page-properties" id="ref-for-page-properties-5">Page</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#related-property" id="ref-for-related-property-6">Related</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#related-property" id="ref-for-related-property-6">Related</a>
     <dd data-md="">
-     <p><a class="css" data-link-type="property" href="#propdef-x_scanner" id="ref-for-propdef-x_scanner-2">x_scanner</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-13">Grammar</a></p>
+     <p><a class="css" data-link-type="property" href="#propdef-x_scanner" id="ref-for-propdef-x_scanner-3">x_scanner</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-13">Grammar</a>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-15">property-name</a> = "scan_res"
 <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-15">property-value</a> = 2(<a data-link-type="grammar" href="#grammardef-uint" id="ref-for-grammardef-uint-15">uint</a>)
 </pre>
-    <dt data-md="">
-     <p>Example</p>
+    <dt data-md="">Example
     <dd data-md="">
 <pre class="highlight" style="display:block;padding: .5em"><span class="n">scan_res</span> <span class="mi">300</span> <span class="mi">300</span>
 </pre>
@@ -2966,22 +2884,18 @@ layouts is in terms of rectangular content areas and rectangular floats</p>
    <p>The scanning resolution in DPI</p>
    <h3 class="heading settled" data-level="4.14" id="textangle"><span class="secno">4.14. </span><span class="content">The <dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-textangle">textangle</dfn> property</span><a class="self-link" href="#textangle"></a></h3>
    <dl class="def">
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-14">Name</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-14">Name</a>
     <dd data-md="">
      <p>textangle</p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-14">Categories</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-14">Categories</a>
     <dd data-md="">
      <p><a data-link-type="dfn" href="#layout-properties" id="ref-for-layout-properties-4">Layout</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-14">Grammar</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-14">Grammar</a>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-16">property-name</a> = "textangle"
 <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-16">property-value</a> = <a data-link-type="grammar" href="#grammardef-float" id="ref-for-grammardef-float-3">float</a>
 </pre>
-    <dt data-md="">
-     <p>Example</p>
+    <dt data-md="">Example
     <dd data-md="">
 <pre class="highlight" style="display:block;padding: .5em"><span class="n">textangle</span> <span class="mf">7.32</span>
 </pre>
@@ -2993,26 +2907,21 @@ bottom to top in Latin script; note that this is different from reading order,
 which should be indicated using standard HTML properties</p>
    <h3 class="heading settled" data-level="4.15" id="x_bboxes"><span class="secno">4.15. </span><span class="content">The <dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-x_bboxes">x_bboxes</dfn> property</span><a class="self-link" href="#x_bboxes"></a></h3>
    <dl class="def">
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-15">Name</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-15">Name</a>
     <dd data-md="">
      <p>x_bboxes</p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-15">Categories</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-15">Categories</a>
     <dd data-md="">
      <p><a data-link-type="dfn" href="#inline-properties" id="ref-for-inline-properties-3">Inline</a>, <a data-link-type="dfn" href="#character-properties" id="ref-for-character-properties-3">Character</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#related-property" id="ref-for-related-property-7">Related</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#related-property" id="ref-for-related-property-7">Related</a>
     <dd data-md="">
      <p><a class="css" data-link-type="property" href="#propdef-cuts" id="ref-for-propdef-cuts-6">cuts</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-15">Grammar</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-15">Grammar</a>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-17">property-name</a> = "x_bboxes"
 <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-17">property-value</a> = 1*(4<a data-link-type="grammar" href="#grammardef-uint" id="ref-for-grammardef-uint-16">uint</a>)
 </pre>
-    <dt data-md="">
-     <p>Example</p>
+    <dt data-md="">Example
     <dd data-md="">
 <pre class="highlight" style="display:block;padding: .5em"><span class="n">x_bboxes</span> <span class="n">b1x0</span> <span class="n">b1y0</span> <span class="n">b1x1</span> <span class="n">b1y1</span> <span class="n">b2x0</span> <span class="n">b2y0</span> <span class="n">b2x1</span> <span class="n">b2y1</span> <span class="p">.</span><span class="p">.</span><span class="p">.</span>
 <span class="n">x_bboxes</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">10</span> <span class="mi">10</span> <span class="mi">0</span> <span class="mi">10</span> <span class="mi">20</span> <span class="mi">20</span>
@@ -3023,33 +2932,28 @@ which should be indicated using standard HTML properties</p>
      <p>OCR-engine specific boxes associated with each codepoint contained in the
 element</p>
     <li data-md="">
-     <p>note that the <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-29">bbox</a> property is a property for the bounding box of a layout
+     <p>note that the <a class="property" data-link-type="propdesc" href="#propdef-bbox" id="ref-for-propdef-bbox-28">bbox</a> property is a property for the bounding box of a layout
 element, not of individual characters</p>
     <li data-md="">
      <p>in particular, use <code>&lt;span class="ocr_cinfo" title="x_bboxes ...."></code>, not <code>&lt;span class="ocr_cinfo" title="bbox ..."></code></p>
    </ul>
    <h3 class="heading settled" data-level="4.16" id="x_font"><span class="secno">4.16. </span><span class="content">The <dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-x_font">x_font</dfn> property</span><a class="self-link" href="#x_font"></a></h3>
    <dl class="def">
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-16">Name</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-16">Name</a>
     <dd data-md="">
      <p>x_font</p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-16">Categories</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-16">Categories</a>
     <dd data-md="">
      <p><a data-link-type="dfn" href="#font-properties" id="ref-for-font-properties-1">Font</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#related-property" id="ref-for-related-property-8">Related</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#related-property" id="ref-for-related-property-8">Related</a>
     <dd data-md="">
      <p><a class="css" data-link-type="property" href="#propdef-x_fsize" id="ref-for-propdef-x_fsize-3">x_fsize</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-16">Grammar</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-16">Grammar</a>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-18">property-name</a> = "x_font"
 <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-18">property-value</a> = <a data-link-type="grammar" href="#grammardef-delimited-string" id="ref-for-grammardef-delimited-string-6">delimited-string</a>
 </pre>
-    <dt data-md="">
-     <p>Example</p>
+    <dt data-md="">Example
     <dd data-md="">
 <pre class="highlight" style="display:block;padding: .5em"><span class="n">x_font</span> <span class="s">"</span><span class="s">Comic Sans MS</span><span class="s">"</span>
 </pre>
@@ -3057,26 +2961,21 @@ element, not of individual characters</p>
    <p><a class="property" data-link-type="propdesc" href="#propdef-x_font" id="ref-for-propdef-x_font-3">x_font</a> is an OCR-engine specific font name (a string).</p>
    <h3 class="heading settled" data-level="4.17" id="x_fsize"><span class="secno">4.17. </span><span class="content">The <dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-x_fsize">x_fsize</dfn> property</span><a class="self-link" href="#x_fsize"></a></h3>
    <dl class="def">
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-17">Name</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-17">Name</a>
     <dd data-md="">
      <p>x_fsize</p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-17">Categories</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-17">Categories</a>
     <dd data-md="">
      <p><a data-link-type="dfn" href="#font-properties" id="ref-for-font-properties-2">Font</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#related-property" id="ref-for-related-property-9">Related</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#related-property" id="ref-for-related-property-9">Related</a>
     <dd data-md="">
      <p><a class="css" data-link-type="property" href="#propdef-x_font" id="ref-for-propdef-x_font-4">x_font</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-17">Grammar</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-17">Grammar</a>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-19">property-name</a> = "x_fsize"
 <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-19">property-value</a> = <a data-link-type="grammar" href="#grammardef-uint" id="ref-for-grammardef-uint-17">uint</a>
 </pre>
-    <dt data-md="">
-     <p>Example</p>
+    <dt data-md="">Example
     <dd data-md="">
 <pre class="highlight" style="display:block;padding: .5em"><span class="n">x_fsize</span> <span class="mi">12</span>
 </pre>
@@ -3084,22 +2983,18 @@ element, not of individual characters</p>
    <p><a class="property" data-link-type="propdesc" href="#propdef-x_fsize" id="ref-for-propdef-x_fsize-4">x_fsize</a> is the OCR-engine specific font size (an unsigned integer).</p>
    <h3 class="heading settled" data-level="4.18" id="x_confs"><span class="secno">4.18. </span><span class="content">The <dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-x_confs">x_confs</dfn> property</span><a class="self-link" href="#x_confs"></a></h3>
    <dl class="def">
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-18">Name</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-18">Name</a>
     <dd data-md="">
      <p>x_confs</p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-18">Categories</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-18">Categories</a>
     <dd data-md="">
      <p><a data-link-type="dfn" href="#confidence-properties" id="ref-for-confidence-properties-2">Confidence</a>, <a data-link-type="dfn" href="#character-properties" id="ref-for-character-properties-4">Character</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-18">Grammar</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-18">Grammar</a>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-20">property-name</a> = "x_confs"
 <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-20">property-value</a> = +<a data-link-type="grammar" href="#grammardef-float" id="ref-for-grammardef-float-4">float</a>
 </pre>
-    <dt data-md="">
-     <p>Example</p>
+    <dt data-md="">Example
     <dd data-md="">
 <pre class="highlight" style="display:block;padding: .5em"><span class="n">x_confs</span> <span class="mf">37.3</span> <span class="mf">51.23</span> <span class="mi">1</span> <span class="mi">100</span>
 </pre>
@@ -3117,26 +3012,21 @@ have them approximate posterior probabilities (expressed in %)</p>
    </ul>
    <h3 class="heading settled" data-level="4.19" id="x_scanner"><span class="secno">4.19. </span><span class="content">The <dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-x_scanner">x_scanner</dfn> property</span><a class="self-link" href="#x_scanner"></a></h3>
    <dl class="def">
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-19">Name</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-19">Name</a>
     <dd data-md="">
      <p>x_scanner</p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-19">Categories</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-19">Categories</a>
     <dd data-md="">
      <p><a data-link-type="dfn" href="#page-properties" id="ref-for-page-properties-6">Page</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#related-property" id="ref-for-related-property-10">Related</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#related-property" id="ref-for-related-property-10">Related</a>
     <dd data-md="">
-     <p><a class="css" data-link-type="property" href="#propdef-scan_res" id="ref-for-propdef-scan_res-2">scan_res</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-19">Grammar</a></p>
+     <p><a class="css" data-link-type="property" href="#propdef-scan_res" id="ref-for-propdef-scan_res-3">scan_res</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-19">Grammar</a>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-21">property-name</a> = "x_scanner"
 <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-21">property-value</a> = <a data-link-type="grammar" href="#grammardef-delimited-string" id="ref-for-grammardef-delimited-string-7">delimited-string</a>
 </pre>
-    <dt data-md="">
-     <p>Example</p>
+    <dt data-md="">Example
     <dd data-md="">
 <pre class="highlight" style="display:block;padding: .5em"><span class="n">scanner</span> <span class="s">"</span><span class="s">Canon Lide 220</span><span class="s">"</span>
 </pre>
@@ -3144,26 +3034,21 @@ have them approximate posterior probabilities (expressed in %)</p>
    <p>A representation of the scanner</p>
    <h3 class="heading settled" data-level="4.20" id="x_source"><span class="secno">4.20. </span><span class="content">The <dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-x_source">x_source</dfn> property</span><a class="self-link" href="#x_source"></a></h3>
    <dl class="def">
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-20">Name</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-20">Name</a>
     <dd data-md="">
      <p>x_source</p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-20">Categories</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-20">Categories</a>
     <dd data-md="">
      <p><a data-link-type="dfn" href="#page-properties" id="ref-for-page-properties-7">Page</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#related-property" id="ref-for-related-property-11">Related</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#related-property" id="ref-for-related-property-11">Related</a>
     <dd data-md="">
      <p><a class="css" data-link-type="property" href="#propdef-image" id="ref-for-propdef-image-4">image</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-20">Grammar</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-20">Grammar</a>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-22">property-name</a> = "x_source"
 <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-22">property-value</a> = 1*<a data-link-type="grammar" href="#grammardef-delimited-string" id="ref-for-grammardef-delimited-string-8">delimited-string</a>
 </pre>
-    <dt data-md="">
-     <p>Example</p>
+    <dt data-md="">Example
     <dd data-md="">
 <pre class="highlight" style="display:block;padding: .5em"><span class="n">x_source</span> <span class="s">"</span><span class="s">/gfs/cc/clean/012345678911</span><span class="s">"</span> <span class="s">"</span><span class="s">17</span><span class="s">"</span>
 <span class="n">x_source</span> <span class="s">"</span><span class="s">http://pageserver/012345678911&amp;page=17</span><span class="s">"</span>
@@ -3180,22 +3065,18 @@ additional strings or using URL parameters or fragments</p>
    </ul>
    <h3 class="heading settled" data-level="4.21" id="x_wconf"><span class="secno">4.21. </span><span class="content">The <dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-x_wconf">x_wconf</dfn> property</span><a class="self-link" href="#x_wconf"></a></h3>
    <dl class="def">
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-21">Name</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-name" id="ref-for-property-name-21">Name</a>
     <dd data-md="">
      <p>x_wconf</p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-21">Categories</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-categories" id="ref-for-property-categories-21">Categories</a>
     <dd data-md="">
      <p><a data-link-type="dfn" href="#confidence-properties" id="ref-for-confidence-properties-3">Confidence</a>, <a data-link-type="dfn" href="#inline-properties" id="ref-for-inline-properties-4">Inline</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-21">Grammar</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#property-grammar" id="ref-for-property-grammar-21">Grammar</a>
     <dd data-md="">
 <pre class="highlight"><a data-link-type="grammar" href="#grammardef-property-name" id="ref-for-grammardef-property-name-23">property-name</a> = "x_wconf"
 <a data-link-type="grammar" href="#grammardef-property-value" id="ref-for-grammardef-property-value-23">property-value</a> = <a data-link-type="grammar" href="#grammardef-float" id="ref-for-grammardef-float-5">float</a>
 </pre>
-    <dt data-md="">
-     <p>Example</p>
+    <dt data-md="">Example
     <dd data-md="">
 <pre class="highlight" style="display:block;padding: .5em"><span class="n">x_wconf</span> <span class="mf">97.23</span>
 </pre>
@@ -3222,7 +3103,7 @@ might have entered into a WYSIWYG content creation tool</p>
      <p>text should be in reading order</p>
     <li data-md="">
      <p>all tags should be used for the intended purpose (and only for the intended
-purpose) as defined in the <a data-link-type="biblio" href="#biblio-html40">[HTML40]</a> spec.</p>
+purpose) as defined in the <a data-link-type="biblio" href="#biblio-html401">[HTML401]</a> spec.</p>
     <li data-md="">
      <p>floats are contained in <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-div-element">div</a></code> elements with a <code>style</code> that includes a float attribute</p>
     <li data-md="">
@@ -3338,32 +3219,27 @@ correctly process the hOCR information.</p>
    <p>The creator of the hOCR document can indicate the following information
 information using <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#meta">meta</a></code> tags in the <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/semantics.html#the-head-element">head</a></code> section.</p>
    <dl>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-ocr-system">ocr-system</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-ocr-system">ocr-system</dfn>
     <dd data-md="">
      <p>Indicates software and version that generated the hOCR document</p>
     <dd data-md="">
      <p>Every hOCR document <em>must</em> have exactly one <a class="property" data-link-type="propdesc" href="#propdef-ocr-system" id="ref-for-propdef-ocr-system-1">ocr-system</a> metadata field</p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-ocr-capabilities">ocr-capabilities</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-ocr-capabilities">ocr-capabilities</dfn>
     <dd data-md="">
      <p>Features consumers of the hOCR document can expect</p>
     <dd data-md="">
      <p>See <a href="#capabilities">§6.2 Capabilities</a> for possible values</p>
     <dd data-md="">
      <p>Every hOCR document <em>must</em> have exactly one <a class="property" data-link-type="propdesc" href="#propdef-ocr-capabilities" id="ref-for-propdef-ocr-capabilities-2">ocr-capabilities</a> metadata field</p>
-    <dt data-md="">
-     <p><dfn class="css" data-dfn-type="property" data-export="" id="propdef-ocr-number-of-pages">ocr-number-of-pages<a class="self-link" href="#propdef-ocr-number-of-pages"></a></dfn></p>
+    <dt data-md=""><dfn class="css" data-dfn-type="property" data-export="" id="propdef-ocr-number-of-pages">ocr-number-of-pages<a class="self-link" href="#propdef-ocr-number-of-pages"></a></dfn>
     <dd data-md="">
      <p>The number of <code><a data-link-type="element" href="#elementdef-ocr_page" id="ref-for-elementdef-ocr_page-6">ocr_page</a></code> in the document</p>
-    <dt data-md="">
-     <p><dfn class="css" data-dfn-type="property" data-export="" id="propdef-ocr-langs">ocr-langs<a class="self-link" href="#propdef-ocr-langs"></a></dfn></p>
+    <dt data-md=""><dfn class="css" data-dfn-type="property" data-export="" id="propdef-ocr-langs">ocr-langs<a class="self-link" href="#propdef-ocr-langs"></a></dfn>
     <dd data-md="">
      <p>Use <a href="https://www.loc.gov/standards/iso639-2/php/code_list.php">ISO 639-1</a> codes</p>
     <dd data-md="">
      <p>Value may be <code>unknown</code></p>
-    <dt data-md="">
-     <p><dfn class="css" data-dfn-type="property" data-export="" id="propdef-ocr-scripts">ocr-scripts<a class="self-link" href="#propdef-ocr-scripts"></a></dfn></p>
+    <dt data-md=""><dfn class="css" data-dfn-type="property" data-export="" id="propdef-ocr-scripts">ocr-scripts<a class="self-link" href="#propdef-ocr-scripts"></a></dfn>
     <dd data-md="">
      <p>Use <a href="http://www.unicode.org/iso15924/codelists.html">ISO 15924</a> letter codes</p>
     <dd data-md="">
@@ -3386,33 +3262,26 @@ corresponding element or attribute must not be present in the document.</p>
    <p>The capability to generate specific properties is given by the prefix <code>ocrp_...</code>;
 the important properties are:</p>
    <dl>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled css" data-dfn-for="ocr-capabilities" data-dfn-type="value" data-export="" id="valdef-ocr-capabilities-ocrp_lang">ocrp_lang</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled css" data-dfn-for="ocr-capabilities" data-dfn-type="value" data-export="" id="valdef-ocr-capabilities-ocrp_lang">ocrp_lang</dfn>
     <dd data-md="">
      <p>Capable of generating <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/dom.html#attr-lang">lang</a></code> attributes</p>
-    <dt data-md="">
-     <p><dfn class="css" data-dfn-for="ocr-capabilities" data-dfn-type="value" data-export="" id="valdef-ocr-capabilities-ocrp_dir">ocrp_dir<a class="self-link" href="#valdef-ocr-capabilities-ocrp_dir"></a></dfn></p>
+    <dt data-md=""><dfn class="css" data-dfn-for="ocr-capabilities" data-dfn-type="value" data-export="" id="valdef-ocr-capabilities-ocrp_dir">ocrp_dir<a class="self-link" href="#valdef-ocr-capabilities-ocrp_dir"></a></dfn>
     <dd data-md="">
      <p>Capable of generating <code><a data-link-type="element-sub" href="https://html.spec.whatwg.org/multipage/dom.html#the-dir-attribute">dir</a></code> attributes</p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled css" data-dfn-for="ocr-capabilities" data-dfn-type="value" data-export="" id="valdef-ocr-capabilities-ocrp_poly">ocrp_poly</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled css" data-dfn-for="ocr-capabilities" data-dfn-type="value" data-export="" id="valdef-ocr-capabilities-ocrp_poly">ocrp_poly</dfn>
     <dd data-md="">
      <p>Capable of generating <a href="#poly">polygonal bounds</a></p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled css" data-dfn-for="ocr-capabilities" data-dfn-type="value" data-export="" id="valdef-ocr-capabilities-ocrp_font">ocrp_font</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled css" data-dfn-for="ocr-capabilities" data-dfn-type="value" data-export="" id="valdef-ocr-capabilities-ocrp_font">ocrp_font</dfn>
     <dd data-md="">
      <p>Capable of generating font information (standard font information)</p>
-    <dt data-md="">
-     <p><dfn class="css" data-dfn-for="ocr-capabilities" data-dfn-type="value" data-export="" id="valdef-ocr-capabilities-ocrp_nlp">ocrp_nlp<a class="self-link" href="#valdef-ocr-capabilities-ocrp_nlp"></a></dfn></p>
+    <dt data-md=""><dfn class="css" data-dfn-for="ocr-capabilities" data-dfn-type="value" data-export="" id="valdef-ocr-capabilities-ocrp_nlp">ocrp_nlp<a class="self-link" href="#valdef-ocr-capabilities-ocrp_nlp"></a></dfn>
     <dd data-md="">
      <p>Capable of generating <a class="property" data-link-type="propdesc" href="#propdef-nlp" id="ref-for-propdef-nlp-4">nlp confidences</a></p>
-    <dt data-md="">
-     <p><code>ocr_embeddedformat_&lt;formatname></code></p>
+    <dt data-md=""><code>ocr_embeddedformat_&lt;formatname></code>
     <dd data-md="">
      <p>The capability to generate other specific embedded formats is given by the
 prefix <code>ocr_embeddedformat_&lt;formatname></code>.</p>
-    <dt data-md="">
-     <p><code>ocr_&lt;tag>_unordered</code></p>
+    <dt data-md=""><code>ocr_&lt;tag>_unordered</code>
     <dd data-md="">
      <p>If an OCR engine represents a particular tag but cannot determine reading
 order for that tag, it must must specify a capability of <code>ocr_&lt;tag>_unordered</code>.</p>
@@ -3492,24 +3361,19 @@ modifications.</p>
 suitable for different kinds of processing and use. The formats have the
 following intents:</p>
    <dl>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#html_none" id="ref-for-html_none-1">html_none</a> (see <a href="#format-none">§6.4.1 HTML without logical markup</a>)</p>
+    <dt data-md=""><a data-link-type="dfn" href="#html_none" id="ref-for-html_none-1">html_none</a> (see <a href="#format-none">§6.4.1 HTML without logical markup</a>)
     <dd data-md="">
      <p>Straightforward equivalent of Goodoc or <a data-link-type="biblio" href="#biblio-xdoc">[XDOC]</a></p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#html_simple" id="ref-for-html_simple-1">html_simple</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#html_simple" id="ref-for-html_simple-1">html_simple</a>
     <dd data-md="">
      <p>Target format for convenient on-line viewing and intermediate format for indexing</p>
-    <dt data-md="">
-     <p><a data-link-type="dfn" href="#html_xytable_absolute" id="ref-for-html_xytable_absolute-1">html_xytable_absolute</a>, <a data-link-type="dfn" href="#html_xytable_relative" id="ref-for-html_xytable_relative-1">html_xytable_relative</a></p>
+    <dt data-md=""><a data-link-type="dfn" href="#html_xytable_absolute" id="ref-for-html_xytable_absolute-1">html_xytable_absolute</a>, <a data-link-type="dfn" href="#html_xytable_relative" id="ref-for-html_xytable_relative-1">html_xytable_relative</a>
     <dd data-md="">
      <p>Target format for layout-preserving on-screen document viewing</p>
-    <dt data-md="">
-     <p>Formats defined in <a href="#format-ocr">§6.4.3 HTML produced by OCR engines</a></p>
+    <dt data-md="">Formats defined in <a href="#format-ocr">§6.4.3 HTML produced by OCR engines</a>
     <dd data-md="">
      <p>Straightforward recording of commercial OCR system output</p>
-    <dt data-md="">
-     <p>Formats defined in <a href="#format-absolute">§6.4.4 HTML with absolute positioning</a></p>
+    <dt data-md="">Formats defined in <a href="#format-absolute">§6.4.4 HTML with absolute positioning</a>
     <dd data-md="">
      <p>Target format for services like Google’s View as HTML</p>
    </dl>
@@ -3556,42 +3420,33 @@ recommendations above, and only uses the following tags:</p>
 must follow the template <code>html_ocr_&lt;engine></code>.</p>
    <p>Examples of possible values are:</p>
    <dl>
-    <dt data-md="">
-     <p><dfn data-dfn-type="dfn" data-noexport="" id="html_ocr_unknown">html_ocr_unknown<a class="self-link" href="#html_ocr_unknown"></a></dfn></p>
+    <dt data-md=""><dfn data-dfn-type="dfn" data-noexport="" id="html_ocr_unknown">html_ocr_unknown<a class="self-link" href="#html_ocr_unknown"></a></dfn>
     <dd data-md="">
      <p>The HTML was generated by some OCR engine, but it’s unknown which one</p>
-    <dt data-md="">
-     <p><dfn data-dfn-type="dfn" data-noexport="" id="html_ocr_finereader_8">html_ocr_finereader_8<a class="self-link" href="#html_ocr_finereader_8"></a></dfn></p>
-    <dt data-md="">
-     <p><dfn data-dfn-type="dfn" data-noexport="" id="html_ocr_textbridge_11">html_ocr_textbridge_11<a class="self-link" href="#html_ocr_textbridge_11"></a></dfn></p>
+    <dt data-md=""><dfn data-dfn-type="dfn" data-noexport="" id="html_ocr_finereader_8">html_ocr_finereader_8<a class="self-link" href="#html_ocr_finereader_8"></a></dfn>
+    <dt data-md=""><dfn data-dfn-type="dfn" data-noexport="" id="html_ocr_textbridge_11">html_ocr_textbridge_11<a class="self-link" href="#html_ocr_textbridge_11"></a></dfn>
    </dl>
    <h4 class="heading settled" data-level="6.4.4" id="format-absolute"><span class="secno">6.4.4. </span><span class="content">HTML with absolute positioning</span><a class="self-link" href="#format-absolute"></a></h4>
    <dl>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="html_absolute">html_absolute</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="html_absolute">html_absolute</dfn>
     <dd data-md="">
      <p>The HTML represents absolute positioning of elements on each page.</p>
    </dl>
    <p>Possible subformats are:</p>
    <dl>
-    <dt data-md="">
-     <p><dfn data-dfn-type="dfn" data-noexport="" id="html_absolute_cols">html_absolute_cols<a class="self-link" href="#html_absolute_cols"></a></dfn></p>
+    <dt data-md=""><dfn data-dfn-type="dfn" data-noexport="" id="html_absolute_cols">html_absolute_cols<a class="self-link" href="#html_absolute_cols"></a></dfn>
     <dd data-md="">
      <p>absolute positioning of cols</p>
-    <dt data-md="">
-     <p><dfn data-dfn-type="dfn" data-noexport="" id="html_absolute_pars">html_absolute_pars<a class="self-link" href="#html_absolute_pars"></a></dfn></p>
+    <dt data-md=""><dfn data-dfn-type="dfn" data-noexport="" id="html_absolute_pars">html_absolute_pars<a class="self-link" href="#html_absolute_pars"></a></dfn>
     <dd data-md="">
      <p>absolute positioning of paragraphs</p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="html_absolute_lines">html_absolute_lines</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="html_absolute_lines">html_absolute_lines</dfn>
     <dd data-md="">
      <p>absolute positioning of lines</p>
-    <dt data-md="">
-     <p><dfn data-dfn-type="dfn" data-noexport="" id="html_absolute_words">html_absolute_words<a class="self-link" href="#html_absolute_words"></a></dfn></p>
+    <dt data-md=""><dfn data-dfn-type="dfn" data-noexport="" id="html_absolute_words">html_absolute_words<a class="self-link" href="#html_absolute_words"></a></dfn>
     <dd data-md="">
      <p>absolute positioning of words</p>
-    <dt data-md="">
-     <p><dfn data-dfn-type="dfn" data-noexport="" id="html_absolute_chars">html_absolute_chars<a class="self-link" href="#html_absolute_chars"></a></dfn></p>
+    <dt data-md=""><dfn data-dfn-type="dfn" data-noexport="" id="html_absolute_chars">html_absolute_chars<a class="self-link" href="#html_absolute_chars"></a></dfn>
     <dd data-md="">
      <p>absolute positioning of characters</p>
    </dl>
@@ -3600,8 +3455,7 @@ files</a> feature of Google Search uses <a data-link-type="dfn" href="#html_abso
 reasonable choice for approximating the appearance of the original document.</p>
    <h4 class="heading settled" data-level="6.4.5" id="format-table"><span class="secno">6.4.5. </span><span class="content">HTML as table</span><a class="self-link" href="#format-table"></a></h4>
    <dl>
-    <dt data-md="">
-     <p><dfn data-dfn-type="dfn" data-noexport="" id="html_xytable">html_xytable<a class="self-link" href="#html_xytable"></a></dfn></p>
+    <dt data-md=""><dfn data-dfn-type="dfn" data-noexport="" id="html_xytable">html_xytable<a class="self-link" href="#html_xytable"></a></dfn>
     <dd data-md="">
      <p>The HTML is a table that gives the XY-cut layout segmentation structure of
 the page in tabular form.</p>
@@ -3613,12 +3467,10 @@ reading order.</p>
    </dl>
    <p>Possible subformats are:</p>
    <dl>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="html_xytable_absolute">html_xytable_absolute</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="html_xytable_absolute">html_xytable_absolute</dfn>
     <dd data-md="">
      <p>The <code><a data-link-type="element" href="https://html.spec.whatwg.org/multipage/tables.html#the-table-element">table</a></code> structure must represent the absolute size of the original page element.</p>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="html_xytable_relative">html_xytable_relative</dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="html_xytable_relative">html_xytable_relative</dfn>
     <dd data-md="">
      <p>Table element sizes are expressed relative (percentages).</p>
    </dl>
@@ -3632,18 +3484,14 @@ say, a scanned and ocr’ed article uses the same conventions for logical markup
 tags that an equivalent article actually written in LaTeX and actually
 converted to HTML would have used.</p>
    <dl>
-    <dt data-md="">
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="html_latex2html">html_latex2html</dfn></p>
-    <dt data-md="">
-     <p><dfn data-dfn-type="dfn" data-noexport="" id="html_msword">html_msword<a class="self-link" href="#html_msword"></a></dfn></p>
+    <dt data-md=""><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="html_latex2html">html_latex2html</dfn>
+    <dt data-md=""><dfn data-dfn-type="dfn" data-noexport="" id="html_msword">html_msword<a class="self-link" href="#html_msword"></a></dfn>
     <dd data-md="">
      <p>HTML mapping generated by “Save As HTML”</p>
-    <dt data-md="">
-     <p><dfn data-dfn-type="dfn" data-noexport="" id="html_ooffice">html_ooffice<a class="self-link" href="#html_ooffice"></a></dfn></p>
+    <dt data-md=""><dfn data-dfn-type="dfn" data-noexport="" id="html_ooffice">html_ooffice<a class="self-link" href="#html_ooffice"></a></dfn>
     <dd data-md="">
      <p>HTML mapping generated by “Save As HTML”</p>
-    <dt data-md="">
-     <p><dfn data-dfn-type="dfn" data-noexport="" id="html_docbook_xsl">html_docbook_xsl<a class="self-link" href="#html_docbook_xsl"></a></dfn></p>
+    <dt data-md=""><dfn data-dfn-type="dfn" data-noexport="" id="html_docbook_xsl">html_docbook_xsl<a class="self-link" href="#html_docbook_xsl"></a></dfn>
     <dd data-md="">
      <p>HTML mapping generated by official XSL style sheets</p>
    </dl>
@@ -3701,7 +3549,7 @@ they’re actually pretty easy to manipulate. Here are some examples:</p>
 <span class="k">def</span> <span class="nf">get_text</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="p">:</span>
     <span class="n">textnodes</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">xpathEval</span><span class="p">(</span><span class="s2">"</span><span class="s2">.//text()</span><span class="s2">"</span><span class="p">)</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">getContent</span><span class="p">(</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">textnodes</span><span class="p">]</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">r'</span><span class="s1">\</span><span class="s1">s+</span><span class="s1">'</span><span class="p">,</span><span class="s1">'</span><span class="s1"> </span><span class="s1">'</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>r<span class="s1">'</span><span class="s1">\</span><span class="s1">s+</span><span class="s1">'</span><span class="p">,</span><span class="s1">'</span><span class="s1"> </span><span class="s1">'</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
 
 <span class="c1"># a function for extracting the bbox property from a node</span>
 <span class="c1"># note that the title= attribute on a node with an ocr_ class must</span>
@@ -3709,7 +3557,7 @@ they’re actually pretty easy to manipulate. Here are some examples:</p>
 
 <span class="k">def</span> <span class="nf">get_bbox</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">prop</span><span class="p">(</span><span class="s1">'</span><span class="s1">title</span><span class="s1">'</span><span class="p">)</span>
-    <span class="n">bboxre</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">r'</span><span class="s1">\</span><span class="s1">bbbox</span><span class="s1">\</span><span class="s1">s+(</span><span class="s1">\</span><span class="s1">d+)</span><span class="s1">\</span><span class="s1">s+(</span><span class="s1">\</span><span class="s1">d+)</span><span class="s1">\</span><span class="s1">s+(</span><span class="s1">\</span><span class="s1">d+)</span><span class="s1">\</span><span class="s1">s+(</span><span class="s1">\</span><span class="s1">d+)</span><span class="s1">'</span><span class="p">)</span>
+    <span class="n">bboxre</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>r<span class="s1">'</span><span class="s1">\</span><span class="s1">bbbox</span><span class="s1">\</span><span class="s1">s+(</span><span class="s1">\</span><span class="s1">d+)</span><span class="s1">\</span><span class="s1">s+(</span><span class="s1">\</span><span class="s1">d+)</span><span class="s1">\</span><span class="s1">s+(</span><span class="s1">\</span><span class="s1">d+)</span><span class="s1">\</span><span class="s1">s+(</span><span class="s1">\</span><span class="s1">d+)</span><span class="s1">'</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">[</span>int<span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">bboxre</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span><span class="p">(</span><span class="p">)</span><span class="p">]</span>
 
 <span class="c1"># this extracts all the bounding boxes and the text they contain</span>
@@ -3723,33 +3571,24 @@ within the same HTML file without interfering with one another.</p>
    <p class="issue" id="issue-f6d39356"><a class="self-link" href="#issue-f6d39356"></a> <a href="https://github.com/kba/hocr-spec/issues/2">XML namespace for hOCR HTML?</a></p>
    <p class="issue" id="issue-a3899b99"><a class="self-link" href="#issue-a3899b99"></a> <a href="https://github.com/kba/hocr-spec/issues/1">What DOCTYPE for hOCR HTML?</a></p>
    <h3 class="heading settled" id="media-type"><span class="content">Media Type</span><a class="self-link" href="#media-type"></a></h3>
-   <p>In accordance to <a data-link-type="biblio" href="#biblio-rfc2048">[RFC2048]</a></p>
+   <p>In accordance to <a data-link-type="biblio" href="#biblio-rfc4289">[RFC4289]</a></p>
    <p class="issue" id="issue-19855aac"><a class="self-link" href="#issue-19855aac"></a> <a href="https://github.com/kba/hocr-spec/issues/27">correct MIME type for hOCR?</a></p>
    <dl>
-    <dt data-md="">
-     <p>MIME media type name</p>
+    <dt data-md="">MIME media type name
     <dd data-md="">
      <p><code>text</code></p>
-    <dt data-md="">
-     <p>MIME subtype name:</p>
+    <dt data-md="">MIME subtype name:
     <dd data-md="">
      <p><code>vnd.hocr+html</code></p>
-    <dt data-md="">
-     <p>Required parameters:</p>
-    <dt data-md="">
-     <p>Optional parameters:</p>
-    <dt data-md="">
-     <p>Encoding considerations:</p>
+    <dt data-md="">Required parameters:
+    <dt data-md="">Optional parameters:
+    <dt data-md="">Encoding considerations:
     <dd data-md="">
      <p>hOCR documents should be encoded as UTF-8</p>
-    <dt data-md="">
-     <p>Security considerations:</p>
-    <dt data-md="">
-     <p>Interoperability considerations:</p>
-    <dt data-md="">
-     <p>Applications which use this media type:</p>
-    <dt data-md="">
-     <p>File extension(s):</p>
+    <dt data-md="">Security considerations:
+    <dt data-md="">Interoperability considerations:
+    <dt data-md="">Applications which use this media type:
+    <dt data-md="">File extension(s):
     <dd data-md="">
      <p><code>*.html</code>, <code>*.hocr</code></p>
 <script>
@@ -3773,7 +3612,7 @@ for (var span of document.querySelectorAll(".toc span:not([class])")) {
             except sections explicitly marked as non-normative, examples, and notes. <a data-link-type="biblio" href="#biblio-rfc2119">[RFC2119]</a> </p>
    <p> Examples in this specification are introduced with the words “for example”
             or are set apart from the normative text with <code>class="example"</code>, like this: </p>
-   <div class="example" id="example-ae2b6bc0"><a class="self-link" href="#example-ae2b6bc0"></a> This is an example of an informative example. </div>
+   <div class="example" id="example-example"><a class="self-link" href="#example-example"></a> This is an example of an informative example. </div>
    <p> Informative notes begin with the word “Note”
             and are set apart from the normative text with <code>class="note"</code>, like this: </p>
    <p class="note" role="note"> Note, this is an informative note. </p>
@@ -4097,7 +3936,7 @@ for (var span of document.querySelectorAll(".toc span:not([class])")) {
      <li><a href="https://html.spec.whatwg.org/multipage/semantics.html#the-wbr-element">wbr</a>
     </ul>
    <li>
-    <a data-link-type="biblio">[HTML40]</a> defines the following terms:
+    <a data-link-type="biblio">[HTML401]</a> defines the following terms:
     <ul>
      <li><a href="https://www.w3.org/TR/html401/present/graphics.html#edef-FONT">font</a>
      <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nobr#nobr">nobr</a>
@@ -4107,9 +3946,9 @@ for (var span of document.querySelectorAll(".toc span:not([class])")) {
   <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
   <dl>
    <dt id="biblio-html">[HTML]
-   <dd>Ian Hickson. <a href="https://html.spec.whatwg.org/multipage/">HTML Standard</a>. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
-   <dt id="biblio-html40">[HTML40]
-   <dd>Dave Raggett; Arnaud Le Hors; Ian Jacobs. <a href="https://www.w3.org/TR/html40">HTML 4.0 Recommendation</a>. 24 April 1998. REC. URL: <a href="https://www.w3.org/TR/html40">https://www.w3.org/TR/html40</a>
+   <dd>Anne van Kesteren; et al. <a href="https://html.spec.whatwg.org/multipage/">HTML Standard</a>. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
+   <dt id="biblio-html401">[HTML401]
+   <dd>Dave Raggett; Arnaud Le Hors; Ian Jacobs. <a href="https://www.w3.org/TR/html401">HTML 4.01 Specification</a>. 24 December 1999. REC. URL: <a href="https://www.w3.org/TR/html401">https://www.w3.org/TR/html401</a>
    <dt id="biblio-rfc2119">[RFC2119]
    <dd>S. Bradner. <a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
   </dl>
@@ -4121,8 +3960,8 @@ for (var span of document.querySelectorAll(".toc span:not([class])")) {
    <dd><cite>Code for the representation of names of scripts.</cite> International Organization for Standardization. 1998. ISO 15924:1998. Draft International Standard
    <dt id="biblio-mathml">[MathML]
    <dd>Patrick D F Ion; Robert R Miner. <a href="https://www.w3.org/TR/MathML/">Mathematical Markup Language (MathML) 1.01 Specification</a>. 7 July 1999. REC. URL: <a href="https://www.w3.org/TR/MathML/">https://www.w3.org/TR/MathML/</a>
-   <dt id="biblio-rfc2048">[RFC2048]
-   <dd>N. Freed; J. Klensin; J. Postel. <a href="https://tools.ietf.org/html/rfc2048">Multipurpose Internet Mail Extensions (MIME) Part Four: Registration Procedures</a>. November 1996. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2048">https://tools.ietf.org/html/rfc2048</a>
+   <dt id="biblio-rfc4289">[RFC4289]
+   <dd>N. Freed; J. Klensin. <a href="https://tools.ietf.org/html/rfc4289">Multipurpose Internet Mail Extensions (MIME) Part Four: Registration Procedures</a>. December 2005. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc4289">https://tools.ietf.org/html/rfc4289</a>
    <dt id="biblio-rfc5234">[RFC5234]
    <dd>D. Crocker, Ed.; P. Overell. <a href="https://tools.ietf.org/html/rfc5234">Augmented BNF for Syntax Specifications: ABNF</a>. January 2008. Internet Standard. URL: <a href="https://tools.ietf.org/html/rfc5234">https://tools.ietf.org/html/rfc5234</a>
    <dt id="biblio-xdoc">[XDOC]
@@ -5009,10 +4848,10 @@ properties for floating elements; properties need to be defined for this.<a href
     <li><a href="#ref-for-propdef-bbox-17">3.3.5. ocr_display, ocr_blockquote and ocr_par</a>
     <li><a href="#ref-for-propdef-bbox-18">3.4.3. Mathematical and chemical formulas: ocr_math and ocr_chem</a> <a href="#ref-for-propdef-bbox-19">(2)</a>
     <li><a href="#ref-for-propdef-bbox-20">4.1. The baseline property</a>
-    <li><a href="#ref-for-propdef-bbox-21">4.2. The bbox property</a> <a href="#ref-for-propdef-bbox-22">(2)</a> <a href="#ref-for-propdef-bbox-23">(3)</a> <a href="#ref-for-propdef-bbox-24">(4)</a>
-    <li><a href="#ref-for-propdef-bbox-25">4.4. The cuts property</a> <a href="#ref-for-propdef-bbox-26">(2)</a>
-    <li><a href="#ref-for-propdef-bbox-27">4.12. The poly property</a> <a href="#ref-for-propdef-bbox-28">(2)</a>
-    <li><a href="#ref-for-propdef-bbox-29">4.15. The x_bboxes property</a>
+    <li><a href="#ref-for-propdef-bbox-21">4.2. The bbox property</a> <a href="#ref-for-propdef-bbox-22">(2)</a> <a href="#ref-for-propdef-bbox-23">(3)</a>
+    <li><a href="#ref-for-propdef-bbox-24">4.4. The cuts property</a> <a href="#ref-for-propdef-bbox-25">(2)</a>
+    <li><a href="#ref-for-propdef-bbox-26">4.12. The poly property</a> <a href="#ref-for-propdef-bbox-27">(2)</a>
+    <li><a href="#ref-for-propdef-bbox-28">4.15. The x_bboxes property</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="propdef-cflow">
@@ -5059,14 +4898,16 @@ properties for floating elements; properties need to be defined for this.<a href
    <b><a href="#propdef-lpageno">#propdef-lpageno</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-propdef-lpageno-1">2.4. Properties Grammar</a>
-    <li><a href="#ref-for-propdef-lpageno-2">4.9. The ppageno property</a>
+    <li><a href="#ref-for-propdef-lpageno-2">3.1.1. ocr_page</a>
+    <li><a href="#ref-for-propdef-lpageno-3">4.9. The ppageno property</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="propdef-ppageno">
    <b><a href="#propdef-ppageno">#propdef-ppageno</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-propdef-ppageno-1">2.4. Properties Grammar</a>
-    <li><a href="#ref-for-propdef-ppageno-2">4.8. The lpageno property</a>
+    <li><a href="#ref-for-propdef-ppageno-2">3.1.1. ocr_page</a>
+    <li><a href="#ref-for-propdef-ppageno-3">4.8. The lpageno property</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="propdef-nlp">
@@ -5088,13 +4929,15 @@ properties for floating elements; properties need to be defined for this.<a href
    <b><a href="#propdef-poly">#propdef-poly</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-propdef-poly-1">2.4. Properties Grammar</a>
+    <li><a href="#ref-for-propdef-poly-2">4.2. The bbox property</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="propdef-scan_res">
    <b><a href="#propdef-scan_res">#propdef-scan_res</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-propdef-scan_res-1">2.4. Properties Grammar</a>
-    <li><a href="#ref-for-propdef-scan_res-2">4.19. The x_scanner property</a>
+    <li><a href="#ref-for-propdef-scan_res-2">3.1.1. ocr_page</a>
+    <li><a href="#ref-for-propdef-scan_res-3">4.19. The x_scanner property</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="propdef-textangle">
@@ -5143,7 +4986,8 @@ properties for floating elements; properties need to be defined for this.<a href
    <b><a href="#propdef-x_scanner">#propdef-x_scanner</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-propdef-x_scanner-1">2.4. Properties Grammar</a>
-    <li><a href="#ref-for-propdef-x_scanner-2">4.13. The scan_res property</a>
+    <li><a href="#ref-for-propdef-x_scanner-2">3.1.1. ocr_page</a>
+    <li><a href="#ref-for-propdef-x_scanner-3">4.13. The scan_res property</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="propdef-x_source">
