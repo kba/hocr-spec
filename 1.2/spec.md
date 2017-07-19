@@ -486,9 +486,9 @@ Mathematical and chemical formulas that float must be put into an <{ocr_float}>
 section. Formulas that are “display” mode should be put into
 an <{ocr_display}> section. <{ocr_math}> and <{ocr_chem}>
 
-<{ocr_math}> must either be or contain either a single <{img}> tag or [[CML]] markup
+<{ocr_math}> must either be or contain either a single <{img}> tag or [[MathML]] markup
 
-<{ocr_chem}> must either be or contain either a single <{img}> tag or [[MathML]] markup
+<{ocr_chem}> must either be or contain either a single <{img}> tag or [[CML]] markup
 
 ### Unspecified inline content: <dfn element>ocr_cinfo</dfn> ### {#sec-ocr_cinfo}
 
