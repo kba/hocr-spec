@@ -528,11 +528,26 @@ Generators should attempt to ensure the following properties:
 
 <pre class="include">path: 1.2/include/defs/ocrx_line</pre>
 
-Issue: [ocr_line vs ocrx_line](https://github.com/kba/hocr-spec/issues/19)
-
   * any kind of "line" returned by an OCR system that differs from the standard <{ocr_line}> above
   * might be some kind of "logical" line
   * an <{ocrx_line}> should correspond as closely as possible to an <{ocr_line}>
+
+<div class="note">
+
+<{ocrx_line}> is engine-specific line markup. It exists for those cases where
+your OCR engine outputs text lines that don't correspond to "normal" text lines.
+
+The most common case is if you apply an engine that is not capable of column
+segmentation to a multi-column document and you want to prevent subsequent
+processing stages from assuming that the text lines it gets contain text in
+reading order.
+
+Basically, if you use <{ocrx_line}> instead of <{ocr_line}>, you're
+(intentionally) breaking most subsequent processing, since most OCR output
+processing will look for <{ocr_line}> tags (and assume they are in reading
+order).
+
+</div>
 
 ### <dfn element>ocrx_word</dfn> ### {#sec-ocrx_word}
 
