@@ -235,13 +235,13 @@ preferred directions.
 
 ### <dfn element>ocr_page</dfn> ### {#sec-ocr_page}
 
-<pre class="include">path: 1.2/include/defs/ocr_page</pre>
+<pre class="include">path: include/defs/ocr_page</pre>
 
 The <{ocr_page}> element must be present in all hOCR documents.
 
 ### <dfn element>ocr_column</dfn> ### {#sec-ocr_column}
 
-<pre class="include">path: 1.2/include/defs/ocr_column</pre>
+<pre class="include">path: include/defs/ocr_column</pre>
 
 <div class="annoying-warning">
 **OBSOLETE**
@@ -251,7 +251,7 @@ Please use <{ocr_carea}> instead
 
 ### <dfn element>ocr_carea</dfn> ### {#sec-ocr_carea}
 
-<pre class="include">path: 1.2/include/defs/ocr_carea</pre>
+<pre class="include">path: include/defs/ocr_carea</pre>
 
 "ocr content area" or "body area"
 
@@ -277,7 +277,7 @@ individual page shall be considered correct relative to ground truth if
 
 ### <dfn element>ocr_line</dfn> ### {#sec-ocr_line}
 
-<pre class="include">path: 1.2/include/defs/ocr_line</pre>
+<pre class="include">path: include/defs/ocr_line</pre>
 
 In typesetting systems, content areas are filled with “blocks”, but most of
 those blocks are not recoverable or semantically meaningful. However, one type
@@ -289,13 +289,13 @@ They are represented by the <{ocr_line}> area.
 
 ### <dfn element>ocr_separator</dfn> ### {#sec-ocr_separator}
 
-<pre class="include">path: 1.2/include/defs/ocr_separator</pre>
+<pre class="include">path: include/defs/ocr_separator</pre>
 
 Any separator or similar element
 
 ### <dfn element>ocr_noise</dfn> ### {#sec-ocr_noise}
 
-<pre class="include">path: 1.2/include/defs/ocr_noise</pre>
+<pre class="include">path: include/defs/ocr_noise</pre>
 
 Any noise element that isn't part of typesetting
 
@@ -322,38 +322,38 @@ The following floats are defined:
 
 ### <dfn element>ocr_float</dfn> ### {#sec-ocr_float}
 
-<pre class="include">path: 1.2/include/defs/ocr_float</pre>
+<pre class="include">path: include/defs/ocr_float</pre>
 
 ### <dfn element>ocr_textfloat</dfn> and <dfn element>ocr_textimage</dfn> ### {#floats-text}
 
-<pre class="include">path: 1.2/include/defs/ocr_textfloat</pre>
-<pre class="include">path: 1.2/include/defs/ocr_textimage</pre>
+<pre class="include">path: include/defs/ocr_textfloat</pre>
+<pre class="include">path: include/defs/ocr_textimage</pre>
 
 ### <dfn element>ocr_image</dfn>, <dfn element>ocr_linedrawing</dfn> and <dfn element>ocr_photo</dfn> ### {#floats-image}
 
-<pre class="include">path: 1.2/include/defs/ocr_image</pre>
+<pre class="include">path: include/defs/ocr_image</pre>
 
-<pre class="include">path: 1.2/include/defs/ocr_linedrawing</pre>
+<pre class="include">path: include/defs/ocr_linedrawing</pre>
 
 Something that could be represented well and naturally in a vector graphics
 format like SVG (even if it is actually represented as PNG)
 
-<pre class="include">path: 1.2/include/defs/ocr_photo</pre>
+<pre class="include">path: include/defs/ocr_photo</pre>
 
 Something that requires JPEG or PNG to be represented well
 
 ### <dfn element>ocr_header</dfn> and <dfn element>ocr_footer</dfn> ### {#float-foot-head}
 
-<pre class="include">path: 1.2/include/defs/ocr_header</pre>
-<pre class="include">path: 1.2/include/defs/ocr_footer</pre>
+<pre class="include">path: include/defs/ocr_header</pre>
+<pre class="include">path: include/defs/ocr_footer</pre>
 
 ### <dfn element>ocr_pageno</dfn> ### {#sec-ocr_pageno}
 
-<pre class="include">path: 1.2/include/defs/ocr_pageno</pre>
+<pre class="include">path: include/defs/ocr_pageno</pre>
 
 ### <dfn element>ocr_table</dfn> ### {#sec-ocr_table}
 
-<pre class="include">path: 1.2/include/defs/ocr_table</pre>
+<pre class="include">path: include/defs/ocr_table</pre>
 
 Logical Elements {#sec-logical-elements}
 ----------------
@@ -396,45 +396,45 @@ structuring elements must not use them for other purposes.
 
 ### <dfn element>ocr_document</dfn> ### {#sec-ocr_document}
 
-<pre class="include">path: 1.2/include/defs/ocr_document</pre>
+<pre class="include">path: include/defs/ocr_document</pre>
 
 ### <dfn element>ocr_title</dfn>, <dfn element>ocr_author</dfn> and <dfn element>ocr_abstract</dfn> ### {#titlepage-elements}
 
-<pre class="include">path: 1.2/include/defs/ocr_title</pre>
+<pre class="include">path: include/defs/ocr_title</pre>
 
-<pre class="include">path: 1.2/include/defs/ocr_author</pre>
+<pre class="include">path: include/defs/ocr_author</pre>
 
-<pre class="include">path: 1.2/include/defs/ocr_abstract</pre>
+<pre class="include">path: include/defs/ocr_abstract</pre>
 
 ### <dfn element>ocr_part</dfn> and <dfn element>ocr_chapter</dfn> ### {#sec-part-chapter}
 
-<pre class="include">path: 1.2/include/defs/ocr_part</pre>
+<pre class="include">path: include/defs/ocr_part</pre>
 
-<pre class="include">path: 1.2/include/defs/ocr_chapter</pre>
+<pre class="include">path: include/defs/ocr_chapter</pre>
 
 ### <dfn element>ocr_section</dfn>, <dfn element>ocr_subsection</dfn> and <dfn element>ocr_subsubsection</dfn> ### {#sectioning}
 
-<pre class="include">path: 1.2/include/defs/ocr_section</pre>
+<pre class="include">path: include/defs/ocr_section</pre>
 
-<pre class="include">path: 1.2/include/defs/ocr_subsection</pre>
+<pre class="include">path: include/defs/ocr_subsection</pre>
 
-<pre class="include">path: 1.2/include/defs/ocr_subsubsection</pre>
+<pre class="include">path: include/defs/ocr_subsubsection</pre>
 
 ### <dfn element>ocr_display</dfn>, <dfn element>ocr_blockquote</dfn> and <dfn element>ocr_par</dfn> ### {#special-paragraphs}
 
-<pre class="include">path: 1.2/include/defs/ocr_display</pre>
+<pre class="include">path: include/defs/ocr_display</pre>
 
-<pre class="include">path: 1.2/include/defs/ocr_blockquote</pre>
+<pre class="include">path: include/defs/ocr_blockquote</pre>
 
-<pre class="include">path: 1.2/include/defs/ocr_par</pre>
+<pre class="include">path: include/defs/ocr_par</pre>
 
 ### <dfn element>ocr_linear</dfn> ### {#sec-ocr_linear}
 
-<pre class="include">path: 1.2/include/defs/ocr_linear</pre>
+<pre class="include">path: include/defs/ocr_linear</pre>
 
 ### <dfn element>ocr_caption</dfn> ### {#sec-ocr_caption}
 
-<pre class="include">path: 1.2/include/defs/ocr_caption</pre>
+<pre class="include">path: include/defs/ocr_caption</pre>
 
 Image captions may be indicated using the <{ocr_caption}> element; such an
 element refers to the image(s) contained within the same float, or the
@@ -451,7 +451,7 @@ There is some content that should behave and flow like text
 
 ### Unrecognized characters and words: <dfn element>ocr_glyph</dfn> and <dfn element>ocr_glyphs</dfn> ### {#unrecognized}
 
-<pre class="include">path: 1.2/include/defs/ocr_glyph</pre>
+<pre class="include">path: include/defs/ocr_glyph</pre>
 
 <ul>
 
@@ -460,7 +460,7 @@ There is some content that should behave and flow like text
 
 </ul>
 
-<pre class="include">path: 1.2/include/defs/ocr_glyphs</pre>
+<pre class="include">path: include/defs/ocr_glyphs</pre>
 
 <ul>
 
@@ -471,7 +471,7 @@ There is some content that should behave and flow like text
 
 ### <dfn element>ocr_dropcap</dfn> ### {#dropcap}
 
-<pre class="include">path: 1.2/include/defs/ocr_dropcap</pre>
+<pre class="include">path: include/defs/ocr_dropcap</pre>
 
   * An individual glyph representing a dropcap
   * May contain text or an <{img}> tag; the <{img/alt}> of the image tag should contain
@@ -479,8 +479,8 @@ There is some content that should behave and flow like text
 
 ### Mathematical and chemical formulas: <dfn element>ocr_math</dfn> and <dfn element>ocr_chem</dfn> ### {#formulas}
 
-<pre class="include">path: 1.2/include/defs/ocr_math</pre>
-<pre class="include">path: 1.2/include/defs/ocr_chem</pre>
+<pre class="include">path: include/defs/ocr_math</pre>
+<pre class="include">path: include/defs/ocr_chem</pre>
 
 Mathematical and chemical formulas that float must be put into an <{ocr_float}>
 section. Formulas that are “display” mode should be put into
@@ -510,7 +510,7 @@ Common suggested engine-specific markup are:
 
 ### <dfn element>ocrx_block</dfn> ### {#ocrx_block}
 
-<pre class="include">path: 1.2/include/defs/ocrx_block</pre>
+<pre class="include">path: include/defs/ocrx_block</pre>
 
 Issue: [ocr_carea vs ocrx_block](https://github.com/kba/hocr-spec/issues/28)
 
@@ -526,7 +526,7 @@ Generators should attempt to ensure the following properties:
 
 ### <dfn element>ocrx_line</dfn> ### {#sec-ocrx_line}
 
-<pre class="include">path: 1.2/include/defs/ocrx_line</pre>
+<pre class="include">path: include/defs/ocrx_line</pre>
 
 Issue: [ocr_line vs ocrx_line](https://github.com/kba/hocr-spec/issues/19)
 
@@ -536,7 +536,7 @@ Issue: [ocr_line vs ocrx_line](https://github.com/kba/hocr-spec/issues/19)
 
 ### <dfn element>ocrx_word</dfn> ### {#sec-ocrx_word}
 
-<pre class="include">path: 1.2/include/defs/ocrx_word</pre>
+<pre class="include">path: include/defs/ocrx_word</pre>
 
   * any kind of "word" returned by an OCR system
   * engine specific because the definition of a "word" depends on the engine
@@ -580,7 +580,7 @@ Categories">categorized</dfn> as follows:
 The <dfn property>baseline</dfn> property {#baseline}
 -----------------------------------------
 
-<pre class="include">path: 1.2/include/defs/baseline</pre>
+<pre class="include">path: include/defs/baseline</pre>
 
 This property applies primarily to textlines.
 
@@ -618,7 +618,7 @@ and its slope angle is `arctan(0.015) = 0.86°`.
 The <dfn property>bbox</dfn> property {#bbox}
 -------------------------------------
 
-<pre class="include">path: 1.2/include/defs/bbox</pre>
+<pre class="include">path: include/defs/bbox</pre>
 
 The 'bbox' - short for "bounding box" - of an element is a rectangular box
 around this element, which is defined by the upper-left corner (x0, y0) and
@@ -655,7 +655,7 @@ the document image which border is drawn in black.
 The <dfn property>cflow</dfn> property {#cflow}
 --------------------------------------
 
-<pre class="include">path: 1.2/include/defs/cflow</pre>
+<pre class="include">path: include/defs/cflow</pre>
 
 This property relates the flow between multiple <{ocr_carea}> elements,
 and between <{ocr_carea}> and <{ocr_linear}> elements.
@@ -670,7 +670,7 @@ The content flow on the page that this element is a part of
 
 The <dfn property>cuts</dfn> property {#cuts}
 -------------------------------------
-<pre class="include">path: 1.2/include/defs/cuts</pre>
+<pre class="include">path: include/defs/cuts</pre>
 
 <ul>
 
@@ -715,7 +715,7 @@ a delta of 0 always corresponds to an invisible codepoint.
 The <dfn property>hardbreak</dfn> property {#hardbreak}
 ------------------------------------------
 
-<pre class="include">path: 1.2/include/defs/hardbreak</pre>
+<pre class="include">path: include/defs/hardbreak</pre>
 
   * a zero (default) indicates that the end of the line is not a hard
     (explicit) line break, but a break due to text flow
@@ -728,7 +728,7 @@ line breaks.
 
 The <dfn property>image</dfn> property {#image}
 --------------------------------------
-<pre class="include">path: 1.2/include/defs/image</pre>
+<pre class="include">path: include/defs/image</pre>
 
 <ul>
 
@@ -744,7 +744,7 @@ The <dfn property>image</dfn> property {#image}
 
 The <dfn property>imagemd5</dfn> property {#imagemd5}
 -----------------------------------------
-<pre class="include">path: 1.2/include/defs/imagemd5</pre>
+<pre class="include">path: include/defs/imagemd5</pre>
 
 <ul>
 
@@ -756,7 +756,7 @@ The <dfn property>imagemd5</dfn> property {#imagemd5}
 The <dfn property>lpageno</dfn> property {#lpageno}
 ----------------------------------------
 
-<pre class="include">path: 1.2/include/defs/lpageno</pre>
+<pre class="include">path: include/defs/lpageno</pre>
 
 <ul>
   * the logical page number expressed on the page
@@ -769,7 +769,7 @@ The <dfn property>lpageno</dfn> property {#lpageno}
 The <dfn property>ppageno</dfn> property {#ppageno}
 ----------------------------------------
 
-<pre class="include">path: 1.2/include/defs/ppageno</pre>
+<pre class="include">path: include/defs/ppageno</pre>
 
   * the physical page number
   * the front cover is page number 0
@@ -779,7 +779,7 @@ The <dfn property>ppageno</dfn> property {#ppageno}
 
 The <dfn property>nlp</dfn> property {#nlp}
 ------------------------------------
-<pre class="include">path: 1.2/include/defs/nlp</pre>
+<pre class="include">path: include/defs/nlp</pre>
 
   * estimate of the negative log probabilities of each character by the recognizer
 
@@ -787,7 +787,7 @@ The <dfn property>nlp</dfn> property {#nlp}
 The <dfn property>order</dfn> property {#order}
 --------------------------------------
 
-<pre class="include">path: 1.2/include/defs/order</pre>
+<pre class="include">path: include/defs/order</pre>
 
 The reading order of the element (an integer)
 
@@ -799,7 +799,7 @@ The reading order of the element (an integer)
 The <dfn property>poly</dfn> property {#poly}
 -------------------------------------
 
-<pre class="include">path: 1.2/include/defs/poly</pre>
+<pre class="include">path: include/defs/poly</pre>
 
 A closed polygon for elements with non-rectangular bounds
 
@@ -818,14 +818,14 @@ A closed polygon for elements with non-rectangular bounds
 The <dfn property>scan_res</dfn> property {#scan_res}
 -----------------------------------------
 
-<pre class="include">path: 1.2/include/defs/scan_res</pre>
+<pre class="include">path: include/defs/scan_res</pre>
 
 The scanning resolution in DPI
 
 The <dfn property>textangle</dfn> property {#textangle}
 ------------------------------------------
 
-<pre class="include">path: 1.2/include/defs/textangle</pre>
+<pre class="include">path: include/defs/textangle</pre>
 
 The angle in degrees by which textual content has been rotate relative to the
 rest of the page (if not present, the angle is assumed to be zero); rotations
@@ -836,7 +836,7 @@ which should be indicated using standard HTML properties
 The <dfn property>x_bboxes</dfn> property {#x_bboxes}
 -----------------------------------------
 
-<pre class="include">path: 1.2/include/defs/x_bboxes</pre>
+<pre class="include">path: include/defs/x_bboxes</pre>
 
   * OCR-engine specific boxes associated with each codepoint contained in the
     element
@@ -849,21 +849,21 @@ The <dfn property>x_bboxes</dfn> property {#x_bboxes}
 The <dfn property>x_font</dfn> property {#x_font}
 ------------------------------
 
-<pre class="include">path: 1.2/include/defs/x_font</pre>
+<pre class="include">path: include/defs/x_font</pre>
 
 'x_font' is an OCR-engine specific font name (a string).
 
 The <dfn property>x_fsize</dfn> property {#x_fsize}
 ----------------------------------------
 
-<pre class="include">path: 1.2/include/defs/x_fsize</pre>
+<pre class="include">path: include/defs/x_fsize</pre>
 
 'x_fsize' is the OCR-engine specific font size (an unsigned integer).
 
 The <dfn property>x_confs</dfn> property {#x_confs}
 ----------------------------------------
 
-<pre class="include">path: 1.2/include/defs/x_confs</pre>
+<pre class="include">path: include/defs/x_confs</pre>
 
 <ul>
 
@@ -878,13 +878,13 @@ The <dfn property>x_confs</dfn> property {#x_confs}
 The <dfn property>x_scanner</dfn> property {#x_scanner}
 -----------------------------------------------------------------------------
 
-<pre class="include">path: 1.2/include/defs/x_scanner</pre>
+<pre class="include">path: include/defs/x_scanner</pre>
 
 A representation of the scanner
 
 The <dfn property>x_source</dfn> property {#x_source}
 -----------------------------------------
-<pre class="include">path: 1.2/include/defs/x_source</pre>
+<pre class="include">path: include/defs/x_source</pre>
 
   * an implementation-dependent representation of the document source
   * could be a URL or a /gfs/ path
@@ -894,7 +894,7 @@ The <dfn property>x_source</dfn> property {#x_source}
 The <dfn property>x_wconf</dfn> property {#x_wconf}
 ----------------------------------------
 
-<pre class="include">path: 1.2/include/defs/x_wconf</pre>
+<pre class="include">path: include/defs/x_wconf</pre>
 
 <ul>
 
