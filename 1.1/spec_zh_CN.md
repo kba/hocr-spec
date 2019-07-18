@@ -275,7 +275,7 @@ text inside the containing element.
 
 
 Documents whose logical structure does not map naturally onto these logical
-structuring elemetns must not use them for other purpose.
+structuring elements must not use them for other purpose.
 
 逻辑结构没有很自然地映射到这些逻辑结构元素中的文件，不得使用它们用于其他目的。
 
@@ -307,7 +307,7 @@ preferred directions.
 
 覆盖在该页面是一组浮动元素；浮动元素存在正常阅读顺序之外。浮动元素可以由文字内容引入，或者它们可以与网页本身有关（锚定anchoring是一个逻辑属性）。
 
-Overlayed onto the page is a set of floating elements; floating elements exist
+Overlaid onto the page is a set of floating elements; floating elements exist
 outside the normal reading order. Floating elements may be introduced by the
 textual content, or they may be related to the page itself (anchoring is a
 logical property). In typesetting systems, floating elements may be anchored to
