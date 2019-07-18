@@ -54,7 +54,7 @@ Definitions {#definitions}
 
 ### "element" ### {#definition-element}
 
-An hOCR element (in this spec simply refered to as an <dfn>element</dfn>) is any HTML tag with a
+An hOCR element (in this spec simply referred to as an <dfn>element</dfn>) is any HTML tag with a
 <{*/class}> attribute that contains exactly one <dfn lt="Element Name">class
 name</dfn> that starts with `ocr_` or `ocrx_`. Non-OCR related HTML content must
 not use class names that begin with `ocr_` or `ocrx_`.
@@ -302,7 +302,7 @@ Any noise element that isn't part of typesetting
 Float elements {#sec-float-elements}
 --------------
 
-Overlayed onto the page is a set of floating elements; floating elements exist
+Overlaid onto the page is a set of floating elements; floating elements exist
 outside the normal reading order. Floating elements may be introduced by the
 textual content, or they may be related to the page itself (anchoring is a
 logical property). In typesetting systems, floating elements may be anchored to

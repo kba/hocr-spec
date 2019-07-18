@@ -333,7 +333,7 @@ Textual information like section numbers and bullets must be represented as
 text inside the containing element.
 
 Documents whose logical structure does not map naturally onto these logical
-structuring elemetns must not use them for other purpose.
+structuring elements must not use them for other purpose.
 
 ### `ocr_caption`
 
@@ -358,7 +358,7 @@ newspaper layouts). The content of the areas derives from a linear stream of
 textual content, which flows into the areas, filling them linewise in their
 preferred directions.
 
-Overlayed onto the page is a set of floating elements; floating elements exist
+Overlaid onto the page is a set of floating elements; floating elements exist
 outside the normal reading order. Floating elements may be introduced by the
 textual content, or they may be related to the page itself (anchoring is a
 logical property). In typesetting systems, floating elements may be anchored to
