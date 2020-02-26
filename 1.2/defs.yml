@@ -139,7 +139,6 @@ property:
       <a>property-value</a> = <a>float</a> <a>int</a>
   bbox:
     categories: ['General', 'Layout']
-    conflicting: ['poly']
     example: 'bbox 0 0 100 200'
     grammar: |
       <a>property-value</a> = <a>uint</a> <a>uint</a> <a>uint</a> <a>uint</a>
@@ -196,7 +195,6 @@ property:
       <a>property-value</a> = +<a>uint</a>
   poly:
     categories: ['Layout', 'Non-recommended']
-    conflicting: ['bbox']
     example: 'poly 0 0 0 10 10 10 10 20 0 20'
     grammar: |
       <a>property-value</a> = 2<a>uint</a> 2<a>int</a> *(2<a>int</a>)
