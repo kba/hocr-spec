@@ -425,7 +425,7 @@ The following properties should be present:
   * syntactically, must be a UNIX-like pathname or http URL (no Windows pathnames)
   * may be relative
   * cannot be resolved to the actual file in general (e.g., if the hOCR file
-    becomes separated from the image fiels)
+    becomes separated from the image file)
   * if the hOCR file is present in a directory hierarchy or file archive, should
     resolve to the corresponding image file
 

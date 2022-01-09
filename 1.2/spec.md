@@ -93,7 +93,7 @@ specified, the property is assigned to the element with the default value.
 
 The presence of <a>elements</a> and <a>properties</a> must be explicitly stated
 as a <dfn>capability</dfn>. The rationale is that if a hOCR producer is
-*capabable* of producing certain elements and properties, it should inform
+*capable* of producing certain elements and properties, it should inform
 hOCR consumers that they may encounter those elements/properties. If a producer
 is **not capable** of producing certain elements/properties, consumers need not
 look for them.
@@ -154,7 +154,7 @@ follows, expressed in ABNF notation of [[RFC5234]]:
   <dfn>whitespace</dfn>       = +%20  ; one or more spaces ' '
   <dfn>comma</dfn>            = %2C   ; comma ','
   <dfn>semicolon</dfn>        = %3B   ; semicolon ';'
-  <dfn>doublequote</dfn>      = %22  ; double quote '"'
+  <dfn>doublequote</dfn>      = %22   ; double quote '"'
   <dfn>lowercase-letter</dfn> = %x41-5A
   <dfn>alnum-word</dfn>       = +(<a>lowercase-letter</a> / <a>digit</a>)
   <dfn>ascii-word</dfn>       = +(%x21-7E - <a>semicolon</a>)    ; printable w/o space/semicolon
@@ -209,7 +209,7 @@ The <a>elements</a> in hOCR can be broadly <dfn lt="Element Categories">categori
   :: See [[#sec-logical-elements]]
 
   : <dfn>Inline elements</dfn>
-  :: Thse elements describe content beyond the level of text lines
+  :: These elements describe content beyond the level of text lines
   :: See [[#sec-inline-elements]]
 
   : <dfn>Engine-Specific elements</dfn>
@@ -624,7 +624,7 @@ The 'bbox' - short for "bounding box" - of an element is a rectangular box
 around this element, which is defined by the upper-left corner (x0, y0) and
 the lower-right corner (x1, y1).
 
-  * the values are with reference to the the top-left corner of the document image
+  * the values are with reference to the top-left corner of the document image
     and measured in pixels
   * the order of the values are `x0 y0 x1 y1` = "left top right bottom"
   * use 'x_bboxes' below for character bounding boxes
