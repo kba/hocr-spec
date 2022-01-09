@@ -154,7 +154,7 @@ follows, expressed in ABNF notation of [[RFC5234]]:
   <dfn>whitespace</dfn>       = +%20  ; one or more spaces ' '
   <dfn>comma</dfn>            = %2C   ; comma ','
   <dfn>semicolon</dfn>        = %3B   ; semicolon ';'
-  <dfn>doublequote</dfn>      = %22  ; double quote '"'
+  <dfn>doublequote</dfn>      = %22   ; double quote '"'
   <dfn>lowercase-letter</dfn> = %x41-5A
   <dfn>alnum-word</dfn>       = +(<a>lowercase-letter</a> / <a>digit</a>)
   <dfn>ascii-word</dfn>       = +(%x21-7E - <a>semicolon</a>)    ; printable w/o space/semicolon
