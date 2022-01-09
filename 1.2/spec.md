@@ -624,7 +624,7 @@ The 'bbox' - short for "bounding box" - of an element is a rectangular box
 around this element, which is defined by the upper-left corner (x0, y0) and
 the lower-right corner (x1, y1).
 
-  * the values are with reference to the the top-left corner of the document image
+  * the values are with reference to the top-left corner of the document image
     and measured in pixels
   * the order of the values are `x0 y0 x1 y1` = "left top right bottom"
   * use 'x_bboxes' below for character bounding boxes
