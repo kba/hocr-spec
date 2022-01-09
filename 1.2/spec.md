@@ -93,7 +93,7 @@ specified, the property is assigned to the element with the default value.
 
 The presence of <a>elements</a> and <a>properties</a> must be explicitly stated
 as a <dfn>capability</dfn>. The rationale is that if a hOCR producer is
-*capabable* of producing certain elements and properties, it should inform
+*capable* of producing certain elements and properties, it should inform
 hOCR consumers that they may encounter those elements/properties. If a producer
 is **not capable** of producing certain elements/properties, consumers need not
 look for them.
@@ -209,7 +209,7 @@ The <a>elements</a> in hOCR can be broadly <dfn lt="Element Categories">categori
   :: See [[#sec-logical-elements]]
 
   : <dfn>Inline elements</dfn>
-  :: Thse elements describe content beyond the level of text lines
+  :: These elements describe content beyond the level of text lines
   :: See [[#sec-inline-elements]]
 
   : <dfn>Engine-Specific elements</dfn>
