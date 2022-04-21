@@ -844,7 +844,7 @@ The <dfn property>textangle</dfn> property {#textangle}
 
 <pre class="include">path: include/defs/textangle</pre>
 
-The angle in degrees by which textual content has been rotate relative to the
+The angle in degrees by which textual content has been rotated relative to the
 rest of the page (if not present, the angle is assumed to be zero); rotations
 are counter-clockwise, so an angle of 90 degrees is vertical text running from
 bottom to top in Latin script; note that this is different from reading order,
