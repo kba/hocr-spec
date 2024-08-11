@@ -28,8 +28,7 @@ This document describes a representation of various aspects of OCR output in an
 XML-like format. That is, we define a set of tags containing text and other
 tags, together with attributes of those tags. However, since the content we are
 representing is formatted text,
-
-However, we are not actually using a new XML for the representation; instead we
+we are not actually using a new XML for the representation; instead we
 embed the representation in XHTML (or HTML) because  [[XHTML1]] and XHTML processing
 already define many aspects of OCR output representation that would otherwise
 need additional, separate and ad-hoc definitions. These aspects include:
