@@ -586,8 +586,25 @@ This property applies primarily to textlines.
 The baseline is described by a polynomial of order `n` with the coefficients
 `pn ...  p0` with `n = 1` for a linear (i.e. straight) line.
 
-The polynomial is in the coordinate system of the line, with the bottom left of
-the bounding box as the origin.
+The polynomial is in coordinate system which depends on the `textangle` value
+that is effective for the element. The coordinate system is defined as follows:
+
+  * if `textangle` property is not present or has value in ranges `[315, 360]` or
+    `[0, 45)`, then the origin is the bottom left of the bounding box. The x-axis
+    and the y-axis are the same as the x-axis and the y-axis of the document image
+    respectively.
+
+  * if `textangle` property has value in range `[45, 135)` then the origin is the
+    bottom right of the bounding box. The x-axis is the opposite as the y-axis
+    of the document image, y-axis is the same as the x-axis of the document image.
+
+  * if `textangle` property has value in range `[135, 225)` then the origin is the
+    top right of the bounding box. The x-axis and the y-axis are the opposite of
+    the x-axis and the y-axis of the document image respectively.
+
+  * if `textangle` property has value in range `[225, 315)` then the origin is the
+    top left of the bounding box. The x-axis is the same as the y-axis
+    of the document image, y-axis is the opposite of the x-axis of the document image.
 
 <div class="example">
 
@@ -826,7 +843,7 @@ The <dfn property>textangle</dfn> property {#textangle}
 
 <pre class="include">path: include/defs/textangle</pre>
 
-The angle in degrees by which textual content has been rotate relative to the
+The angle in degrees by which textual content has been rotated relative to the
 rest of the page (if not present, the angle is assumed to be zero); rotations
 are counter-clockwise, so an angle of 90 degrees is vertical text running from
 bottom to top in Latin script; note that this is different from reading order,
